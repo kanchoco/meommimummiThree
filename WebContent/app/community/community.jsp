@@ -11,12 +11,12 @@
     <title>커뮤니티</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="community.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community.css">
 </head>
 
 <body>
-<jsp:include page="./header.jsp"/>
-    <main>
+<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"/>
+	<main>
 		<div id="page">
 			<div id="app-container">
 				<div id="app-content">
@@ -200,7 +200,7 @@
 							<div class="FeedCardList_list__2yOEy" aria-label="피드 리스트">
 								<div class="FeedCard_container__2vyLX">
 									<!-- 글 작성 div -->
-									<textarea name="feedMainWriting" id="feedMainWriting" cols="30" rows="10" placeholder="내 반려동물을 자랑해주세요!"></textarea>
+									<textarea name="feedMainWriting" id="feedMainWriting" cols="30" rows="10" placeholder="내 반려동물을 자랑해주세요!" style="margin-bottom: 10px; width: 100%; height: 200px; resize: none; padding: 20px;"></textarea>
 									<div>
 										<!-- 사진 첨부 -->
 										<div class="ImageUploader_container__2FM0D">
@@ -231,12 +231,12 @@
 													</div>
 												</div>
                                                 <ul class="image-preview"></ul>
-                                                <button class="deleteBtn" type="button" style="background: rgb(0, 196, 196);">사진 초기화</div>
+                                                <button class="deleteBtn" type="button">사진 초기화</div>
 												<div class="ImageUploader_imageContainer__2QUb6" style="transform: translateX(0px);">
                                                 </div>
                                                 
                                             </div>
-                                            <button class="registBtn Button_button__341ce Button_primary__2Xc2p Button_contained__1azJ6 Button_md__3IA0_ Button_block__1sz_j RecommendationSupporterList_moreButton__Gp4KF" type="button" style="background: rgb(0, 196, 196); border: rgb(0, 196, 196);margin-bottom: 50px;margin-top: 10px;">
+                                            <button class="registBtn Button_button__341ce Button_primary__2Xc2p Button_contained__1azJ6 Button_md__3IA0_ Button_block__1sz_j RecommendationSupporterList_moreButton__Gp4KF" type="button" style="margin-bottom: 50px;margin-top: 10px;">
                                                 <span><span class="Button_children__10ESl">게시글 등록 <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO" aria-hidden="true">
                                                             <path d="M28 20L15 33l-1.4-1.4L25.2 20 13.6 8.4 15 7l13 13z"></path>
                                                         </svg></span></span>
@@ -361,10 +361,10 @@
 
 										<div class="replyWritingWrap">
 											<form class="replyWriting">
-												<input type="textarea" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10">
+												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 												<button type="button" class="replyEnter">입력</button>
-												<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 											</form>
+											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 										</div>
 									<div class="FeedCard_divider__3V9EP"></div>
 								</div>
@@ -497,10 +497,10 @@
 
 										<div class="replyWritingWrap">
 											<form class="replyWriting">
-												<input type="text" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요.">
+												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 												<button type="button" class="replyEnter">입력</button>
-												<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 											</form>
+											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 										</div>
 									<div class="FeedCard_divider__3V9EP"></div>
 								</div>
@@ -612,10 +612,10 @@
 
 										<div class="replyWritingWrap">
 											<form class="replyWriting">
-												<input type="text" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요.">
+												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 												<button type="button" class="replyEnter">입력</button>
-												<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 											</form>
+											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 										</div>
 									<div class="FeedCard_divider__3V9EP"></div>
 								</div>
@@ -738,10 +738,10 @@
 
 										<div class="replyWritingWrap">
 											<form class="replyWriting">
-												<input type="text" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요.">
+												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 												<button type="button" class="replyEnter">입력</button>
-												<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 											</form>
+											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 										</div>
 									<div class="FeedCard_divider__3V9EP"></div>
 								</div>
@@ -858,10 +858,10 @@
 	
 											<div class="replyWritingWrap">
 												<form class="replyWriting">
-													<input type="text" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요.">
+													<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
 													<button type="button" class="replyEnter">입력</button>
-													<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 												</form>
+												<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
 											</div>
 										<div class="FeedCard_divider__3V9EP"></div>
 								</div>
@@ -951,9 +951,9 @@
 			</div>
 		</div>
 	</div>
-<jsp:include page="./footer.jsp"/>
+<jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="community.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/community.js"></script>
 
 </html>

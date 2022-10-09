@@ -38,6 +38,7 @@ function clickTab() {
     }
 }
 
+
 for (var i = 0; i < followButton.length; i++) {
     followButton[i].addEventListener('mouseover', overFollowButton);
     followButton[i].addEventListener('mouseout', outFollowButton);
@@ -106,14 +107,6 @@ $policeXBtn.click(function(){
     $reactModalPortal.attr('style', 'visibility:hidden');
 })
 
-showAllButton[0].addEventListener("mouseover", function () {
-    this.style.background = "rgb(0, 162, 162)";
-    this.style.border = "rgb(0, 162, 162)";
-})
-showAllButton[0].addEventListener("mouseout", function () {
-    this.style.background = "#00c4c4";
-    this.style.border = "#00c4c4";
-})
 
 // 첨부파일 열기
 upload.addEventListener('click', () => realUpload.click());
@@ -322,23 +315,23 @@ const infiniteScrollTemplate = `								<div class="FeedCard_container__2vyLX">
 
     <div class="replyWritingWrap">
         <form class="replyWriting">
-            <input type="text" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요.">
+        <textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
             <button type="button" class="replyEnter">입력</button>
-            <p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
         </form>
+        <p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
     </div>
 <div class="FeedCard_divider__3V9EP"></div>
 </div>`;
 
 // 무한 스크롤
-
 window.onscroll = function(e) {
-    console.log(window.innerHeight , window.scrollY,document.body.offsetHeight);
-    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight-30) { 
-	console.log("들어옴");
-		console.log(infiniteScrollTemplate);
+    /* console.log(window.innerHeight , window.scrollY,document.body.offsetHeight); */
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
       setTimeout(function(){
+        var addContent = "<div class='FeedCard_container__2vyLX'>" + "김인영..." + "</div>";
+
         $('.FeedCardList_container__13rc1').append(infiniteScrollTemplate);
+
       }, 500)  
     }
   }
@@ -371,8 +364,15 @@ $replyEnter = $(".replyEnter");
 $replyEnter.click(function(){
     if($(this).prev().val().length==0){
         console.log($(this).next());
-        $(this).next().attr('class','replyAlarmOn');
+        $(this).parent().next().attr('class','replyAlarmOn');
     } else{
-        $(this).next().attr('class','replyAlarmOff');
+        $(this).parent().next().attr('class','replyAlarmOff');
     }
 })
+
+/* textarea 길이 자동 늘리기 */
+function resize(obj) {
+
+    obj.style.height = '1px';
+    obj.style.height = (obj.scrollHeight) + 'px';
+}

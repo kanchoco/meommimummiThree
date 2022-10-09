@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main desktop_first</title>
-    <link rel="stylesheet" href="mainFinal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mainFinal.css">
     <link rel="stylesheet" href="https://static.wadiz.kr/static/web/wui.css?e5a9644b">
     <link rel="stylesheet" href="https://static.wadiz.kr/static/web/css/vendor.5f64dbd5.chunk.css">
     <link rel="stylesheet" href="https://static.wadiz.kr/static/web/common.css?7df0a58c">

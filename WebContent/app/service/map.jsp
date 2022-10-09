@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>지도 검색</title>
-<link rel="stylesheet" href="mapMedia.css">
-<link rel="stylesheet" href="map.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mapMedia.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/map.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-<jsp:include page ="header.jsp"/>
+<jsp:include page ="${pageContext.request.contextPath}/app/fix/header.jsp"/>
 
      <main class="pg-search ng-scope reverse" ng-controller="mp20_search_result_controller" data-keyword="강남역">
         <article class="contents">
@@ -36,7 +36,7 @@
                                             <div class="searchInputFormContainer">
                                                 <form class="searchForm">
                                                     <i class="searchIcon">
-                                                        <img src="searchIcon.PNG">
+                                                        <img src="${pageContext.request.contextPath}/images/searchIcon.PNG">
                                                     </i>
                                                     <input type="search" placeholder="검색어를 입력해주세요"
                                                         class="searchSection">
@@ -3214,7 +3214,7 @@
                                                         placeholder="후기를 남겨보세요.">
                                                     <div class="commentPhoto">
                                                         <label class="cameraImg" for="attach">
-                                                            <img src="camera.PNG">
+                                                            <img src="${pageContext.request.contextPath}/images/camera.PNG">
                                                             <input type="file" id="attach" class="cameraImgWrap" style="display:none;">
                                                             </input>
                                                         </label>
@@ -3264,8 +3264,8 @@
             </div>
         </article>
     </main>
-<jsp:include page ="footer.jsp"/>
+<jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="map.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/map.js"></script>
 </html>

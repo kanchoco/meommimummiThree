@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>유기동물 찾기</title>
-<link rel="stylesheet" href="./header.css">
-<link rel="stylesheet" href="./lostfoundanimal.css">
-<link rel="stylesheet" href="./footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/lostfoundanimal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script src="https://kit.fontawesome.com/5ee2c7b38b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div id="wz-header">
             <div class="web-header">
                 <div class="web-header-large">
-                    <jsp:include page="./header.jsp"/>
+                    <jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"/>
 
                 </div>
             </div>
@@ -24,23 +24,23 @@
             <div id="store-app" data-base="/web/store/campaign/">
                 <ul class="RewardMainTab_container__geHTr">
                     <li>
-                        <a class="RewardMainTab_link___1r2a" href="./animalfeed.jsp">
+                        <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">
                             <span>사료 검색</span>
                         </a>
                     </li>
                     <li class="RewardMainTab_onlyLarge__1q7_V">
-                        <a class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir" href="./lostfoundanimal.jsp" aria-current="page">
+                        <a class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir" href="${pageContext.request.contextPath}/app/service/lostfoundanimal.jsp" aria-current="page">
                             <span>유기동물 찾기</span>
                         </a>
                     </li>
                     <li>
-                        <a class="RewardMainTab_link___1r2a" href="./funeral.jsp">
+                        <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/funeral.jsp">
                             <span>장례업체</span>
                         </a>
                     </li>
                 </ul>
                 <div class="StoreCollectionVisual_container__kPoxZ">
-                    <div class="StoreCollectionVisual_visual__dNWlZ" style="background-image:url('./images/animalfind.gif');"></div>
+                    <div class="StoreCollectionVisual_visual__dNWlZ" style="background-image:url('${pageContext.request.contextPath}/images/animalfind.gif');"></div>
                 </div>
                 
                 <div class="RewardMainWrapper_container__2HR7Y RewardMainCategory_container__19OYY">
@@ -317,8 +317,8 @@
         </main>
     </div>
 
-    <jsp:include page="./footer.jsp"/>
+    <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="./lostfoundanimal.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/lostfoundanimal.js"></script>
 </html>

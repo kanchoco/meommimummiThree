@@ -443,8 +443,8 @@ dd {
 }
 
 .Button_button__mRXZC.Button_primary__1HJqX {
-    border-color: #00c4c4;
-    color: #00a2a2;
+    border-color: #FF914D;
+    color: #FF914D;
 }
 
 .Button_button__mRXZC.Button_block__1LAUA {
@@ -476,10 +476,9 @@ dd {
 }
 
 .Button_button__341ce.Button_primary__2Xc2p.Button_contained__1azJ6 {
-    border-color: #00c4c4;
-    background-color: #00c4c4;
+    border-color: #FF914D;
+    background-color: #FF914D;
     color: #fff;
-    
 }
 
 
@@ -675,8 +674,8 @@ body a {
 }
 
 .Button_button__mRXZC.Button_primary__1HJqX {
-    border-color: #00c4c4;
-    color: #00a2a2;
+    border-color: #FF914D;
+    color: #FF914D;
 }
 
 .Button_button__mRXZC {
@@ -1313,18 +1312,27 @@ a.Button_button__mRXZC {
 }
 
 .FeedCard_container__2vyLX textarea{
-border: 2px solid rgb(242, 244, 246);
-border-radius: 5px;
-background-color: #fff;
-margin-bottom: 10px;
-padding:20px;
-font-size: 15px;
+    font-size: 15px;
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 90%;
+}
+
+textarea {
+    resize: none;
 }
 
 textarea::placeholder{
 font-family:'Noto Sans KR', sans-serif;
 font-size: 15px;
 color: rgb(154 154 154);
+}
+
+textarea:focus {
+    outline: none;
 }
 
 .ImageUploader_contentWrap__1P_48{
@@ -1384,13 +1392,22 @@ color: rgb(154 154 154);
     border-radius: 3px;
     color: white;
     font-size: 13px;
+    background-color: #FF914D;
+    opacity: 60%;
+}
+
+.deleteBtn:hover{
+    background: #FF914D;
+    opacity:100%;
 }
 
 .uploadBeforeText {
     visibility:visible;
 }
 
-
+#feedMainWriting {
+    border: 1px solid #dde2e6;
+}
 
 .StaticPopper_container__3fEN8 {
     line-height: 18px;
@@ -1456,9 +1473,9 @@ color: rgb(154 154 154);
     margin-top: 15px;
     border: solid 1px #e2e2e2;
     width: 100%;
-    border-radius: 15px;
-    height: 44px;
-    position:relative;
+    border-radius: 8px;
+    height: 100%;
+    position: relative;
 }
 
 .realReply {
@@ -1467,8 +1484,9 @@ color: rgb(154 154 154);
     background: transparent;
     width: 100%;
     flex-grow: 1;
-    resize:vertical;
-    max-width: 100%
+    font-size: inherit;
+    height: 38px;
+    resize: none;
 }
 
 input:focus {outline: none;}
@@ -1479,16 +1497,18 @@ input:focus {outline: none;}
 
 .replyEnter{
     position: absolute;
-    color: #0074cc;
+    color: #FF914D;
     right: 13px;
+    top:0px;
     line-height: 2.8;
     font-weight: 500;
     z-index:2;
-    background:white;
+    opacity: 0.6;
 }
 
 .replyEnter:hover{
-    color:#09426d;
+    color:#FF914D;
+    opacity: 100%;
 }
 
 .replyAlarmOff{

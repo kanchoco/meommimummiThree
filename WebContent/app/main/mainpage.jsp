@@ -8,11 +8,11 @@
 </head>
 <body>
 <%-- <jsp:include page = 'header.jsp'/> --%>
- 	<jsp:include page = 'header_MainLogin.jsp'/>
+ 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
 	
-	<jsp:include page = 'banner.jsp'/>  
-	<jsp:include page = 'mainFinal.jsp'/>  
-	<jsp:include page = 'footer.jsp'/>  
+	<jsp:include page = '${pageContext.request.contextPath}/app/main/banner.jsp'/>  
+	<jsp:include page = '${pageContext.request.contextPath}/app/main/mainFinal.jsp'/>  
+	<jsp:include page = '${pageContext.request.contextPath}/app/fix/footer.jsp'/>  
 	
 </body>
 </html>

@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>사료 검색</title>
-<link rel="stylesheet" href="./header.css">
-<link rel="stylesheet" href="./animalfeed.css">
-<link rel="stylesheet" href="./footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animalfeed.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script src="https://kit.fontawesome.com/5ee2c7b38b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div id="wz-header">
             <div class="web-header">
                 <div class="web-header-large">
-                    <jsp:include page="./header.jsp"/>
+                    <jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"/>
 
                 </div>
             </div>
@@ -25,17 +25,17 @@
                 <div class="StoreCollectionVisual_container__kPoxZ">
                     <ul class="RewardMainTab_container__geHTr">
                         <li class="RewardMainTab_onlyLarge__1q7_V">
-                            <a class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir" href="./animalfeed.jsp" aria-current="page">
+                            <a class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp" aria-current="page">
                                 <span>사료 검색</span>
                             </a>
                         </li>
                         <li>
-                            <a class="RewardMainTab_link___1r2a" href="./lostfoundanimal.jsp">
+                            <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/lostfoundanimal.jsp">
                                 <span>유기동물 찾기</span>
                             </a>
                         </li>
                         <li>
-                            <a class="RewardMainTab_link___1r2a" href="./funeral.jsp">
+                            <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/funeral.jsp">
                                 <span>장례업체</span>
                             </a>
                         </li>
@@ -47,7 +47,7 @@
                             <div class="StoreShare_container__12J22 StoreCollectionVisual_shareBox__3XdoA">
                                 <div id="share">
                                     <svg class="withIcon_icon__d0KdI" viewBox="0 0 40 40" focusable="false" role="presentation" aria-hidden="true"">
-                                        <path d="M30 26a6 6 0 00-4.7 2.3L13.7 22a5.9 5.9 0 000-3.9l11.6-6.3a6 6 0 10-1-1.8l-11.6 6.3a6 6 0 100 7.4L24.3 30a6 6 0 105.7-4zM26 8a4.1 4.1 0 11.1 1 4 4 0 01-.1-1zM8 24a4 4 0 113.9-5A4 4 0 018 24zm22 12a4 4 0 01-4-4 4 4 0 014-4 4 4 0 010 8z""></path>
+                                        <path d="M30 26a6 6 0 00-4.7 2.3L13.7 22a5.9 5.9 0 000-3.9l11.6-6.3a6 6 0 10-1-1.8l-11.6 6.3a6 6 0 100 7.4L24.3 30a6 6 0 105.7-4zM26 8a4.1 4.1 0 11.1 1 4 4 0 01-.1-1zM8 24a4 4 0 113.9-5A4 4 0 018 24zm22 12a4 4 0 01-4-4 4 4 0 014-4 4 4 0 010 8z"></path>
                                     </svg>
                                     <!-- <button id="share">
                                         <img src="./images/share.png" id="a"alt="">
@@ -375,7 +375,7 @@
         </main>
     </div>
 
-    <jsp:include page="./footer.jsp"/>
+    <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
     <!-- 사이트 링크 모달창 -->
     <div class="WadizModal_portal__1XfIx">
         <div class="WadizModal_overlay__TRZ2L ShareModal_overlay__8Tz2m WadizModal_overlayAfterOpen__CwHuy">
@@ -463,5 +463,5 @@
     <!-- url_link_popup 창 추가 screen:1097px-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="./animalfeed.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/animalfeed.js"></script>
 </html>
