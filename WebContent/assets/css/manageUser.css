@@ -1,0 +1,133 @@
+.body {
+  background: #eeeeee;
+  height: 125vh;
+}
+
+.card ul  {
+  font-size: 13px;
+  margin: 5px;
+  padding: 10px 24px; 
+  list-style: none;
+}
+
+.card {
+  width: 265px;
+  height: 150px;
+  left: 250px;
+  top: 80px;
+  border: 1px solid ghostwhite;
+  position: absolute;
+  background-color: #ffffff;
+  color: #212121;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+}
+
+.flex-container2 {
+  width: 1350px;
+  height: 350px;
+  border: 1px solid ghostwhite;
+  position: absolute;
+  background-color: #ffffff;
+  color: #212121;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+  left: 550px;
+  top: 150px;
+  }
+
+  .mb-5 {
+    font-size: 14px;
+    margin: 15px;
+  }
+
+  .flex-container2 .container {
+    margin: 0px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .search_bar {
+    position: absolute;
+    top: 60px;
+    left: 550px;
+  }
+
+  .inner {
+    width: 1100px;
+    height: 45px;
+    margin: 20px auto;
+    border: 1px solid ghostwhite;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+  }
+  
+  input {
+    width: 91.5%;
+    height: 100%;
+    border-color: #bdc1c6;
+    border: 0px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  #userSearch {
+    margin-left: 45px !important;
+    font-size: 14px;
+  }
+
+  
+  .searching {
+    position: absolute;
+    left: 10px;
+    top: 30px;
+  }
+  
+  i:hover {
+    cursor: pointer;
+  }
+
+
+  .topuser_header {
+    width: 1720px;
+    height: 80px;
+    position: fixed;
+    padding-top: 32px;
+    top: -20px;
+    left: 210px;
+    background-color: #ffffff;
+    border: 1px solid ghostwhite;
+    color: #313534;
+    padding-left: 32px; 
+    padding-right: 32px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    z-index: 500;
+  }
+  
+  .pop {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pop li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 16px;
+    font-size: 13px;
+    border: 1px solid ghostwhite;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    padding: 10px;
+    border-radius: 5%;
+  }
+  
+  .topuser_header .headerH4 {
+    font-size: 16px;
+    color: #212121;
+    font-weight: 500;
+  }
+
+  .table-responsive {
+    left: 100px !important;
+    font-size: 13px !important;
+  }
