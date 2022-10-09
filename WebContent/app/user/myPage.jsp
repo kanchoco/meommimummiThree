@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="myPage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css">
     <title>멈미뭄미 - 마이페이지</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
     <div id="page-container">
         <form id="forwardForm" method="get">
             <input type="hidden" id="returnURL" name="returnURL">
@@ -30,7 +30,7 @@
                                 <div class="MyMummProfile_profileContainer">
                                     <div class="MyMummProfile_profileImage">
                                         <button class="MymummProfile_detailProfile avatar"></button>
-                                        <button class="MymummProfile_editProfile">
+                                        <button class="MymummProfile_editProfile" onclick="$('#editProfileImg').click();">
                                             <svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1w-D1" aria-hidden="true"><path d="M24 1.6L1.6 24v6.4H8L30.4 8zM7.36 28.8H3.2v-4.16L19.76 8.08l4.16 4.16zm17.68-17.68l-4.16-4.16L24 3.84 28.16 8z"></path></svg>
                                         </button>
                                     </div>
@@ -114,20 +114,29 @@
                                                         </a>
                                                     </li>
                                                 </ul>
+                                                <ul class="MymummProjectInfo_projectLink">
+                                                    <li>
+                                                        <a style="cursor: pointer;">
+                                                            <span>  
+                                                                <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__1w-D1" aria-hidden="true"><path fill="none" d="M0 0h40v40H0z"></path><path fill="none" d="M20 2.8A16.9 16.9 0 0 0 7.19 30.74c2.14-4 7.86-4.6 12.81-4.6s10.67.57 12.81 4.6A16.9 16.9 0 0 0 20 2.8zm5.24 17.51A7.44 7.44 0 0 1 20 22.48a8.52 8.52 0 0 1-1.42-.13 7.39 7.39 0 0 1-5.83-5.83 7.41 7.41 0 0 1 8.71-8.71 7.39 7.39 0 0 1 5.83 5.83 7.47 7.47 0 0 1-2.05 6.67z"></path><path d="M21.44 7.81a7.41 7.41 0 0 0-8.71 8.71 7.39 7.39 0 0 0 5.83 5.83 8.52 8.52 0 0 0 1.42.13 7.41 7.41 0 0 0 1.46-14.67zM6.85 33.41l-.11-.11zM6.42 33l.14.13-.14-.13z"></path><path d="M39 19.72A19 19 0 1 0 6.42 33l.14.14a1.62 1.62 0 0 0 .19.18l.11.11a16.76 16.76 0 0 0 1.35 1.17c.45.36.92.69 1.4 1l.12.07c.46.3.94.58 1.42.83l.17.09c.48.24 1 .47 1.46.67l.2.08c.49.2 1 .37 1.51.53h.2c.51.15 1 .28 1.57.39h.17q.82.15 1.65.24h.12c.58 0 1.16.08 1.75.08s1.17 0 1.75-.08h.12q.82-.09 1.65-.24h.17c.53-.11 1-.24 1.57-.39h.2c.51-.16 1-.33 1.5-.53l.21-.08c.5-.2 1-.43 1.45-.67l.18-.09c.49-.25 1-.53 1.42-.82l.12-.08c.48-.32.95-.65 1.4-1h.05c.47-.37.92-.77 1.35-1.18l.1-.1a1.62 1.62 0 0 0 .19-.18l.14-.13A18.94 18.94 0 0 0 39 19.72zm-6.19 11c-2.14-4-7.86-4.6-12.81-4.6s-10.67.57-12.81 4.6a16.92 16.92 0 1 1 25.62 0z"></path></svg>
+                                                                <span>개인정보 설정</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="follow.html" style="cursor: pointer;">
+                                                            <span>
+                                                                <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__1w" aria-hidden="true"><path fill="none" d="M0 0h40v40H0z"></path><path d="M28.13 9.39a5.26 5.26 0 0 1 0 10.52 8.93 8.93 0 0 1-1.71 1.87 7.07 7.07 0 0 0 1.73.22 7.35 7.35 0 1 0 0-14.7 7.07 7.07 0 0 0-1.73.22 8.93 8.93 0 0 1 1.71 1.87zM29.82 24a8.41 8.41 0 0 1 2.63 2.38c3.71.69 5.3 2.51 5.3 5.8h2.09c0-6.58-5.31-7.97-10.02-8.18zM11.3 20.79v-1.04H6.69v-4.61H4.61v4.61H0v2.08h4.61v4.61h2.08v-4.61h4.61v-1.04z"></path><path d="M27.85 14.65A7.35 7.35 0 1 0 20.5 22a7.36 7.36 0 0 0 7.35-7.35zm-12.62 0a5.27 5.27 0 1 1 5.27 5.26 5.27 5.27 0 0 1-5.27-5.26zM20.5 24c-5 0-11.69.85-11.69 8.22h2.08c0-4.36 2.79-6.14 9.61-6.14s9.6 1.78 9.6 6.14h2.08c0-7.42-6.67-8.22-11.68-8.22z"></path></svg>
+                                                                <span>팔로잉</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
+                                            <div style="height: 60px;"><button class="btn_close" style="display: none;" onclick="closeSection()">닫기</button></div>
                                         </div>
                                     </div>
-                                    <button class="btn_close" onclick="closeSection()" style="display: none;">닫기</button>
-                                    <ul class="MymummProjectInfo_projectLink">
-                                        <li>
-                                            <a style="cursor: pointer;">
-                                                <span>
-                                                    <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__1w-D1" aria-hidden="true"><path fill="none" d="M0 0h40v40H0z"></path><path fill="none" d="M20 2.8A16.9 16.9 0 0 0 7.19 30.74c2.14-4 7.86-4.6 12.81-4.6s10.67.57 12.81 4.6A16.9 16.9 0 0 0 20 2.8zm5.24 17.51A7.44 7.44 0 0 1 20 22.48a8.52 8.52 0 0 1-1.42-.13 7.39 7.39 0 0 1-5.83-5.83 7.41 7.41 0 0 1 8.71-8.71 7.39 7.39 0 0 1 5.83 5.83 7.47 7.47 0 0 1-2.05 6.67z"></path><path d="M21.44 7.81a7.41 7.41 0 0 0-8.71 8.71 7.39 7.39 0 0 0 5.83 5.83 8.52 8.52 0 0 0 1.42.13 7.41 7.41 0 0 0 1.46-14.67zM6.85 33.41l-.11-.11zM6.42 33l.14.13-.14-.13z"></path><path d="M39 19.72A19 19 0 1 0 6.42 33l.14.14a1.62 1.62 0 0 0 .19.18l.11.11a16.76 16.76 0 0 0 1.35 1.17c.45.36.92.69 1.4 1l.12.07c.46.3.94.58 1.42.83l.17.09c.48.24 1 .47 1.46.67l.2.08c.49.2 1 .37 1.51.53h.2c.51.15 1 .28 1.57.39h.17q.82.15 1.65.24h.12c.58 0 1.16.08 1.75.08s1.17 0 1.75-.08h.12q.82-.09 1.65-.24h.17c.53-.11 1-.24 1.57-.39h.2c.51-.16 1-.33 1.5-.53l.21-.08c.5-.2 1-.43 1.45-.67l.18-.09c.49-.25 1-.53 1.42-.82l.12-.08c.48-.32.95-.65 1.4-1h.05c.47-.37.92-.77 1.35-1.18l.1-.1a1.62 1.62 0 0 0 .19-.18l.14-.13A18.94 18.94 0 0 0 39 19.72zm-6.19 11c-2.14-4-7.86-4.6-12.81-4.6s-10.67.57-12.81 4.6a16.92 16.92 0 1 1 25.62 0z"></path></svg>
-                                                    <span>개인정보 설정</span>
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
+
                                     <div class="MymummSection_section">
                                         <div class="MymummList_emptyList" style="display: none;">
                                             작성한 게시글이 없습니다.
@@ -338,7 +347,7 @@
                                                 <li>
                                                     <a class="myPost" href="리뷰로_이동">
                                                         <div class="info">
-                                                            <div class="thumb" style="background-image: url('https://mp-seoul-image-production-s3.mangoplate.co…p=359:240;*,*&output-format=jpg&output-quality=80');"></div>
+                                                            <div class="thumb" style="background-image: url('${pageContext.request.contextPath}/images/logo.png');"></div>
                                                             <h3 class="place">
                                                                 [리뷰 장소]
                                                             </h3>
@@ -351,7 +360,7 @@
                                                 <li>
                                                     <a class="myPost" href="리뷰로_이동">
                                                         <div class="info">
-                                                            <div class="thumb" style="background-image: url('https://mp-seoul-image-production-s3.mangoplate.co…p=359:240;*,*&output-format=jpg&output-quality=80');"></div>
+                                                            <div class="thumb" style="background-image: url('${pageContext.request.contextPath}/images/logo.png');"></div>
                                                             <h3 class="place">
                                                                 [리뷰 장소]
                                                             </h3>
@@ -364,7 +373,7 @@
                                                 <li>
                                                     <a class="myPost" href="리뷰로_이동">
                                                         <div class="info">
-                                                            <div class="thumb" style="background-image: url('https://mp-seoul-image-production-s3.mangoplate.co…p=359:240;*,*&output-format=jpg&output-quality=80');"></div>
+                                                            <div class="thumb" style="background-image: url('${pageContext.request.contextPath}/images/logo.png');"></div>
                                                             <h3 class="place">
                                                                 [리뷰 장소]
                                                             </h3>
@@ -377,7 +386,7 @@
                                                 <li>
                                                     <a class="myPost" href="리뷰로_이동">
                                                         <div class="info">
-                                                            <div class="thumb" style="background-image: url('https://mp-seoul-image-production-s3.mangoplate.co…p=359:240;*,*&output-format=jpg&output-quality=80');"></div>
+                                                            <div class="thumb" style="background-image: url('${pageContext.request.contextPath}/images/logo.png');"></div>
                                                             <h3 class="place">
                                                                 [리뷰 장소]
                                                             </h3>
@@ -390,7 +399,7 @@
                                                 <li>
                                                     <a class="myPost" href="리뷰로_이동">
                                                         <div class="info">
-                                                            <div class="thumb" style="background-image: url('https://mp-seoul-image-production-s3.mangoplate.co…p=359:240;*,*&output-format=jpg&output-quality=80');"></div>
+                                                            <div class="thumb" style="background-image: url('${pageContext.request.contextPath}/images/logo.png');"></div>
                                                             <h3 class="place">
                                                                 [리뷰 장소]
                                                             </h3>
@@ -498,7 +507,7 @@
                                             <h5>프로필 사진</h5>
                                             <div class="profileimg-wrap">
                                                 <button type="button" id="resultProfileImg" class="profileimg" onclick="$('#uploadProfileImg').click();">
-                                                    <em style="background-image: url('https://www.wadiz.kr/resources/static/img/common/img_blank.png');"></em>
+                                                    <em style="background-image: url('${pageContext.request.contextPath}/images/logo.png');"></em>
                                                 </button>
                                                 <p class="setting-profileimg">
                                                     <!-- 누르면 span 바꾸기 로 변경됨 -->
@@ -583,6 +592,7 @@
         </main>
     </div>
     <input type="file" id="uploadProfileImg" class="file-profileimg" accept="image/*">
+    <input type="file" id="editProfileImg" class="file-profileimg" accept="image/*">
     <!-- class = "alertify-o-cover" -->
     <div id="alertify-o-cover" class="alertify-o-cover alertify-o-cover-hidden"></div>
     <!-- class = "alerrify-o alertify-o-confirm" -->
@@ -597,8 +607,8 @@
         </article>
         <a id="alertify-o-resetFocusBack" class="alertify-o-resetFocus" href="#">Reset Focus</a>
     </section>
-    <jsp:include page="footer.jsp"></jsp:include>
+    <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"></jsp:include>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="myPage.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/myPage.js"></script>
 </html>

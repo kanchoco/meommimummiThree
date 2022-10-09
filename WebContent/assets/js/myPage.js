@@ -20,6 +20,7 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
 
 $(".MymummProjectInfo_projectList li a").eq(0).on('click', function(){
     $('.profileSetting').css('display', 'none');
+    $('.MymummProjectInfo_projectLink').css('display', '');
     if($('.MymummSection_section').eq(0).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(0).find('.MymummList_list').css('display') != 'none'){
         $('.MymummSection_section').children().css('display', 'none');
         $('.page').css('display', 'none');
@@ -35,6 +36,7 @@ $(".MymummProjectInfo_projectList li a").eq(0).on('click', function(){
 });
 $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
     $('.profileSetting').css('display', 'none');
+    $('.MymummProjectInfo_projectLink').css('display', '');
     if($('.MymummSection_section').eq(1).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(1).find('.MymummList_list').css('display') != 'none'){
         $('.MymummSection_section').children().css('display', 'none');
         $('.page').css('display', 'none');
@@ -49,6 +51,7 @@ $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
 });
 $(".MymummProjectInfo_projectList li a").eq(2).on('click', function(){
     $('.profileSetting').css('display', 'none');
+    $('.MymummProjectInfo_projectLink').css('display', '');
     if($('.MymummSection_section').eq(2).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(2).find('.MymummList_list').css('display') != 'none'){
         $('.MymummSection_section').children().css('display', 'none');
         $('.page').css('display', 'none');
@@ -63,6 +66,7 @@ $(".MymummProjectInfo_projectList li a").eq(2).on('click', function(){
 });
 $(".MymummProjectInfo_projectList li a").eq(3).on('click', function(){
     $('.profileSetting').css('display', 'none');
+    $('.MymummProjectInfo_projectLink').css('display', '');
     if($('.MymummSection_section').eq(3).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(3).find('.MymummList_list').css('display') != 'none'){
         $('.MymummSection_section').children().css('display', 'none');
         $('.page').css('display', 'none');
@@ -76,27 +80,35 @@ $(".MymummProjectInfo_projectList li a").eq(3).on('click', function(){
     }
 });
 
-// $('.MymummProjectInfo_projectLink li a').on('click', function(){
+$('.MymummProjectInfo_projectLink li a').eq(0).on('click', function(){
+    if($('.profileSetting').css('display') == 'none'){
+        $('.page').css('display', 'none');
+        $('.MymummSection_section').children().css('display', 'none');
+        $('.profileSetting').css('display', '');
+        $('.btn_close').css('display', '');
+        $('.MymummProjectInfo_projectLink').css('display', 'none')
+    }else{
+        $('.profileSetting').css('display', 'none');
+        $('.btn_close').css('display', 'none');
+        $('.MymummProjectInfo_projectLink').css('display', '')
+    }
+});
+
+if($('.profileSetting').css('display') == 'none'){
+    $('.MymummProjectInfo_projectLink').css('display', '');
+}
+
+// $('.MymummProfile_editProfile').on('click', function(){
 //     if($('.profileSetting').css('display') == 'none'){
 //         $('.page').css('display', 'none');
+//         $('.btn_close').css('display', '');
 //         $('.MymummSection_section').children().css('display', 'none');
 //         $('.profileSetting').css('display', '');
 //     }else{
 //         $('.profileSetting').css('display', 'none');
+//         $('.btn_close').css('display', 'none');
 //     }
 // });
-
-$('.MymummProfile_editProfile').on('click', function(){
-    if($('.profileSetting').css('display') == 'none'){
-        $('.page').css('display', 'none');
-        $('.btn_close').css('display', '');
-        $('.MymummSection_section').children().css('display', 'none');
-        $('.profileSetting').css('display', '');
-    }else{
-        $('.profileSetting').css('display', 'none');
-        $('.btn_close').css('display', 'none');
-    }
-});
 
 function change(){
     $('.MymummProjectInfo_projectList li a span b').text('18');
@@ -140,7 +152,9 @@ var cancel = $('#alertify-o-cancel');
 
 
 function modify() {
+    $('.MymummProfile_detailProfile.avatar').css('background-image', $('#resultProfileImg em').css("background-image"));
     $('.alertify-o-message').text('프로필 설정이 성공적으로 변경되었습니다.')
+    
     $('#alertify-o-cancel').detach();
     $('#alertify-o-cover').attr('class', 'alertify-o-cover');
     $('#alertify-o').attr('class', 'alertify-o alertify-o-confirm');
@@ -180,6 +194,7 @@ function closeSection(){
     $('.profileSetting').css('display', 'none');
     $('.MymummSection_section').children().css('display', 'none');
     $('.btn_close').css('display', 'none');
+    $('.MymummProjectInfo_projectLink').css('display', ''); 
 }
 
 
@@ -197,3 +212,41 @@ function movePage(number){
     }
 }
 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var url = e.target.result;
+            $('#resultProfileImg em').css("background-image", `url(${url})`); 
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function changeAvatar(input) {
+    if (input.files && input.files[0]) {
+        
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var url = e.target.result;
+            $('.MymummProfile_detailProfile.avatar').css("background-image", `url(${url})`); 
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$('#uploadProfileImg').on('change', function(){
+    readURL(this);
+});
+
+$('#editProfileImg').on('change', function(){
+    changeAvatar(this);
+    $('.MyMummProfile_profileUser').append(`<div class="btn-bottom">
+    <ul class="btn-div2 editProfile">
+        <li><button type="button" class="mm button gray btn-darkgray" onclick="cancelModify()">취소</button></li>
+        <li><button type="button" class="mm button primary btn-mint" onclick="modify()">확인</button></li>
+    </ul>
+</div>`);
+
+});
