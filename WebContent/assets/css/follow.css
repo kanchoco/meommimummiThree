@@ -168,7 +168,7 @@ article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, 
 
 .Tab_active span p {
     color: #212529;
-    font-weight: 700 !important;
+    font-weight: 900 !important;
 }
 
 .Tab_tab span p {
@@ -194,7 +194,7 @@ article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, 
     font-size: 12px;
     font-weight: 400;
     font-style: normal;
-    color: #00b2b2;
+    color: #ff792a;
     font-weight: 500;
     line-height: 14px;
     vertical-align: text-top;
@@ -232,10 +232,17 @@ body {
 }
 
 .Button_button.Button_primary.Button_contained {
-    border-color: #00c4c4;
-    background-color: #00c4c4;
+    border-color: #ee6e23;
+    background-color: #ff792a;
     color: #fff;
 }
+.Button_button.Button_primary.Button_contained:hover {
+    border-color: #ee6e23;
+    background-color: #ee6e23;
+    color: #fff;
+}
+
+
 
 .Page_container .Page_content a {
     margin: 20px 0;
@@ -444,3 +451,24 @@ button.SupporterFollowingButton_followingButton span:first-child .SupporterFollo
     align-items: center;
     vertical-align: top;
 }
+
+.Button_button.Button_secondary:hover {
+    border-color: #e9ecef;
+    background-color: #f9fafb;
+}
+
+.Button_button.Button_primary:hover {
+    border-color: #ff792a;
+    background-color: #fff5ef;
+}
+
+.Button_button.Button_primary {
+    border-color: #ff792a;
+    color: #ee6e23;
+}
+
+.Button_primary {
+    border-color: #00c4c4;
+    color: #00a2a2;
+}
+
