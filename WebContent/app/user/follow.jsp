@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>멈미뭄미</title>
-    <link rel="stylesheet" href="follow.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/follow.css">
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
     <div id="my-follow-web" min-height:100vh>
         <div class="MyFollowWebContainer_container">
             <div class="MyFollowWebContainer_contents">
@@ -72,8 +72,8 @@
             </div>
         </div>
     </div>
-    <jsp:include page="footer.jsp"></jsp:include>
+    <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"></jsp:include>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="follow.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/follow.js"></script>
 </html>

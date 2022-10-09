@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>장례 업체</title>
-<link rel="stylesheet" href="./header.css">
-<link rel="stylesheet" href="./funeral.css">
-<link rel="stylesheet" href="./footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/funeral.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
 <script src="https://kit.fontawesome.com/5ee2c7b38b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,23 +15,23 @@
         <main id="main-app">
             <div class="web-header">
                 <div class="web-header-large">
-                    <jsp:include page="./header.jsp"/>
+                    <jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"/>
                 </div>
             </div>
             <div class="MainWrapper_content__GZkTa">
                 <ul class="RewardMainTab_container__geHTr">
                     <li>
-                        <a class="RewardMainTab_link___1r2a" href="./animalfeed.jsp">
+                        <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">
                             <span>사료 검색</span>
                         </a>
                     </li>
                     <li>
-                        <a class="RewardMainTab_link___1r2a" href="./lostfoundanimal.jsp">
+                        <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/lostfoundanimal.jsp">
                             <span>유기동물 찾기</span>
                         </a>
                     </li>
                     <li class="RewardMainTab_onlyLarge__1q7_V">
-                        <a class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir" href="./funeral.jsp" aria-current="page">
+                        <a class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir" href="${pageContext.request.contextPath}/app/service/funeral.jsp" aria-current="page">
                             <span>장례업체</span>
                         </a>
                     </li>
@@ -322,11 +322,11 @@
                     </div>
                 </div>
                 <!-- footer -->
-                <jsp:include page="./footer.jsp"/>
+                <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
             </div>
         </main>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="./funeral.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/funeral.js"></script>
 </html>

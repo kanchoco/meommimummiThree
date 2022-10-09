@@ -29,7 +29,7 @@
             <header class="header-wrapper">
                 <div class="header-container">
                     <h1 class="wadiz-logo"><a href="/"><span class="label">와디즈</span>
-                    <img alt="" src="banner/logo.png" width="95" height="30">
+                    <img alt="" src="${pageContext.request.contextPath}/images/logo.png" width="95" height="30">
                     </a></h1>
                     <ul class="GNBDesktop_container__3X3Cg">
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"

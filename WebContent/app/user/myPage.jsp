@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="myPage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css">
     <title>멈미뭄미 - 마이페이지</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
     <div id="page-container">
         <form id="forwardForm" method="get">
             <input type="hidden" id="returnURL" name="returnURL">
@@ -597,8 +597,8 @@
         </article>
         <a id="alertify-o-resetFocusBack" class="alertify-o-resetFocus" href="#">Reset Focus</a>
     </section>
-    <jsp:include page="footer.jsp"></jsp:include>
+    <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"></jsp:include>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="myPage.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/myPage.js"></script>
 </html>

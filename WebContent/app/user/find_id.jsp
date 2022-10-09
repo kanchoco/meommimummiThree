@@ -9,7 +9,7 @@
     <title>아이디 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
-<link rel="stylesheet" href="find_id.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/find_id.css">
 </head>
 <body>
     <header>
@@ -33,8 +33,8 @@
         </div>
         <div class="tab-list">
             <ul>
-                <li class="active" style = "margin-right: 20px;"><a href="/web/waccount/find/id">아이디 찾기</a></li>
-                <li><a href="/web/waccount/find/pwd">비밀번호 찾기</a></li>
+                <li class="active" style = "margin-right: 20px;"><a href="${pageContext.request.contextPath}/app/user/find_id.jsp">아이디 찾기</a></li>
+                <li><a href="${pageContext.request.contextPath}/app/user/find_password.jsp">비밀번호 찾기</a></li>
                 
             </ul>
         </div>
@@ -58,7 +58,7 @@
         </div>
         </div>
     </div>
-        <jsp:include page ="footer.jsp"/>
+        <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
-<script src="find_id.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/find_id.js"></script>
 </html>

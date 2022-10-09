@@ -29,7 +29,7 @@
                 <header class="header-wrapper web-header-simple">
                     <div class="header-container">
                         <h1 class="wadiz-logo"><a href="/"><span class="label">와디즈</span>
-                                <img alt="" src="banner/logo.png" width="95" height="30">
+                                <img alt="" src="${pageContext.request.contextPath}/images/logo.png" width="95" height="30">
                             </a></h1>
                         <ul class="gnb-large" style=" position: relative; display: inline; float: right; right: 0;">
                             <li class="login"><a href="/web/waccount/wAccountLogin" class="item"><span>로그인</span></a>

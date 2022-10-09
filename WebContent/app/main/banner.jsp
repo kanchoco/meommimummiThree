@@ -119,14 +119,14 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="banner/banner1.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/image2.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/image3.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/image4.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/banner1.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/image6.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/image7.png" alt=""></div>
-        <div class="swiper-slide"><img src="banner/image8.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/banner1.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/image2.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/image3.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/image4.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images//banner1.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/image6.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images//image7.png" alt=""></div>
+        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/image8.png" alt=""></div>
       </div>
       <div class="swiper-button-wrapper-prev swiper-button-wrapper" style="background-color: #00000066;">
         <div class="swiper-button-next swiper-button"></div>

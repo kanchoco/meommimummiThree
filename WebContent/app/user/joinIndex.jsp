@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="header_login.jsp"/>
-	<jsp:include page="join_in.jsp"/>
+	<jsp:include page="${pageContext.request.contextPath}/app/fix/header_login.jsp"/>
+	<jsp:include page="${pageContext.request.contextPath}/app/user/join_in.jsp"/>
 </body>
 </html>
