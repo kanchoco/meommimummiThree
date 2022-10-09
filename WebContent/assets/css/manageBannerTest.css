@@ -1,0 +1,63 @@
+body {
+    background: #eeeeee;
+    height: 125vh;
+  }
+  
+  
+  header {
+    width: 1650px;
+    height: 60px;
+    position: fixed;
+    padding-top: 32px;
+    top: -40px;
+    left: 210px;
+    background-color: #ffffff;
+    border: 1px solid ghostwhite;
+    color: #313534;
+    padding-left: 32px; 
+    padding-right: 32px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+  }
+  
+  .pop {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pop li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 16px;
+    font-size: 13px;
+    border: 1px solid ghostwhite;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    padding: 10px;
+    border-radius: 5%;
+  }
+  
+  h4 {
+    font-size: 16px;
+    color: #212121;
+    font-weight: 500;
+  }
+  
+  .adbanner .adbannerlist .adbanner_container {
+    top: 80px;
+    left: 260px;
+    position: absolute;
+  }
+  
+  .adbanner_card {
+    width: 390px;
+    height: 260px;
+    border: 1px solid ghostwhite;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    background-color: #ffffff;
+  }
+
+  
+
+

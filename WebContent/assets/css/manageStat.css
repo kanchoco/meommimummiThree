@@ -1,0 +1,110 @@
+.body {
+    background: #eeeeee;
+    height: 125vh;
+  }
+  
+  
+  header {
+    width: 1650px;
+    height: 60px;
+    position: fixed;
+    padding-top: 32px;
+    top: -40px;
+    left: 210px;
+    background-color: #ffffff;
+    border: 1px solid ghostwhite;
+    color: #313534;
+    padding-left: 32px; 
+    padding-right: 32px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+  }
+  
+  .pop {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pop li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 0px;
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 5%;
+  }
+  
+  
+  
+  h4 {
+    font-size: 16px;
+    color: #212121;
+    font-weight: 500;
+  }
+  
+  .adbanner .adbannerlist .adbanner_container {
+    top: 80px;
+    left: 260px;
+    position: absolute;
+  }
+  
+  .adbanner_card {
+    width: 390px;
+    height: 260px;
+    border: 1px solid ghostwhite;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    background-color: #ffffff;
+  }
+  
+  
+  .topuser_header {
+    width: 1720px;
+    height: 70px;
+    position: fixed;
+    padding-top: 32px;
+    top: -25px;
+    left: 210px;
+    background-color: #ffffff;
+    border: 1px solid ghostwhite;
+    color: #313534;
+    padding-left: 42px; 
+    padding-right: 32px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    z-index: 500;
+  }
+  
+  
+  .topuser_header .headerH4 {
+    font-size: 16px;
+    color: #212121;
+    font-weight: 500;
+  }
+  
+  
+  #test12 {
+    position: absolute;
+    width: 400px;
+    height: 280px;
+    left: 250px;
+    top: 80px;
+    border: 1px solid ghostwhite;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    background-color: #ffffff;
+  }
+
+  .col-md-12 {
+    width: 1200px !important;
+    height: 350px;
+    left: 550px;
+    top: 800px;
+    border: 1px solid ghostwhite;
+    position: absolute;
+    background-color: #ffffff;
+    color: #212121;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+  }

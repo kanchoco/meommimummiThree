@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,700,900,400italic");
+  
+
+
+a {
+  display: inline-flex;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+
+/* ------------ 사이드바 CSS ------------- */
+#sidenav {
+  list-style: none;
+  position: fixed;
+  overflow: hidden;
+  width: 230px;
+  z-index: 1000;
+  background: #353535; 
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding-bottom: 50px;
+}
+
+  #sidenav .logo {
+    width: 85%;
+    padding: 10px 20px;
+    background: #353535;
+    display: block; 
+    border-bottom: solid 1px rgba(255, 255, 255, 0.08); 
+  }
+
+  #sidenav .logo a {
+      color: #dadada;
+      font-size: 1.6rem;
+    }
+
+  #sidenav .logo a.nav-icon {
+      display: none; 
+  }
+
+  #sidenav .menu {
+      position: static; 
+  }
+  
+  #sidenav .menu ul {
+      list-style: none;
+      background: #353535;
+      padding: 11px;
+      margin: 0; 
+    }
+
+  #sidenav .menu ul li {
+      padding: 6px 14%;
+      line-height: 2;
+       
+    }
+
+  /* #sidenav .menu ul li.active {
+      background-color:  blue; 
+    } */
+  
+  #sidenav .menu ul li a {
+      font-size: 13px;
+      color: #ffffff;
+      font-weight: 300;
+    }
+
+  /* #sidenav .menu ul li a:hover {
+      color: rgba(255, 255, 255, 0.5);
+      background-color: #212121;
+    } */
+
+  #sidenav .menu .active:hover {
+    background-color: #212121;
+  }
+
+  #sidenav .menu ul li a.logout:hover {
+      color: whitesmoke; 
+    }
+
+  #sidenav .menu ul li ul {
+      list-style: none;
+      margin: 10px auto 0;
+      padding: 10px 15px;
+    }
+
+  #sidenav .menu ul li ul li {
+      padding: 6px 3px; 
+    }
+
+  #sidenav .menu ul li ul li a {
+      font-size: 13px;
+      color: #ffffff; 
+      display: inline-flex;
+    }
+
+
+
+/*# sourceMappingURL=app.main.css.map */

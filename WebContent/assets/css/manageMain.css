@@ -1,0 +1,88 @@
+
+
+body {
+    background: #eeeeee;
+    height: 125vh;
+  }
+  
+  .flex-container1 {
+    width: 661px;
+    height: 429px;
+    border: 1px solid #e5e7eb;
+    position: absolute;
+    background-color: #ffffff;
+    color: #212121;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+    left: 250px;
+    top: 75px;
+    }
+  
+    .chartHeader {
+      font-size: 14px;
+      margin: 15px;
+    }
+  
+   .chart1 {
+    border-bottom: 1px solid #e5e7eb;
+    height: 35px;
+    margin-bottom: 30px;
+   }
+  
+    .chart2 {
+      width: 650px;
+      height: 300px;
+    }
+
+    .flex-container2 {
+      width: 920px;
+      height: 429px;
+      border: 1px solid ghostwhite;
+      position: absolute;
+      background-color: #ffffff;
+      color: #212121;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+      left: 950px;
+      top: 75px;
+      }
+  
+    .flex-container3 {
+        width: 661px;
+        height: 429px;
+        border: 1px solid ghostwhite;
+        position: absolute;
+        background-color: #ffffff;
+        color: #212121;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+        left: 250px;
+        top: 520px;
+        }
+  
+    .flex-container4 {
+          width: 920px;
+          height: 429px;
+          border: 1px solid ghostwhite;
+          position: absolute;
+          background-color: #ffffff;
+          color: #212121;
+          box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+          left: 950px;
+          top: 520px;
+          }
+  
+    .flex-container5 {
+          width: 1360px;
+          height: 360px;
+          border: 1.5px solid ghostwhite;
+          position: absolute;
+          background-color: #ffffff;
+          color: #212121;
+          box-shadow: 0 2px 3px 0 rgb(0 0 0 / 10%);
+          left: 250px;
+          top: 970px;
+          }
+  
+
+          
+.col-md-6 {
+    max-width: 100% !important;
+}
