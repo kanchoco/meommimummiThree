@@ -7,37 +7,8 @@ body {
     margin: 0;
 }
 
-header {
-    margin-top: 14px;
-    border-bottom: 1px solid #f0f2f5;
-    padding-bottom: 11px;
-}
 
-div#logo {
-    display: inline-block;
-    margin-left: 112px;
-}
-
-span#join_in {
-    position: absolute;
-    right: 80px;
-    left: auto;
-    font-size: 15px;
-
-}
-
-span#login {
-    position: absolute;
-    right: 150px;
-    left: auto;
-    font-size: 15px;
-}
-
-
-header{
-    display:block;
-}
-h2 {
+.page-header h2 {
     display: block;
     padding-top: 56px;
     padding-bottom : 36px;
@@ -114,8 +85,8 @@ li{
 }
 
 li.active a{
-   color: #00b2b2;
-   border-bottom : 2px solid #00b2b2;
+   color: #FF914D;
+   border-bottom : 2px solid #FF914D;
 }
 
 
@@ -183,16 +154,16 @@ input{
 
 }
 
-button{
+#btnIsJoinedEmail{
 
     font-family: 'Noto Sans KR', sans-serif;
     display: block;
     margin: 16px 0 0;
     font-size: 16px;
     border: 1px solid rgba(0,0,0,.15);
-    border-color: #00c4c4;
+    border-color:rgb(252 191 154);
     border-radius: 3px;
-    background-color: #00c4c4;
+    background-color:rgb(252 191 154);
     color: #fff;
     font-weight: 500;
     width: 100%;

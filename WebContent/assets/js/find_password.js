@@ -20,20 +20,20 @@ input.addEventListener("mouseout", function(){
 
 input.addEventListener("focus", function(){
     this.style.background = "#fff";
-    this.style.border = "1px solid  #00c4c4";
+    this.style.border = "1px solid  #FF914D";
     errorMsg.style.display = 'none';
 })
 
 btnIsJoinedEmail.addEventListener("mouseover", function(){
-    this.style.background = "#00b2b2";
-    this.style.border = "1px solid #00b2b2"
+    this.style.background = "#FF914D";
+    this.style.border = "1px solid #FF914D"
     
 })
 
 
 btnIsJoinedEmail.addEventListener("mouseout", function(){
-    this.style.background = "#00c4c4";
-    this.style.border = "1px solid #00c4c4"
+    this.style.background = "rgb(252 191 154)";
+    this.style.border = "1px solid rgb(252 191 154)"
 
 })
 
