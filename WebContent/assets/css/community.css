@@ -1313,7 +1313,7 @@ a.Button_button__mRXZC {
 
 .FeedCard_container__2vyLX textarea{
     font-size: 15px;
-    height: 46px;
+    height: 42px;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -1487,6 +1487,10 @@ textarea:focus {
     font-size: inherit;
     height: 38px;
     resize: none;
+}
+
+.realReply::-webkit-scrollbar{
+  display:none;
 }
 
 input:focus {outline: none;}
