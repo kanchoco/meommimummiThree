@@ -184,11 +184,11 @@ button {
 	background: none;
 	color: inherit;
 }
-.icon-searchs::before, i.icon.searchs::before, i.wadizicon.wa-searchs::before {
+/* .icon-searchs::before, i.icon.searchs::before, i.wadizicon.wa-searchs::before {
 	content: "\f002";
-    font: var(--fa-font-solid);/* fontawesome사용할시 추가 */
-    /* 헤더의 클래스명과 겹쳐서 searchs로 변경 */
-}
+    font: var(--fa-font-solid);fontawesome사용할시 추가
+    헤더의 클래스명과 겹쳐서 searchs로 변경
+} */
 [class*="icon-"]::before, i.icon::before, i.wadizicon {
 	display: inline-block;
 	margin-top: -.2em;
@@ -469,7 +469,7 @@ em, i {
 	color: #7c8288;
 }
 .board-footer .pagination .next-page::before, .board-footer .pagination .prev-page::before {
-	margin-top: -3px;
+	margin-top: 0px;
 }
 .icon-chevron-left::before, i.icon.chevron-left::before, i.wadizicon.wa-chevron-left::before {
 	content: "\f104";/* error */
