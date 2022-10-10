@@ -132,7 +132,7 @@
     	</div>
     <div class="modalclass modalclass_hidden" >
         <div class="modalclass_overlay"></div>
-        <div class="modalclass_content" style="padding-right: 0px; padding-bottom: 0; left:38.5%; padding-right: 20px;
+        <div class="modalclass_content" style="padding-right: 0px; padding-bottom: 0; left:40.5%; top: 15.5%; padding-right: 20px;
         padding-bottom: 20px; padding-left: 20px;">
             <button class="modalclassbutton_one" type="button" aria-label="닫기"><svg viewBox="0 0 40 40" focusable="false" role="presentation" class="modalclassbutton_two" aria-hidden="true"><path d="M33.4 8L32 6.6l-12 12-12-12L6.6 8l12 12-12 12L8 33.4l12-12 12 12 1.4-1.4-12-12 12-12z">
 
@@ -1483,7 +1483,7 @@ if(getCheck.test($("#id").val())){
   $('.idalter').css('color', 'rgb(245 7 7)');
 $('#id').css('border', '1px solid rgb(245 7 7)');
 $(".idalter").text("아이디는 숫자포함 10자리까지 가능합니다!");
-$("#id").val("");
+$(this).val($(this).val().substring(0, 10));
 $("#id").focus();
 
 return;
@@ -1506,8 +1506,8 @@ return;
 
 
 $('.OverlapCheck').click(function(){
-  $('#id').css('border', '1px solid #00c4c4');
-  $('.idalter').css('color', '#00c4c4');
+  $('#id').css('border', '1px solid #ff914d');
+  $('.idalter').css('color', '#ff914d');
   $(".idalter").text("사용가능한 아이디 입니다!");
 }); 
 
