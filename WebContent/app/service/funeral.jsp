@@ -50,7 +50,7 @@
                                         <input id="search-keyword-df741586-8113-43b4-ac98-19be39fc487e" class="" type="search" placeholder="검색"value="">
                                         <div class="ProjectListHead_right__3_Jo1">
                                             <button class="ProjectListHead_find__3HsFc" type="submit" aria-label="검색">
-                                                <i class="icon searchs"></i>
+                                                <img src="../../images/search.png" style="width:25px;margin-top:20px;"/>
                                             </button>
                                         </div>
                                     </label>
