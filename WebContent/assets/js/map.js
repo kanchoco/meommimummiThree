@@ -66,7 +66,7 @@ $starCountWrap.click(function(){
                     }
                 }
                 var countText = $starCountWrap[i].innerText.trim();
-                $filteringStar.append("<span class='starFilters'><span class='hoverStar'>" + star + countText + "</span><button type='button' class='starPic'><img src='xButton.png' style='width: 20px;height: 15px;margin-right: 5px;position: relative;opacity: 75%;'></button></span>");
+                $filteringStar.append("<span class='starFilters'><span class='hoverStar'>" + star + countText + "</span><button type='button' class='starPic'><img src='../../images/xButton.png' style='width: 20px;height: 15px;margin-right: 5px;position: relative;opacity: 75%;'></button></span>");
                 $(this).attr("class", "starCountWrap selected");
                 return;
             }
@@ -86,7 +86,7 @@ $starCountWrap.click(function(){
                     }
                 }
                 var countText = $starCountWrap[i].innerText.trim();
-                $filteringStar.append("<span class='starFilters'><span class='hoverStar'>" + star + countText + "</span><button type='button' class='starPic'><img src='xButton.png' style='width: 15px;height: 15px;margin-right: 5px;position: relative;opacity: 75%;'></button></span>");
+                $filteringStar.append("<span class='starFilters'><span class='hoverStar'>" + star + countText + "</span><button type='button' class='starPic'><img src='..//..//images/xButton.png' style='width: 15px;height: 15px;margin-right: 5px;position: relative;opacity: 75%;'></button></span>");
             }
         }
     }
@@ -120,7 +120,6 @@ $(document).on("click", ".starPic", function(){
     for(var i=0;i<$('.starPic').length;i++){
         if($('.starPic')[i].className.includes('check')){
             var deleteStarText = $('.starFilters')[i].innerText;
-            console.log(deleteStarText);
             $('.starFilters')[i].remove();
         }
         for(var j=0;j<$('.starCountText').length;j++){
@@ -155,6 +154,7 @@ $(document).mouseup(function (e){
     if(innerFilter.has(e.target).length === 0 ){
         innerFilter.attr("style", "display:none");
         blackScreen.attr("style", "display:none");
+		document.body.style.overflowY='scroll';
     }
   });
 
@@ -170,6 +170,7 @@ $btnFilter.click(function(){
 $cancelButton.click(function(){
     blackScreen.style.display='none';
     asideFilter.style.display='none';
+	document.body.style.overflowY='scroll';
 })
 
 

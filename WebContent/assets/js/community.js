@@ -326,7 +326,7 @@ const infiniteScrollTemplate = `								<div class="FeedCard_container__2vyLX">
 // 무한 스크롤
 window.onscroll = function(e) {
     /* console.log(window.innerHeight , window.scrollY,document.body.offsetHeight); */
-    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight-5) { 
       setTimeout(function(){
         var addContent = "<div class='FeedCard_container__2vyLX'>" + "김인영..." + "</div>";
 

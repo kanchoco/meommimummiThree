@@ -1711,11 +1711,11 @@ label[for='attach'] {
 
 
 .xButtonActive {
-    background-image: url(xButton.png);
+    background-image: url(../../images/xButton.png);
     content: "";
     display: flex;
-    height: 17px;
-    width: 12px;
+	height: 20px;
+    width: 21px;
     background-size: 100%;
     position: relative;
     float: right;
