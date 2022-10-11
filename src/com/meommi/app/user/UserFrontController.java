@@ -21,6 +21,22 @@ public class UserFrontController extends HttpServlet {
 	   }
 	   
 	   protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	      
+		   String requestURI = req.getRequestURI();
+		      String contextPath = req.getContextPath();
+		      String request = requestURI.substring(contextPath.length());
+		      Result result = null;
+		   
+		   if(request.equals("/meommi/User.us")) {
+		       
+		      }
+		      
+		      if(result != null) {
+		         if(result.isRedirect()) {
+		            resp.sendRedirect(result.getPath());
+		         }else {
+		            RequestDispatcher dispatcher = req.getRequestDispatcher(result.getPath());
+		            dispatcher.forward(req, resp);
+		         }
+		      }
+		   }
 	}
-}
