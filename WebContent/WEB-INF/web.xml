@@ -11,12 +11,12 @@
   </welcome-file-list>
   
   <servlet>
-     <servlet-name>CommunityFrontController</servlet-name>
-     <servlet-class>com.meommi.app.community.CommunityFrontController</servlet-class>
+     <servlet-name>CommunitsFrontController</servlet-name>
+     <servlet-class>com.meommi.app.community.CommunitsFrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-     <servlet-name>CommunityFrontController</servlet-name>
+     <servlet-name>CommunitsFrontController</servlet-name>
      <url-pattern>*.co</url-pattern>
   </servlet-mapping>
   

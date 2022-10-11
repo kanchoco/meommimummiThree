@@ -22,8 +22,8 @@
                                 <button class="Tab_tab Tab_first" type="button" role="tab" data-value="0">
                                     <span>
                                         <p>
-                                            팔로잉 메이커
-                                            <sup></sup>
+                                            팔로잉
+                                            <sup>1</sup>
                                         </p>
                                     </span>
                                 </button>
@@ -32,13 +32,13 @@
                                 <button class="Tab_tab" type="button" role="tab" data-value="1">
                                     <span>
                                         <p>
-                                            팔로잉 서포터
-                                            <sup>1</sup>
+                                            팔로워
+                                            <sup></sup>
                                         </p>
                                     </span>
                                 </button>   
                             </li>
-                            <li data-index="2">
+                            <!--  <li data-index="2">
                                 <button class="Tab_tab" type="button" role="tab" data-value="2">
                                     <span>
                                         <p>
@@ -52,13 +52,12 @@
                                 <button class="Tab_tab" type="button" role="tab" data-value="3">
                                     <span>
                                         <p>
-                                            차단 서포터
+                                            차단유저
                                             <sup></sup>
                                         </p>
-                                        <!-- after -->
                                     </span>
                                 </button>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

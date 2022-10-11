@@ -1,15 +1,16 @@
-package com.meommi.app.main.dao;
+package com.meommi.app.community.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.meommi.mybatis.config.MyBatisConfig;
 
-public class MainDAO {
+public class CommunitsDAO {
 	   SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessionFactory();
 	   SqlSession sqlSession;
 	   
-	   public MainDAO() {
+	   public CommunitsDAO() {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	}
+	   
 }

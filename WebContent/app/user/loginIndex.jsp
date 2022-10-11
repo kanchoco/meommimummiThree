@@ -9,6 +9,6 @@
 <body>
 	<jsp:include page="${pageContext.request.contextPath}/app/fix/header_login.jsp"></jsp:include>
 <%-- 	<jsp:include page="log_in.jsp"></jsp:include> --%>
-	<jsp:include page="${pageContext.request.contextPath}/app/user/join_in.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/app/user/log_in.jsp"></jsp:include>
 </body>
 </html>

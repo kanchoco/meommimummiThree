@@ -185,16 +185,7 @@
 									</div>
 								</li>
 							</ul>
-							<button
-								class="Button_button__341ce Button_primary__2Xc2p Button_contained__1azJ6 Button_md__3IA0_ Button_block__1sz_j RecommendationSupporterList_moreButton__Gp4KF"
-								type="button">
-								<span><span class="Button_children__10ESl">모두 보기 <svg
-											viewBox="0 0 40 40" focusable="false" role="presentation"
-											class="withIcon_icon__20lDO" aria-hidden="true">
-                                            <path
-												d="M28 20L15 33l-1.4-1.4L25.2 20 13.6 8.4 15 7l13 13z"></path>
-                                        </svg></span></span>
-							</button>
+							
 						</div>
 						<div class="FeedCardList_container__13rc1">
 							<div class="FeedCardList_list__2yOEy" aria-label="피드 리스트">
