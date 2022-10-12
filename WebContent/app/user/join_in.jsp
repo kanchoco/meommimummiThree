@@ -64,12 +64,8 @@
                             <path d="M0 0h20v20H0z"></path>
                         </g>
                     </svg>
-
-
-                  </svg>구글로 시작하기</button>
+ </svg>구글로 시작하기</button>
           </div>
-
-        
       </div>
         <div class="SignUpIntroApp_divider__24Rgj"></div>
         <div id="email_join_in">
@@ -78,7 +74,7 @@
             <div class="label"><label for="아이디">아이디</label></div>
             <div id="email">
                 <div class="input" style="width:70%"><input type="email" class="inputId" id="id" placeholder="아이디 입력"></div>
-                <div><button class="OverlapCheck" style="background-color: #ff914d; color: #fff; font-weight:400);">중복확인</button></div>
+                <div><button class="OverlapCheck" style="background-color: #ff914d; color: #fff; font-weight:400;">중복확인</button></div>
             </div>
             <p class="idalter" style="position: absolute;"></p>
             <div id="name">
@@ -91,7 +87,6 @@
                 <div class="input"><input type="password" placeholder="비밀번호 입력" id="oioioio111">
                     <svg onclick="send()" id = "password_1" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
                         <path d="M23.589 7.895l.411.001c10.56 0 20.16 6.504 23.34 15.78l.132.432-.144.396c-3.216 9.168-12.816 15.6-23.328 15.6A24.84 24.84 0 0 1 .684 24.492l-.168-.432.156-.42A24.804 24.804 0 0 1 24 7.896zM24 14.46a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2zm0 4.14a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8z">
-                        
                     </button>
                     </svg>
                 </div>
