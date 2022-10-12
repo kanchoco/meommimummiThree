@@ -16,6 +16,11 @@ span#join_in {
 
 }
 
+
+.idalter{
+	color: #ff914d;	
+}
+
 span#login {
     position: absolute;
     right: 150px;
