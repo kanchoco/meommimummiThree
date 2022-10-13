@@ -1,14 +1,14 @@
-package com.meommi.app.user.dao;
+package com.meommi.app.reviewFile.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.meommi.mybatis.config.MyBatisConfig;
 
-public class UserDAO {
+public class ReviewFile {
 	   SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessionFactory();
 	   SqlSession sqlSession;
 	   
-	   public UserDAO() {
+	   public ReviewFile() {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	}
 }

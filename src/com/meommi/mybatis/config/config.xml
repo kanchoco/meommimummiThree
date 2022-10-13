@@ -28,10 +28,17 @@
    </environments>
    
    <mappers>
-      <mapper resource="com/meommi/mybatis/mapper/CommontermMapper.xml"/>
-      <mapper resource="com/meommi/mybatis/mapper/CommunityMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/AbandonedAnimalsMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/CommentsMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/FavoritePlaceMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/FeedsearchMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/FollowMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/FuneralMapper.xml"/>
       <mapper resource="com/meommi/mybatis/mapper/MainMapper.xml"/>
-      <mapper resource="com/meommi/mybatis/mapper/ServiceMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/PlaceReviewMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/PostFileMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/PostMapper.xml"/>
+      <mapper resource="com/meommi/mybatis/mapper/ReviewFileMapper.xml"/>
       <mapper resource="com/meommi/mybatis/mapper/UserMapper.xml"/>
    </mappers>
    
