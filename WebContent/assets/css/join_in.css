@@ -60,7 +60,7 @@ span#login {
 
 
 .FirstBenefitPopper_firstBenefitPopper__1dKmf {
-    display: block;
+	display: block;
     position: relative;
     z-index: 1;
     margin: 32px auto 8px;
@@ -70,8 +70,8 @@ span#login {
     background-color: #fff;
     box-sizing: border-box;
     padding: 10px 17px;
-    width: 251px;
-    height: 38px;
+    width: 177px;
+    height: 42px;
 }
 
 .FirstBenefitPopper_firstBenefitPopper__1dKmf .FirstBenefitPopper_content__2XS-G {
@@ -417,23 +417,17 @@ div#name .label {
     color: rgb(84, 84, 84);
     border-color: rgba(118, 118, 118, 0.3);
 }
-#password svg#password_1{
-    position: absolute;
+#password svg#password_1, #password svg#password_2{
+    position: relative;
     width: 46px;
     height: 22px;
-    top: 288px;
-    left: 325px;
+    top: -36px;
+    left: 316px;
     fill:rgb(173, 181, 189);
 }
 
-#password svg#password_2{
-    position: absolute;
-    width: 46px;
-    height: 22px;
-    top: 350px;
-    left: 318px;
-    fill:rgb(173, 181, 189);
-}
+
+
 #password_check input{
     margin-top: 3px;
     background-color: rgba(239, 239, 239, 0.3);
@@ -1144,7 +1138,7 @@ input.modalclass_contents_midtwo_oneinput {
     font-weight: 400;
     font-style: normal;
     background-color: #f2f4f6;
-    padding: 16px 16px 16px 80px;
+    padding: 16px 16px 16px 16px;
     max-height: 180px;
     overflow-y: scroll;
     color: #495057;
@@ -1162,7 +1156,7 @@ input.modalclass_contents_midtwo_oneinput {
     font-weight: 400;
     font-style: normal;
     background-color: #f2f4f6;
-    padding: 16px 16px 16px 80px;
+    padding: 16px 16px 16px 16px;
     max-height: 180px;
     overflow-y: scroll;
     color: #495057;
@@ -1180,7 +1174,7 @@ input.modalclass_contents_midtwo_oneinput {
     font-weight: 400;
     font-style: normal;
     background-color: #f2f4f6;
-    padding: 16px 16px 16px 80px;
+    padding: 16px 16px 16px 16px;
     max-height: 180px;
     overflow-y: scroll;
     color: #495057;
@@ -1497,7 +1491,7 @@ body ul {
 }
 
 
-.idalter {
+.idalter, #joinErrorMsg {
     color: #f66;
     line-height: 18px;
     letter-spacing: 0;

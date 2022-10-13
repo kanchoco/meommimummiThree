@@ -34,7 +34,7 @@
     <div class = "page-body">
         <div class="wz_container_id-check" style="min-height:calc(100vh - 187px);">
             <div class = "container">
-            <p class="wz text body1" style = "margin-left : 0px; margin-right: 0px; border-bottom: 1px solid #f0f2f5;;">와디즈는 이메일을 아이디로 사용합니다.<br>소유하고 계신 계정을 입력해보세요.<br>가입여부를 확인해드립니다.</p>
+            <p class="wz text body1" style = "margin-left : 0px; margin-right: 0px; border-bottom: 1px solid #f0f2f5;;">멈미뭄미는 이메일을 아이디로 사용합니다.<br>소유하고 계신 계정을 입력해보세요.<br>가입여부를 확인해드립니다.</p>
             <form class="wz form" id="form-findId" onsubmit="checkEmail(); return false;">
                 <div class="label-hidden field">
                     <label class="text-hidden" for="userName"></label>

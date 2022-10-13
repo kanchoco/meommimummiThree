@@ -17,11 +17,17 @@ var contentsModalEight = false;
 var contentsModalNine = false;
 var contentsModalTen = false;
 var buttonOverlapCheck = false;
-  
-/* 아이디 중복 체크 */
-var putId = $("input[name='inputId']").val();
 
-$idCheckBtn.on("click", function(){
+/* 아이디 중복 체크 */
+var $putId = $("input[name='inputId']");
+
+/* 아이디 입력 창에 들어갔다 나오기만 하면 바로 idCheck는 false로 변경*/
+$putId.on("blur", function(){
+	idCheck = false;
+})
+
+$idCheckBtn.on("click", function(e){
+	e.preventDefault();
 	checkId($("input[name='inputId']").val());
 })
 
@@ -31,49 +37,186 @@ function checkId(inputId){
 		return;
 	}
 	
+	/*아이디가 이메일이 아닐 경우*/
+	if(!getMail.test($("#id").val())){
+		$(".idalter").text("아이디는 이메일 형식으로 입력하셔야 합니다.");
+		return;
+	}
 	
+	if(hangleCheck.test(joinForm.inputId.value)){
+		$(".idalter").text("아이디는 영어로 입력해주세요.");
+		return;
+	}
+	
+	$.ajax({
+		url:contextPath + "/user/checkIdOk.us",
+		type: "get",
+		data: {inputId: inputId},
+		dataType: "json", 
+		contentType: "application/json; charset=utf-8",
+		success:function(data){
+			if(!data.result){
+				$(".idalter").text("사용 가능한 아이디입니다.");
+				idCheck = true;
+			} else{
+				$(".idalter").text("중복된 아이디입니다.");
+				idCheck = false;
+			}
+		}
+	});
 }
 
 
 /* 회원가입 양식에 맞게 모두 작성했는지 체크 */
+/*8자리 이상, 대문자/소문자/숫자/특수문자 모두 포함되어 있는 지 검사*/
+var pwCheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+/*한글이 포함되었는 지 검사*/
+var hangleCheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+/*같은 문자 4번 이상*/
+var wordCheck = /(\w)\1\1\1/;
+/*공백검사*/
+var spaceCheck = /\s/;
+/*아이디 이메일 검사*/
+var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
 
 
+function joinCheck(){
+	/*아이디 중복확인이 안되어있을 경우*/
+	if(!idCheck){
+		joinForm.inputId.focus();
+		$("#joinErrorMsg").text("아이디 중복 확인이 필요합니다.");
+		return;
+	}
+	
+	/*아이디 한글 포함 유무 검사*/
+	if(hangleCheck.test(joinForm.inputId.value)){
+		joinForm.inputId.focus();
+		$("#joinErrorMsg").text("아이디는 한글을 기재할 수 없습니다.");
+		return;
+	}
+	
+	/*아이디 공백 검사*/
+	if(spaceCheck.test(joinForm.inputId.value)){
+		joinForm.inputId.focus();
+		$("#joinErrorMsg").text("아이디는 공백이 들어갈 수 없습니다.");
+		return;
+	}
+	/*이름이 기재되지 않았을 경우*/
+	if(!joinForm.inputName.value){
+		joinForm.inputName.focus();
+		$("#joinErrorMsg").text("이름을 기재해주세요.");
+		return
+	}
+	/*비밀번호가 기재되지 않았을 경우*/
+	if(!joinForm.inputPassword.value){
+		joinForm.inputPassword.focus();
+		$("#joinErrorMsg").text("비밀번호를 기재해주세요.");
+		return;
+	}
+	
+	/*비밀번호와 비밀번호 확인이 일치하지 않는 경우*/
+	if(joinForm.inputPassword.value != joinForm.inputPasswordCheck.value){
+		joinForm.inputPassword.focus();
+		$("#joinErrorMsg").text("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+		return;
+	}
+	
+	/*비밀번호가 4자 이하이거나 20자 초과일 경우*/
+	 if(joinForm.inputPassword.value.length < 4 || joinForm.inputPassword.value.length > 20){
+      joinForm.inputPassword.focus();
+		$("#joinErrorMsg").text("비밀번호는 5자 이상, 20자 이하로 작성해주세요.");
+      return;
+   	}
+
+	/*비밀번호에 대문자/소문자/숫자/특수문자가 모두 포함되어있는지 검사*/
+	if(!pwCheck.test(joinForm.inputPassword.value)){
+		joinForm.inputPassword.focus();
+		$("#joinErrorMsg").text("비밀번호는 대문자, 소문자, 특수문자가 모두 포함되어야 합니다.");
+		return;
+	}
+	
+	/*비밀번호에 같은 문자가 4번 이상 들어갔는지 검사*/
+	if(wordCheck.test(joinForm.inputPassword.value)){
+		joinForm.inputPassword.focus();
+		$("#joinErrorMsg").text("비밀번호는 같은 문자가 4번 이상 들어갈 수 없습니다.");
+		return;
+	}
+	
+	/*비밀번호 공백 검사*/
+	if(spaceCheck.test(joinForm.inputPassword.value)){
+		joinForm.inputPassword.focus();
+		$("#joinErrorMsg").text("비밀번호는 공백이 들어갈 수 없습니다.");
+		return;
+	}
+	
+	/*약관 동의 필수항목 체크 유무 검사*/
+	if(!$("#allterm").is(":checked")){
+		$("#modalCheck").focus();
+		$("#joinErrorMsg").text("약관 동의가 필요합니다.");
+		return;
+	}
+
+	joinForm.submit();
+}
   
-  
-  $(document).ready(function() {
+$(document).ready(function() {
 	    $("#term").click(function() {
-		      if($("#term").is(":checked")) $("input[name=terms]").prop("checked", true);
-		      else $("input[name=terms]").prop("checked", false);
-		      if($("#term").is(":checked")) $("#allterm").prop("checked", true);
-		      else $("#allterm").prop("checked", false);
+		      if($("#term").is(":checked")) {
+		      		$("input[name=terms]").prop("checked", true);
+		      }
+		      else {
+		      		$("input[name=terms]").prop("checked", false);
+		      }
+		      if($("#term").is(":checked")){
+		       		$("#allterm").prop("checked", true);
+		      } else {
+		       		$("#allterm").prop("checked", false);
+		       }
 	    });
+});
 	  
+$(document).ready(function() {
 	    $("input[name=terms]").click(function() {
 	      var total = $("input[name=terms]").length;
 	      var checked = $("input[name=terms]:checked").length;
 	  
-	      if(total != checked) $("#term").prop("checked", false);
-	      else $("#term").prop("checked", true); 
+	      	if(checked< 2){
+					$("#term").prop("checked", false);
+					$("#allterm").prop("checked", false);
+			} 	else {
+					$("#term").prop("checked", true);
+					$("#allterm").prop("checked", true);
+			} 
+	    });
+})
 
-	      if(total != checked) $("#allterm").prop("checked", false);
-	      else $("#allterm").prop("checked", true); 
-	    });
+$(document).ready(function() {
 	    $("#allterm").click(function() {
-	      if($("#allterm").is(":checked")) $("#term").prop("checked", true);
-	      else $("input[name=terms]").prop("checked", false);
-	      if($("#term").is(":checked")) $("#allterm").prop("checked", true);
-	      else $("#term").prop("checked", false);
-	    });
-	  });
-  
+		      if($("#allterm").is(":checked")) {
+		      		$("input[name=terms]").prop("checked", true);
+		      }
+		      else {
+		      		$("input[name=terms]").prop("checked", false);
+		      }
+		      if($("#allterm").is(":checked")){
+		       		$("#term").prop("checked", true);
+		      } else {
+		       		$("#term").prop("checked", false);
+		       }
+		})
+})
+
+
+
+
+
 
 
 $('.modalclassbutton_one').click(function(){
-  $('.FirstBenefitPopper_firstBenefitPopper__1dKmf').css({"display":"block"});
-  checktwo = true;
-    $(".modalclass").fadeOut();
+  	$('.FirstBenefitPopper_firstBenefitPopper__1dKmf').css({"display":"block"}); 
+	checktwo = true;
+	$(".modalclass").fadeOut();
 });
-
 
 
 $(function(){ 
@@ -110,22 +253,22 @@ $(function(){
         checktwo = true;
        }
       $(".modalclass").fadeOut();
-    });
+	});
   });
-  
 
-function send(){
-    if(ine){
-        document.getElementById('oioioio111').setAttribute('type', 'text');
-        $('#password_1').css('fill', 'black');
-        ine = false;
-    }else{
-    document.getElementById('oioioio111').setAttribute('type', 'password');
-    $('#password_1').css('fill', 'rgb(173, 181, 189)');
-    ine = true;
-    }
-    
-  } 
+$(".eye").click(function(){
+	
+	if(ine){
+		$(this).prev().attr('type', 'text');
+		$(this).css('fill', 'black');		
+		console.log($(this).next());
+		ine = false;
+	} else{
+		$(this).prev().attr('type', 'password');
+		$(this).css('fill', 'rgb(173, 181, 189)');		
+		ine = true;
+	}
+})
 
 
 $('.modalclass_contents_midtwo_onebutton_one').click(function(){
@@ -155,6 +298,8 @@ $('.modalclass_contents_midtwo_onebutton_two').click(function(){
         
 
 });
+
+
 
 $('.modalclass_contents_midtwo_onebutton_three').click(function(){
     if(!contentsModalThree) {
@@ -273,54 +418,3 @@ $('.modalclass_contents_midtwo_onebutton_ten').click(function(){
 $('.modalclass_contents_midtwo_onebutton_ten').click(function(){
   var $id = $('.inputId').val();
 });
-
-
-$('.inputId').keypress(function(){
-	var hobbyCheck = false;
-	var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-	var getCheck= RegExp(/^[A-Za-z]{1}[A-Za-z0-9_-]{9,19}$/);
-	var getName= RegExp(/^[가-힣]+$/);
-	var fmt = RegExp(/^\d{6}[1234]\d{6}$/);
-	var buf = new Array(13);
-
-	if(getCheck.test($("#id").val())){
-	  $('.idalter').css('color', 'rgb(245 7 7)');
-	$('#id').css('border', '1px solid rgb(245 7 7)');
-	$(".idalter").text("아이디는 숫자포함 10자리까지 가능합니다!");
-	$(this).val($(this).val().substring(0, 10));
-	$("#id").focus();
-
-return;
-}else if(getMail.test($("#id").val())){
-  $('.idalter').css('color', 'rgb(245 7 7)');
-$(".idalter").text("이메일을 입력했습니다!");
-$("#id").val("");
-$("#id").focus();
-
-return;
-}
-
-
-
-});
-
-
-$('#finish').click(function(){
-
-  if($('.namecheck').val() === ''){
-    alert("이름을 입력하세요!");
-    return;
-  }
-
-  if($('#oioioio111').val() === ''){
-    alert("비밀번호를 입력하세요!");
-    return;
-  }
-
-  if(!check == false){
-    alert("전체동의를 클릭하세요!");
-    return;
-  }
-
-  alert("가입 완료!");
-  }); 

@@ -7,10 +7,9 @@
    </settings>
    
    <typeAliases>
-     <typeAlias type="com.meommi.app.commonterm.vo.CommontermVO" alias="commontermVO"/>
-     <typeAlias type="com.meommi.app.community.vo.CommunityVO" alias="communityVO"/>
+<!-- 	 <typeAlias type="com.meommi.app.community.vo.CommunityVO" alias="communityVO"/> -->
      <typeAlias type="com.meommi.app.main.vo.MainVO" alias="mainVO"/>
-     <typeAlias type="com.meommi.app.service.vo.ServiceVO" alias="serviceVO"/>
+<!--      <typeAlias type="com.meommi.app.service.vo.ServiceVO" alias="serviceVO"/> -->
      <typeAlias type="com.meommi.app.user.vo.UserVO" alias="userVO"/>
      
    </typeAliases>
@@ -28,8 +27,7 @@
    </environments>
    
    <mappers>
-      <mapper resource="com/meommi/mybatis/mapper/CommontermMapper.xml"/>
-      <mapper resource="com/meommi/mybatis/mapper/CommunityMapper.xml"/>
+	  <mapper resource="com/meommi/mybatis/mapper/CommunityMapper.xml"/>
       <mapper resource="com/meommi/mybatis/mapper/MainMapper.xml"/>
       <mapper resource="com/meommi/mybatis/mapper/ServiceMapper.xml"/>
       <mapper resource="com/meommi/mybatis/mapper/UserMapper.xml"/>

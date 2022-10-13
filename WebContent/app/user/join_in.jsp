@@ -69,49 +69,59 @@
           </div>
       </div>
       
-      <!-- 아이디 간편가입 -->
         <div class="SignUpIntroApp_divider__24Rgj"></div>
+      <!-- 아이디 간편가입 -->
+<form method="post" action="${pageContext.request.contextPath}/app/user/joinOk.us" name="joinForm">
         <div id="email_join_in">
 
             <h3 style="font-size:18.72px;font-weight:bold">아이디 간편가입</h3>
+            <p id="joinErrorMsg"></p>
             <div class="label"><label for="아이디">아이디</label></div>
             <div id="email">
             <!-- 아이디 입력창 -->
                 <div class="input" style="width:70%">
-                	<input type="text" class="inputId" name="inputId" id="id" placeholder="아이디 입력">
+                	<input type="text" class="inputId" name="inputId" id="id" placeholder="아이디 입력(이메일 주소 포함)">
                 </div>
                 
                 <!-- 중복 확인 버튼 -->
                 <div>
-                	<button class="OverlapCheck" style="background-color: #ff914d; color: #fff; font-weight:400;">중복확인</button></div>
+                	<button class="OverlapCheck" style="background-color: #d55506; color: #fff; font-weight:400;">중복확인</button></div>
             	</div>
             	<!-- 중복확인 메시지 나오는 공간 -->
             <p class="idalter" style="position: absolute;"></p>
             <div id="name">
                 <div class="label"><label for="이름">이름</label></div>
-                <div class="input"><input type="text" placeholder="이름 입력" class="namecheck"></div>
+                <div class="input"><input type="text" placeholder="이름 입력" class="namecheck" name="inputName"></div>
             </div>
 
             <div id="password">
                 <div class="label"><label for="비밀번호">비밀번호</label></div>
-                <div class="input"><input type="password" placeholder="비밀번호 입력" id="oioioio111">
-                    <svg onclick="send()" id = "password_1" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
+                <div class="input"><input type="password" placeholder="비밀번호 입력" id="oioioio111" name="inputPassword">
+                    <svg id = "password_1" class="eye" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
                         <path d="M23.589 7.895l.411.001c10.56 0 20.16 6.504 23.34 15.78l.132.432-.144.396c-3.216 9.168-12.816 15.6-23.328 15.6A24.84 24.84 0 0 1 .684 24.492l-.168-.432.156-.42A24.804 24.804 0 0 1 24 7.896zM24 14.46a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2zm0 4.14a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8z">
-                    </button>
+                    </svg>
+                </div>
+                <div class="input"><input type="password" placeholder="비밀번호 확인" id="oioioio112" name="inputPasswordCheck" style="margin-top: 6px;">
+                    <svg id = "password_2" class="eye" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
+                        <path d="M23.589 7.895l.411.001c10.56 0 20.16 6.504 23.34 15.78l.132.432-.144.396c-3.216 9.168-12.816 15.6-23.328 15.6A24.84 24.84 0 0 1 .684 24.492l-.168-.432.156-.42A24.804 24.804 0 0 1 24 7.896zM24 14.46a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2zm0 4.14a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8z">
                     </svg>
                 </div>
             </div>
 
+
+
+			<!-- 약관 동의 -->
             <div id = "agreement">
                 <div id = "agreement_check" style="margin-top: 24px; align-items:center;">
                     <button class="Button_button__3ip2b Button_text__3Q5QV Button_iconOnly__fOIQf iconButton SignUpAllCheckTermsCheckbox_termsMoreButton__wal9S" id="Button_button__3ip2b2" type="button" style="position: relative; left: 328px;">
-                      <span>
+                      	<span>
                             <span class="Button_children__VGHI5">
                                 <svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1YH1P" aria-hidden="true">
-                                    <path d="M16 22.4L5.6 12l1.12-1.12L16 20.16l9.28-9.28L26.4 12 16 22.4z">
-            </path></svg></span>
-        </span>
-    </button>
+                                    <path d="M16 22.4L5.6 12l1.12-1.12L16 20.16l9.28-9.28L26.4 12 16 22.4z"></path>
+                                </svg>
+                            </span>
+        				</span>
+    				</button>
                     <input id = "allterm" type="checkbox" style="position: absolute;" name="allterm">
                     <label for = "agreement_checkbox"></label>
                     <span >전체동의</span>
@@ -124,18 +134,17 @@
             <!-- 회원가입 완료 버튼 -->
             <div>
                 <button type="button" id="finish" class="wz button primary block submit-button" style="cursor:pointer;background-color:#ff914d" onclick="joinCheck()">완료</button>
-                
             </div>
+</form>
 
             <img id='inqueryImg' alt="멈미뭄미 상담 버튼" src="https://cf.channel.io/pub-file/22503/5fd6fd874e7f9156515f/group-4-copy.png" width="60" height="60" class="Launcherstyled__Image-ch-front__sc-oef45p-4 gzwqUH">
 
         <p class="footer_p">
-            이미 멈미뭄미 계정이 있나요?&nbsp&nbsp; <a href="log_in.html" data-return-url="" data-event="iam.signin.goto.signup">로그인</a>
+            이미 멈미뭄미 계정이 있나요?&nbsp&nbsp; <a href="${pageContext.request.contextPath}/user/login.us" data-return-url="" data-event="iam.signin.goto.signup">로그인</a>
         </p>
     </main>
     	<div class="WadizModal_portal__JMa0C">
-    	
-    	
+    	 
     	</div>
     <div class="modalclass modalclass_hidden" >
         <div class="modalclass_overlay"></div>
@@ -165,7 +174,7 @@
                 <div class="modalclass_contents_midone">
                     <div>
                         <label class="modalclass_contents_midone_one">
-                        <input type="checkbox" class="modalclass_contents_midone_one_ckeckbox" name="terms">
+                        <input type="checkbox" id="modalCheck" class="modalclass_contents_midone_one_ckeckbox" name="terms">
                         <span>
                             <div class="modalclass_contents_midone_one_one"><span style="color: black; font-weight: 700;">펀딩 · 스토어 · 회원</span>서비스 가입
                                 <span class="modalclass_contents_midone_one_one_one">(필수)</span>
@@ -1193,11 +1202,7 @@
                         </em>
                         </div>
                     </div>
-                    
-
-
-
-
+                   
             <button class="modalclass_del">완료</button>
             
     </div>
