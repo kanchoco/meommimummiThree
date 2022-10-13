@@ -1,14 +1,15 @@
-package com.meommi.app.user.dao;
+package com.meommi.app.funeral.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.meommi.mybatis.config.MyBatisConfig;
 
-public class UserDAO {
-	   SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessionFactory();
+
+public class FuneralDAO {
+	SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessionFactory();
 	   SqlSession sqlSession;
 	   
-	   public UserDAO() {
+	   public FuneralDAO() {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	}
 }

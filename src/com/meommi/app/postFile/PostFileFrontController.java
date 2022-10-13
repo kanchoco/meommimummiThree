@@ -1,4 +1,5 @@
-package com.meommi.app.user;
+package com.meommi.app.postFile;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -7,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meommi.app.Result;;
+import com.meommi.app.Result;
 
-public class UserFrontController extends HttpServlet {
-	 @Override
+public class PostFileFrontController extends HttpServlet {
+	  @Override
 	   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	      doProcess(req, resp);
 	   }
@@ -21,12 +22,12 @@ public class UserFrontController extends HttpServlet {
 	   }
 	   
 	   protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		   String requestURI = req.getRequestURI();
+		     String requestURI = req.getRequestURI();
 		      String contextPath = req.getContextPath();
 		      String request = requestURI.substring(contextPath.length());
 		      Result result = null;
 		   
-		   if(request.equals("/meommi/User.us")) {
+		   if(request.equals("/meommi/CommunitsOk.co")) {
 		       
 		      }
 		      
@@ -39,4 +40,4 @@ public class UserFrontController extends HttpServlet {
 		         }
 		      }
 		   }
-	}
+}

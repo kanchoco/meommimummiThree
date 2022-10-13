@@ -1,14 +1,13 @@
-package com.meommi.app.user.dao;
+package com.meommi.app.feedsearch.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.meommi.mybatis.config.MyBatisConfig;
-
-public class UserDAO {
+public class FeedSearchDAO {
 	   SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessionFactory();
 	   SqlSession sqlSession;
 	   
-	   public UserDAO() {
+	   public FeedSearchDAO() {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	}
 }
