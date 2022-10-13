@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
 <link rel="stylesheet" href="find_id.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/find_id.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/find_id.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/footer.css"/>
 
 </head>
 <body>
@@ -51,6 +51,6 @@
     </div>
         <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>       
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/find_id.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/find_id.js"></script>
 
 </html>

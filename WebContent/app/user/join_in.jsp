@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://static.wadiz.kr/account/main.1b0cd3eb.css">
 <link rel="stylesheet" href="https://static.wadiz.kr/static/iam/main.f99e3b76.css">
 <link rel="stylesheet" href="https://static.wadiz.kr/static/floating-buttons/main.0b5e20dd.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join_in.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/join_in.css">
 </head>
 
 <body>
