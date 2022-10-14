@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
 <link rel="stylesheet" href="find_id.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/find_id.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/find_id.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/footer.css"/>
 
 </head>
 <body>
@@ -34,7 +34,7 @@
     <div class = "page-body">
         <div class="wz_container_id-check" style="min-height:calc(100vh - 187px);">
             <div class = "container">
-            <p class="wz text body1" style = "margin-left : 0px; margin-right: 0px; border-bottom: 1px solid #f0f2f5;;">와디즈는 이메일을 아이디로 사용합니다.<br>소유하고 계신 계정을 입력해보세요.<br>가입여부를 확인해드립니다.</p>
+            <p class="wz text body1" style = "margin-left : 0px; margin-right: 0px; border-bottom: 1px solid #f0f2f5;;">멈미뭄미는 이메일을 아이디로 사용합니다.<br>소유하고 계신 계정을 입력해보세요.<br>가입여부를 확인해드립니다.</p>
             <form class="wz form" id="form-findId" onsubmit="checkEmail(); return false;">
                 <div class="label-hidden field">
                     <label class="text-hidden" for="userName"></label>
@@ -51,6 +51,6 @@
     </div>
         <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>       
 </body>
-<script src="${pageContext.request.contextPath}/assets/js/find_id.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/find_id.js"></script>
 
 </html>

@@ -55,7 +55,11 @@
             <div class="user-sign-container">
                 <div class="wz container form-container form-login">
                     <h2 class="wz text display2">로그인</h2>
-                    <form name="frm_login" id="frm_login" class="wz form">
+                    
+                    
+                    
+                    
+                    <form name="frm_login" id="frm_login" class="wz form" action="${pageContext.request.contextPath}/user/loginOk.us">
                         <div class="field">
                             <div class="wz input">
                                 <input type="email" id="userName" name="userName" class="input-text"
@@ -63,40 +67,34 @@
                             </div>
                             <em id="emailError" class="error-text helper error">이메일 형식이 올바르지 않습니다.</em>
                         </div>
+                        
+                        
+                        
+                        
                         <div class="field">
                             <div class="wz input">
                                 <input type="password" id="password" name="password" class="input-text" maxlength="20"
                                     placeholder="비밀번호 입력" title="비밀번호 입력">
                             </div>
-                            <p id="loginError" class="error-text helper error">와디즈에 등록되지 않은 아이디거나, 아이디 또는 비밀번호가 회원정보와
-                                일치하지 않습니다.</p>
+                            <span id="loginError"></span>
                         </div>
-                        <div class="recaptcha">
-                            <p id="recaptchaMessage" class="error-text">잘못된 아이디 또는 비밀번호로 여러번 로그인 시도하였습니다. <br>계정 보안 조치를
-                                위해 아래 사항을 체크하신 뒤 다시 진행하세요.</p>
-                            <p id="recaptchaComplete" class="complete-text"><span>계정 보안 조치가 완료되었습니다!</span>협조해주셔서 감사합니다.
-                                로그인을 다시 시도하세요</p>
-                            <div class="g-recaptcha" data-sitekey="6Lcr70MUAAAAAHfmxpaHaXPDlgLIwiS6gRO5YCcB"
-                                data-size="600" id="recaptcha" data-callback="recaptchaComplete" style="display: none;">
-                                <div style="width: 304px; height: 78px;">
-                                    <div><iframe title="reCAPTCHA"
-                                            src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lcr70MUAAAAAHfmxpaHaXPDlgLIwiS6gRO5YCcB&amp;co=aHR0cHM6Ly93d3cud2FkaXoua3I6NDQz&amp;hl=ko&amp;v=vP4jQKq0YJFzU6e21-BGy3GP&amp;size=normal&amp;cb=jgbaly4zwrco"
-                                            width="304" height="78" role="presentation" name="a-499lbqg9luuq"
-                                            frameborder="0" scrolling="no"
-                                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
-                                    </div><textarea id="g-recaptcha-response" name="g-recaptcha-response"
-                                        class="g-recaptcha-response"
-                                        style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                                </div><iframe style="display: none;"></iframe>
-                            </div>
-                        </div>
+                        
+                        
+                        
+                        
+                        
                         <div class="login-action">
-                            <p class="forgot"><a class="wz text" href="/web/waccount/find/pwd"
+                            <p class="forgot"><a class="wz text" href="${pageContext.request.contextPath}/user/findId.us"
                                     data-event="iam.signin.goto.forgot">로그인 정보를 잊으셨나요?</a></p>
                         </div>
+                        
+                        
+                        
+                        
                         <button type="button" id="btnLogin" class="wz button primary block submit-button"
-                            data-event="iam.signin.submit" style="background-color:#FF914D;border:0">로그인</button>
-                        <input type="hidden" name="returnURL" value="https://www.wadiz.kr/web/main">
+                            data-event="iam.signin.submit" style="background-color:#FF914D;border:0" onclick="loginCheck()">로그인</button>
+                            
+                           
                     </form>
                     <div id="iam-account-app">
                         <div>
@@ -144,7 +142,7 @@
                             </div>
                         </div>
                         <div class="bottom-message">
-                            <p>아직 와디즈 계정이 없나요?<a href="/web/waccount/wAccountRegistIntro" data-return-url=""
+                            <p>아직 멈미뭄미 계정이 없나요?<a href="${pageContext.request.contextPath}/user/join.us" data-return-url=""
                                     data-event="iam.signin.goto.signup">회원가입</a></p>
                         </div>
                     </div>
@@ -161,24 +159,6 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script>
-$('#userName').keypress(function(){
-    var hobbyCheck = false;
-  var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-  var getCheck= RegExp(/^[A-Za-z]{1}[A-Za-z0-9_-]{9,19}$/);
-  var getName= RegExp(/^[가-힣]+$/);
-  var fmt = RegExp(/^\d{6}[1234]\d{6}$/);
-  var buf = new Array(13);
+<script src="${pageContext.request.contextPath}/assets/js/login.js"></script>
 
-  
-  if(getCheck.test($("#userName").val())){
-    $('#userName').css('border', '1px solid rgb(245 7 7)');
-    $(".idalter").text("아이디는 숫자포함 10자리까지 가능합니다!");
-    return;
-  }else if(getMail.test($("#userName").val())){
-    $(".idalter").text("이메일을 입력했습니다!");
-    return;
-  }
-});
-</script>
 </html>

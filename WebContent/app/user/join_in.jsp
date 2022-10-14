@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://static.wadiz.kr/account/main.1b0cd3eb.css">
 <link rel="stylesheet" href="https://static.wadiz.kr/static/iam/main.f99e3b76.css">
 <link rel="stylesheet" href="https://static.wadiz.kr/static/floating-buttons/main.0b5e20dd.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join_in.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/join_in.css">
 </head>
 
 <body>
@@ -64,44 +64,64 @@
                             <path d="M0 0h20v20H0z"></path>
                         </g>
                     </svg>
- </svg>구글로 시작하기</button>
+			 </svg>구글로 시작하기
+			 </button>
           </div>
       </div>
+      
         <div class="SignUpIntroApp_divider__24Rgj"></div>
+      <!-- 아이디 간편가입 -->
+<form method="post" action="${pageContext.request.contextPath}/app/user/joinOk.us" name="joinForm">
         <div id="email_join_in">
 
             <h3 style="font-size:18.72px;font-weight:bold">아이디 간편가입</h3>
+            <p id="joinErrorMsg"></p>
             <div class="label"><label for="아이디">아이디</label></div>
             <div id="email">
-                <div class="input" style="width:70%"><input type="email" class="inputId" id="id" placeholder="아이디 입력"></div>
-                <div><button class="OverlapCheck" style="background-color: #ff914d; color: #fff; font-weight:400;">중복확인</button></div>
-            </div>
+            <!-- 아이디 입력창 -->
+                <div class="input" style="width:70%">
+                	<input type="text" class="inputId" name="inputId" id="id" placeholder="아이디 입력(이메일 주소 포함)">
+                </div>
+                
+                <!-- 중복 확인 버튼 -->
+                <div>
+                	<button class="OverlapCheck" style="background-color: #d55506; color: #fff; font-weight:400;">중복확인</button></div>
+            	</div>
+            	<!-- 중복확인 메시지 나오는 공간 -->
             <p class="idalter" style="position: absolute;"></p>
             <div id="name">
                 <div class="label"><label for="이름">이름</label></div>
-                <div class="input"><input type="text" placeholder="이름 입력" class="namecheck"></div>
+                <div class="input"><input type="text" placeholder="이름 입력" class="namecheck" name="inputName"></div>
             </div>
 
             <div id="password">
                 <div class="label"><label for="비밀번호">비밀번호</label></div>
-                <div class="input"><input type="password" placeholder="비밀번호 입력" id="oioioio111">
-                    <svg onclick="send()" id = "password_1" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
+                <div class="input"><input type="password" placeholder="비밀번호 입력" id="oioioio111" name="inputPassword">
+                    <svg id = "password_1" class="eye" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
                         <path d="M23.589 7.895l.411.001c10.56 0 20.16 6.504 23.34 15.78l.132.432-.144.396c-3.216 9.168-12.816 15.6-23.328 15.6A24.84 24.84 0 0 1 .684 24.492l-.168-.432.156-.42A24.804 24.804 0 0 1 24 7.896zM24 14.46a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2zm0 4.14a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8z">
-                    </button>
+                    </svg>
+                </div>
+                <div class="input"><input type="password" placeholder="비밀번호 확인" id="oioioio112" name="inputPasswordCheck" style="margin-top: 6px;">
+                    <svg id = "password_2" class="eye" viewBox="0 0 48 48" focusable="false" role="presentation" class="withIcon_icon__vtskP" aria-hidden="true">
+                        <path d="M23.589 7.895l.411.001c10.56 0 20.16 6.504 23.34 15.78l.132.432-.144.396c-3.216 9.168-12.816 15.6-23.328 15.6A24.84 24.84 0 0 1 .684 24.492l-.168-.432.156-.42A24.804 24.804 0 0 1 24 7.896zM24 14.46a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2zm0 4.14a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8z">
                     </svg>
                 </div>
             </div>
 
+
+
+			<!-- 약관 동의 -->
             <div id = "agreement">
                 <div id = "agreement_check" style="margin-top: 24px; align-items:center;">
                     <button class="Button_button__3ip2b Button_text__3Q5QV Button_iconOnly__fOIQf iconButton SignUpAllCheckTermsCheckbox_termsMoreButton__wal9S" id="Button_button__3ip2b2" type="button" style="position: relative; left: 328px;">
-                      <span>
+                      	<span>
                             <span class="Button_children__VGHI5">
                                 <svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1YH1P" aria-hidden="true">
-                                    <path d="M16 22.4L5.6 12l1.12-1.12L16 20.16l9.28-9.28L26.4 12 16 22.4z">
-            </path></svg></span>
-        </span>
-    </button>
+                                    <path d="M16 22.4L5.6 12l1.12-1.12L16 20.16l9.28-9.28L26.4 12 16 22.4z"></path>
+                                </svg>
+                            </span>
+        				</span>
+    				</button>
                     <input id = "allterm" type="checkbox" style="position: absolute;" name="allterm">
                     <label for = "agreement_checkbox"></label>
                     <span >전체동의</span>
@@ -110,20 +130,21 @@
                 회원 서비스(필수), 이벤트·혜택알림 동의(선택)
                 </div>
             </div>
+            
+            <!-- 회원가입 완료 버튼 -->
             <div>
-                <button type="button" id="finish" class="wz button primary block submit-button" style="cursor:pointer;background-color:#ff914d">완료</button>
-                
+                <button type="button" id="finish" class="wz button primary block submit-button" style="cursor:pointer;background-color:#ff914d" onclick="joinCheck()">완료</button>
             </div>
+</form>
 
             <img id='inqueryImg' alt="멈미뭄미 상담 버튼" src="https://cf.channel.io/pub-file/22503/5fd6fd874e7f9156515f/group-4-copy.png" width="60" height="60" class="Launcherstyled__Image-ch-front__sc-oef45p-4 gzwqUH">
 
         <p class="footer_p">
-            이미 멈미뭄미 계정이 있나요?&nbsp&nbsp; <a href="log_in.html" data-return-url="" data-event="iam.signin.goto.signup">로그인</a>
+            이미 멈미뭄미 계정이 있나요?&nbsp&nbsp; <a href="${pageContext.request.contextPath}/user/login.us" data-return-url="" data-event="iam.signin.goto.signup">로그인</a>
         </p>
     </main>
     	<div class="WadizModal_portal__JMa0C">
-    	
-    	
+    	 
     	</div>
     <div class="modalclass modalclass_hidden" >
         <div class="modalclass_overlay"></div>
@@ -153,7 +174,7 @@
                 <div class="modalclass_contents_midone">
                     <div>
                         <label class="modalclass_contents_midone_one">
-                        <input type="checkbox" class="modalclass_contents_midone_one_ckeckbox" name="terms">
+                        <input type="checkbox" id="modalCheck" class="modalclass_contents_midone_one_ckeckbox" name="terms">
                         <span>
                             <div class="modalclass_contents_midone_one_one"><span style="color: black; font-weight: 700;">펀딩 · 스토어 · 회원</span>서비스 가입
                                 <span class="modalclass_contents_midone_one_one_one">(필수)</span>
@@ -1181,349 +1202,15 @@
                         </em>
                         </div>
                     </div>
-                    
-
-
-
-
+                   
             <button class="modalclass_del">완료</button>
             
     </div>
       </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script>
-  const $all = $("#term");
-  const $terms = $("#terms");
+<script>var contextPath="${pageContext.request.contextPath}";</script>
+<script src="${pageContext.request.contextPath}/assets/js/join.js"></script>
 
-	
-  $(document).ready(function() {
-	    $("#term").click(function() {
-	      if($("#term").is(":checked")) $("input[name=terms]").prop("checked", true);
-	      else $("input[name=terms]").prop("checked", false);
-	      if($("#term").is(":checked")) $("#allterm").prop("checked", true);
-	      else $("#allterm").prop("checked", false);
-	    });
-	  
-	    $("input[name=terms]").click(function() {
-	      var total = $("input[name=terms]").length;
-	      var checked = $("input[name=terms]:checked").length;
-	  
-	      if(total != checked) $("#term").prop("checked", false);
-	      else $("#term").prop("checked", true); 
-
-	      if(total != checked) $("#allterm").prop("checked", false);
-	      else $("#allterm").prop("checked", true); 
-	    });
-	    $("#allterm").click(function() {
-	      if($("#allterm").is(":checked")) $("#term").prop("checked", true);
-	      else $("input[name=terms]").prop("checked", false);
-	      if($("#term").is(":checked")) $("#allterm").prop("checked", true);
-	      else $("#term").prop("checked", false);
-	    });
-	  });
-  
-
-
-  $(document).ready(function() {
-    $('.OverlapCheck').attr('disabled', 'disabled');
-    $('.inputId').on('input', function() {
-        if ($(this).val() !== '') {
-        /*   $('.OverlapCheck').css('background-color', '#00c4c4'); */
-         $('.OverlapCheck').css('background-color', '#ff914d'); 
-          $('.OverlapCheck').css('color', '#fff');
-          $('.OverlapCheck').removeAttr("disabled");
-        }
-        else {
-        	
-         $('.OverlapCheck').css('background-color', '#ff914d'); 
-         $('.OverlapCheck').css('opacity','1');
-        /*   $('.OverlapCheck').css('background-color', '#00c4c452'); */
-          $('.OverlapCheck').css('color', 'rgb(0 0 0 / 44%)');
-            $('.OverlapCheck').attr('disabled', 'disabled');
-            
-        }
-    });
-  });
-
-
-
-$('.modalclassbutton_one').click(function(){
-  $('.FirstBenefitPopper_firstBenefitPopper__1dKmf').css({"display":"block"});
-  checktwo = true;
-    $(".modalclass").fadeOut();
-});
-var checkModal = false;
-var check = true;
-var checktwo = true;
-$(function(){ 
-
-    $('#agreement_checkbox').click(function(){
-       
-        if(!check){
-            $('#agreement_checkbox').css("background", "White");
-            check = true;
-            return;
-        }
-        $('#agreement_checkbox').css({"background":"url(icons8-검사-확인란-30.png)"});
-           $('#agreement_checkbox').css({"background-size":"100%"});
-           check = false;
-      });
-
-    $("Button.Button_button__3ip2b").click(function(){
-      if(checktwo){
-      $('.FirstBenefitPopper_firstBenefitPopper__1dKmf').css({"display":"none"});
-      checktwo = false;
-      }
-      $(".modalclass").fadeIn();
-    });
-    
-    $(".modalclass_del").click(function(){
-      
-       if(!checkModal) {
-           $('#agreement_checkbox').css({"background":"url(icons8-검사-확인란-30.png)"});
-           $('#agreement_checkbox').css({"background-size":"100%"});
-           check = false;
-       }
-
-       if(!checktwo) {
-        $('.FirstBenefitPopper_firstBenefitPopper__1dKmf').css({"display":"block"});
-        checktwo = true;
-       }
-      $(".modalclass").fadeOut();
-    });
-  });
-  
-  var ine = true;
-  function send(){
-    if(ine){
-        document.getElementById('oioioio111').setAttribute('type', 'text');
-        $('#password_1').css('fill', 'black');
-        ine = false;
-    }else{
-    document.getElementById('oioioio111').setAttribute('type', 'password');
-    $('#password_1').css('fill', 'rgb(173, 181, 189)');
-    ine = true;
-    }
-    
-  } 
-
-var contentsModalOne = false;
-$('.modalclass_contents_midtwo_onebutton_one').click(function(){
-    if(!contentsModalOne) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_one').css('display', 'block');
-        contentsModalOne = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_one').css('display', 'none');
-        contentsModalOne = false;
-        
-
-});
-
-var contentsModalTwo = false;
-$('.modalclass_contents_midtwo_onebutton_two').click(function(){
-    if(!contentsModalTwo) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_two').css('display', 'block');
-        contentsModalTwo = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_two').css('display', 'none');
-    contentsModalTwo = false;
-        
-
-});
-
-var contentsModalThree = false;
-$('.modalclass_contents_midtwo_onebutton_three').click(function(){
-    if(!contentsModalThree) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_three').css('display', 'block');
-        contentsModalThree = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_three').css('display', 'none');
-    contentsModalThree = false;
-        
-
-});
-
-var contentsModalFour = false;
-$('.modalclass_contents_midtwo_onebutton_four').click(function(){
-    if(!contentsModalFour) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_four').css('display', 'block');
-        contentsModalFour = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_four').css('display', 'none');
-    contentsModalFour = false;
-        
-
-});
-
-var contentsModalFive = false;
-$('.modalclass_contents_midtwo_onebutton_five').click(function(){
-    if(!contentsModalFive) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_five').css('display', 'block');
-        contentsModalFive = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_five').css('display', 'none');
-    contentsModalFive = false;
-        
-
-});
-
-var contentsModalSix = false;
-$('.modalclass_contents_midtwo_onebutton_six').click(function(){
-    if(!contentsModalSix) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_six').css('display', 'block');
-        contentsModalSix = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_six').css('display', 'none');
-    contentsModalSix = false;
-        
-
-});
-
-var contentsModalSeven = false;
-$('.modalclass_contents_midtwo_onebutton_seven').click(function(){
-    if(!contentsModalSeven) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_seven').css('display', 'block');
-        contentsModalSeven = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_seven').css('display', 'none');
-    contentsModalSeven = false;
-        
-
-});
-
-var contentsModalEight = false;
-$('.modalclass_contents_midtwo_onebutton_eight').click(function(){
-    if(!contentsModalEight) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_eight').css('display', 'block');
-        contentsModalEight = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_eight').css('display', 'none');
-    contentsModalEight = false;
-        
-
-});
-
-var contentsModalNine = false;
-$('.modalclass_contents_midtwo_onebutton_nine').click(function(){
-    if(!contentsModalNine) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_nine').css('display', 'block');
-        contentsModalNine = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_nine').css('display', 'none');
-    contentsModalNine = false;
-        
-
-});
-
-var contentsModalTen = false;
-$('.modalclass_contents_midtwo_onebutton_ten').click(function(){
-    if(!contentsModalTen) {
-        
-        $('.modalclass_contents_midtwo_checkboxopen_ten').css('display', 'block');
-        contentsModalTen = true;
-        
-        return;
-    }
-    $('.modalclass_contents_midtwo_checkboxopen_ten').css('display', 'none');
-    contentsModalTen = false;
-        
-
-});
-
-
-
-$('.modalclass_contents_midtwo_onebutton_ten').click(function(){
-  var $id = $('.inputId').val();
-  console.log($id);
-
-});
-var buttonOverlapCheck = false;
-$('.inputId').keypress(function(){
-var hobbyCheck = false;
-var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-var getCheck= RegExp(/^[A-Za-z]{1}[A-Za-z0-9_-]{9,19}$/);
-var getName= RegExp(/^[가-힣]+$/);
-var fmt = RegExp(/^\d{6}[1234]\d{6}$/);
-var buf = new Array(13);
-
-if(getCheck.test($("#id").val())){
-  $('.idalter').css('color', 'rgb(245 7 7)');
-$('#id').css('border', '1px solid rgb(245 7 7)');
-$(".idalter").text("아이디는 숫자포함 10자리까지 가능합니다!");
-$(this).val($(this).val().substring(0, 10));
-$("#id").focus();
-
-return;
-}else if(getMail.test($("#id").val())){
-  $('.idalter').css('color', 'rgb(245 7 7)');
-$(".idalter").text("이메일을 입력했습니다!");
-$("#id").val("");
-$("#id").focus();
-
-return;
-}
-
-
-
-});
-
-
-
-
-
-
-$('.OverlapCheck').click(function(){
-  $('#id').css('border', '1px solid #ff914d');
-  $('.idalter').css('color', '#ff914d');
-  $(".idalter").text("사용가능한 아이디 입니다!");
-}); 
-
-$('#finish').click(function(){
-
-  if($('.namecheck').val() === ''){
-    alert("이름을 입력하세요!");
-    return;
-  }
-
-  if($('#oioioio111').val() === ''){
-    alert("비밀번호를 입력하세요!");
-    return;
-  }
-
-  if(!check == false){
-    alert("전체동의를 클릭하세요!");
-    return;
-  }
-
-  alert("가입확인 완료!");
-  }); 
 </script>
 </html>
