@@ -1,5 +1,4 @@
 package com.meommi.app.user;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -8,7 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import com.meommi.app.Result;
+=======
+import com.meommi.app.Result;;
+>>>>>>> origin/master
 
 public class UserFrontController extends HttpServlet {
 	@Override

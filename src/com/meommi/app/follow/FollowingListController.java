@@ -1,4 +1,4 @@
-package com.meommi.app.user;
+package com.meommi.app.follow;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
 
-public class JoinController implements Execute {
+public class FollowingListController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
