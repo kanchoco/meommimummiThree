@@ -4,7 +4,8 @@ public class ReviewFileVO {
 
 	private int reviewFileNumber;
 	private int reviewFilePostNumber;
-	private String reviewFileName;
+	private String reviewFileSystemName;
+	private String reviewFileOriginName;
 	private String reviewFilePath;
 	
 	public ReviewFileVO() {;}
@@ -25,12 +26,20 @@ public class ReviewFileVO {
 		this.reviewFilePostNumber = reviewFilePostNumber;
 	}
 
-	public String getReviewFileName() {
-		return reviewFileName;
+	public String getReviewFileSystemName() {
+		return reviewFileSystemName;
 	}
 
-	public void setReviewFileName(String reviewFileName) {
-		this.reviewFileName = reviewFileName;
+	public void setReviewFileSystemName(String reviewFileSystemName) {
+		this.reviewFileSystemName = reviewFileSystemName;
+	}
+
+	public String getReviewFileOriginName() {
+		return reviewFileOriginName;
+	}
+
+	public void setReviewFileOriginName(String reviewFileOriginName) {
+		this.reviewFileOriginName = reviewFileOriginName;
 	}
 
 	public String getReviewFilePath() {
@@ -44,8 +53,11 @@ public class ReviewFileVO {
 	@Override
 	public String toString() {
 		return "ReviewFileVO [reviewFileNumber=" + reviewFileNumber + ", reviewFilePostNumber=" + reviewFilePostNumber
-				+ ", reviewFileName=" + reviewFileName + ", reviewFilePath=" + reviewFilePath + "]";
+				+ ", reviewFileSystemName=" + reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName
+				+ ", reviewFilePath=" + reviewFilePath + "]";
 	}
+
+	
 	
 	
 	

@@ -3,7 +3,7 @@ package com.meommi.app.post.vo;
 public class PostVO {
 
 	private int postNumber; 
-	private int postWriterNumber;
+	private int postWriterNickname;
 	private String postContents;
 	private String postTime;
 	private int postLikeNumber;
@@ -18,12 +18,12 @@ public class PostVO {
 		this.postNumber = postNumber;
 	}
 
-	public int getPostWriterNumber() {
-		return postWriterNumber;
+	public int getPostWriterNickname() {
+		return postWriterNickname;
 	}
 
-	public void setPostWriterNumber(int postWriterNumber) {
-		this.postWriterNumber = postWriterNumber;
+	public void setPostWriterNickname(int postWriterNickname) {
+		this.postWriterNickname = postWriterNickname;
 	}
 
 	public String getPostContents() {
@@ -52,7 +52,7 @@ public class PostVO {
 
 	@Override
 	public String toString() {
-		return "PostVO [postNumber=" + postNumber + ", postWriterNumber=" + postWriterNumber + ", postContents="
+		return "PostVO [postNumber=" + postNumber + ", postWriterNumber=" + postWriterNickname + ", postContents="
 				+ postContents + ", postTime=" + postTime + ", postLikeNumber=" + postLikeNumber + "]";
 	}
 

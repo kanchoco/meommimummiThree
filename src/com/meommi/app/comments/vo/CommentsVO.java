@@ -3,7 +3,7 @@ package com.meommi.app.comments.vo;
 public class CommentsVO {
 
 	private int commentsNumber;
-	private String commentsWriter;
+	private String commentsWriterNickName;
 	private int commentsPostNumber;
 	private String commentsTime;
 	private String commentsContents;
@@ -18,12 +18,12 @@ public class CommentsVO {
 		this.commentsNumber = commentsNumber;
 	}
 
-	public String getCommentsWriter() {
-		return commentsWriter;
+	public String getCommentsWriterNickName() {
+		return commentsWriterNickName;
 	}
 
-	public void setCommentsWriter(String commentsWriter) {
-		this.commentsWriter = commentsWriter;
+	public void setCommentsWriter(String commentsWriterNickName) {
+		this.commentsWriterNickName = commentsWriterNickName;
 	}
 
 	public int getCommentsPostNumber() {
@@ -52,7 +52,7 @@ public class CommentsVO {
 
 	@Override
 	public String toString() {
-		return "CommentsVO [commentsNumber=" + commentsNumber + ", commentsWriter=" + commentsWriter
+		return "CommentsVO [commentsNumber=" + commentsNumber + ", commentsWriter=" + commentsWriterNickName
 				+ ", commentsPostNumber=" + commentsPostNumber + ", commentsTime=" + commentsTime
 				+ ", commentsContents=" + commentsContents + "]";
 	}

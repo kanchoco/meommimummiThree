@@ -5,6 +5,7 @@ public class PostFileVO {
 	private int postFileNumber;
 	private int postFilePostNumber;
 	private String postFileName;
+	private String postFileOriginName;
 	private String postFilePath;
 	
 	public PostFileVO() {;}
@@ -33,6 +34,14 @@ public class PostFileVO {
 		this.postFileName = postFileName;
 	}
 
+	public String getPostFileOriginName() {
+		return postFileOriginName;
+	}
+
+	public void setPostFileOriginName(String postFileOriginName) {
+		this.postFileOriginName = postFileOriginName;
+	}
+
 	public String getPostFilePath() {
 		return postFilePath;
 	}
@@ -44,8 +53,10 @@ public class PostFileVO {
 	@Override
 	public String toString() {
 		return "PostFileVO [postFileNumber=" + postFileNumber + ", postFilePostNumber=" + postFilePostNumber
-				+ ", postFileName=" + postFileName + ", postFilePath=" + postFilePath + "]";
+				+ ", postFileName=" + postFileName + ", postFileOriginName=" + postFileOriginName + ", postFilePath="
+				+ postFilePath + "]";
 	}
+
 	
 	
 	

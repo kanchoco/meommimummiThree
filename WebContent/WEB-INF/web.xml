@@ -10,14 +10,64 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-     <servlet-name>CommunitsFrontController</servlet-name>
-     <servlet-class>com.meommi.app.community.CommunitsFrontController</servlet-class>
+   <servlet>
+     <servlet-name>AbandonedAnimalsFrontController</servlet-name>
+     <servlet-class>com.meommi.app.abandonedanimals.AbandonedAnimalsFrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-     <servlet-name>CommunitsFrontController</servlet-name>
+     <servlet-name>AbandonedAnimalsFrontController</servlet-name>
+     <url-pattern>*.ab</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>CommentsFrontController</servlet-name>
+     <servlet-class>com.meommi.app.comments.CommentsFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>CommentsFrontController</servlet-name>
      <url-pattern>*.co</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>FavoritePlaceFrontController</servlet-name>
+     <servlet-class>com.meommi.app.favoritePlace.FavoritePlaceFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>FavoritePlaceFrontController</servlet-name>
+     <url-pattern>*.fa</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>FeedSearchFrontController</servlet-name>
+     <servlet-class>com.meommi.app.feedsearch.FeedSearchFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>FeedSearchFrontController</servlet-name>
+     <url-pattern>*.fe</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>FollowFrontController</servlet-name>
+     <servlet-class>com.meommi.app.follow.FollowFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>FollowFrontController</servlet-name>
+     <url-pattern>*.fo</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+     <servlet-name>FuneralFrontController</servlet-name>
+     <servlet-class>com.meommi.app.funeral.FuneralFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>FuneralFrontController</servlet-name>
+     <url-pattern>*.fu</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -30,14 +80,44 @@
      <url-pattern>*.ma</url-pattern>
   </servlet-mapping>
   
+    <servlet-mapping>
+     <servlet-name>PlaceReviewFrontController</servlet-name>
+     <url-pattern>*.pl</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>PlaceReviewFrontController</servlet-name>
+     <servlet-class>com.meommi.app.placeReview.PlaceReviewFrontController</servlet-class>
+  </servlet>
+  
     <servlet>
-     <servlet-name>ServiceFrontController</servlet-name>
-     <servlet-class>com.meommi.app.service.ServiceFrontController</servlet-class>
+     <servlet-name>PostFrontController</servlet-name>
+     <servlet-class>com.meommi.app.post.PostFrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-     <servlet-name>ServiceFrontController</servlet-name>
-     <url-pattern>*.se</url-pattern>
+     <servlet-name>PostFrontController</servlet-name>
+     <url-pattern>*.po</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+     <servlet-name>PostFileFrontController</servlet-name>
+     <servlet-class>com.meommi.app.postFile.PostFileFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>PostFileFrontController</servlet-name>
+     <url-pattern>*.pf</url-pattern>
+  </servlet-mapping>
+  
+        <servlet>
+     <servlet-name>ReviewFileFrontController</servlet-name>
+     <servlet-class>com.meommi.app.reviewFile.ReviewFileFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>ReviewFileFrontController</servlet-name>
+     <url-pattern>*.re</url-pattern>
   </servlet-mapping>
   
       <servlet>
