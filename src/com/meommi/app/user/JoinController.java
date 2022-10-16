@@ -16,5 +16,4 @@ public class JoinController implements Execute {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

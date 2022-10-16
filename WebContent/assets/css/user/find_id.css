@@ -8,6 +8,15 @@ body {
 }
 
 
+.idCheckBody {
+	margin: 10px auto;
+    border-top: 1px solid transparent;
+    padding-top: 24px;
+    padding-bottom: 160px;
+    width: 100%;
+    max-width: 400px;
+}
+
 .page-header h2 {
     display: block;
     padding-top: 56px;
@@ -193,12 +202,67 @@ input{
     text-decoration: none; */
 }
 
-.helper_error{
-    display: none;
-    color: #f25555;
-    line-height: 18px;
-    font-size: 13px;
-    font-weight: 400;
-    margin-top: 4px;
-    font-style: normal;
+
+#btnIsJoinedEmail{
+    font-family: 'Noto Sans KR', sans-serif;
+    display: block;
+    margin: 16px 0 0;
+    font-size: 16px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-color:rgb(252 191 154);
+    border-radius: 3px;
+    background-color:rgb(252 191 154);
+    color: #fff;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    padding-top: 0.07em;
+    text-decoration: none;
+}
+
+.checkBtn {
+	font-family: 'Noto Sans KR', sans-serif;
+    display: block;
+    margin: 16px 0 0;
+    font-size: 16px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-color:rgb(252 191 154);
+    border-radius: 3px;
+    background-color:rgb(252 191 154);
+    color: #fff;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    padding-top: 0.07em;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.checkBtn:hover, .againBtn:hover{
+	background-color: rgb(231 166 126);
+}
+
+.againBtn:hover {
+	background-color: #f5f3f3;
+}
+
+.againBtn {
+	font-family: 'Noto Sans KR', sans-serif;
+    display: block;
+    margin: 16px 0 0;
+    font-size: 16px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-color:rgb(252 191 154);
+    border-radius: 3px;
+    background-color:white;
+    color: black;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    padding-top: 0.07em;
+    text-decoration: none;
+    cursor:pointer;
 }

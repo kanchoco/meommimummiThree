@@ -28,4 +28,9 @@ public class UserDAO {
 	   public int login(UserVO userVO) {
 		   return sqlSession.selectOne("User.login", userVO);
 	   }
+	   
+//	   비밀번호 변경
+	   public void update(String userId) {
+		   sqlSession.update("User.update", userId);
+	   }
 }

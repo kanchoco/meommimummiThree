@@ -21,4 +21,11 @@
 		where user_id=#{userId} and user_password=#{userPassword}
 	</select>
 	
+	<!-- 비밀번호 변경 -->
+	<update id="update" parameterType="userVO">
+		update tbl_user
+		set user_password=#{userPassword}
+		WHERE user_id=#{userId};
+	</update>
+	
 </mapper>

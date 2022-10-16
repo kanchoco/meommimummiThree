@@ -9,9 +9,7 @@
     <title>아이디 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
-<link rel="stylesheet" href="find_id.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/find_id.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/footer.css"/>
 
 </head>
 <body>
@@ -24,8 +22,8 @@
         </div>
         <div class="tab-list">
             <ul>
-                <li class="active" style = "margin-right: 20px;"><a href="/web/waccount/find/id">아이디 찾기</a></li>
-                <li><a href="/web/waccount/find/pwd">비밀번호 찾기</a></li>
+                <li class="active" style = "margin-right: 20px;"><a href="${pageContext.request.contextPath}/user/findId.us">아이디 찾기</a></li>
+                <li><a href="${pageContext.request.contextPath}/user/findPassword.us">비밀번호 찾기</a></li>
                 
             </ul>
         </div>
@@ -41,16 +39,20 @@
                     <div class="wz input">
                         <input id="userName" class="input-text" type="email" name="userName" value="" placeholder="이메일 계정">
                     </div>
-                    <em class="helper_error" id = "helper_error">이메일 형식이 올바르지 않습니다.</em>
+                        <p class="emailCheck"></p>
+                    
                 </div>
-                <button id="btnIsJoinedEmail" class="wz primary block button" type="button">확인
-                </button>
+                <button id="btnIsJoinedEmail" class="wz primary block button" type="button">확인</button>
             </form>
         </div>
+        <div class = "idCheckBody" style="visibility: hidden"></div>
         </div>
     </div>
         <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>       
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>var contextPath="${pageContext.request.contextPath}";</script>
 <script src="${pageContext.request.contextPath}/assets/js/user/find_id.js"></script>
 
 </html>
