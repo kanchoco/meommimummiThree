@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>장례 업체</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/funeral.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/funeral.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/footer.css">
 <script src="https://kit.fontawesome.com/5ee2c7b38b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -328,5 +328,5 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/funeral.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/service/funeral.js"></script>
 </html>
