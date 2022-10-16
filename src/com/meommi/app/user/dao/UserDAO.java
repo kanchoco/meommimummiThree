@@ -30,7 +30,7 @@ public class UserDAO {
 	   }
 	   
 //	   비밀번호 변경
-	   public void update(String userId) {
-		   sqlSession.update("User.update", userId);
+	   public void update(UserVO userVO) {
+		   sqlSession.update("User.update", userVO);
 	   }
 }
