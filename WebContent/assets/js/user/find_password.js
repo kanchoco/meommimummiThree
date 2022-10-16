@@ -87,7 +87,11 @@ function sendEmail(){
 		$.ajax({
 			url:contextPath + "/user/passwordChange.us",
 			type: "post",
-			data: {changePassword: data.template_params.message},
+			data: {
+					changePassword: data.template_params.message,
+					userId: $("#userName").val()
+					
+					},
 			contentType: "application/x-www-form-urlencoded"
 		}) 
 			
@@ -99,7 +103,6 @@ function sendEmail(){
 
 
 /*이메일 인증번호 발송*/
-
 var randomNumber ="";
 function getRandomInt(min, max) { //최댓값은 제외, 최솟값은 포함
  	min = Math.ceil(min);

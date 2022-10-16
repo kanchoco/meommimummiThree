@@ -17,19 +17,18 @@ public class passwordChangeController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String changePassword = req.getParameter("changePassword");
+		String userId = req.getParameter("userId");
+		
 		UserDAO userDAO = new UserDAO();
 		UserVO userVO = new UserVO();
 		
-		System.out.println(changePassword);
-		
 //		암호화
 		changePassword = new String(Base64.getEncoder().encode(changePassword.getBytes()));
-		System.out.println(changePassword);
 		
-		userVO.setUserId();
+		userVO.setUserId(userId);
 		userVO.setUserPassword(changePassword);
 		
-		userDAO.update(changePassword);
+		userDAO.update(userVO);
 		return null;
 	}
 }

@@ -1210,7 +1210,7 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>var contextPath="${pageContext.request.contextPath}";</script>
-<script src="${pageContext.request.contextPath}/assets/js/join.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/join.js"></script>
 
 </script>
 </html>

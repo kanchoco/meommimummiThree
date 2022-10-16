@@ -159,6 +159,6 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/login.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/login.js"></script>
 
 </html>
