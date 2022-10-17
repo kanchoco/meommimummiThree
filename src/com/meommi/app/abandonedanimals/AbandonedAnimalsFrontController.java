@@ -27,7 +27,7 @@ public class AbandonedAnimalsFrontController extends HttpServlet {
 		      String request = requestURI.substring(contextPath.length());
 		      Result result = null;
 		   
-		   if(request.equals("/meommi/User.us")) {
+		   if(request.equals("/meommi/AbandonedAnimals.ab")) {
 		       
 		      }
 		      

@@ -27,7 +27,7 @@ public class MainFrontController extends HttpServlet {
 		String request = requestURI.substring(contextPath.length());
 		Result result = null;
 
-		if (request.equals("/meommi/Main.co")) {
+		if (request.equals("/meommi/Main.ma")) {
 
 		}
 
