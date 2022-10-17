@@ -1,6 +1,6 @@
 package com.meommi.app.funeral.vo;
 
-public class FureralVO {
+public class FuneralVO {
 
 	private int fureralNumber;
 	private String fureralName;
@@ -9,7 +9,7 @@ public class FureralVO {
 	private String fureralContent;
 	private String fureralUrl;
 	
-	public FureralVO() {;}
+	public FuneralVO() {;}
 
 	public int getFureralNumber() {
 		return fureralNumber;

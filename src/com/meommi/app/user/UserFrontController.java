@@ -47,9 +47,10 @@ public class UserFrontController extends HttpServlet {
 			result = new Result();
 			result.setPath("/app/user/find_password.jsp");
 		} else if (request.equals("/user/passwordChange.us")) {
-			
 //		       aJax기 때문에 화면 이동 없이 진행하며, result에 값을 넣을 필요가 없다.
 			new passwordChangeController().execute(req, resp);
+		} else if(request.equals("/user/loginKakao.us")) {
+			result = new KakaoLoginController().execute(req,resp);
 		}
 
 
