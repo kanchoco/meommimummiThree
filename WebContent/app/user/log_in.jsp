@@ -99,21 +99,25 @@
                     <div id="iam-account-app">
                         <div>
                             <div>
-                            <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_kakaoButton__2lTDs SNSButtonList_spacer__38ac5" type="button" style="background-color: #FEE500;">
-	                            <span>
-	                            	<span class="Button_children__VGHI5">
-	                            		<svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1YH1P SNSButtonList_kakaoIcon__1s6gw" aria-hidden="true" style="position: absolute;
-	                                                left: 16px;
-	                                                width: 22px;
-	                                                height: 22px
-	                                                ">
-	                                                <path d="M16 4.64c-6.96 0-12.64 4.48-12.64 10.08 0 3.52 2.32 6.64 5.76 8.48l-.96 4.96 5.44-3.6 2.4.16c6.96 0 12.64-4.48 12.64-10.08S22.96 4.56 16 4.64z"></path>
-	                                    </svg>카카오로 시작하기
-	                                </span>
-	                            </span>
-	                         </button>
-                                            
-                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" type="button">
+                            <form name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/user/loginKakao.us">
+	                            <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_kakaoButton__2lTDs SNSButtonList_spacer__38ac5" onclick="loginWithKakao()" type="button" style="background-color: #FEE500;">
+		                            <span>
+		                            	<span class="Button_children__VGHI5">
+		                            		<svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1YH1P SNSButtonList_kakaoIcon__1s6gw" aria-hidden="true" style="position: absolute;
+		                                                left: 16px;
+		                                                width: 22px;
+		                                                height: 22px
+		                                                ">
+		                                                <path d="M16 4.64c-6.96 0-12.64 4.48-12.64 10.08 0 3.52 2.32 6.64 5.76 8.48l-.96 4.96 5.44-3.6 2.4.16c6.96 0 12.64-4.48 12.64-10.08S22.96 4.56 16 4.64z"></path>
+		                                    </svg>카카오로 시작하기
+		                                </span>
+		                            </span>
+		                         </button>
+                             </form>
+                             
+                             
+                             
+                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="kakaoLogout()" type="button">
                              	<span>
                              		<span style="position: absolute; left: 16px; width: 22px; height: 22px;">
 										<span class="Button_children__VGHI5">
@@ -159,6 +163,9 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>var contextPath="${pageContext.request.contextPath}";</script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+<script src = "https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/user/login.js"></script>
 
 </html>
