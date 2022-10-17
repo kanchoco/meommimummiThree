@@ -1,6 +1,6 @@
 package com.meommi.app.favoritePlace.vo;
 
-public class FavoriteVO {
+public class FavoritePlaceVO {
 	private String favoritePlacePlaceId;
 	private String favoriteUserNumber;
 	private String favoritePlaceAdrAddress;
@@ -10,7 +10,7 @@ public class FavoriteVO {
 	private String favoritePlacePhotos;
 	private String favoritePlaceOpening;
 	
-	public FavoriteVO() {;}
+	public FavoritePlaceVO() {;}
 
 	public String getFavoritePlacePlaceId() {
 		return favoritePlacePlaceId;

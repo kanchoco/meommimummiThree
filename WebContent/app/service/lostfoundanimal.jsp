@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>유기동물 찾기</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/lostfoundanimal.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/service/lostfoundanimal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/footer.css">
 <script src="https://kit.fontawesome.com/5ee2c7b38b.js" crossorigin="anonymous"></script>
 </head>
 <body>

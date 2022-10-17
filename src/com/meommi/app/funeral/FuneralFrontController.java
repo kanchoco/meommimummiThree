@@ -2,11 +2,13 @@ package com.meommi.app.funeral;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import com.meommi.app.Result;
 
@@ -27,8 +29,8 @@ public class FuneralFrontController extends HttpServlet {
 		      String request = requestURI.substring(contextPath.length());
 		      Result result = null;
 		   
-		   if(request.equals("/meommi/Funeral.fu")) {
-		       
+		   if(request.equals("/funeral.fu")) {
+			   new FuneralListController().execute(req, resp);
 		      }
 		      
 		      if(result != null) {
@@ -40,4 +42,9 @@ public class FuneralFrontController extends HttpServlet {
 		         }
 		      }
 		   }
+
+	private void FuneralListController() {
+		// TODO Auto-generated method stub
+		
+	}
 }
