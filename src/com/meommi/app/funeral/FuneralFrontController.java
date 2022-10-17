@@ -27,7 +27,7 @@ public class FuneralFrontController extends HttpServlet {
 		      String request = requestURI.substring(contextPath.length());
 		      Result result = null;
 		   
-		   if(request.equals("/meommi/CommunitsOk.co")) {
+		   if(request.equals("/meommi/Funeral.fu")) {
 		       
 		      }
 		      
