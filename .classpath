@@ -17,5 +17,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/gb_0900_lhy/jsp/resource/jakarta-taglibs-standard-1.1.2/lib/standard.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/gb_0900_lhy/jsp/resource/java-sdk v2.2/lib/json-simple-1.1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/gb_0900_lhy/jsp/resource/mybatis-3.5.10/mybatis-3.5.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/gb_0900_lhy/jsp/resource/org.json.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
