@@ -9,8 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
-=======
   
    <servlet>
      <servlet-name>AbandonedAnimalsFrontController</servlet-name>
@@ -132,6 +130,4 @@
      <url-pattern>*.us</url-pattern>
   </servlet-mapping>
   
-  
->>>>>>> 69e99ba2b96af9d4e021068c7c4c48628653366b
 </web-app>
