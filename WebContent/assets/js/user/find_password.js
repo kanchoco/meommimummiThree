@@ -63,7 +63,7 @@ function checkId(inputId){
 
 
 
-/*이메일 보내기*/
+/*이메일 보내기*/5
 function sendEmail(){
 	
 	var data = {

@@ -130,5 +130,4 @@
      <url-pattern>*.us</url-pattern>
   </servlet-mapping>
   
-  
 </web-app>

@@ -11,7 +11,7 @@
     <title>커뮤니티</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community/community.css">
 </head>
 
 <body>
@@ -26,14 +26,14 @@
 								<button>전체</button>
 							</div>
 							<div class="tab-button">
-								<button>팔로잉서포터</button>
+								<button>내팔로워</button>
 							</div>
 							<div class="tab-button">
-								<button>팔로잉메이커</button>
+								<button>내팔로잉</button>
 							</div>
-							<div class="tab-button">
+							<!-- <div class="tab-button">
 								<button>찐팬PICK</button>
-							</div>
+							</div> -->
 						</div>
 
 						<div id="friends-container">
@@ -900,7 +900,7 @@
                                     <path
 										d="M1.6 5.6v20.8h28.8V5.6zm26.88 1.6L16 17.84 3.52 7.2zm.32 17.6H3.2V9.04L16 19.92 28.8 9.04z">
                                     </path>
-                                </svg>info@wadiz.kr</span>
+                                </svg>admin@admin.co.kr</span>
 						</p>
 						<p class="ReportInfoModal_message__1B5M3">이 계정을 신고하는 이유를 이메일로
 							보내주세요.</p>
@@ -912,7 +912,7 @@
 						<ol>
 							<li><span>1. 신고인 아이디 <var>(필수)</var></span></li>
 							<li><span>2. 게시물 작성자 아이디 <var>(필수)</var></span></li>
-							<li><span>3. 프로젝트 이름 또는 URL <var>(필수)</var></span></li>
+							<li><span>3. 제목 또는 URL <var>(필수)</var></span></li>
 						</ol>
 						<p class="ReportInfoModal_message__1B5M3">※신고인의 정보 및 신고 내용은
 							안전하게 보호되며 외부에 제공되지 않습니다.</p>
@@ -945,6 +945,23 @@
 <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/community.js"></script>
-
+<script src="${pageContext.request.contextPath}/assets/js/community/community.js"></script>
+<script>
+$.ajax({
+	url:"${pageContext.request.contextPath}/meommi/PostlistOk.po",
+	type:"get",
+	contentType:"text/html; charset=utf-8",
+	success:function(resultpost){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/meommi/CommentlistOk.co",
+			type:"get",
+			contentType:"text/html; charset=utf-8",
+			success:function(resultcomment){
+				console.log(resultpost);
+				console.log(resultcomment);
+			}
+		});
+	}
+});
+</script>
 </html>
