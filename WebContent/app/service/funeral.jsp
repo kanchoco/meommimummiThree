@@ -69,9 +69,8 @@
                                 <div class="ProjectListHead_children__2Y7-F"></div>
                             </div>
                         </div>
-                        <div class="ProjectCardList_container__3Y14k" >
+                        <div class="ProjectCardList_container__3Y14k" id="funeralList">
                             <div class="ProjectCardList_list__1YBa2">
-                            <div id="funeralList">
                                 <div class="ProjectCardList_item__1owJa">
                                     <div>
                                         <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
@@ -294,7 +293,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
+                                
                                 <!-- 3개씩 반복 -->
                             </div>
                             <!-- page number추가 -->
@@ -338,49 +337,9 @@ function show(){
 		dataType: "json",
 		success: function(funerals){
 			console.log("들어옴!");
-			let text = "";
-			text += `<div class ="ProjectCardList_list__1YBa2">`;
+	
 			funerals.forEach(funeral => {
-				text += `<div class="ProjectCardList_item__1owJa">`
-				text += `<div>`
-				text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-				text += `<a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">`
-				text += `<div class="CommonCard_rect__2wpm4">`
-				text += `<span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>`
-				text += `</div>`
-				text += `</a>`
-				text += `<div class="CommonCard_info__1f4kq">`
-				text += `<div class="RewardProjectCard_info__3JFub">`
-				text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-				text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
-				text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
-				text += `<strong>장례업체ㅣ</strong><strong>` + funeral.funeralName + `</strong>`
-				text += `</p>`
-				text += `</a>`
-				text += `<div>`
-				text += `<span class="RewardProjectCard_category__2muXk">주소</span>`
-				text += `<span class="RewardProjectCard_makerName__2q4oH">` + funeral.funeralAddress + `</span>`
-				text += `</div>`
-				text += `<div class="RewardProjectCard_gauge__3p9US">`
-				text += `<span style="width:100%;"></span>`
-				text += `</div>`
-				text += `<span class="RewardProjectCard_percent__3TW4_">건당</span>`
-				text += `<span class="RewardProjectCard_amount__2AyJF">300,000원</span>`
-				text += `<span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">`
-				text += `<span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>`
-				text += `<span class="RewardProjectCard_isAchieve__1LcUu">`
-				text += `<em>가능</em>`
-				text += `</span>`
-				text += `</span>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-			});
-			text += `</div>`;
-			
-			$("#funeralList").html(text);
+
 		}
 	});	
 }
