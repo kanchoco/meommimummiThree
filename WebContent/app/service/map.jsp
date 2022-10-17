@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>지도 검색</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mapMedia.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/map.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/service/mapMedia.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/service/map.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -1843,9 +1843,9 @@
                         <button class="btn-map ng-binding" ng-click="change_map_mode()">지도 작게</button>
                     </div>
 
-                    <div class="myLocationMap">
-                        <div class="myLocation">
-                            <button class="myLocationTitle">현재 내 위치</button>
+                    <div id="map-wrap">
+                        <div id="map">
+                           <!--  <button class="myLocationTitle">현재 내 위치</button> -->
                         </div>
                     </div>
 
@@ -1886,7 +1886,7 @@
                                     <div class="reviewScore">
                                         <div class="leftReviewScore">
                                             <span class="starIcon">
-                                                <svg fill="#35C5F0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 24 24">
                                                     <defs>
                                                         <path id="star-path-0"
@@ -1899,7 +1899,7 @@
                                                     <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
                                                     <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
                                                 </svg>
-                                                <svg fill="#35C5F0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 24 24">
                                                     <defs>
                                                         <path id="star-path-0"
@@ -1912,7 +1912,7 @@
                                                     <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
                                                     <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
                                                 </svg>
-                                                <svg fill="#35C5F0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 24 24">
                                                     <defs>
                                                         <path id="star-path-0"
@@ -1925,7 +1925,7 @@
                                                     <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
                                                     <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
                                                 </svg>
-                                                <svg fill="#35C5F0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 24 24">
                                                     <defs>
                                                         <path id="star-path-0"
@@ -1938,7 +1938,7 @@
                                                     <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
                                                     <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
                                                 </svg>
-                                                <svg fill="#35C5F0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 24 24">
                                                     <defs>
                                                         <path id="star-path-0"
@@ -2062,7 +2062,7 @@
                                                                         <button type="button" class="css-3t2wtg e11jpdq01">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2079,7 +2079,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2096,7 +2096,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2113,7 +2113,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2130,7 +2130,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2160,7 +2160,7 @@
                                                                         <button type="button" class="css-3t2wtg e11jpdq01">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2177,7 +2177,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2194,7 +2194,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2211,7 +2211,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2228,7 +2228,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2259,7 +2259,7 @@
                                                                         <button type="button" class="css-3t2wtg e11jpdq01">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2276,7 +2276,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2293,7 +2293,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2310,7 +2310,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2327,7 +2327,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)"
                                                                                             xlink:href="#star-path-2702"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2357,7 +2357,7 @@
                                                                         <button type="button" class="css-3t2wtg e11jpdq01">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2374,7 +2374,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2391,7 +2391,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2408,7 +2408,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)"
                                                                                             xlink:href="#star-path-2702"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2425,7 +2425,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)"
                                                                                             xlink:href="#star-path-2702"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2456,7 +2456,7 @@
                                                                         <button type="button" class="css-3t2wtg e11jpdq01">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2473,7 +2473,7 @@
                                                                                         <use clip-path="url(#star-clip-140)"
                                                                                             xlink:href="#star-path-140"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2490,7 +2490,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)"
                                                                                             xlink:href="#star-path-2702"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2507,7 +2507,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)"
                                                                                             xlink:href="#star-path-2702"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2524,7 +2524,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)"
                                                                                             xlink:href="#star-path-2702"></use>
                                                                                     </svg>
-                                                                                    <svg fill="#35C5F0" width="1em" height="1em"
+                                                                                    <svg fill="#FF914D" width="1em" height="1em"
                                                                                         preserveAspectRatio="xMidYMid meet"
                                                                                         viewBox="0 0 24 24">
                                                                                         <defs>
@@ -2582,7 +2582,7 @@
                                                     <div class="reviewWriterInfoBottomWrap">
                                                         <div class="reviewWriterInfoStarWrap" type="button">
                                                             <span class="reviewWriterInfoTotalStar">
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2596,7 +2596,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2610,7 +2610,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2624,7 +2624,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2638,7 +2638,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2694,7 +2694,7 @@
                                                     <div class="reviewWriterInfoBottomWrap">
                                                         <div class="reviewWriterInfoStarWrap" type="button">
                                                             <span class="reviewWriterInfoTotalStar">
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2708,7 +2708,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2722,7 +2722,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2736,7 +2736,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2750,118 +2750,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
-                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                                    <defs>
-                                                                        <path id="star-path-140"
-                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
-                                                                        </path>
-                                                                        <clipPath id="star-clip-140">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
-                                                                    <use clip-path="url(#star-clip-140)"
-                                                                        xlink:href="#star-path-140"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <span class="reviewWriterInfoDate">
-                                                            2022.09.29
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="reviewItemImage">
-                                                <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=144&h=144&c=c&webp=1"
-                                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=240&h=240&c=c&webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=320&h=320&c=c&webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=480&h=480&c=c&webp=1 3x"
-                                                    class="reviewItemImageBtn">
-                                            </button>
-                                            <p class="reviewComment">
-                                                아직 안써봤지만 그래도 좋을것같아서 기대됩니다!
-                                            </p>
-                                            <div class="reviewCommentGood">
-                                                <button type="button" class="reviewCommentGoodBtn">
-                                                    <div class="reviewCommentGoodBtnTxt">
-                                                        도움이 돼요
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>
-
-
-                                <div class="reviewList">
-                                    <div class="reviewItemContainer">
-                                        <article class="reviewItem">
-                                            <div class="reviewWriter">
-                                                <a href="">
-                                                    <img src="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-users-profile_images1586186036_567578.jpeg/80/80"
-                                                        class="writerImage">
-                                                </a>
-                                                <div class="reviewWriterInfo">
-                                                    <p class="writerInfoId">choreania</p>
-                                                    <div class="reviewWriterInfoBottomWrap">
-                                                        <div class="reviewWriterInfoStarWrap" type="button">
-                                                            <span class="reviewWriterInfoTotalStar">
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
-                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                                    <defs>
-                                                                        <path id="star-path-140"
-                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
-                                                                        </path>
-                                                                        <clipPath id="star-clip-140">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
-                                                                    <use clip-path="url(#star-clip-140)"
-                                                                        xlink:href="#star-path-140"></use>
-                                                                </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
-                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                                    <defs>
-                                                                        <path id="star-path-140"
-                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
-                                                                        </path>
-                                                                        <clipPath id="star-clip-140">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
-                                                                    <use clip-path="url(#star-clip-140)"
-                                                                        xlink:href="#star-path-140"></use>
-                                                                </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
-                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                                    <defs>
-                                                                        <path id="star-path-140"
-                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
-                                                                        </path>
-                                                                        <clipPath id="star-clip-140">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
-                                                                    <use clip-path="url(#star-clip-140)"
-                                                                        xlink:href="#star-path-140"></use>
-                                                                </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
-                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                                    <defs>
-                                                                        <path id="star-path-140"
-                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
-                                                                        </path>
-                                                                        <clipPath id="star-clip-140">
-                                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
-                                                                    <use clip-path="url(#star-clip-140)"
-                                                                        xlink:href="#star-path-140"></use>
-                                                                </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2916,7 +2805,7 @@
                                                     <div class="reviewWriterInfoBottomWrap">
                                                         <div class="reviewWriterInfoStarWrap" type="button">
                                                             <span class="reviewWriterInfoTotalStar">
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2930,7 +2819,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2944,7 +2833,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2958,7 +2847,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -2972,7 +2861,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -3027,7 +2916,7 @@
                                                     <div class="reviewWriterInfoBottomWrap">
                                                         <div class="reviewWriterInfoStarWrap" type="button">
                                                             <span class="reviewWriterInfoTotalStar">
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -3041,7 +2930,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -3055,7 +2944,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -3069,7 +2958,7 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -3083,7 +2972,118 @@
                                                                     <use clip-path="url(#star-clip-140)"
                                                                         xlink:href="#star-path-140"></use>
                                                                 </svg>
-                                                                <svg fill="#35C5F0" width="1em" height="1em"
+                                                                <svg fill="#FF914D" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                                                    <defs>
+                                                                        <path id="star-path-140"
+                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
+                                                                        </path>
+                                                                        <clipPath id="star-clip-140">
+                                                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
+                                                                    <use clip-path="url(#star-clip-140)"
+                                                                        xlink:href="#star-path-140"></use>
+                                                                </svg>
+                                                            </span>
+                                                        </div>
+                                                        <span class="reviewWriterInfoDate">
+                                                            2022.09.29
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="reviewItemImage">
+                                                <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=144&h=144&c=c&webp=1"
+                                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=240&h=240&c=c&webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=320&h=320&c=c&webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=480&h=480&c=c&webp=1 3x"
+                                                    class="reviewItemImageBtn">
+                                            </button>
+                                            <p class="reviewComment">
+                                                아직 안써봤지만 그래도 좋을것같아서 기대됩니다!
+                                            </p>
+                                            <div class="reviewCommentGood">
+                                                <button type="button" class="reviewCommentGoodBtn">
+                                                    <div class="reviewCommentGoodBtnTxt">
+                                                        도움이 돼요
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+
+
+                                <div class="reviewList">
+                                    <div class="reviewItemContainer">
+                                        <article class="reviewItem">
+                                            <div class="reviewWriter">
+                                                <a href="">
+                                                    <img src="https://image.ohou.se/image/central_crop/bucketplace-v2-development/uploads-users-profile_images1586186036_567578.jpeg/80/80"
+                                                        class="writerImage">
+                                                </a>
+                                                <div class="reviewWriterInfo">
+                                                    <p class="writerInfoId">choreania</p>
+                                                    <div class="reviewWriterInfoBottomWrap">
+                                                        <div class="reviewWriterInfoStarWrap" type="button">
+                                                            <span class="reviewWriterInfoTotalStar">
+                                                                <svg fill="#FF914D" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                                                    <defs>
+                                                                        <path id="star-path-140"
+                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
+                                                                        </path>
+                                                                        <clipPath id="star-clip-140">
+                                                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
+                                                                    <use clip-path="url(#star-clip-140)"
+                                                                        xlink:href="#star-path-140"></use>
+                                                                </svg>
+                                                                <svg fill="#FF914D" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                                                    <defs>
+                                                                        <path id="star-path-140"
+                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
+                                                                        </path>
+                                                                        <clipPath id="star-clip-140">
+                                                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
+                                                                    <use clip-path="url(#star-clip-140)"
+                                                                        xlink:href="#star-path-140"></use>
+                                                                </svg>
+                                                                <svg fill="#FF914D" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                                                    <defs>
+                                                                        <path id="star-path-140"
+                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
+                                                                        </path>
+                                                                        <clipPath id="star-clip-140">
+                                                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
+                                                                    <use clip-path="url(#star-clip-140)"
+                                                                        xlink:href="#star-path-140"></use>
+                                                                </svg>
+                                                                <svg fill="#FF914D" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                                                    <defs>
+                                                                        <path id="star-path-140"
+                                                                            d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z">
+                                                                        </path>
+                                                                        <clipPath id="star-clip-140">
+                                                                            <rect x="0" y="0" width="24" height="24"></rect>
+                                                                        </clipPath>
+                                                                    </defs>
+                                                                    <use xlink:href="#star-path-140" fill="#DBDBDB"></use>
+                                                                    <use clip-path="url(#star-clip-140)"
+                                                                        xlink:href="#star-path-140"></use>
+                                                                </svg>
+                                                                <svg fill="#FF914D" width="1em" height="1em"
                                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                                                     <defs>
                                                                         <path id="star-path-140"
@@ -3267,5 +3267,72 @@
 <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/map.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/service/map.js"></script>
+ <script
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&callback=initMap"
+  ></script>
+</script>
+<!-- <script>
+/*지도 보여주기*/
+window.initMap = function () {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 37.5400456, lng: 126.9921017 },
+    zoom: 17,
+  });
+};
+</script> -->
+<script>
+let map, infoWindow;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 6,
+  });
+  infoWindow = new google.maps.InfoWindow();
+
+  const locationButton = document.createElement("button");
+
+  locationButton.textContent = "Pan to Current Location";
+  locationButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent("Location found.");
+          infoWindow.open(map);
+          map.setCenter(pos);
+        },
+        () => {
+          handleLocationError(true, infoWindow, map.getCenter());
+        }
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  });
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
+
+window.initMap = initMap;
+</script>
 </html>

@@ -70,7 +70,7 @@ main{
 .pg-search .search-results .search_info .title {
     line-height: 1.2em;
     text-align: left;
-    color: #ff792a;
+    color: #FF914D;
 }
 
 .pg-search .search-results .search_top_title_wrap .title {
@@ -125,7 +125,7 @@ main{
 }
 
 .search-filter .filter-item .region a.selected {
-    color: #ff792a;
+    color: #FF914D;
 }
 
 .search-filter .filter-item .region a {
@@ -341,8 +341,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 }
 
 .paging-container .paging a.selected {
-    color: #ff792a;
-    border: 2px solid #ff792a;
+    color: #FF914D;
+    border: 2px solid #FF914D;
 }
 
 .paging-container .paging a {
@@ -384,8 +384,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 }
 
 .search-filter .filter-item input[type=radio]:checked+label {
-    color: #ff792a;
-    border-color: #ff792a;
+    color: #FF914D;
+    border-color: #FF914D;
 }
 
 .search-filter .filter-item input[type=radio]+label {
@@ -408,7 +408,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
     right: 0;
     left: 0;
     height: 3px;
-    background-color: #ff792a;
+    background-color: #FF914D;
 }
 
 .pg-search.reverse .search-filter .cuisine_list_wrap {
@@ -484,8 +484,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 }
 
 .search-filter .filter-item input[type=checkbox]:checked+label{
-    color: #ff792a;
-    border-color: #ff792a;
+    color: #FF914D;
+    border-color: #FF914D;
 }
 
 .pg-search.reverse .search-filter .cuisine_list_wrap label {
@@ -506,7 +506,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 }
 
 .search-filter .filter-item .more-region>a:hover, .search-filter .filter-item .more-region>a.selected {
-    color: #ff792a;
+    color: #FF914D;
 }
 
 .search-filter .filter-item .more-region {
@@ -617,7 +617,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 .PaginationTypeNextPrev__Page {
     display: block;
     margin: 0 27px;
-    color: #ff792a;
+    color: #FF914D;
     font-size: 14px;
     font-weight: 400;
 }
@@ -639,7 +639,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
     margin-bottom: 17px;
     font-size: 18px;
     line-height: normal;
-    color: #ff792a;
+    color: #FF914D;
 }
 
 .TagContainer__List {
@@ -675,7 +675,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 
 .pg-search .module>.title {
     font-size: 1.125rem;
-    color: #ff792a;
+    color: #FF914D;
     line-height: 1.2em;
     text-align: left;
 }
@@ -770,7 +770,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 .searchForm{
     display: block;
     position: relative;
-    border: 0 0 1px solid #00c4c4;
+    border: 0 0 1px solid #FF914D;
     border-radius: 20px;
     height: 39px;
 }
@@ -778,7 +778,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 .searchInputFormContainer{
     display: block;
     position: relative;
-    border: 1px solid #00c4c4;
+    border: 1px solid #FF914D;
     border-radius: 20px;
     height: 40px;
 }
@@ -831,7 +831,7 @@ i.searchIcon {
 }
 
 .searchSection::placeholder{
-    color:#00c4c4;
+    color:#FF914D;
 }
 
 
@@ -917,12 +917,12 @@ i.searchIcon {
 }
 
 .production-review-feed__header-v2__stars__avg__container>.label_selected {
-    color: #35c5f0;
+    color: #FF914D;
     font-weight: 700;
 }
 
 .production-review-feed__header-v2__stars__avg__label {
-    color: #9e9e9e;
+    color: #FF914D;
     font-size: 12px;
     font-weight: 400;
     padding-top: 2px;
@@ -950,7 +950,7 @@ i.searchIcon {
     position: absolute;
     border-radius: 10px;
     display: inline-block;
-    background-color: #35c5f0;
+    background-color: #FF914D;
     height: 5px;
     top: 0;
     left: 0;
@@ -958,7 +958,7 @@ i.searchIcon {
 }
 
 .production-review-feed__header-v2__stars__avg__container>.label_selected {
-    color: #35c5f0;
+    color: #FF914D;
     font-weight: 700;
 }
 
@@ -1018,7 +1018,7 @@ i.searchIcon {
 }
 
 button.filterActive {
-    color: #35c5f0;
+    color: #FF914D;
 }
 
 .reviewSecond {
@@ -1220,16 +1220,16 @@ button.filterActive {
     width: 114px;
     height: 32px;
     border-radius: 4px;
-    border: 1px solid #35c5f0;
+    border: 1px solid #FF914D;
     font-size: 15px;
-    color: #35c5f0;
+    color: #FF914D;
     font-weight: 500;
     margin-right: 10px;
     background-color: #fff;
 }
 
 .reviewCommentGoodBtn.clicked{
-    background-color: #35c5f0;
+    background-color: #FF914D;
     color:#fff;
 }
 
@@ -1467,7 +1467,7 @@ label[for='attach'] div.attached{
 }
 
 .pageBtnNumber.clickNumber, .pageBtnNumberLeft.clickNumber{
-    background-color: #35c5f0;
+    background-color: #FF914D;
     color: #fff;
     text-decoration: none;
 }
@@ -1582,7 +1582,7 @@ label[for='attach'] div.attached{
     font-size: 15px;
     font-weight: 700;
     line-height: 19px;
-    color: #35c5f0;
+    color: #FF914D;
 }
 
 .starCountWrap:hover {
@@ -1667,7 +1667,7 @@ label[for='attach'] div.attached{
 
 .rating-input__star.suggested {
     padding-right: 6px;
-    color: #35c5f0;
+    color: #FF914D;
     font-size: 52px;
     line-height: 0;
     cursor: pointer;
@@ -1676,7 +1676,7 @@ label[for='attach'] div.attached{
 
 .rating-input__star.selected {
     padding-right: 6px;
-    color: #35c5f0;
+    color: #FF914D;
     font-size: 52px;
     line-height: 0;
     cursor: pointer;
@@ -1766,7 +1766,7 @@ label[for='attach'] {
 
 
 
-.myLocationMap {
+#map-wrap {
     float: left;
     position: fixed;
     right: 0px;
@@ -1775,7 +1775,7 @@ label[for='attach'] {
     width: 32%;
 }
 
-.myLocation{
+#map{
     height: 25rem;
     background-color: rgb(255, 236, 236);
     position: relative;
