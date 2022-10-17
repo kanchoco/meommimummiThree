@@ -1,6 +1,18 @@
 /**
  * 
- */var check = false;
+ */
+var check = false;
+let count = 1;
+var $pageNumber = $('.pageButton a');
+
+//게시글 불러옴
+myPost();
+
+//1페이지  current
+console.log($pageNumber.eq(0).attr('class'));
+$pageNumber.eq(0).attr('class', 'current');
+
+
 
 /* if($('.MymummSection_section').find('.MymummList_list').css('display') != 'none'){
     $('.page').css('display', '');
@@ -18,20 +30,128 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
     }
 });
 
+//게시글 불러오기
+ function postList(posts) {
+			let text = "";
+			let pageText ="";
+			let j =0;
+	   if(posts.length > 0){
+				text += `<ul>`;
+			posts.forEach(post => {
+				j++
+				console.log(j);
+				if(j < 7){
+					text += `<li>`;
+					text += `<a class="myPost" href="#">`;
+					text += `<div class="thumb" style="background-image: url('')"></div>`;
+					text += `<div class="info">`;
+					text += `<h3 class="title">[`+ post.postContents +`]</h3>`;
+					text += `<span class="liked">`;
+					text += `추천수`;
+					text += `<i>` + post.postLikeNumber + `</i>`;
+					text += `</span>`; 
+					text += `<span class="created-at">`+ post.postTime +`</span>`; 
+					text += `</div>`; 
+					text += `</a>`; 
+					text += `</li>`; 
+				}
+				else{
+					console.log( j + "페이지");
+					pageText += `<div class="pageButton">`;
+					for(let i  = post.startPage; i <= post.endPage; i++){
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
+					}
+					pageText+=`</div>`
+			//		pageText += `<div class="pageButton">`
+			//			pageText+= <c:forEach var="i" begin="`+ post.startPage +" end="+ post.endPage +">;
+				//		pageText+= <c:forEach var="i" begin = post.startPage>;
+			//			pageText+= `<c:choose>`;
+			//			pageText+= `<c:when test=" i != ` + post.page + ` ">`;
+				//		pageText += `<a class="" href="`+ $context +`/user/writePostOk.us?page=$` + `{i}" onclick="movePage($` + `{i})">`;
+				//		pageText+= `<c:out value="$` + `{i}` + `"/>`
+				//		pageText+= `<c:otherwise>`;
+					//	pageText+= `<c:out value="$` + `{i}` + `"/>`
+				//		pageText+= `</c:otherwise>`;
+				//		pageText+= `</when>`;
+			//			pageText+= `</c:choose>`;
+					//	pageText+= `</c:forEach>` 
+			//		pageText+=`</div>`
+		
+				}
+			});
+				text += `</ul>`; 
+				
+			$('.page').html(pageText);
+			$('.MymummList_list').html(text);
+			
+	   }else if(posts.length = 0){
+			text += `작성한 게시글이 없습니다.`;
+		}
+}
+
+function pageList(pages){
+		let text="";
+	   if(pages.length > 0){
+			pageText += `<div class="pageButton">`;
+			for(let i  = pages[6].startPage; i <= post.endPage; i++){
+					pageText +=`<a class="" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
+			}
+			pageText+=`</div>`
+		
+		$('.page').html(text);
+	}
+}
+
+function myPost(){
+	//sessionscope로 userNumber넘기는걸로 수정할 것
+	 $.ajax({
+         url: $context + "/user/writePostOk.us",
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+         success: postList
+      });
+}
+
+function page(number){
+	$.ajax({
+         url: $context + "/user/writePostOk.us?page="+number,
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+		success : postList
+      });
+}		
+
+
+//게시글
 $(".MymummProjectInfo_projectList li a").eq(0).on('click', function(){
-    $('.profileSetting').css('display', 'none');
+	
+	
+	
+	 if($('.MymummSection_section').eq(0).find('.MymummList_list').css('display') == 'none'	){
+		$('.MymummSection_section').eq(0).find('.MymummList_list').css('display', '');
+		$('.btn_close').css('display', '');
+		$('.page').css('display', '');
+	}else{
+		$('.MymummSection_section').eq(0).find('.MymummList_list').css('display', 'none');
+		$('.btn_close').css('display', 'none');
+		$('.page').css('display', 'none');
+	}
+
+
+  /*  $('.profileSetting').css('display', 'none');
     $('.MymummProjectInfo_projectLink').css('display', '');
     if($('.MymummSection_section').eq(0).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(0).find('.MymummList_list').css('display') != 'none'){
         $('.MymummSection_section').children().css('display', 'none');
         $('.page').css('display', 'none');
-        $('.btn_close').css('display', 'none');
     }
     else{
         $('.MymummSection_section').children().css('display', 'none');
         ($('.MymummProjectInfo_projectList li a span b').eq(0).text() == 0 ? $('.MymummSection_section').eq(0).find('.MymummList_emptyList') : $('.MymummSection_section').eq(0).find('.MymummList_list')).css('display', '');
         $('.page').css('display', ($('.MymummProjectInfo_projectList li a span b').eq(0).text() == 0 ? 'none' : ''));
         $('.btn_close').css('display', '');
-    }
+    }*/
     
 });
 $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
@@ -110,9 +230,9 @@ if($('.profileSetting').css('display') == 'none'){
 //     }
 // });
 
-function change(){
+/*function change(){
     $('.MymummProjectInfo_projectList li a span b').text('18');
-}
+}*/
 
 function checkNick(){
     console.log('실행');
@@ -200,17 +320,22 @@ function closeSection(){
 
 /* css만 구현, 이동은 추가해야함 */
 function movePage(number){
-    var $pageNumber = $('.pageButton a');
+   var $pageNumber = $('.pageButton a');
+	if($pageNumber.eq(number-1).attr('class') != 'current'){
+    	$pageNumber.attr('class', '');
+		page(number);
+		$pageNumber.eq(number-1).attr('class', 'current')		
+	}
 
-    $pageNumber.attr('class', '');
     
-    for(let i =0; i < 3; i++){
+}
+/*    for(let i =0; i < $pageNumber.length; i++){
         if($pageNumber.eq(i).text() == number){
             $pageNumber.eq(i).attr('class', 'current');
+            $pageNumber.eq(i).attr('href', '${pageContext.request.contextPath}/user/writePostOk.us?page='+number);
             return;
         }
-    }
-}
+    }*/
 
 function readURL(input) {
     if (input.files && input.files[0]) {
