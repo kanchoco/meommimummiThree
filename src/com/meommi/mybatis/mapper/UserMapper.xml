@@ -28,4 +28,19 @@
 		WHERE user_id=#{userId};
 	</update>
 	
+		<!-- 내 게시글 목록  -->
+	<select id="selectMyPost" parameterType="map" resultType="postVO">
+		select post_number, post_writer_number, post_contents, post_time, post_like_number
+		from tbl_post
+		where post_writer_number = #{userNumber}
+		order by post_number desc limit #{startRow}, #{rowCount}
+	</select>
+	
+	<!--내 게시글 수 -->
+	<select id="countMyPost" parameterType="_int" resultType="_int">
+		select count(post_number)
+		from tbl_post
+		where post_writer_number = #{userNumber}
+	</select>
+	
 </mapper>

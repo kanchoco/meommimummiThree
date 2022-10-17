@@ -50,6 +50,13 @@ public class UserFrontController extends HttpServlet {
 			
 //		       aJax기 때문에 화면 이동 없이 진행하며, result에 값을 넣을 필요가 없다.
 			new passwordChangeController().execute(req, resp);
+		}else if(request.equals("/user/myPage.us")) {
+//			myPage이동
+			result = new Result();
+			result.setPath("/app/user/myPage.jsp");
+		}else if(request.equals("/user/writePostOk.us")) {
+//			내 게시글 목록 가져오기
+			 new WritePostLookupController().execute(req, resp);
 		}
 
 

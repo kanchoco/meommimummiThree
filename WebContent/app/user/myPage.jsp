@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/myPage.css">
     <title>멈미뭄미 - 마이페이지</title>
 </head>
 <body>
@@ -138,115 +140,7 @@
                                     </div>
 
                                     <div class="MymummSection_section">
-                                        <div class="MymummList_emptyList" style="display: none;">
-                                            작성한 게시글이 없습니다.
-                                        </div>
-                                        <div class="MymummList_list" style="display: none;">
-                                            <ul>
-                                                <li>
-                                                    <a class="myPost" href="게시글로_이동">
-                                                        <div class="thumb" style="background-image: url('https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fmyplace-phinf.pstatic.net%2F20211202_104%2F1638421267386XM2Q6_JPEG%2Fupload_20a15f4d3e6c644890971264e59d42ea.jpeg');"></div>
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [게시글 제목]
-                                                            </h3>
-                                                            <span class="liked">
-                                                                추천수
-                                                                <!-- before -->
-                                                                <i>0</i>
-                                                            </span>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="게시글로_이동">
-                                                        <div class="thumb" style="background-image: url('https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fmyplace-phinf.pstatic.net%2F20211202_268%2F1638421266078yh1W8_JPEG%2Fupload_caf5bba3f67adf265886582a8f6171aa.jpeg');"></div>
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [게시글 제목]
-                                                            </h3>
-                                                            <span class="liked">
-                                                                추천수
-                                                                <!-- before -->
-                                                                <i>0</i>
-                                                            </span>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="게시글로_이동">
-                                                        <div class="thumb" style="background-image: url('https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMjA4MTNfMzUg%2FMDAxNjYwMzc2ODM4MzQ5.YYRZvSX64t8VVd0de6zG-cyIWqZbRyWeWTWsDZx585Ug._90kjG3JNfzutL9djY5HnWZjm65FM7i8NykoKiaWYv0g.JPEG%2Fupload_03850f484f6d4c8544c11a192fbb1bf2.jpeg');"></div>
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [게시글 제목]
-                                                            </h3>
-                                                            <span class="liked">
-                                                                추천수
-                                                                <!-- before -->
-                                                                <i>0</i>
-                                                            </span>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="게시글로_이동">
-                                                        <div class="thumb" style="background-image: url('https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMjA4MTNfMzUg%2FMDAxNjYwMzc2ODM4MzQ5.YYRZvSX64t8VVd0de6zG-cyIWqZbRyWeWTWsDZx585Ug._90kjG3JNfzutL9djY5HnWZjm65FM7i8NykoKiaWYv0g.JPEG%2Fupload_03850f484f6d4c8544c11a192fbb1bf2.jpeg');"></div>
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [게시글 제목]
-                                                            </h3>
-                                                            <span class="liked">
-                                                                추천수
-                                                                <!-- before -->
-                                                                <i>0</i>
-                                                            </span>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="게시글로_이동">
-                                                        <div class="thumb" style="background-image: url('https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMjA4MTNfMzUg%2FMDAxNjYwMzc2ODM4MzQ5.YYRZvSX64t8VVd0de6zG-cyIWqZbRyWeWTWsDZx585Ug._90kjG3JNfzutL9djY5HnWZjm65FM7i8NykoKiaWYv0g.JPEG%2Fupload_03850f484f6d4c8544c11a192fbb1bf2.jpeg');"></div>
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [게시글 제목]
-                                                            </h3>
-                                                            <span class="liked">
-                                                                추천수
-                                                                <!-- before -->
-                                                                <i>0</i>
-                                                            </span>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="게시글로_이동">
-                                                        <div class="thumb" style="background-image: url('https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMjA4MTNfMzUg%2FMDAxNjYwMzc2ODM4MzQ5.YYRZvSX64t8VVd0de6zG-cyIWqZbRyWeWTWsDZx585Ug._90kjG3JNfzutL9djY5HnWZjm65FM7i8NykoKiaWYv0g.JPEG%2Fupload_03850f484f6d4c8544c11a192fbb1bf2.jpeg');"></div>
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [게시글 제목]
-                                                            </h3>
-                                                            <span class="liked">
-                                                                추천수
-                                                                <!-- before -->
-                                                                <i>0</i>
-                                                            </span>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                            
-                                            </ul>
+                                        <div class="MymummList_list" style="display:none;">
                                         </div>
                                     </div>
                                     <div class="MymummSection_section">
@@ -495,11 +389,6 @@
                                         </div>
                                     </div>
                                     <div class="page" style="display: none;">
-                                        <div class="pageButton">
-                                            <a class="current" href="#" onclick="movePage(1)">1</a>
-                                            <a href="#" onclick="movePage(2)">2</a>
-                                            <a href="#" onclick="movePage(3)">3</a>
-                                        </div>
                                     </div>
                                     <div class="profileSetting" style="display: none;">
                                         <h3>개인정보 설정</h3>
@@ -584,6 +473,7 @@
                                         </div>
                                     </div>
                             <!-- after 릴레이티브 지우기 위한 after요소-->
+                            	</div>
                             </div>
                         </div>
                     </div>
@@ -607,8 +497,11 @@
         </article>
         <a id="alertify-o-resetFocusBack" class="alertify-o-resetFocus" href="#">Reset Focus</a>
     </section>
-    <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"></jsp:include>
+    <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"></jsp:include>
 </body>
+<script>
+	let $context = "${pageContext.request.contextPath}";
+</script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/myPage.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js?ver=1"></script>
 </html>
