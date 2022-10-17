@@ -69,7 +69,7 @@
                                 <div class="ProjectListHead_children__2Y7-F"></div>
                             </div>
                         </div>
-                        <div class="ProjectCardList_container__3Y14k">
+                        <div class="ProjectCardList_container__3Y14k" id="funeralList">
                             <div class="ProjectCardList_list__1YBa2">
                                 <div class="ProjectCardList_item__1owJa">
                                     <div>
@@ -328,5 +328,21 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/service/funeral.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/service/funeral.js"></script>\
+<script>
+show();
+function show(){
+	$.ajax({
+		url: "${pageContext.request.contextPath}/funeral.fu",
+		dataType: "json",
+		success: function(funerals){
+			console.log("들어옴!");
+	
+			funerals.forEach(funeral => {
+
+		}
+	});	
+}
+
+</script>
 </html>

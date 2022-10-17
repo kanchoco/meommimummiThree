@@ -80,15 +80,15 @@
      <url-pattern>*.ma</url-pattern>
   </servlet-mapping>
   
-    <servlet-mapping>
-     <servlet-name>PlaceReviewFrontController</servlet-name>
-     <url-pattern>*.pl</url-pattern>
-  </servlet-mapping>
-  
   <servlet>
      <servlet-name>PlaceReviewFrontController</servlet-name>
      <servlet-class>com.meommi.app.placeReview.PlaceReviewFrontController</servlet-class>
   </servlet>
+  
+      <servlet-mapping>
+     <servlet-name>PlaceReviewFrontController</servlet-name>
+     <url-pattern>*.pl</url-pattern>
+  </servlet-mapping>
   
     <servlet>
      <servlet-name>PostFrontController</servlet-name>
