@@ -51,7 +51,15 @@ public class UserFrontController extends HttpServlet {
 			new passwordChangeController().execute(req, resp);
 		} else if(request.equals("/user/loginKakao.us")) {
 			result = new KakaoLoginController().execute(req,resp);
-		} 
+		} else if(request.equals("/user/myPage.us")) {
+			//myPage.jsp 마이페이지 이동
+			result = new Result();
+			result.setPath("/app/user/myPage.jsp");
+		}else if(request.equals("/user/writePostOk.us")) {
+			//postLookup -> 게시글 불러오기 
+			 new WritePostLookupController().execute(req, resp);
+		}
+
 
 
 		if (result != null) {
