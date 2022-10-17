@@ -51,7 +51,7 @@ public class UserFrontController extends HttpServlet {
 			new passwordChangeController().execute(req, resp);
 		} else if(request.equals("/user/loginKakao.us")) {
 			result = new KakaoLoginController().execute(req,resp);
-		}
+		} 
 
 
 		if (result != null) {
