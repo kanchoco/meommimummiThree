@@ -27,8 +27,8 @@ public class PostFrontController extends HttpServlet {
 		      String request = requestURI.substring(contextPath.length());
 		      Result result = null;
 		   
-		   if(request.equals("/meommi/PostFront.po")) {
-		       
+		   if(request.equals("/meommi/PostlistOk.po")) {
+		       new PostListController().execute(req, resp);
 		      }
 		      
 		      if(result != null) {
