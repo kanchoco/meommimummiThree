@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.koreait.app.product.CreateController;
+import com.koreait.app.product.ListController;
 import com.meommi.app.Result;
 
 public class PlaceReviewFrontController extends HttpServlet {
@@ -27,9 +29,19 @@ public class PlaceReviewFrontController extends HttpServlet {
 		      String request = requestURI.substring(contextPath.length());
 		      Result result = null;
 		   
-		   if(request.equals("/meommi/PlaceReview.pl")) {
-		       
-		      }
+		   if(request.equals("/map/search.pl")) {	/*지도 검색 기능 컨트롤러*/
+			   new MapSearchController().execute(req, resp);
+			   
+		      }else if(request.equals("/map/lookup.pl")) {	/*장소 조회 기능 컨트롤러*/
+				   new MapLookupController().execute(req, resp);
+				   
+				}else if(request.equals("/map/filter.pl")) {	/*장소 필터링 기능 컨트롤러*/
+					new MapFilterController().execute(req, resp);
+					
+				}else if(request.equals("/map/myLocation.pl")) {	/*사용자 위치 지도 조회 컨트롤러*/
+					new MyLocationController().execute(req, resp);
+					
+				}
 		      
 		      if(result != null) {
 		         if(result.isRedirect()) {
