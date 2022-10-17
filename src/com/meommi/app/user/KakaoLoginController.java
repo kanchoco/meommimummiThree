@@ -13,7 +13,7 @@ public class KakaoLoginController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("들어옴");
 		return null;
 	}
 
