@@ -2,11 +2,11 @@ package com.meommi.app.post.vo;
 
 public class PostDTO {
 	private int postNumber; 
-	private int postWriterNickname;
+	private String postWriterNickname;
 	private String postContents;
 	private String postTime;
 	private int postLikeNumber;
-	private String userNickName;
+	private String userNickname;
 	
 	public PostDTO() {;}
 
@@ -18,11 +18,11 @@ public class PostDTO {
 		this.postNumber = postNumber;
 	}
 
-	public int getPostWriterNickname() {
+	public String getPostWriterNickname() {
 		return postWriterNickname;
 	}
 
-	public void setPostWriterNickname(int postWriterNickname) {
+	public void setPostWriterNickname(String postWriterNickname) {
 		this.postWriterNickname = postWriterNickname;
 	}
 
@@ -50,18 +50,18 @@ public class PostDTO {
 		this.postLikeNumber = postLikeNumber;
 	}
 
-	public String getUserNickName() {
-		return userNickName;
+	public String getUserNickname() {
+		return userNickname;
 	}
 
-	public void setUserNickName(String userNickName) {
-		this.userNickName = userNickName;
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
 	}
 
 	@Override
 	public String toString() {
 		return "PostDTO [postNumber=" + postNumber + ", postWriterNickname=" + postWriterNickname + ", postContents="
 				+ postContents + ", postTime=" + postTime + ", postLikeNumber=" + postLikeNumber + ", userNickName="
-				+ userNickName + "]";
+				+ userNickname + "]";
 	}
 }

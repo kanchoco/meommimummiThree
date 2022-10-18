@@ -27,10 +27,12 @@ public class CommentsFrontController extends HttpServlet {
 			      String request = requestURI.substring(contextPath.length());
 			      Result result = null;
 			   
-			   if(request.equals("/meommi/CommentlistOk.co")) {
-			       new CommentListOkController().execute(req,resp);
-			      }
-			      
+			   if(request.equals("/meommi/Commentlist.co")) {
+			       new CommentListController().execute(req,resp);
+			   }else if(request.equals("/meommi/CommentlistOk.co")) {
+			      new CommentListOkController().execute(req, resp);
+			   }
+			   
 			      if(result != null) {
 			         if(result.isRedirect()) {
 			            resp.sendRedirect(result.getPath());

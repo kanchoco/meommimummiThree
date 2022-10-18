@@ -1,6 +1,5 @@
 package com.meommi.app.post.dao;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -14,7 +13,10 @@ public class PostDAO {
 	   public PostDAO() {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	   }
-	   public List<PostDTO> selectPostAll() {
-		   return sqlSession.selectList("Post.selectPostAll");
+	   public List<PostDTO> selectPostDefault() {
+		   return sqlSession.selectList("Post.selectPostDefault");
+	   }
+	   public List<PostDTO> selectPostIncrement(int Outputnum) {
+		   return sqlSession.selectList("Post.selectPostIncrement",Outputnum);
 	   }
 }
