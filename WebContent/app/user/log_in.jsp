@@ -121,9 +121,7 @@
 		                         </button>
                              </form>
                              
-                             <form name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">
-                             	<div class="g-signin2" data-onsuccess="onSignIn"></div>
-                             	
+                             <form name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">                             	
 	                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="" type="button">
 	                             	<span>
 	                             		<span style="position: absolute; left: 16px; width: 22px; height: 22px;">
