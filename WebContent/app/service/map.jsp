@@ -3272,16 +3272,12 @@
     defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&callback=initMap"
   ></script>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
 </script>
-<!-- <script>
-/*지도 보여주기*/
-window.initMap = function () {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 37.5400456, lng: 126.9921017 },
-    zoom: 17,
-  });
-};
-</script> -->
+
+</script>
+
 <script>
 let map, infoWindow;
 
@@ -3334,5 +3330,39 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 window.initMap = initMap;
+
+var upperMap;
+var service;
+var upperinfowindow;
+
+function initialize() {
+  var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+
+  upperMap = new google.maps.Map(document.getElementById('map-container_wrap'), {
+      center: pyrmont,
+      zoom: 15
+    });
+
+  var request = {
+    location: pyrmont,
+    radius: '500',
+    type: ['restaurant']
+  };
+
+  service = new google.maps.places.PlacesService(upperMap);
+  service.nearbySearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+
+</script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&libraries=places&callback=initMap">
 </script>
 </html>
