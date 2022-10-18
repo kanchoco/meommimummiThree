@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Comments">
+
+	<select id="selectCommentDefault" resultType="commentsVO">
+		select c.comments_number,c.comments_time,c.comments_contents,c.comments_writer_nickname,c.comments_post_number 
+		from tbl_comments c,tbl_post p,tbl_user u where c.comments_post_number=p.post_number and c.comments_writer_nickname =u.user_nickname 
+		order by c.comments_time desc limit 0,5
+	</select>
+	
+	<select id="selectCommentIncrement" parameterType="_int" resultType="commentsVO">
+		select c.comments_number,c.comments_time,c.comments_contents,c.comments_writer_nickname,c.comments_post_number 
+		from tbl_comments c,tbl_post p,tbl_user u where c.comments_post_number=p.post_number and c.comments_writer_nickname =u.user_nickname 
+		order by c.comments_time desc limit 0,#{Outputnum}
+	</select>
+	
+</mapper>
