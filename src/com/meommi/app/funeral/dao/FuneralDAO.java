@@ -1,6 +1,6 @@
 package com.meommi.app.funeral.dao;
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -17,8 +17,17 @@ public class FuneralDAO {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	}
 	   
-	   public List<FuneralVO> selectAll(){
-			return sqlSession.selectList("Funeral.selectAll");
+	   public List<FuneralVO> selectAll(Map<String, Integer> pageMap){
+			return sqlSession.selectList("Funeral.selectAll", pageMap);
 			
+		}
+	   
+	   
+	   public List<FuneralVO> selectOne(String funeralSearch){
+			return sqlSession.selectList("Funeral.selectOne", funeralSearch);
+			
+		}
+	   public int selectCount() {
+			return sqlSession.selectOne("Funeral.selectCount");
 		}
 }
