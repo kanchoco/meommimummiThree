@@ -22,6 +22,11 @@ public class FuneralDAO {
 			
 		}
 	   
+	   
+	   public List<FuneralVO> selectOne(String funeralSearch){
+			return sqlSession.selectList("Funeral.selectOne", funeralSearch);
+			
+		}
 	   public int selectCount() {
 			return sqlSession.selectOne("Funeral.selectCount");
 		}
