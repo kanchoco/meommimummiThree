@@ -7,6 +7,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 구글 로그인 사용, content에 클라이언트ID 추가 --> 
+    <meta name ="google-signin-client_id" content="661764795154-6im5nqev21emhh02h2s7c6218i5mp558.apps.googleusercontent.com">
+	<meta name="google-signin-cookiepolicy" content="single_host_origin" />
+	<meta name="google-signin-requestvisibleactions" content="https://schema.org/AddAction" />
+	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
+
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="https://static.wadiz.kr/static/web/wui.css?e5a9644b">
@@ -99,8 +105,8 @@
                     <div id="iam-account-app">
                         <div>
                             <div>
-                            <form name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/user/loginKakao.us">
-	                            <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_kakaoButton__2lTDs SNSButtonList_spacer__38ac5" onclick="loginWithKakao()" type="button" style="background-color: #FEE500;">
+                            <form name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">
+	                            <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_kakaoButton__2lTDs SNSButtonList_spacer__38ac5" onclick="kakaoLogin()" type="button" style="background-color: #FEE500;">
 		                            <span>
 		                            	<span class="Button_children__VGHI5">
 		                            		<svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1YH1P SNSButtonList_kakaoIcon__1s6gw" aria-hidden="true" style="position: absolute;
@@ -115,34 +121,36 @@
 		                         </button>
                              </form>
                              
-                             
-                             
-                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="kakaoLogout()" type="button">
-                             	<span>
-                             		<span style="position: absolute; left: 16px; width: 22px; height: 22px;">
-										<span class="Button_children__VGHI5">
-											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-												<defs>
-													<path id="a" d="M0 0h348v46H0z"></path>
-												</defs>
-												<g fill="none" fill-rule="evenodd">
-													<g transform="translate(-16 -13)">
-														<use></use>
-														<path stroke="#DADCE0" d="M-.5-.5h349v47H-.5z"></path>
+                             <form name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">
+                             	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+                             	
+	                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="" type="button">
+	                             	<span>
+	                             		<span style="position: absolute; left: 16px; width: 22px; height: 22px;">
+											<span class="Button_children__VGHI5">
+												<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+													<defs>
+														<path id="a" d="M0 0h348v46H0z"></path>
+													</defs>
+													<g fill="none" fill-rule="evenodd">
+														<g transform="translate(-16 -13)">
+															<use></use>
+															<path stroke="#DADCE0" d="M-.5-.5h349v47H-.5z"></path>
+														</g>
+														<path fill="#4285F4" d="M18.64 10.205c0-.639-.057-1.252-.164-1.841H10v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"></path>
+														<path fill="#34A853" d="M10 19c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H1.957v2.332A8.997 8.997 0 0 0 10 19z"></path>
+														<path fill="#FBBC05" d="M4.964 11.71A5.41 5.41 0 0 1 4.682 10c0-.593.102-1.17.282-1.71V5.958H1.957A8.996 8.996 0 0 0 1 10c0 1.452.348 2.827.957 4.042l3.007-2.332z"></path>
+														<path fill="#EA4335" d="M10 4.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C14.463 1.891 12.426 1 10 1a8.997 8.997 0 0 0-8.043 4.958L4.964 8.29C5.672 6.163 7.656 4.58 10 4.58z"></path><path d="M0 0h20v20H0z"></path>
 													</g>
-													<path fill="#4285F4" d="M18.64 10.205c0-.639-.057-1.252-.164-1.841H10v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"></path>
-													<path fill="#34A853" d="M10 19c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H1.957v2.332A8.997 8.997 0 0 0 10 19z"></path>
-													<path fill="#FBBC05" d="M4.964 11.71A5.41 5.41 0 0 1 4.682 10c0-.593.102-1.17.282-1.71V5.958H1.957A8.996 8.996 0 0 0 1 10c0 1.452.348 2.827.957 4.042l3.007-2.332z"></path>
-													<path fill="#EA4335" d="M10 4.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C14.463 1.891 12.426 1 10 1a8.997 8.997 0 0 0-8.043 4.958L4.964 8.29C5.672 6.163 7.656 4.58 10 4.58z"></path><path d="M0 0h20v20H0z"></path>
-												</g>
-											</svg>
+												</svg>
+											</span>
 										</span>
-									</span>
-                                    	</svg>구글로 시작하기
-                                	</span>
-                             	</span>
-                             </button>
-
+	                                    	</svg>구글로 시작하기
+	                                	</span>
+	                             	</span>
+	                             </button>
+                             </form>
+                             
                             </div>
                         </div>
                         <div class="bottom-message">
@@ -154,18 +162,36 @@
         </main>
 
         <!-- S : 리턴 폼 -->
-        <input type="hidden" id="returnForm" value="https://www.wadiz.kr/web/main">
+        <input type="hidden" id="returnForm" value="">
         <input type="hidden" id="joinType" value="">
         <!-- E : 리턴 폼 -->
 
         <!-- S : 페이지별 스크립트 -->
     </div>
+    <script>
+                             	function onSignIn(googleUser) {
+                             		console.log("dfsdfsfdsf");
+                             	    var profile = googleUser.getBasicProfile();
+                             		
+                             	    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                             	    console.log('Full Name: ' + profile.getName());
+                             	    console.log('Given Name: ' + profile.getGivenName());
+                             	    console.log('Family Name: ' + profile.getFamilyName());
+                             	    console.log("Image URL: " + profile.getImageUrl());
+                             	    console.log("Email: " + profile.getEmail());
+
+                             	    // The ID token you need to pass to your backend:
+                             	    var id_token = googleUser.getAuthResponse().id_token;
+                             	    console.log("ID Token: " + id_token);
+                             	}
+                             	</script>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>var contextPath="${pageContext.request.contextPath}";</script>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 <script src = "https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- 구글 api 사용을 위한 스크립트 -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="${pageContext.request.contextPath}/assets/js/user/login.js"></script>
-
 </html>

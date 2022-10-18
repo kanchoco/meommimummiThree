@@ -10,8 +10,8 @@
 	<!-- 가입 -->
 	<insert id="join" parameterType="userVO">
 		insert into tbl_user
-		(user_id, user_password, user_name) 
-		values(#{userId}, #{userPassword}, #{userName})
+		(user_id, user_password, user_name, user_login_method) 
+		values(#{userId}, #{userPassword}, #{userName}, #{userLoginMethod})
 	</insert>
 	
 	<!-- 로그인 -->

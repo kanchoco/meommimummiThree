@@ -5,12 +5,9 @@ public class UserVO {
 	private String userId;
 	private String userPassword;
 	private String userName;
-	private String userNickName;
-	private int userAge;
-	private String userGender;
 	private String userPhotoPath;
 	private String userIntroduce;
-	private String userLoginMethod;
+	private int userLoginMethod;
 	
 	public UserVO() {;}
 
@@ -46,30 +43,6 @@ public class UserVO {
 		this.userName = userName;
 	}
 
-	public String getUserNickName() {
-		return userNickName;
-	}
-
-	public void setUserNickName(String userNickName) {
-		this.userNickName = userNickName;
-	}
-
-	public int getUserAge() {
-		return userAge;
-	}
-
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
-	}
-
-	public String getUserGender() {
-		return userGender;
-	}
-
-	public void setUserGender(String userGender) {
-		this.userGender = userGender;
-	}
-
 	public String getUserPhotoPath() {
 		return userPhotoPath;
 	}
@@ -86,19 +59,18 @@ public class UserVO {
 		this.userIntroduce = userIntroduce;
 	}
 
-	public String getUserLoginMethod() {
+	public int getUserLoginMethod() {
 		return userLoginMethod;
 	}
 
-	public void setUserLoginMethod(String userLoginMethod) {
+	public void setUserLoginMethod(int userLoginMethod) {
 		this.userLoginMethod = userLoginMethod;
 	}
 
 	@Override
 	public String toString() {
 		return "UserVO [userNumber=" + userNumber + ", userId=" + userId + ", userPassword=" + userPassword
-				+ ", userName=" + userName + ", userNickName=" + userNickName + ", userAge=" + userAge + ", userGender="
-				+ userGender + ", userPhotoPath=" + userPhotoPath + ", userIntroduce=" + userIntroduce
+				+ ", userName=" + userName + ", userPhotoPath=" + userPhotoPath + ", userIntroduce=" + userIntroduce
 				+ ", userLoginMethod=" + userLoginMethod + "]";
 	}
 	

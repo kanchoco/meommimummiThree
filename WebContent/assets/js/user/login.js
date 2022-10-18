@@ -26,13 +26,12 @@ function loginCheck(){
 
 /*카카오 로그인 서비스 */
 /*세팅 초기화 원할 시 accounts.kakao.com/weblogin/account/info */
-
-
 /* 자바스크립트 키 기재 */
 Kakao.init("d99c2c688be9d7dacb2763bc4919b67a"); 
-console.log(Kakao.isInitialized());
 
 /*카카오 로그인 */
+let id;
+let nickname;
 
 /*리다이렉트 페이지*/
 function loginWithKakao() {
@@ -50,7 +49,7 @@ function kakaoLogin() {
 		success: function (authObj){
 			console.log(authObj); //access 토큰 값
 			Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
-			
+		
 			getInfo();
 		},
 		fail: function(err){
@@ -65,16 +64,22 @@ function getInfo(){
 		success: function(res){
 			console.log(res);
 			/*이메일 정보*/
-			var id = res.id;
-			var nickname = res.kakao_account.profile.nickname;
-			
-			console.log(id, nickname);
-			console.log(Kakao.Auth.getAccessToken());
+			$.ajax({
+				url: contextPath + "/user/loginKakao.us",
+				type: "post",
+				data: {
+					id: res.id,
+					userName: res.kakao_account.profile.nickname
+				},
+				contentType:  "application/x-www-form-urlencoded"
+			})
 		},
 		fail: function (error){
 			alert('카카오 로그인에 실패했습니다. 다시 시도해주세요.' + JSON.stringify(error));
+			return;
 		}
 	})
+	frm_login_kakao.submit();
 }
 
 
@@ -88,7 +93,6 @@ function kakaoLogout(){
 	
 	Kakao.Auth.logout(function(){
 		alert("로그아웃 되었습니다. ");
-		console.log(Kakao.Auth.getAccessToken());
 	})
 }
 
@@ -108,4 +112,44 @@ function kakaoDisconnected() {
       })
       Kakao.Auth.setAccessToken(undefined)
     }
-  }  
+}
+
+
+/*구글 로그인 서비스 */
+
+/* 처음 시작 */
+function init() {
+  gapi.load('auth2', function() {
+    /* Ready. Make a call to gapi.auth2.init or some other API */
+	gapi.auth2.init();
+  });
+}
+
+
+
+function onSignIn(googleUser) {
+	console.log("dfsdfsfdsf");
+    var profile = googleUser.getBasicProfile();
+	
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+}
+
+
+
+
+/* 구글 로그아웃 */
+function signOut() {
+	var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+		console.log('구글로그인 로그아웃');
+    });
+}
