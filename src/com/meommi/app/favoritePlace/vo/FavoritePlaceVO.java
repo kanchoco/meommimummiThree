@@ -2,7 +2,6 @@ package com.meommi.app.favoritePlace.vo;
 
 public class FavoritePlaceVO {
 	private String favoritePlacePlaceId;
-	private String favoriteUserNumber;
 	private String favoritePlaceAdrAddress;
 	private String favoritePlaceBusinessStatus;
 	private String favoritePlaceGeometry;
@@ -18,14 +17,6 @@ public class FavoritePlaceVO {
 
 	public void setFavoritePlacePlaceId(String favoritePlacePlaceId) {
 		this.favoritePlacePlaceId = favoritePlacePlaceId;
-	}
-
-	public String getFavoriteUserNumber() {
-		return favoriteUserNumber;
-	}
-
-	public void setFavoriteUserNumber(String favoriteUserNumber) {
-		this.favoriteUserNumber = favoriteUserNumber;
 	}
 
 	public String getFavoritePlaceAdrAddress() {
@@ -78,12 +69,14 @@ public class FavoritePlaceVO {
 
 	@Override
 	public String toString() {
-		return "FavoriteVO [favoritePlacePlaceId=" + favoritePlacePlaceId + ", favoriteUserNumber=" + favoriteUserNumber
-				+ ", favoritePlaceAdrAddress=" + favoritePlaceAdrAddress + ", favoritePlaceBusinessStatus="
-				+ favoritePlaceBusinessStatus + ", favoritePlaceGeometry=" + favoritePlaceGeometry
-				+ ", favoritePlaceName=" + favoritePlaceName + ", favoritePlacePhotos=" + favoritePlacePhotos
-				+ ", favoritePlaceOpening=" + favoritePlaceOpening + "]";
+		return "FavoritePlaceVO [favoritePlacePlaceId=" + favoritePlacePlaceId + ", favoritePlaceAdrAddress="
+				+ favoritePlaceAdrAddress + ", favoritePlaceBusinessStatus=" + favoritePlaceBusinessStatus
+				+ ", favoritePlaceGeometry=" + favoritePlaceGeometry + ", favoritePlaceName=" + favoritePlaceName
+				+ ", favoritePlacePhotos=" + favoritePlacePhotos + ", favoritePlaceOpening=" + favoritePlaceOpening
+				+ "]";
 	}
+
+
 	
 	
 }
