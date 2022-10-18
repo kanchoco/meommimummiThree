@@ -2,14 +2,12 @@ package com.meommi.app.placeReview;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.koreait.app.product.CreateController;
-import com.koreait.app.product.ListController;
 import com.meommi.app.Result;
 
 public class PlaceReviewFrontController extends HttpServlet {
