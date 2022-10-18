@@ -3,6 +3,7 @@ package com.meommi.app.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +15,10 @@ import org.json.JSONObject;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
+import com.meommi.app.post.vo.PostVO;
 import com.meommi.app.user.dao.UserDAO;
 
-public class WritePostLookupController implements Execute {
+public class WritePostLookupOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,7 +53,7 @@ public class WritePostLookupController implements Execute {
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
 		
-		userDAO.selectMyPost(pageMap).forEach(v -> {JSONObject post = new JSONObject(v); posts.put(post); });
+		userDAO.selectMyPost(pageMap).forEach(v -> {JSONObject post = new JSONObject(v); System.out.println(post); posts.put(post); });
 		posts.put(pages);
 		out.print(posts.toString());
 		out.close();
