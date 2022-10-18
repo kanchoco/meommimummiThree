@@ -38,8 +38,8 @@
                                                     <i class="searchIcon">
                                                         <img src="${pageContext.request.contextPath}/images/searchIcon.PNG">
                                                     </i>
-                                                    <input type="search" placeholder="검색어를 입력해주세요"
-                                                        class="searchSection">
+                                                    <input id = "placeSearch" type="search" placeholder="검색어를 입력해주세요"
+                                                        class="searchSection" ></input>
                                                 </form>
                                             </div>
                                         </div>
@@ -1839,7 +1839,7 @@
             <div class="column-side">
                 
                     <!-- 지도 -->
-                    <div class="map-container_wrap">
+                    <div class="map-container_wrap" id = "map-container">
                         <button class="btn-map ng-binding" ng-click="change_map_mode()">지도 작게</button>
                     </div>
 
@@ -3264,105 +3264,211 @@
             </div>
         </article>
     </main>
-<jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
+<%-- <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/> --%>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/service/map.js"></script>
- <script
-    defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&callback=initMap"
-  ></script>
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
-</script>
 
-</script>
-
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&callback=initAutocomplete&libraries=places&v=weekly"></script>
 <script>
-let map, infoWindow;
+/* var map, infoWindow;
+function initMap() {
+	
+	  map = new google.maps.Map(document.getElementById("map"), {
+	    center: { lat: -34.397, lng: 150.644 },
+	    zoom: 17,
+	  });
+	  infoWindow = new google.maps.InfoWindow();
+
+	  const locationButton = document.createElement("button");
+
+	  locationButton.textContent = "난 어디에 있는건가요?";
+	  locationButton.classList.add("custom-map-control-button");
+	  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+	  locationButton.addEventListener("click", () => {
+	    // Try HTML5 geolocation.
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(
+	        (position) => {
+	          const pos = {
+	            lat: position.coords.latitude,
+	            lng: position.coords.longitude,
+	          };
+
+	          infoWindow.setPosition(pos);
+	          infoWindow.setContent("난 여깄어!!");
+	          infoWindow.open(map);
+	          map.setCenter(pos);
+	        },
+	        () => {
+	          handleLocationError(true, infoWindow, map.getCenter());
+	        }
+	      );
+	    } else {
+	      // Browser doesn't support Geolocation
+	      handleLocationError(false, infoWindow, map.getCenter());
+	    }
+	  });
+	}
+
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+	  infoWindow.setPosition(pos);
+	  infoWindow.setContent(
+	    browserHasGeolocation
+	      ? "Error: The Geolocation service failed."
+	      : "Error: Your browser doesn't support geolocation."
+	  );
+	  infoWindow.open(map);
+	}
+
+	window.initMap = initMap;
+ */
+/* function initAutocomplete() {
+	 //지도를 생성할 영역을 dom으로 가져와서 지도 만듦
+  const map = new google.maps.Map(document.getElementById("map-container"), {
+    center: { lat: -33.8688, lng: 151.2195 },
+    zoom: 13,
+    mapTypeId: "roadmap",
+  });
+	 
+  // Create the search box and link it to the UI element.
+  console.log(document.getElementById("placeSearch"))
+  const input = document.getElementById("placeSearch");
+  console.log(input);
+  const searchBox = new google.maps.places.SearchBox(input);
+
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener("bounds_changed", () => {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  let markers = [];
+
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener("places_changed", () => {
+    const places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+
+    // Clear out the old markers.
+    markers.forEach((marker) => {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    // For each place, get the icon, name and location.
+    const bounds = new google.maps.LatLngBounds();
+
+    places.forEach((place) => {
+      if (!place.geometry || !place.geometry.location) {
+        console.log("Returned place contains no geometry");
+        return;
+      }
+
+      const icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25),
+      };
+
+      // Create a marker for each place.
+      markers.push(
+        new google.maps.Marker({
+          map,
+          icon,
+          title: place.name,
+          position: place.geometry.location,
+        })
+      );
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+}
+
+window.initAutocomplete = initAutocomplete; */
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 17,
-  });
-  infoWindow = new google.maps.InfoWindow();
+	  // Create the map.
+	  const pyrmont = { lat: -33.866, lng: 151.196 };
+	  const map = new google.maps.Map(document.getElementById("map"), {
+	    center: pyrmont,
+	    zoom: 17,
+	    mapId: "8d193001f940fde3",
+	  });
+	  // Create the places service.
+	  const service = new google.maps.places.PlacesService(map);
+	  let getNextPage;
+	  const moreButton = document.getElementById("more");
 
-  const locationButton = document.createElement("button");
+	  moreButton.onclick = function () {
+	    moreButton.disabled = true;
+	    if (getNextPage) {
+	      getNextPage();
+	    }
+	  };
 
-  locationButton.textContent = "난 어디에 있는건가요?";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
+	  // Perform a nearby search.
+	  service.nearbySearch(
+	    { location: pyrmont, radius: 500, type: "store" },
+	    (results, status, pagination) => {
+	      if (status !== "OK" || !results) return;
 
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("난 여깄어!!");
-          infoWindow.open(map);
-          map.setCenter(pos);
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  });
-}
+	      addPlaces(results, map);
+	      moreButton.disabled = !pagination || !pagination.hasNextPage;
+	      if (pagination && pagination.hasNextPage) {
+	        getNextPage = () => {
+	          // Note: nextPage will call the same handler function as the initial call
+	          pagination.nextPage();
+	        };
+	      }
+	    }
+	  );
+	}
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
-  );
-  infoWindow.open(map);
-}
+	function addPlaces(places, map) {
+	  const placesList = document.getElementById("places");
 
-window.initMap = initMap;
+	  for (const place of places) {
+	    if (place.geometry && place.geometry.location) {
+	      const image = {
+	        url: place.icon,
+	        size: new google.maps.Size(71, 71),
+	        origin: new google.maps.Point(0, 0),
+	        anchor: new google.maps.Point(17, 34),
+	        scaledSize: new google.maps.Size(25, 25),
+	      };
 
-var upperMap;
-var service;
-var upperinfowindow;
+	      new google.maps.Marker({
+	        map,
+	        icon: image,
+	        title: place.name,
+	        position: place.geometry.location,
+	      });
 
-function initialize() {
-  var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+	      const li = document.createElement("li");
 
-  upperMap = new google.maps.Map(document.getElementById('map-container_wrap'), {
-      center: pyrmont,
-      zoom: 15
-    });
+	      li.textContent = place.name;
+	      placesList.appendChild(li);
+	      li.addEventListener("click", () => {
+	        map.setCenter(place.geometry.location);
+	      });
+	    }
+	  }
+	}
 
-  var request = {
-    location: pyrmont,
-    radius: '500',
-    type: ['restaurant']
-  };
+	window.initMap = initMap;
 
-  service = new google.maps.places.PlacesService(upperMap);
-  service.nearbySearch(request, callback);
-}
-
-function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      createMarker(results[i]);
-    }
-  }
-}
-
-</script>
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&libraries=places&callback=initMap">
-</script>
+</script>    
 </html>
