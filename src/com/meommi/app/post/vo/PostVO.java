@@ -3,58 +3,56 @@ package com.meommi.app.post.vo;
 public class PostVO {
 
 	private int postNumber; 
-	private String postContents;
+	private String postContent;
 	private String postDateTime;
 	private int postLikeNumber;
+	private int userNumber;
 	
 	public PostVO() {;}
 
-	public int getPostNumber() {
+	protected int getPostNumber() {
 		return postNumber;
 	}
 
-	public void setPostNumber(int postNumber) {
+	protected void setPostNumber(int postNumber) {
 		this.postNumber = postNumber;
 	}
 
-	public String getPostContents() {
-		return postContents;
+	protected String getPostContent() {
+		return postContent;
 	}
 
-	public void setPostContents(String postContents) {
-		this.postContents = postContents;
+	protected void setPostContent(String postContent) {
+		this.postContent = postContent;
 	}
 
-	public String getPostDateTime() {
+	protected String getPostDateTime() {
 		return postDateTime;
 	}
 
-	public void setPostDateTime(String postDateTime) {
+	protected void setPostDateTime(String postDateTime) {
 		this.postDateTime = postDateTime;
 	}
 
-	public int getPostLikeNumber() {
+	protected int getPostLikeNumber() {
 		return postLikeNumber;
 	}
 
-	public void setPostLikeNumber(int postLikeNumber) {
+	protected void setPostLikeNumber(int postLikeNumber) {
 		this.postLikeNumber = postLikeNumber;
+	}
+
+	protected int getUserNumber() {
+		return userNumber;
+	}
+
+	protected void setUserNumber(int userNumber) {
+		this.userNumber = userNumber;
 	}
 
 	@Override
 	public String toString() {
-		return "PostVO [postNumber=" + postNumber + ", postContents=" + postContents + ", postDateTime=" + postDateTime
-				+ ", postLikeNumber=" + postLikeNumber + "]";
+		return "PostVO [postNumber=" + postNumber + ", postContent=" + postContent + ", postDateTime=" + postDateTime
+				+ ", postLikeNumber=" + postLikeNumber + ", userNumber=" + userNumber + "]";
 	}
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 }

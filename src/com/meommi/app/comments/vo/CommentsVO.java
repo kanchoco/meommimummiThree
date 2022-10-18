@@ -4,7 +4,9 @@ public class CommentsVO {
 
 	private int commentsNumber;
 	private String commentsDateTime;
-	private String commentsContents;
+	private String commentsContent;
+	private int userNumber;
+	private int postNumber;
 	
 	public CommentsVO() {;}
 
@@ -24,23 +26,37 @@ public class CommentsVO {
 		this.commentsDateTime = commentsDateTime;
 	}
 
-	public String getCommentsContents() {
-		return commentsContents;
+	public String getCommentsContent() {
+		return commentsContent;
 	}
 
-	public void setCommentsContents(String commentsContents) {
-		this.commentsContents = commentsContents;
+	public void setCommentsContent(String commentsContents) {
+		this.commentsContent = commentsContents;
+	}
+
+	public int getUserNumber() {
+		return userNumber;
+	}
+
+	public void setUserNumber(int userNumber) {
+		this.userNumber = userNumber;
+	}
+
+	public int getPostNumber() {
+		return postNumber;
+	}
+
+	public void setPostNumber(int postNumber) {
+		this.postNumber = postNumber;
 	}
 
 	@Override
 	public String toString() {
 		return "CommentsVO [commentsNumber=" + commentsNumber + ", commentsDateTime=" + commentsDateTime
-				+ ", commentsContents=" + commentsContents + "]";
+				+ ", commentsContent=" + commentsContent + ", userNumber=" + userNumber + ", postNumber=" + postNumber
+				+ "]";
 	}
 
-	
-	
-	
 	
 	
 }

@@ -5,15 +5,6 @@ var check = false;
 let count = 1;
 var $pageNumber = $('.pageButton a');
 
-//게시글 불러옴
-myPost();
-
-//1페이지  current
-console.log($pageNumber.eq(0).attr('class'));
-$pageNumber.eq(0).attr('class', 'current');
-
-
-
 /* if($('.MymummSection_section').find('.MymummList_list').css('display') != 'none'){
     $('.page').css('display', '');
 }else{
@@ -30,77 +21,64 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
     }
 });
 
-//게시글 불러오기
+//게시글 불러오기-----------------------------------------------------------------------------------
  function postList(posts) {
 			let text = "";
 			let pageText ="";
-			let j =0;
-	   if(posts.length > 0){
+			let j = 0;
+			console.log(posts.length);
+	   if(posts.length > 1){
 				text += `<ul>`;
 			posts.forEach(post => {
-				j++
-				console.log(j);
-				if(j < 7){
+					j++
+				if(j < posts.length){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
 					text += `<div class="thumb" style="background-image: url('')"></div>`;
 					text += `<div class="info">`;
-					text += `<h3 class="title">[`+ post.postContents +`]</h3>`;
+					text += `<h3 class="title">[`+ post.postContent +`]</h3>`;
 					text += `<span class="liked">`;
 					text += `추천수`;
 					text += `<i>` + post.postLikeNumber + `</i>`;
 					text += `</span>`; 
-					text += `<span class="created-at">`+ post.postTime +`</span>`; 
+					text += `<span class="created-at">`+ post.postDateTime +`</span>`; 
 					text += `</div>`; 
 					text += `</a>`; 
 					text += `</li>`; 
 				}
 				else{
-					console.log( j + "페이지");
 					pageText += `<div class="pageButton">`;
 					for(let i  = post.startPage; i <= post.endPage; i++){
+						if(post.page == i){
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
+						}else{
 							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
+						}
 					}
 					pageText+=`</div>`
-			//		pageText += `<div class="pageButton">`
-			//			pageText+= <c:forEach var="i" begin="`+ post.startPage +" end="+ post.endPage +">;
-				//		pageText+= <c:forEach var="i" begin = post.startPage>;
-			//			pageText+= `<c:choose>`;
-			//			pageText+= `<c:when test=" i != ` + post.page + ` ">`;
-				//		pageText += `<a class="" href="`+ $context +`/user/writePostOk.us?page=$` + `{i}" onclick="movePage($` + `{i})">`;
-				//		pageText+= `<c:out value="$` + `{i}` + `"/>`
-				//		pageText+= `<c:otherwise>`;
-					//	pageText+= `<c:out value="$` + `{i}` + `"/>`
-				//		pageText+= `</c:otherwise>`;
-				//		pageText+= `</when>`;
-			//			pageText+= `</c:choose>`;
-					//	pageText+= `</c:forEach>` 
-			//		pageText+=`</div>`
-		
 				}
 			});
 				text += `</ul>`; 
 				
-			$('.page').html(pageText);
-			$('.MymummList_list').html(text);
 			
-	   }else if(posts.length = 0){
+	   }else{
+			text += `<div class="MymummList_emptyList">`;
 			text += `작성한 게시글이 없습니다.`;
+			text += `</div>`; 
 		}
+			$('.MymummList_list').html(text);
+			$('.page').html(pageText);
 }
-
-function pageList(pages){
-		let text="";
-	   if(pages.length > 0){
-			pageText += `<div class="pageButton">`;
-			for(let i  = pages[6].startPage; i <= post.endPage; i++){
-					pageText +=`<a class="" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
-			}
-			pageText+=`</div>`
-		
-		$('.page').html(text);
-	}
-}
+//얘넨 ajax 함수
+function pagePost(number){
+	$.ajax({
+         url: $context + "/user/writePostOk.us?page="+number,
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+		success : postList
+      });
+}		
 
 function myPost(){
 	//sessionscope로 userNumber넘기는걸로 수정할 것
@@ -112,29 +90,199 @@ function myPost(){
          success: postList
       });
 }
+//----------------------------------------------------------------------------------------------------
 
-function page(number){
+//댓글 불러오기태그------------------------------------------------------------------------------------------
+ function commentList(comments) {
+			let text = "";
+			let pageText ="";
+			let j = 0;
+			console.log(comments.length);
+	   if(comments.length > 1){
+		console.log(comments.length);
+		console.log('dd')
+				text += `<ul>`;
+			comments.forEach(comment => {
+					j++
+				if(j < comments.length){
+					text += `<li>`;
+					text += `<a class="myPost" href="#">`;
+					text += `<div class="info">`;
+					text += `<h3 class="title reple">[`+ comment.commentsContent +`]</h3>`;
+					text += `<span class="created-at">`+ comment.commentsDateTime +`</span>`; 
+					text += `</div>`; 
+					text += `</a>`; 
+					text += `</li>`; 
+				}
+				else{
+					console.log( j + "페이지");
+					pageText += `<div class="pageButton">`;
+					for(let i  = comment.startPage; i <= comment.endPage; i++){
+						if(comment.page == i){
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+						}else{
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+						}
+					}
+					pageText+=`</div>`
+				}
+			});
+				text += `</ul>`; 
+				
+			
+	   }else{
+			text += `<div class="MymummList_emptyList">`;
+			text += `작성한 댓글이 없습니다.`;
+			text += `</div>`; 
+		}
+			$('.MymummList_list').html(text);
+			$('.page').html(pageText);
+}
+//ajax 함수
+function pageCom(number){
 	$.ajax({
-         url: $context + "/user/writePostOk.us?page="+number,
+         url: $context + "/user/writeCommentOk.us?page="+number,
          type: "get",
          dataType:'json',
 		 contentType: "application/json; charset=utf-8",
-		success : postList
+		success : commentList
       });
 }		
+
+function myComment(){
+	console.log('ddd');
+	//sessionscope로 userNumber넘기는걸로 수정할 것
+	 $.ajax({
+         url: $context + "/user/writeCommentOk.us",
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+         success: commentList
+      });
+}
+//----------------------------------------------------------------------------------------------------
+
+//리뷰 불러오기태그------------------------------------------------------------------------------------------
+ function reviewList(reviews) {
+			let text = "";
+			let pageText ="";
+			let j = 0;
+			console.log(reviews.length);
+	   if(reviews.length > 1){
+		console.log(reviews.length);
+		console.log('dd')
+				text += `<ul>`;
+			reviews.forEach(review => {
+					j++
+				if(j < reviews.length){
+					text += `<li>`;
+					text += `<a class="myPost" href="#">`;
+					text += `<div class="info">`;
+					text += `<div class="thumb" style="background-image: url('` + review.file +`');"></div>`;
+					text += `<h3 class="place">[`+ review.title +`]</h3>`;
+					text += `<span class="liked">`;
+					text += `추천수`;
+					text += `<i>` + review.placeReviewHelful + `</i>`;
+					text += `</span>`;
+					text += `<span class="liked">`;
+					text += `추천수`;
+					text += `<i>` + review.placeReviewRating + `</i>`;
+					text += `</span>`;  
+					text += `</div>`; 
+					text += `</a>`; 
+					text += `</li>`; 
+				}
+				else{
+					console.log( j + "페이지");
+					pageText += `<div class="pageButton">`;
+					for(let i  = comment.startPage; i <= comment.endPage; i++){
+						if(comment.page == i){
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+						}else{
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+						}
+					}
+					pageText+=`</div>`
+				}
+			});
+				text += `</ul>`; 
+				
+			
+	   }else{
+			text += `<div class="MymummList_emptyList">`;
+			text += `작성한 댓글이 없습니다.`;
+			text += `</div>`; 
+		}
+			$('.MymummList_list').html(text);
+			$('.page').html(pageText);
+}
+//ajax 함수
+function pageCom(number){
+	$.ajax({
+         url: $context + "/user/writeCommentOk.us?page="+number,
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+		success : commentList
+      });
+}		
+
+function myComment(){
+	console.log('ddd');
+	//sessionscope로 userNumber넘기는걸로 수정할 것
+	 $.ajax({
+         url: $context + "/user/writeCommentOk.us",
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+         success: commentList
+      });
+}
+//----------------------------------------------------------------------------------------------------
+
+
+//a태그 이동막기,무브 페이지
+$('.pageButton a').on('click', function(e){
+	e.preventDefault; 
+});
+function movePage(number, type){
+	let realNum = number -1;
+   	$('.pageButton a').attr('class', '');
+	
+	if($('.pageButton a').eq(realNum).attr('text') != number){
+		switch(type){
+			case 'post' :
+			console.log('post');
+				pagePost(number);
+			break;
+			case 'comment' :
+			console.log('comment');
+				pageCom(number);
+			break;
+			case 'post' :
+				pagePost(number);
+			break;
+			case 'post' :
+				pagePost(number);
+			break;
+		}
+	}
+}
+//-----------------------------------------------------------------------------------------------------
+
 
 
 //게시글
 $(".MymummProjectInfo_projectList li a").eq(0).on('click', function(){
-	
-	
-	
-	 if($('.MymummSection_section').eq(0).find('.MymummList_list').css('display') == 'none'	){
-		$('.MymummSection_section').eq(0).find('.MymummList_list').css('display', '');
+	myPost();
+		$('.profileSetting').css('display', 'none');
+	    $('.MymummProjectInfo_projectLink').css('display', '');
+	 if($('.MymummSection_section').find('.MymummList_list').css('display') == 'none'	){
+		$('.MymummSection_section').find('.MymummList_list').css('display', '');
 		$('.btn_close').css('display', '');
 		$('.page').css('display', '');
 	}else{
-		$('.MymummSection_section').eq(0).find('.MymummList_list').css('display', 'none');
+        $('.MymummSection_section').children().css('display', 'none');
 		$('.btn_close').css('display', 'none');
 		$('.page').css('display', 'none');
 	}
@@ -154,8 +302,23 @@ $(".MymummProjectInfo_projectList li a").eq(0).on('click', function(){
     }*/
     
 });
+//댓글
 $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
-    $('.profileSetting').css('display', 'none');
+	myComment();
+		$('.profileSetting').css('display', 'none');
+	    $('.MymummProjectInfo_projectLink').css('display', '');
+	 if($('.MymummSection_section').find('.MymummList_list').css('display') == 'none'	){
+		$('.MymummSection_section').find('.MymummList_list').css('display', '');
+		$('.btn_close').css('display', '');
+		$('.page').css('display', '');
+	}else{
+        $('.MymummSection_section').children().css('display', 'none');
+		$('.btn_close').css('display', 'none');
+		$('.page').css('display', 'none');
+	}
+	
+	
+    /*$('.profileSetting').css('display', 'none');
     $('.MymummProjectInfo_projectLink').css('display', '');
     if($('.MymummSection_section').eq(1).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(1).find('.MymummList_list').css('display') != 'none'){
         $('.MymummSection_section').children().css('display', 'none');
@@ -167,7 +330,7 @@ $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
         ($('.MymummProjectInfo_projectList li a span b').eq(1).text() == 0 ? $('.MymummSection_section').eq(1).find('.MymummList_emptyList') : $('.MymummSection_section').eq(1).find('.MymummList_list')).css('display', '');
         $('.page').css('display', ($('.MymummProjectInfo_projectList li a span b').eq(1).text() == 0 ? 'none' : ''));
         $('.btn_close').css('display', '');
-    }
+    }*/
 });
 $(".MymummProjectInfo_projectList li a").eq(2).on('click', function(){
     $('.profileSetting').css('display', 'none');
@@ -318,24 +481,7 @@ function closeSection(){
 }
 
 
-/* css만 구현, 이동은 추가해야함 */
-function movePage(number){
-   var $pageNumber = $('.pageButton a');
-	if($pageNumber.eq(number-1).attr('class') != 'current'){
-    	$pageNumber.attr('class', '');
-		page(number);
-		$pageNumber.eq(number-1).attr('class', 'current')		
-	}
 
-    
-}
-/*    for(let i =0; i < $pageNumber.length; i++){
-        if($pageNumber.eq(i).text() == number){
-            $pageNumber.eq(i).attr('class', 'current');
-            $pageNumber.eq(i).attr('href', '${pageContext.request.contextPath}/user/writePostOk.us?page='+number);
-            return;
-        }
-    }*/
 
 function readURL(input) {
     if (input.files && input.files[0]) {

@@ -28,11 +28,11 @@
 		WHERE user_id=#{userId};
 	</update>
 	
-		<!-- 내 게시글 목록  -->
+	<!-- 내 게시글 목록  -->
 	<select id="selectMyPost" parameterType="map" resultType="postVO">
-		select post_number, post_writer_number, post_contents, post_time, post_like_number
+		select post_number, post_content, post_datetime, post_like_number, user_number
 		from tbl_post
-		where post_writer_number = #{userNumber}
+		where user_number = #{userNumber}
 		order by post_number desc limit #{startRow}, #{rowCount}
 	</select>
 	
@@ -40,7 +40,22 @@
 	<select id="countMyPost" parameterType="_int" resultType="_int">
 		select count(post_number)
 		from tbl_post
-		where post_writer_number = #{userNumber}
+		where user_number = #{userNumber}
+	</select>
+	
+		<!-- 내 댓글 목록 -->
+	<select id="selectMyComment" parameterType="map" resultType="commentsVO">
+		select comments_number, comments_datetime, comments_content, user_number, post_number
+		from tbl_comments
+		where user_number = #{userNumber}
+		order by comments_number desc limit #{startRow}, #{rowCount}
+	</select>
+	
+	<!-- 내 댓글 수 -->
+	<select id="countMyComment" parameterType="_int" resultType="_int">
+		select count(comments_number)
+		from tbl_comments
+		where user_number = #{userNumber}
 	</select>
 	
 </mapper>
