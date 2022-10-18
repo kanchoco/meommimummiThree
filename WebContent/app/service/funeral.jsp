@@ -71,228 +71,31 @@
                         </div>
                         <div class="ProjectCardList_container__3Y14k" id="funeralList">
                             <div class="ProjectCardList_list__1YBa2"id="funeralList">
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx"style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>장례업체ㅣ</strong><strong>씨엘로펫</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">서울특별시 강남구</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RewardProjectCard_gauge__3p9US">
-                                                        <span style="width:100%;"></span>
-                                                    </div>
-                                                    <span class="RewardProjectCard_percent__3TW4_">건당</span>
-                                                    <span class="RewardProjectCard_amount__2AyJF">300,000원</span>
-                                                    <span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">
-                                                        <span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>
-                                                        <span class="RewardProjectCard_isAchieve__1LcUu">
-                                                            <em>가능</em>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx"style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>장례업체ㅣ</strong><strong>씨엘로펫</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">서울특별시 강남구</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RewardProjectCard_gauge__3p9US">
-                                                        <span style="width:100%;"></span>
-                                                    </div>
-                                                    <span class="RewardProjectCard_percent__3TW4_">건당</span>
-                                                    <span class="RewardProjectCard_amount__2AyJF">300,000원</span>
-                                                    <span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">
-                                                        <span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>
-                                                        <span class="RewardProjectCard_isAchieve__1LcUu">
-                                                            <em>가능</em>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx"style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>장례업체ㅣ</strong><strong>씨엘로펫</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">서울특별시 강남구</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RewardProjectCard_gauge__3p9US">
-                                                        <span style="width:100%;"></span>
-                                                    </div>
-                                                    <span class="RewardProjectCard_percent__3TW4_">건당</span>
-                                                    <span class="RewardProjectCard_amount__2AyJF">300,000원</span>
-                                                    <span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">
-                                                        <span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>
-                                                        <span class="RewardProjectCard_isAchieve__1LcUu">
-                                                            <em>가능</em>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx"style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>장례업체ㅣ</strong><strong>씨엘로펫</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">서울특별시 강남구</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RewardProjectCard_gauge__3p9US">
-                                                        <span style="width:100%;"></span>
-                                                    </div>
-                                                    <span class="RewardProjectCard_percent__3TW4_">건당</span>
-                                                    <span class="RewardProjectCard_amount__2AyJF">300,000원</span>
-                                                    <span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">
-                                                        <span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>
-                                                        <span class="RewardProjectCard_isAchieve__1LcUu">
-                                                            <em>가능</em>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx"style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>장례업체ㅣ</strong><strong>씨엘로펫</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">서울특별시 강남구</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RewardProjectCard_gauge__3p9US">
-                                                        <span style="width:100%;"></span>
-                                                    </div>
-                                                    <span class="RewardProjectCard_percent__3TW4_">건당</span>
-                                                    <span class="RewardProjectCard_amount__2AyJF">300,000원</span>
-                                                    <span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">
-                                                        <span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>
-                                                        <span class="RewardProjectCard_isAchieve__1LcUu">
-                                                            <em>가능</em>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx"style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>장례업체ㅣ</strong><strong>씨엘로펫</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">서울특별시 강남구</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="RewardProjectCard_gauge__3p9US">
-                                                        <span style="width:100%;"></span>
-                                                    </div>
-                                                    <span class="RewardProjectCard_percent__3TW4_">건당</span>
-                                                    <span class="RewardProjectCard_amount__2AyJF">300,000원</span>
-                                                    <span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">
-                                                        <span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>
-                                                        <span class="RewardProjectCard_isAchieve__1LcUu">
-                                                            <em>가능</em>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+									<tbody>
+												<c:choose>
+													<c:when test="${funerals != null and fn:length(funerals) > 0}">
+			                                      	<c:forEach var="funeral" items="${funerals}">
+															<div class="ProjectCardList_item__1owJa">
+															<div>
+															<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
+															<a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">
+															<div class="CommonCard_rect__2wpm4">
+															<span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>
+															</div>
+															</a>
+																<c:out value="${funeral.getFuneralName()}"/>
+																<c:out value="${funeral.getFuneralAddress()}"/>
+													
+															
+														</c:forEach>
+													</c:when>
+													<c:otherwise>
+														<tr>
+															<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
+														</tr>
+													</c:otherwise>
+												</c:choose>
+											</tbody>
                                 
                                 <!-- 3개씩 반복 -->
                             </div>
@@ -330,56 +133,6 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/service/funeral.js"></script>\
 <script>
-show();
-function show(){
-	$.ajax({
-		url: "${pageContext.request.contextPath}/funeral.fu",
-		dataType: "json",
-		success: function(funerals){
-			console.log("들어옴!");
-			let text = "";
-			funerals.forEach(funeral => {
-				text += `<div class="ProjectCardList_item__1owJa">`
-				text += `<div>`
-				text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-				text += `<a href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">`
-				text += `<div class="CommonCard_rect__2wpm4">`
-				text += `<span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image:url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');"></span>`
-				text += `</div>`
-				text += `</a>`
-				text += `<div class="CommonCard_info__1f4kq">`
-				text += `<div class="RewardProjectCard_info__3JFub">`
-				text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-				text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
-				text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
-				text += `<strong>장례업체ㅣ</strong><strong>` + funeral.funeralName + `</strong>`
-				text += `</p>`
-				text += `</a>`
-				text += `<div>`
-				text += `<span class="RewardProjectCard_category__2muXk">주소</span>`
-				text += `<span class="RewardProjectCard_makerName__2q4oH">` + funeral.funeralAddress + `</span>`
-				text += `</div>`
-				text += `<div class="RewardProjectCard_gauge__3p9US">`
-				text += `<span style="width:100%;"></span>`
-				text += `</div>`
-				text += `<span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">`
-				text += `<span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>`
-				text += `<span class="RewardProjectCard_isAchieve__1LcUu">`
-				text += `<em>가능</em>`
-				text += `</span>`
-				text += `</span>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-				text += `</div>`
-			});
-			
-			$(".ProjectCardList_list__1YBa2").html(text);
-		}
-	});	
-}
 
 </script>
 </html>
