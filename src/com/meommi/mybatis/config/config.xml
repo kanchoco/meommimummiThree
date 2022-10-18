@@ -12,6 +12,7 @@
      <typeAlias type="com.meommi.app.reviewFile.vo.ReviewFileVO" alias="reviewFileVO"/>
      <typeAlias type="com.meommi.app.postFile.vo.PostFileVO" alias="postFileVO"/>
      <typeAlias type="com.meommi.app.post.vo.PostVO" alias="postVO"/>
+     <typeAlias type="com.meommi.app.post.vo.PostDTO" alias="postDTO"/>
      <typeAlias type="com.meommi.app.placeReview.vo.PlaceReviewVO" alias="placeReviewVO"/>
      <typeAlias type="com.meommi.app.funeral.vo.FuneralVO" alias="funeralVO"/>
      <typeAlias type="com.meommi.app.follow.vo.FollowVO" alias="followVO"/>

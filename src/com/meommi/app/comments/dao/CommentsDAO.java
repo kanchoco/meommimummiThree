@@ -15,7 +15,10 @@ public class CommentsDAO {
 	   public CommentsDAO() {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	   }
-	   public List<CommentsVO> selectCommentUser(){
-		   return sqlSession.selectList("Comments.selectCommentUser");
+	   public List<CommentsVO> selectCommentDefault(){
+		   return sqlSession.selectList("Comments.selectCommentDefault");
+	   }
+	   public List<CommentsVO> selectCommentIncrement(int Outputnum){
+		   return sqlSession.selectList("Comments.selectCommentIncrement",Outputnum);
 	   }
 }
