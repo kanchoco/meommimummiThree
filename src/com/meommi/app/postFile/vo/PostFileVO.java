@@ -3,8 +3,7 @@ package com.meommi.app.postFile.vo;
 public class PostFileVO {
 
 	private int postFileNumber;
-	private int postFilePostNumber;
-	private String postFileName;
+	private String postFileSystemName;
 	private String postFileOriginName;
 	private String postFilePath;
 	
@@ -18,20 +17,12 @@ public class PostFileVO {
 		this.postFileNumber = postFileNumber;
 	}
 
-	public int getPostFilePostNumber() {
-		return postFilePostNumber;
+	public String getPostFileSystemName() {
+		return postFileSystemName;
 	}
 
-	public void setPostFilePostNumber(int postFilePostNumber) {
-		this.postFilePostNumber = postFilePostNumber;
-	}
-
-	public String getPostFileName() {
-		return postFileName;
-	}
-
-	public void setPostFileName(String postFileName) {
-		this.postFileName = postFileName;
+	public void setPostFileSystemName(String postFileSystemName) {
+		this.postFileSystemName = postFileSystemName;
 	}
 
 	public String getPostFileOriginName() {
@@ -52,10 +43,11 @@ public class PostFileVO {
 
 	@Override
 	public String toString() {
-		return "PostFileVO [postFileNumber=" + postFileNumber + ", postFilePostNumber=" + postFilePostNumber
-				+ ", postFileName=" + postFileName + ", postFileOriginName=" + postFileOriginName + ", postFilePath="
-				+ postFilePath + "]";
+		return "PostFileVO [postFileNumber=" + postFileNumber + ", postFileSystemName=" + postFileSystemName
+				+ ", postFileOriginName=" + postFileOriginName + ", postFilePath=" + postFilePath + "]";
 	}
+
+	
 
 	
 	

@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="ProjectCardList_container__3Y14k" id="funeralList">
-                            <div class="ProjectCardList_list__1YBa2">
+                            <div class="ProjectCardList_list__1YBa2"id="funeralList">
                                 <div class="ProjectCardList_item__1owJa">
                                     <div>
                                         <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
@@ -338,7 +338,6 @@ function show(){
 		success: function(funerals){
 			console.log("들어옴!");
 			let text = "";
-			text += `<div class ="ProjectCardList_list__1YBa2">`;
 			funerals.forEach(funeral => {
 				text += `<div class="ProjectCardList_item__1owJa">`
 				text += `<div>`
@@ -363,8 +362,6 @@ function show(){
 				text += `<div class="RewardProjectCard_gauge__3p9US">`
 				text += `<span style="width:100%;"></span>`
 				text += `</div>`
-				text += `<span class="RewardProjectCard_percent__3TW4_">건당</span>`
-				text += `<span class="RewardProjectCard_amount__2AyJF">300,000원</span>`
 				text += `<span class="RewardProjectCard_days__3eece RewardProjectCard_isAchieve__1LcUu">`
 				text += `<span class="RewardProjectCard_remainingDay__2TqyN">예약가능여부</span>`
 				text += `<span class="RewardProjectCard_isAchieve__1LcUu">`
@@ -376,10 +373,10 @@ function show(){
 				text += `</div>`
 				text += `</div>`
 				text += `</div>`
+				text += `</div>`
 			});
-			text += `</div>`;
 			
-			$("#funeralList").html(text);
+			$(".ProjectCardList_list__1YBa2").html(text);
 		}
 	});	
 }
