@@ -5,7 +5,8 @@ public class PlaceReviewVO {
 	private int placeReviewNumber;
 	private String placeReviewContents;
 	private int placeReviewRating;
-	private int placeReviewWriter;
+	private int placeReviewDateTime;
+	private int userNumber;
 	private String placeId;
 	private int placeReviewHelful;
 	
@@ -35,12 +36,20 @@ public class PlaceReviewVO {
 		this.placeReviewRating = placeReviewRating;
 	}
 
-	public int getPlaceReviewWriter() {
-		return placeReviewWriter;
+	public int getPlaceReviewDateTime() {
+		return placeReviewDateTime;
 	}
 
-	public void setPlaceReviewWriter(int placeReviewWriter) {
-		this.placeReviewWriter = placeReviewWriter;
+	public void setPlaceReviewDateTime(int placeReviewDateTime) {
+		this.placeReviewDateTime = placeReviewDateTime;
+	}
+
+	public int getUserNumber() {
+		return userNumber;
+	}
+
+	public void setUserNumber(int userNumber) {
+		this.userNumber = userNumber;
 	}
 
 	public String getPlaceId() {
@@ -62,12 +71,11 @@ public class PlaceReviewVO {
 	@Override
 	public String toString() {
 		return "PlaceReviewVO [placeReviewNumber=" + placeReviewNumber + ", placeReviewContents=" + placeReviewContents
-				+ ", placeReviewRating=" + placeReviewRating + ", placeReviewWriter=" + placeReviewWriter + ", placeId="
-				+ placeId + ", placeReviewHelful=" + placeReviewHelful + "]";
+				+ ", placeReviewRating=" + placeReviewRating + ", placeReviewDateTime=" + placeReviewDateTime
+				+ ", userNumber=" + userNumber + ", placeId=" + placeId + ", placeReviewHelful=" + placeReviewHelful
+				+ "]";
 	}
-	
-	
-	
+
 	
 	
 }

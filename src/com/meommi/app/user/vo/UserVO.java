@@ -73,6 +73,8 @@ public class UserVO {
 				+ ", userName=" + userName + ", userPhotoPath=" + userPhotoPath + ", userIntroduce=" + userIntroduce
 				+ ", userLoginMethod=" + userLoginMethod + "]";
 	}
+
+	
 	
 	
 	

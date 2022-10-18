@@ -3,7 +3,6 @@ package com.meommi.app.reviewFile.vo;
 public class ReviewFileVO {
 
 	private int reviewFileNumber;
-	private int reviewFilePostNumber;
 	private String reviewFileSystemName;
 	private String reviewFileOriginName;
 	private String reviewFilePath;
@@ -16,14 +15,6 @@ public class ReviewFileVO {
 
 	public void setReviewFileNumber(int reviewFileNumber) {
 		this.reviewFileNumber = reviewFileNumber;
-	}
-
-	public int getReviewFilePostNumber() {
-		return reviewFilePostNumber;
-	}
-
-	public void setReviewFilePostNumber(int reviewFilePostNumber) {
-		this.reviewFilePostNumber = reviewFilePostNumber;
 	}
 
 	public String getReviewFileSystemName() {
@@ -52,10 +43,12 @@ public class ReviewFileVO {
 
 	@Override
 	public String toString() {
-		return "ReviewFileVO [reviewFileNumber=" + reviewFileNumber + ", reviewFilePostNumber=" + reviewFilePostNumber
-				+ ", reviewFileSystemName=" + reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName
-				+ ", reviewFilePath=" + reviewFilePath + "]";
+		return "ReviewFileVO [reviewFileNumber=" + reviewFileNumber + ", reviewFileSystemName=" + reviewFileSystemName
+				+ ", reviewFileOriginName=" + reviewFileOriginName + ", reviewFilePath=" + reviewFilePath + "]";
 	}
+
+	
+	
 
 	
 	
