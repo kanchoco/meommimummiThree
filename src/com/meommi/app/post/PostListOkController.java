@@ -14,16 +14,17 @@ import com.meommi.app.Execute;
 import com.meommi.app.Result;
 import com.meommi.app.post.dao.PostDAO;
 
-public class PostListController implements Execute {
+public class PostListOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("utf-8");
+		int increment=Integer.valueOf(req.getParameter("Increment"));
 		PostDAO postDAO=new PostDAO();
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
 		
-		postDAO.selectPostDefault().forEach(posts->{
+		postDAO.selectPostIncrement(increment).forEach(posts->{
 			JSONObject jsonObject =new JSONObject(posts);  jsonArray.put(jsonObject);
 		});
 		out.print(jsonArray.toString());

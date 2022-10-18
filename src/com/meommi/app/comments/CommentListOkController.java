@@ -19,11 +19,12 @@ public class CommentListOkController implements Execute {
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("utf-8");
+		int increment=Integer.valueOf(req.getParameter("Increment"));
 		CommentsDAO commentsDAO=new CommentsDAO();
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
 		
-		commentsDAO.selectCommentUser().forEach(comments->{
+		commentsDAO.selectCommentIncrement(increment).forEach(comments->{
 			JSONObject jsonObject =new JSONObject(comments);  jsonArray.put(jsonObject);
 		});
 		out.print(jsonArray.toString());
