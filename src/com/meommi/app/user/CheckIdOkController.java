@@ -21,6 +21,7 @@ public class CheckIdOkController implements Execute {
 		String inputId = req.getParameter("inputId");
 		PrintWriter out = resp.getWriter();
 		JSONObject jsonObject = new JSONObject();
+		
 		jsonObject.put("result", new UserDAO().checkId(inputId));
 		
 		out.print(jsonObject.toJSONString());

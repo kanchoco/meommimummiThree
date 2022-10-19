@@ -143,80 +143,8 @@
                                         <div class="MymummList_list" style="display:none;">
                                         </div>
                                     </div>
-                                    <div class="MymummSection_section">
-                                        <div class="MymummList_emptyList" style="display: none;">
-                                            작성한 댓글이 없습니다.
-                                        </div>
+                                    <%-- <div class="MymummSection_section">
                                         <div class="MymummList_list"  style="display: none;">
-                                            <ul>
-                                                <li>
-                                                    <a class="myPost" href="댓글로_이동">
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [댓글 내용]
-                                                            </h3>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="댓글로_이동">
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [댓글 내용]
-                                                            </h3>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="댓글로_이동">
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [댓글 내용]
-                                                            </h3>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="댓글로_이동">
-                                                        <div class="info">
-                                                            <h3 class="title reple">
-                                                                [댓글 내용]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                                                            </h3>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="댓글로_이동">
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [댓글 내용]
-                                                            </h3>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="myPost" href="댓글로_이동">
-                                                        <div class="info">
-                                                            <h3 class="title">
-                                                                [댓글 내용]
-                                                            </h3>
-                                                            <span class="created-at">2022.09.30</span>
-                                                        </div>
-                                                        <!-- after -->
-                                                    </a>
-                                                </li>
-                                                
-                                            </ul>
                                         </div>
                                     </div>
                                     <div class="MymummSection_section">
@@ -387,7 +315,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> --%>
                                     <div class="page" style="display: none;">
                                     </div>
                                     <div class="profileSetting" style="display: none;">
@@ -503,5 +431,5 @@
 	let $context = "${pageContext.request.contextPath}";
 </script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js?ver=1"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js"></script>
 </html>

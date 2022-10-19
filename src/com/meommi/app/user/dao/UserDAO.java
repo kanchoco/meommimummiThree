@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.meommi.app.comments.vo.CommentsVO;
 import com.meommi.app.post.vo.PostVO;
 import com.meommi.app.user.vo.UserVO;
 import com.meommi.mybatis.config.MyBatisConfig;
@@ -42,9 +43,20 @@ public class UserDAO {
 	   public List<PostVO> selectMyPost(Map<String, Integer> pageMap){
 		   return sqlSession.selectList("User.selectMyPost", pageMap);
 	   }
+	   
 //	   내 게시글 수
 	   public int countMyPost(int userNumber) {
 		   return sqlSession.selectOne("User.countMyPost", userNumber);
+	   }
+
+//	   내 댓글 불러오기
+	   public List<CommentsVO> selectMyComment(Map<String, Integer> pageMap){
+		   return sqlSession.selectList("User.selectMyComment", pageMap);
+	   }
+	   
+//	   내 댓글 수
+	   public int countMyComment(int userNumber) {
+		   return sqlSession.selectOne("User.countMyComment", userNumber);
 	   }
 
 }

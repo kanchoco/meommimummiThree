@@ -36,10 +36,12 @@ public class LoginOkController implements Execute {
 	try {
 //			아이디/비번 MySQL에서 조회하고 조회 성공 시 조회된 회원의 번호를 저장해준다.
 			userNumber = userDAO.login(userVO);
-			
+
 //			세션에 아이디, 비번 저장
 			session.setAttribute("userId", userId);
 			session.setAttribute("userPassword", userPassword);
+			
+			System.out.println(session.getAttribute("userId"));
 			
 			result.setRedirect(true);
 			result.setPath(req.getContextPath() + "/app/main/mainpage.jsp"); //아직 메인 컨트롤러 안만들어서 임시로 여기로 보냄

@@ -2,7 +2,9 @@ package com.meommi.app.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +16,10 @@ import org.json.JSONObject;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
+import com.meommi.app.post.vo.PostVO;
 import com.meommi.app.user.dao.UserDAO;
 
-public class WritePostLookupController implements Execute {
+public class WritePostLookupOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

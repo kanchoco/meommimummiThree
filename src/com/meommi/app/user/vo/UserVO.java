@@ -7,7 +7,7 @@ public class UserVO {
 	private String userName;
 	private String userPhotoPath;
 	private String userIntroduce;
-	private String userLoginMethod;
+	private int userLoginMethod;
 	
 	public UserVO() {;}
 
@@ -59,11 +59,11 @@ public class UserVO {
 		this.userIntroduce = userIntroduce;
 	}
 
-	public String getUserLoginMethod() {
+	public int getUserLoginMethod() {
 		return userLoginMethod;
 	}
 
-	public void setUserLoginMethod(String userLoginMethod) {
+	public void setUserLoginMethod(int userLoginMethod) {
 		this.userLoginMethod = userLoginMethod;
 	}
 

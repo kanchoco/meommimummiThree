@@ -57,7 +57,13 @@ public class UserFrontController extends HttpServlet {
 			result.setPath("/app/user/myPage.jsp");
 		}else if(request.equals("/user/writePostOk.us")) {
 			//postLookup -> 게시글 불러오기 
-			 new WritePostLookupController().execute(req, resp);
+			 new WritePostLookupOkController().execute(req, resp);
+		}else if(request.equals("/user/writeCommentOk.us")) {
+			//->댓글 불러오기
+			new WriteCommentLookupOkController().execute(req, resp);
+		}else if(request.equals("/user/loginGoogle.us")) {
+			//->카카오 로그인
+			new GoogleLoginController().execute(req, resp);
 		}
 
 

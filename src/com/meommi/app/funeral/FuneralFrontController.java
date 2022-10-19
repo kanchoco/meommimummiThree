@@ -30,7 +30,9 @@ public class FuneralFrontController extends HttpServlet {
 		      Result result = null;
 		   
 		   if(request.equals("/funeral.fu")) {
-			   new FuneralListController().execute(req, resp);
+			   result = new FuneralListController().execute(req, resp);
+		      } else if(request.equals("/funeralSearch.fu")) {
+			   result = new FuneralSearchController().execute(req, resp);
 		      }
 		      
 		      if(result != null) {
