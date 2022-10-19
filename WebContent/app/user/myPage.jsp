@@ -429,7 +429,9 @@
 </body>
 <script>
 	let $context = "${pageContext.request.contextPath}";
+	let userId = "${userId}";
+	console.log(userId);
 </script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js?ver=1"></script>
 </html>

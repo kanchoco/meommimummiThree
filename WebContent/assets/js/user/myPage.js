@@ -12,8 +12,6 @@ var $pageNumber = $('.pageButton a');
 } */
 
 $(".check-list-wrap li input[type='checkbox']").on('click', function(){
-    console.log($(this).is(':checked'));
-    console.log($(this).closest('li').find('span').text());
     if($(this).is(':checked')){
         $(this).closest('li').find('span').attr('class', 'button_checked');
     }else{
@@ -26,7 +24,6 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
 			let text = "";
 			let pageText ="";
 			let j = 0;
-			console.log(posts.length);
 	   if(posts.length > 1){
 				text += `<ul>`;
 			posts.forEach(post => {
@@ -34,13 +31,9 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
 				if(j < posts.length){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
-					text += `<div class="thumb" style="background-image: url('')"></div>`;
+					text += `<div class="thumb" style="background-image: url('`+ (post.postFilePath == null ? $context + `/images/logo.png ` :  post.postFilePath) +` ')"></div>`;
 					text += `<div class="info">`;
 					text += `<h3 class="title">[`+ post.postContent +`]</h3>`;
-					text += `<span class="liked">`;
-					text += `추천수`;
-					text += `<i>` + post.postLikeNumber + `</i>`;
-					text += `</span>`; 
 					text += `<span class="created-at">`+ post.postDateTime +`</span>`; 
 					text += `</div>`; 
 					text += `</a>`; 
@@ -50,9 +43,9 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
 					pageText += `<div class="pageButton">`;
 					for(let i  = post.startPage; i <= post.endPage; i++){
 						if(post.page == i){
-							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, 'post')">` + i + `</a>`;
 						}else{
-							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `)">` + i + `</a>`;
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, 'post')">` + i + `</a>`;
 						}
 					}
 					pageText+=`</div>`
@@ -97,10 +90,7 @@ function myPost(){
 			let text = "";
 			let pageText ="";
 			let j = 0;
-			console.log(comments.length);
 	   if(comments.length > 1){
-		console.log(comments.length);
-		console.log('dd')
 				text += `<ul>`;
 			comments.forEach(comment => {
 					j++
@@ -119,9 +109,9 @@ function myPost(){
 					pageText += `<div class="pageButton">`;
 					for(let i  = comment.startPage; i <= comment.endPage; i++){
 						if(comment.page == i){
-							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, 'comment')">` + i + `</a>`;
 						}else{
-							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, 'comment')">` + i + `</a>`;
 						}
 					}
 					pageText+=`</div>`
@@ -150,7 +140,6 @@ function pageCom(number){
 }		
 
 function myComment(){
-	console.log('ddd');
 	//sessionscope로 userNumber넘기는걸로 수정할 것
 	 $.ajax({
          url: $context + "/user/writeCommentOk.us",
@@ -167,10 +156,7 @@ function myComment(){
 			let text = "";
 			let pageText ="";
 			let j = 0;
-			console.log(reviews.length);
 	   if(reviews.length > 1){
-		console.log(reviews.length);
-		console.log('dd')
 				text += `<ul>`;
 			reviews.forEach(review => {
 					j++
@@ -178,14 +164,15 @@ function myComment(){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
 					text += `<div class="info">`;
-					text += `<div class="thumb" style="background-image: url('` + review.file +`');"></div>`;
-					text += `<h3 class="place">[`+ review.title +`]</h3>`;
+					text += `<div class="thumb" style="background-image: url('` +(review.reviewFilePath == null ? $context + `/images/logo.png ` :  review.reviewFilePath) +`');"></div>`;
+					text += `<h3 class="place">[`+ review.favoritePlaceName +`]</h3>`;
+					text += `<h3 class="review">[`+ review.placeReviewContents +`]</h3>`;
 					text += `<span class="liked">`;
-					text += `추천수`;
+					text += `도움이 돼요`;
 					text += `<i>` + review.placeReviewHelful + `</i>`;
 					text += `</span>`;
 					text += `<span class="liked">`;
-					text += `추천수`;
+					text += `별점`;
 					text += `<i>` + review.placeReviewRating + `</i>`;
 					text += `</span>`;  
 					text += `</div>`; 
@@ -195,11 +182,11 @@ function myComment(){
 				else{
 					console.log( j + "페이지");
 					pageText += `<div class="pageButton">`;
-					for(let i  = comment.startPage; i <= comment.endPage; i++){
-						if(comment.page == i){
-							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+					for(let i  = review.startPage; i <= review.endPage; i++){
+						if(review.page == i){
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, 'review')">` + i + `</a>`;
 						}else{
-							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, comment)">` + i + `</a>`;
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, 'review')">` + i + `</a>`;
 						}
 					}
 					pageText+=`</div>`
@@ -210,32 +197,98 @@ function myComment(){
 			
 	   }else{
 			text += `<div class="MymummList_emptyList">`;
-			text += `작성한 댓글이 없습니다.`;
+			text += `작성한 리뷰가 없습니다.`;
 			text += `</div>`; 
 		}
 			$('.MymummList_list').html(text);
 			$('.page').html(pageText);
 }
 //ajax 함수
-function pageCom(number){
+function pageRe(number){
 	$.ajax({
-         url: $context + "/user/writeCommentOk.us?page="+number,
+         url: $context + "/user/writeReviewOk.us?page="+number,
          type: "get",
          dataType:'json',
 		 contentType: "application/json; charset=utf-8",
-		success : commentList
+		success : reviewList
       });
 }		
 
-function myComment(){
-	console.log('ddd');
+function myReview(){
 	//sessionscope로 userNumber넘기는걸로 수정할 것
 	 $.ajax({
-         url: $context + "/user/writeCommentOk.us",
+         url: $context + "/user/writeReviewOk.us",
          type: "get",
          dataType:'json',
 		 contentType: "application/json; charset=utf-8",
-         success: commentList
+         success: reviewList
+      });
+}
+//----------------------------------------------------------------------------------------------------
+
+//장소 저장 불러오기태그------------------------------------------------------------------------------------------
+ function placeList(places) {
+			let text = "";
+			let pageText ="";
+			let j = 0;
+	   if(places.length > 1){
+				text += `<ul>`;
+			places.forEach(place => {
+					j++
+				if(j < places.length){
+					text += `<li>`;
+					text += `<a class="myPost" href="#">`;
+					text += `<div class="info">`;
+					text += `<div class="thumb" style="background-image: url('` + (place.favoritePlacePhotos == null ? $context + `/images/logo.png ` :  place.favoritePlacePhotos)  +`');"></div>`;
+					text += `<h3 class="place">[`+ place.favoritePlaceName +`]</h3>`;
+					text += `<span class="created-at">`+ place.favoritePlaceAdrAddress +`</span>`;
+					text += `</div>`; 
+					text += `</a>`; 
+					text += `</li>`; 
+				}
+				else{
+					pageText += `<div class="pageButton">`;
+					for(let i  = place.startPage; i <= place.endPage; i++){
+						if(place.page == i){
+							pageText +=`<a class="current" href="#" onclick="movePage(`+ i + `, 'place')">` + i + `</a>`;
+						}else{
+							pageText +=`<a class="" href="#" onclick="movePage(`+ i + `, 'place')">` + i + `</a>`;
+						}
+					}
+					pageText+=`</div>`
+				}
+			});
+				text += `</ul>`; 
+				
+			
+	   }else{
+			text += `<div class="MymummList_emptyList">`;
+			text += `등록한 장소가 없습니다.`;
+			text += `</div>`; 
+		}
+			$('.MymummList_list').html(text);
+			$('.page').html(pageText);
+}
+//ajax 함수
+function pagePlace(number){
+	$.ajax({
+         url: $context + "/user/myPlaceOk.us?page="+number,
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+		success : placeList
+      });
+}		
+
+function myPlace(){
+	console.log('place');
+	//sessionscope로 userNumber넘기는걸로 수정할 것
+	 $.ajax({
+         url: $context + "/user/myPlaceOk.us",
+         type: "get",
+         dataType:'json',
+		 contentType: "application/json; charset=utf-8",
+         success: placeList
       });
 }
 //----------------------------------------------------------------------------------------------------
@@ -248,7 +301,6 @@ $('.pageButton a').on('click', function(e){
 function movePage(number, type){
 	let realNum = number -1;
    	$('.pageButton a').attr('class', '');
-	
 	if($('.pageButton a').eq(realNum).attr('text') != number){
 		switch(type){
 			case 'post' :
@@ -259,11 +311,11 @@ function movePage(number, type){
 			console.log('comment');
 				pageCom(number);
 			break;
-			case 'post' :
-				pagePost(number);
+			case 'review' :
+				pageRe(number);
 			break;
-			case 'post' :
-				pagePost(number);
+			case 'place' :
+				pagePlace(number);
 			break;
 		}
 	}
@@ -286,21 +338,6 @@ $(".MymummProjectInfo_projectList li a").eq(0).on('click', function(){
 		$('.btn_close').css('display', 'none');
 		$('.page').css('display', 'none');
 	}
-
-
-  /*  $('.profileSetting').css('display', 'none');
-    $('.MymummProjectInfo_projectLink').css('display', '');
-    if($('.MymummSection_section').eq(0).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(0).find('.MymummList_list').css('display') != 'none'){
-        $('.MymummSection_section').children().css('display', 'none');
-        $('.page').css('display', 'none');
-    }
-    else{
-        $('.MymummSection_section').children().css('display', 'none');
-        ($('.MymummProjectInfo_projectList li a span b').eq(0).text() == 0 ? $('.MymummSection_section').eq(0).find('.MymummList_emptyList') : $('.MymummSection_section').eq(0).find('.MymummList_list')).css('display', '');
-        $('.page').css('display', ($('.MymummProjectInfo_projectList li a span b').eq(0).text() == 0 ? 'none' : ''));
-        $('.btn_close').css('display', '');
-    }*/
-    
 });
 //댓글
 $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
@@ -317,52 +354,40 @@ $(".MymummProjectInfo_projectList li a").eq(1).on('click', function(){
 		$('.page').css('display', 'none');
 	}
 	
-	
-    /*$('.profileSetting').css('display', 'none');
-    $('.MymummProjectInfo_projectLink').css('display', '');
-    if($('.MymummSection_section').eq(1).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(1).find('.MymummList_list').css('display') != 'none'){
-        $('.MymummSection_section').children().css('display', 'none');
-        $('.page').css('display', 'none');
-        $('.btn_close').css('display', 'none');
-    }
-    else{
-        $('.MymummSection_section').children().css('display', 'none');
-        ($('.MymummProjectInfo_projectList li a span b').eq(1).text() == 0 ? $('.MymummSection_section').eq(1).find('.MymummList_emptyList') : $('.MymummSection_section').eq(1).find('.MymummList_list')).css('display', '');
-        $('.page').css('display', ($('.MymummProjectInfo_projectList li a span b').eq(1).text() == 0 ? 'none' : ''));
-        $('.btn_close').css('display', '');
-    }*/
 });
+//리뷰
 $(".MymummProjectInfo_projectList li a").eq(2).on('click', function(){
-    $('.profileSetting').css('display', 'none');
-    $('.MymummProjectInfo_projectLink').css('display', '');
-    if($('.MymummSection_section').eq(2).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(2).find('.MymummList_list').css('display') != 'none'){
+ 	myReview();
+		$('.profileSetting').css('display', 'none');
+	    $('.MymummProjectInfo_projectLink').css('display', '');
+	 if($('.MymummSection_section').find('.MymummList_list').css('display') == 'none'	){
+		$('.MymummSection_section').find('.MymummList_list').css('display', '');
+		$('.btn_close').css('display', '');
+		$('.page').css('display', '');
+	}else{
         $('.MymummSection_section').children().css('display', 'none');
-        $('.page').css('display', 'none');
-        $('.btn_close').css('display', 'none');
-    }
-    else{
-        $('.MymummSection_section').children().css('display', 'none');
-        ($('.MymummProjectInfo_projectList li a span b').eq(2).text() == 0 ? $('.MymummSection_section').eq(2).find('.MymummList_emptyList') : $('.MymummSection_section').eq(2).find('.MymummList_list')).css('display', '');
-        $('.page').css('display', ($('.MymummProjectInfo_projectList li a span b').eq(2).text() == 0 ? 'none' : ''));
-        $('.btn_close').css('display', '');
-    }
-});
-$(".MymummProjectInfo_projectList li a").eq(3).on('click', function(){
-    $('.profileSetting').css('display', 'none');
-    $('.MymummProjectInfo_projectLink').css('display', '');
-    if($('.MymummSection_section').eq(3).find('.MymummList_emptyList').css('display') != 'none' || $('.MymummSection_section').eq(3).find('.MymummList_list').css('display') != 'none'){
-        $('.MymummSection_section').children().css('display', 'none');
-        $('.page').css('display', 'none');
-        $('.btn_close').css('display', 'none');
-    }
-    else{
-        $('.MymummSection_section').children().css('display', 'none');
-        ($('.MymummProjectInfo_projectList li a span b').eq(3).text() == 0 ? $('.MymummSection_section').eq(3).find('.MymummList_emptyList') : $('.MymummSection_section').eq(3).find('.MymummList_list')).css('display', '');
-        $('.page').css('display', ($('.MymummProjectInfo_projectList li a span b').eq(3).text() == 0 ? 'none' : ''));
-        $('.btn_close').css('display', '');
-    }
+		$('.btn_close').css('display', 'none');
+		$('.page').css('display', 'none');
+	}
 });
 
+//내 장소
+$(".MymummProjectInfo_projectList li a").eq(3).on('click', function(){
+	myPlace();
+		$('.profileSetting').css('display', 'none');
+	    $('.MymummProjectInfo_projectLink').css('display', '');
+	 if($('.MymummSection_section').find('.MymummList_list').css('display') == 'none'	){
+		$('.MymummSection_section').find('.MymummList_list').css('display', '');
+		$('.btn_close').css('display', '');
+		$('.page').css('display', '');
+	}else{
+        $('.MymummSection_section').children().css('display', 'none');
+		$('.btn_close').css('display', 'none');
+		$('.page').css('display', 'none');
+	}
+});
+
+//정보설정
 $('.MymummProjectInfo_projectLink li a').eq(0).on('click', function(){
     if($('.profileSetting').css('display') == 'none'){
         $('.page').css('display', 'none');
@@ -380,22 +405,6 @@ $('.MymummProjectInfo_projectLink li a').eq(0).on('click', function(){
 if($('.profileSetting').css('display') == 'none'){
     $('.MymummProjectInfo_projectLink').css('display', '');
 }
-
-// $('.MymummProfile_editProfile').on('click', function(){
-//     if($('.profileSetting').css('display') == 'none'){
-//         $('.page').css('display', 'none');
-//         $('.btn_close').css('display', '');
-//         $('.MymummSection_section').children().css('display', 'none');
-//         $('.profileSetting').css('display', '');
-//     }else{
-//         $('.profileSetting').css('display', 'none');
-//         $('.btn_close').css('display', 'none');
-//     }
-// });
-
-/*function change(){
-    $('.MymummProjectInfo_projectList li a span b').text('18');
-}*/
 
 function checkNick(){
     console.log('실행');

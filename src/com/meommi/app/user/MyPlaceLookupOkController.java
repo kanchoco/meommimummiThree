@@ -16,7 +16,7 @@ import com.meommi.app.Execute;
 import com.meommi.app.Result;
 import com.meommi.app.user.dao.UserDAO;
 
-public class WriteCommentLookupOkController implements Execute {
+public class MyPlaceLookupOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,13 +25,13 @@ public class WriteCommentLookupOkController implements Execute {
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
 		int userNumber = 1;
 		UserDAO userDAO = new UserDAO();
-		JSONArray comments = new JSONArray();
+		JSONArray places = new JSONArray();
 		PrintWriter out = resp.getWriter();
 		String temp = req.getParameter("page"); 
 		JSONObject pages = new JSONObject();
 		
 		int page = temp == null ? 1 : Integer.parseInt(temp);
-		int total = userDAO.countMyComment(userNumber);
+		int total = userDAO.countMyPlace(userNumber);
 //		한 페이지에 출력되는 게시글의 개수
 		int rowCount = 6;
 		int startRow = (page - 1) * rowCount;
@@ -50,10 +50,9 @@ public class WriteCommentLookupOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
-		
-		userDAO.selectMyComment(pageMap).forEach(v -> {JSONObject comment = new JSONObject(v); comments.put(comment); });
-		comments.put(pages);
-		out.print(comments.toString());
+		userDAO.selectMyPlace(pageMap).forEach(v -> {JSONObject place = new JSONObject(v); places.put(place);});
+		places.put(pages);
+		out.print(places.toString());
 		out.close();
 		
 		return null;
