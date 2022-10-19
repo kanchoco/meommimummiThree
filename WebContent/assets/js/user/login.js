@@ -125,7 +125,7 @@ function handleCredentialResponse(response) {
     console.log("Image URL: " + responsePayload.picture);
     console.log("Email: " + responsePayload.email);
 	$.ajax({
-		url: contextPath + "/user/loginGoogle.us",
+		url: contextPath + "/user/loginGoogle.us", // 컨트롤러
 		type: "post",
 		data: {
 			id: responsePayload.sub,
@@ -149,7 +149,7 @@ function parseJwt (token) {
 
 window.onload = function () {
   google.accounts.id.initialize({
-    client_id: "609009193609-b797q62q035jhkamfo8ebei82sr5612j.apps.googleusercontent.com",
+    client_id: "609009193609-b797q62q035jhkamfo8ebei82sr5612j.apps.googleusercontent.com", //직접 클라이언트 ID를 받아서 진행해야함
     callback: handleCredentialResponse
   });
   google.accounts.id.renderButton(
