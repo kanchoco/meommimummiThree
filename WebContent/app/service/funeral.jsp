@@ -68,18 +68,7 @@
 										</div>
 									</label>
 								</form>
-								<div
-									class="SortingSelect_container__8AOZQ ProjectListHead_sorting__2n1WY">
-									<span>추천순</span> <select name="order" id="orders"
-										class="SortingSelect_select__1etN_">
-										<option class="opts" value="recommend">추천순</option>
-										<option class="opts" value="popular">인기순</option>
-										<option class="opts" value="amount">펀딩액순</option>
-										<option class="opts" value="closing">마감임박순</option>
-										<option class="opts" value="recent">최신순</option>
-										<option class="opts" value="support">응원참여자순</option>
-									</select>
-								</div>
+								
 								<div class="ProjectListHead_children__2Y7-F"></div>
 							</div>
 						</div>
