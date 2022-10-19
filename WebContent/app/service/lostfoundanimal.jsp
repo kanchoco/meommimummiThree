@@ -89,20 +89,21 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong><strong>멈미뭄미</strong>
+                                                                <strong>유기동물 이름ㅣ</strong>
+                                                                <strong class="StrongName">멈미뭄미</strong>
                                                             </p>
                                                         </a>
                                                         <div>
                                                             <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">치와와</span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH" class="StrongKind">치와와</span>
                                                         </div>
                                                         <div>
                                                             <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">강원도 유기견 보호소</span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH"class="StrongProtectionAgency">강원도 유기견 보호소</span>
                                                         </div>
                                                         <div>
                                                             <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">무</span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH" class="StrongDisease">무</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -321,4 +322,127 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/lostfoundanimal.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+function q1(){
+	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
+	let apikey='vxcVfXBaPnpk793GY5gONJ53VqXJU0mYt5fRS0YQT8xiBsyilSLdGLwe7muRYs0D5obYpeEZ%2B5OolaUd29nrRw%3D%3D';
+	let pageNo=1;
+	let numOfRows=11;
+	$.ajax({
+		type:"GET",
+		url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&serviceKey="+apikey,
+		data:{},
+		success:function(response){
+			$("#names-q1").empty();
+			/* 길이 */
+			let $items=$(response).find("item");
+			let $length=$($items).children().length;
+			let $numOfRows=$(response).find("numOfRows").text();
+			
+			/* 항목들 */
+			let $desertionno=$(response).find("desertionNo");
+			let $happenDt=$(response).find("happenDt");
+			let $happenPlace=$(response).find("happenPlace");
+			let $kindCd=$(response).find("kindCd");
+			let $colorCd=$(response).find("colorCd");
+			let $age=$(response).find("age");
+			let $weight=$(response).find("weight");
+			let $noticeNo=$(response).find("noticeNo");
+			let $noticeSdt=$(response).find("noticeSdt");
+			let $noticeEdt=$(response).find("noticeEdt");
+			let $popfile=$(response).find("popfile");
+			let $processState=$(response).find("processState");
+			let $sexCd=$(response).find("sexCd");
+			let $neuterYn=$(response).find("neuterYn");
+			let $specialMark=$(response).find("specialMark");
+			let $careNm=$(response).find("careNm");
+			let $careTel=$(response).find("careTel");
+			let $careAddr=$(response).find("careAddr");
+			let $orgNm=$(response).find("orgNm");
+			let $chargeNm=$(response).find("chargeNm");
+			let $officetel=$(response).find("officetel");
+					
+			let str="";
+			let count=0;
+			for(let i=0;i<$numOfRows;i++){
+				for(let j=0;j<$length/$numOfRows;j++){
+					let temp=$($($items[i]).children()[j]).text();
+					
+					switch(j){
+					case 0:
+						$("#names-q1").append("<li>유기번호:"+temp+"</li>");
+						break;
+					case 1:
+						$("#names-q1").append("<img src='"+temp+"'/>");
+						break;
+					case 2:
+						$("#names-q1").append("<li>접수일:"+temp+"</li>");
+						break;
+					case 3:
+						$("").append("<strong class="StrongPlace">유기동물 발견장소 ㅣ "+temp+"</strong>");
+						break;
+					case 4:
+						$("").append("<strong class="StrongKind">유기동물 품종 ㅣ "+temp+"</strong>");
+						break;
+					case 5:
+						$("#names-q1").append("<li>색상:"+temp+"</li>");
+						break;
+					case 6:
+						$("#names-q1").append("<li>나이:"+temp+"</li>");
+						break;
+					case 7:
+						$("#names-q1").append("<li>체중:"+temp+"</li>");
+						break;
+					case 8:
+						$("#names-q1").append("<li>공고번호:"+temp+"</li>");
+						break;
+					case 9:
+						$("#names-q1").append("<li>공고시작일:"+temp+"</li>");
+						break;
+					case 10:
+						$("#names-q1").append("<li>공고종료일:"+temp+"</li>");
+						break;
+					case 11:
+						break;
+					case 12:
+						$("#names-q1").append("<li>상태:"+temp+"</li>");
+						break;
+					case 13:
+						$("#names-q1").append("<li>성별:"+temp+"</li>");
+						break;
+					case 14:
+						$("#names-q1").append("<li>중성화여부:"+temp+"</li>");
+						break;
+					case 15:
+						$("#names-q1").append("<li>특징:"+temp+"</li>");
+						break;
+					case 16:
+						$("#names-q1").append("<li>보호소이름:"+temp+"</li>");
+						break;
+					case 17:
+						$("#names-q1").append("<li>보호소전화번호:"+temp+"</li>");
+						break;
+					case 18:
+						$("#names-q1").append("<li>보호장소:"+temp+"</li>");
+						break;
+					case 19:
+						$("#names-q1").append("<li>관할기관:"+temp+"</li>");
+						break;
+					case 20:
+						$("#names-q1").append("<li>담당자:"+temp+"</li>");
+						break;
+					case 21:
+						$("#names-q1").append("<li>담당자연락처:"+temp+"</li>");
+						break;
+						
+						
+					}//switch
+				}//inner forloop
+				$("#names-q1").append("<hr/>");
+			}//outer forloop
+		}//ajax success function
+	});//ajax
+}
+</script>
 </html>
