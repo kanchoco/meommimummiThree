@@ -84,7 +84,7 @@
 														<div
 															class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
 															<a
-																href="/web/campaign/detail/54516?_refer_section_st=REWARD_0"
+																href="${funeral.getFuneralUrl()}"
 																class="CardLink_link__1k83H CommonCard_image__vaqkf"
 																aria-hidden="true" tabindex="-1">
 																<div class="CommonCard_rect__2wpm4">
@@ -133,7 +133,7 @@
 														<div
 															class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
 															<a
-																href="/web/campaign/detail/54516?_refer_section_st=REWARD_0"
+																href="${funeralSearch.getFuneralUrl()}"
 																class="CardLink_link__1k83H CommonCard_image__vaqkf"
 																aria-hidden="true" tabindex="-1">
 																<div class="CommonCard_rect__2wpm4">
