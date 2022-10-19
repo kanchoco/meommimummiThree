@@ -51,7 +51,6 @@ public class LoginOkController implements Execute {
 				result.setRedirect(true);
 				result.setPath("/user/login.us?login=false");
 			}
-					
 		return result;
 	}
 }

@@ -47,9 +47,9 @@ public class GoogleLoginController implements Execute {
 //		세션에 아이디, 회원번호 저장
 		session.setAttribute("userId", userId);
 		session.setAttribute("userNumber", userNumber);
-		
+
 		System.out.println(session.getAttribute("userId"));
-		
+
 		return null;
 	}
 

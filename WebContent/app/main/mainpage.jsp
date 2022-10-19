@@ -7,8 +7,16 @@
 <title>h.hyeoniya_main</title>
 </head>
 <body>
-<%-- <jsp:include page = 'header.jsp'/> --%>
- 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
+	<%
+	    String userId = (String)session.getAttribute("userId");
+	    boolean loginOk = userId == null ? false : true;
+	%>
+	<% if(loginOk){ %>
+	 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
+	<% }else{ %>
+		<jsp:include page = '${pageContext.request.contextPath}/app/fix/header.jsp'/>
+	<% } %>
+
 	
 	<jsp:include page = '${pageContext.request.contextPath}/app/main/banner.jsp'/>  
 	<jsp:include page = '${pageContext.request.contextPath}/app/main/mainFinal.jsp'/>  
