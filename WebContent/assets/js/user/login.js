@@ -116,40 +116,49 @@ function kakaoDisconnected() {
 
 
 /*구글 로그인 서비스 */
-
-/* 처음 시작 */
-function init() {
-  gapi.load('auth2', function() {
-    /* Ready. Make a call to gapi.auth2.init or some other API */
-	gapi.auth2.init();
-  });
-}
-
-
-
-function onSignIn(googleUser) {
-	console.log("dfsdfsfdsf");
-    var profile = googleUser.getBasicProfile();
+function handleCredentialResponse(response) {
+	const responsePayload = parseJwt(response.credential);
+	console.log("ID: " + responsePayload.sub);
+    console.log('Full Name: ' + responsePayload.name);
+    console.log('Given Name: ' + responsePayload.given_name);
+    console.log('Family Name: ' + responsePayload.family_name);
+    console.log("Image URL: " + responsePayload.picture);
+    console.log("Email: " + responsePayload.email);
+	$.ajax({
+		url: contextPath + "/user/loginGoogle.us",
+		type: "post",
+		data: {
+			id: responsePayload.sub,
+			userName: responsePayload.name
+		},
+		contentType:  "application/x-www-form-urlencoded"
+	})
 	
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
-
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+	frm_login_google.submit();
 }
 
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
+window.onload = function () {
+  google.accounts.id.initialize({
+    client_id: "609009193609-b797q62q035jhkamfo8ebei82sr5612j.apps.googleusercontent.com",
+    callback: handleCredentialResponse
+  });
+  google.accounts.id.renderButton(
+    document.getElementById("buttonDiv"),
+    { theme: "outline", size: "large", width: 368}  // 로고 커스터마이징
+  );
+  google.accounts.id.prompt(); // 원탭 화면으로 출력
+}
 
 
 
 /* 구글 로그아웃 */
-function signOut() {
-	var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-		console.log('구글로그인 로그아웃');
-    });
-}

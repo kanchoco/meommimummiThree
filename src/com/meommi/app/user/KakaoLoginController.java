@@ -16,6 +16,7 @@ public class KakaoLoginController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.setCharacterEncoding("UTF-8");
 		
 		UserVO userVO = new UserVO();
@@ -48,6 +49,7 @@ public class KakaoLoginController implements Execute {
 		session.setAttribute("userId", userId);
 		session.setAttribute("userNumber", userNumber);
 		
+		System.out.println(session.getAttribute("userId"));
 		
 		return null;
 	}

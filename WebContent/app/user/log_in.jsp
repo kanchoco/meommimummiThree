@@ -7,12 +7,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 구글 로그인 사용, content에 클라이언트ID 추가 --> 
-    <meta name ="google-signin-client_id" content="661764795154-6im5nqev21emhh02h2s7c6218i5mp558.apps.googleusercontent.com">
-	<meta name="google-signin-cookiepolicy" content="single_host_origin" />
-	<meta name="google-signin-requestvisibleactions" content="https://schema.org/AddAction" />
-	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
-
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="https://static.wadiz.kr/static/web/wui.css?e5a9644b">
@@ -120,9 +114,9 @@
 		                            </span>
 		                         </button>
                              </form>
-                             
-                             <form name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">                             	
-	                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="" type="button">
+                             <form  name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">                             	
+	                             <div id="buttonDiv" style="margin-top:15px;"></div> 
+	                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="signOut()" type="button">
 	                             	<span>
 	                             		<span style="position: absolute; left: 16px; width: 22px; height: 22px;">
 											<span class="Button_children__VGHI5">
@@ -162,27 +156,8 @@
         <!-- S : 리턴 폼 -->
         <input type="hidden" id="returnForm" value="">
         <input type="hidden" id="joinType" value="">
-        <!-- E : 리턴 폼 -->
 
-        <!-- S : 페이지별 스크립트 -->
     </div>
-    <script>
-                             	function onSignIn(googleUser) {
-                             		console.log("dfsdfsfdsf");
-                             	    var profile = googleUser.getBasicProfile();
-                             		
-                             	    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                             	    console.log('Full Name: ' + profile.getName());
-                             	    console.log('Given Name: ' + profile.getGivenName());
-                             	    console.log('Family Name: ' + profile.getFamilyName());
-                             	    console.log("Image URL: " + profile.getImageUrl());
-                             	    console.log("Email: " + profile.getEmail());
-
-                             	    // The ID token you need to pass to your backend:
-                             	    var id_token = googleUser.getAuthResponse().id_token;
-                             	    console.log("ID Token: " + id_token);
-                             	}
-                             	</script>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -190,6 +165,8 @@
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 <script src = "https://developers.kakao.com/sdk/js/kakao.js"></script>
 <!-- 구글 api 사용을 위한 스크립트 -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/user/login.js"></script>
 </html>
