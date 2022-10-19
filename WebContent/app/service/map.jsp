@@ -1237,7 +1237,7 @@
     
                                     <!-- 다음 페이지 버튼 -->
                                     <li class="afterPageArrowLeft">
-                                        <button class="pageBtn afterPageBtnLeft" type="button">
+                                        <button id = "nextPageButton" class="pageBtn afterPageBtnLeft" type="button">
                                             <svg width="1em" height="1em" viewBox="0 0 24 24">
                                                 <path fill="currentColor" d="M6 19.692L8.25 22 18 12 8.25 2 6 4.308 13.5 12z">
                                                 </path>
@@ -3260,215 +3260,68 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
+<!--                 </div>
+            </div> -->
         </article>
     </main>
-<%-- <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/> --%>
+<jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/> 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/service/map.js"></script>
-
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&callback=initAutocomplete&libraries=places&v=weekly"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&callback=initMap"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1QwIN3hpH6XpwIx-Yg0F5u-JnvMX_GZw&libraries=places&callback=initMap"></script>
 <script>
-/* var map, infoWindow;
+/*==============================내 위치 지도 띄우기================================  */
+let map, infoWindow;
 function initMap() {
-	
-	  map = new google.maps.Map(document.getElementById("map"), {
-	    center: { lat: -34.397, lng: 150.644 },
-	    zoom: 17,
-	  });
-	  infoWindow = new google.maps.InfoWindow();
-
-	  const locationButton = document.createElement("button");
-
-	  locationButton.textContent = "난 어디에 있는건가요?";
-	  locationButton.classList.add("custom-map-control-button");
-	  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-	  locationButton.addEventListener("click", () => {
-	    // Try HTML5 geolocation.
-	    if (navigator.geolocation) {
-	      navigator.geolocation.getCurrentPosition(
-	        (position) => {
-	          const pos = {
-	            lat: position.coords.latitude,
-	            lng: position.coords.longitude,
-	          };
-
-	          infoWindow.setPosition(pos);
-	          infoWindow.setContent("난 여깄어!!");
-	          infoWindow.open(map);
-	          map.setCenter(pos);
-	        },
-	        () => {
-	          handleLocationError(true, infoWindow, map.getCenter());
-	        }
-	      );
-	    } else {
-	      // Browser doesn't support Geolocation
-	      handleLocationError(false, infoWindow, map.getCenter());
-	    }
-	  });
-	}
-
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-	  infoWindow.setPosition(pos);
-	  infoWindow.setContent(
-	    browserHasGeolocation
-	      ? "Error: The Geolocation service failed."
-	      : "Error: Your browser doesn't support geolocation."
-	  );
-	  infoWindow.open(map);
-	}
-
-	window.initMap = initMap;
- */
-/* function initAutocomplete() {
-	 //지도를 생성할 영역을 dom으로 가져와서 지도 만듦
-  const map = new google.maps.Map(document.getElementById("map-container"), {
-    center: { lat: -33.8688, lng: 151.2195 },
-    zoom: 13,
-    mapTypeId: "roadmap",
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 17,
   });
-	 
-  // Create the search box and link it to the UI element.
-  console.log(document.getElementById("placeSearch"))
-  const input = document.getElementById("placeSearch");
-  console.log(input);
-  const searchBox = new google.maps.places.SearchBox(input);
+  infoWindow = new google.maps.InfoWindow();
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  // Bias the SearchBox results towards current map's viewport.
-  map.addListener("bounds_changed", () => {
-    searchBox.setBounds(map.getBounds());
-  });
+  const locationButton = document.createElement("button");
 
-  let markers = [];
+  locationButton.textContent = "난 어디에 있는건가요?";
+  locationButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
 
-  // Listen for the event fired when the user selects a prediction and retrieve
-  // more details for that place.
-  searchBox.addListener("places_changed", () => {
-    const places = searchBox.getPlaces();
-
-    if (places.length == 0) {
-      return;
-    }
-
-    // Clear out the old markers.
-    markers.forEach((marker) => {
-      marker.setMap(null);
-    });
-    markers = [];
-
-    // For each place, get the icon, name and location.
-    const bounds = new google.maps.LatLngBounds();
-
-    places.forEach((place) => {
-      if (!place.geometry || !place.geometry.location) {
-        console.log("Returned place contains no geometry");
-        return;
-      }
-
-      const icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25),
-      };
-
-      // Create a marker for each place.
-      markers.push(
-        new google.maps.Marker({
-          map,
-          icon,
-          title: place.name,
-          position: place.geometry.location,
-        })
+          infoWindow.setPosition(pos);
+          infoWindow.setContent("난 여깄어!!");
+          infoWindow.open(map);
+          map.setCenter(pos);
+        },
+        () => {
+          handleLocationError(true, infoWindow, map.getCenter());
+        }
       );
-      if (place.geometry.viewport) {
-        // Only geocodes have viewport.
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
-    });
-    map.fitBounds(bounds);
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
   });
 }
 
-window.initAutocomplete = initAutocomplete; */
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
 
-function initMap() {
-	  // Create the map.
-	  const pyrmont = { lat: -33.866, lng: 151.196 };
-	  const map = new google.maps.Map(document.getElementById("map"), {
-	    center: pyrmont,
-	    zoom: 17,
-	    mapId: "8d193001f940fde3",
-	  });
-	  // Create the places service.
-	  const service = new google.maps.places.PlacesService(map);
-	  let getNextPage;
-	  const moreButton = document.getElementById("more");
-
-	  moreButton.onclick = function () {
-	    moreButton.disabled = true;
-	    if (getNextPage) {
-	      getNextPage();
-	    }
-	  };
-
-	  // Perform a nearby search.
-	  service.nearbySearch(
-	    { location: pyrmont, radius: 500, type: "store" },
-	    (results, status, pagination) => {
-	      if (status !== "OK" || !results) return;
-
-	      addPlaces(results, map);
-	      moreButton.disabled = !pagination || !pagination.hasNextPage;
-	      if (pagination && pagination.hasNextPage) {
-	        getNextPage = () => {
-	          // Note: nextPage will call the same handler function as the initial call
-	          pagination.nextPage();
-	        };
-	      }
-	    }
-	  );
-	}
-
-	function addPlaces(places, map) {
-	  const placesList = document.getElementById("places");
-
-	  for (const place of places) {
-	    if (place.geometry && place.geometry.location) {
-	      const image = {
-	        url: place.icon,
-	        size: new google.maps.Size(71, 71),
-	        origin: new google.maps.Point(0, 0),
-	        anchor: new google.maps.Point(17, 34),
-	        scaledSize: new google.maps.Size(25, 25),
-	      };
-
-	      new google.maps.Marker({
-	        map,
-	        icon: image,
-	        title: place.name,
-	        position: place.geometry.location,
-	      });
-
-	      const li = document.createElement("li");
-
-	      li.textContent = place.name;
-	      placesList.appendChild(li);
-	      li.addEventListener("click", () => {
-	        map.setCenter(place.geometry.location);
-	      });
-	    }
-	  }
-	}
-
-	window.initMap = initMap;
-
-</script>    
+window.initMap = initMap;
+</script>
+    
 </html>
