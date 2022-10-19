@@ -62,7 +62,7 @@
                                 <div class="SortingSelect_container__8AOZQ ProjectListHead_sorting__2n1WY">
                                     <span>추천순</span>
                                     <select name="order" id="orders" class="SortingSelect_select__1etN_">
-                                        <option class="opts" value="recommend">추천순</option>
+                                        <option class="opts" value="recommend" onclick="dog()">개</option>
                                         <option class="opts" value="popular">인기순</option>
                                         <option class="opts" value="amount">펀딩액순</option>
                                         <option class="opts" value="closing">마감임박순</option>
@@ -76,217 +76,7 @@
                         <!-- 추가부분 -->
                         <div class="ProjectCardList_container__3Y14k">
                             <div class="ProjectCardList_list__1YBa2">
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwe1TEju6oxqjvpKuGhuVdHq16LvSpr1L2w&usqp=CAU');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong>
-                                                                <strong class="StrongName">멈미뭄미</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH" class="StrongKind">치와와</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH"class="StrongProtectionAgency">강원도 유기견 보호소</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH" class="StrongDisease">무</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwe1TEju6oxqjvpKuGhuVdHq16LvSpr1L2w&usqp=CAU');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong><strong>멈미뭄미</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">치와와</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">강원도 유기견 보호소</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">무</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwe1TEju6oxqjvpKuGhuVdHq16LvSpr1L2w&usqp=CAU');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong><strong>멈미뭄미</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">치와와</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">강원도 유기견 보호소</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">무</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwe1TEju6oxqjvpKuGhuVdHq16LvSpr1L2w&usqp=CAU');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong><strong>멈미뭄미</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">치와와</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">강원도 유기견 보호소</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">무</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwe1TEju6oxqjvpKuGhuVdHq16LvSpr1L2w&usqp=CAU');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong><strong>멈미뭄미</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">치와와</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">강원도 유기견 보호소</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">무</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ProjectCardList_item__1owJa">
-                                    <div>
-                                        <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
-                                                <div class="CommonCard_rect__2wpm4">
-                                                    <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwe1TEju6oxqjvpKuGhuVdHq16LvSpr1L2w&usqp=CAU');"></span>
-                                                </div>
-                                            </a>
-                                            <div class="CommonCard_info__1f4kq">
-                                                <div class="RewardProjectCard_info__3JFub">
-                                                    <div class="RewardProjectCard_infoTop__3QR5w">
-                                                        <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
-                                                            <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>유기동물 이름ㅣ</strong><strong>멈미뭄미</strong>
-                                                            </p>
-                                                        </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">품종</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">치와와</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">보호기관주소</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">강원도 유기견 보호소</span>
-                                                        </div>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">질병유무</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">무</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                     
                                 <!-- 3개씩 반복 -->
                             </div>
                             <!-- page number추가 -->
@@ -294,18 +84,24 @@
                                 <div class="pagination">
                                     <div class="page">
                                         <div class="desktop-only">
+                                        <div class = "pageing">
                                             <button class="prev-page icon-chevron-left">
                                                 <span class="text-hidden"><!-- 이전 목록 --></span>
                                             </button>
-                                            <a href="javascript:void(0);" class="current">1</a>
-                                            <a href="javascript:void(0);">2</a>
-                                            <a href="javascript:void(0);">3</a>
-                                            <a href="javascript:void(0);">4</a>
-                                            <a href="javascript:void(0);">5</a>
-                                            <a href="javascript:void(0);">6</a>
+                                            <a href="javascript:q1();" class="current pageone" onclick="pageing(1)">1</a>
+                                            <a href="javascript:q2();" class="pagetwo" onclick="pageing(2)">2</a>
+                                            <a href="javascript:void(0);" class="pagethree" onclick="pageing(3)">3</a>
+                                            <a href="javascript:void(0);" class="pagefour" onclick="pageing(4)">4</a>
+                                            <a href="javascript:void(0);" class="pagefive" onclick="pageing(5)">5</a>
+                                            <a href="javascript:void(0);" class="pagesix" onclick="pageing(6)">6</a>
+                                            <a href="javascript:void(0);" class="pageseven" onclick="pageing(7)">7</a>
+                                            <a href="javascript:void(0);" class="pageeight" onclick="pageing(8)">8</a>
+                                            <a href="javascript:void(0);" class="pagenine" onclick="pageing(9)">9</a>
+                                            <a href="javascript:void(0);" class="pageten" onclick="pageing(10)">10</a>
                                             <button class="next-page icon-chevron-right">
                                                 <span class="text-hidden"><!-- 다음 목록 --></span>
                                             </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -321,20 +117,24 @@
     <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"/>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/lostfoundanimal.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+q1();
 function q1(){
-	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
-	let apikey='vxcVfXBaPnpk793GY5gONJ53VqXJU0mYt5fRS0YQT8xiBsyilSLdGLwe7muRYs0D5obYpeEZ%2B5OolaUd29nrRw%3D%3D';
+	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc';
+	let apikey='DyktvVTGg0%2FIg1NivqmJPVBJRCfkCZRqGYjQoqII%2FlfiBAddeYghCugXGwLCzD4BZuP6%2FdNlVEeHoaRn7MW7Lw%3D%3D';
 	let pageNo=1;
-	let numOfRows=11;
+	let numOfRows=6;
+	console.log("들어옴1");
+	
 	$.ajax({
 		type:"GET",
 		url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&serviceKey="+apikey,
 		data:{},
 		success:function(response){
-			$("#names-q1").empty();
+			console.log("들어옴2");
+			$(".ProjectCardList_list__1YBa2").empty();
 			/* 길이 */
 			let $items=$(response).find("item");
 			let $length=$($items).children().length;
@@ -363,86 +163,285 @@ function q1(){
 			let $chargeNm=$(response).find("chargeNm");
 			let $officetel=$(response).find("officetel");
 					
-			let str="";
+			let text = "";
 			let count=0;
 			for(let i=0;i<$numOfRows;i++){
-				for(let j=0;j<$length/$numOfRows;j++){
-					let temp=$($($items[i]).children()[j]).text();
-					
-					switch(j){
-					case 0:
-						$("#names-q1").append("<li>유기번호:"+temp+"</li>");
-						break;
-					case 1:
-						$("#names-q1").append("<img src='"+temp+"'/>");
-						break;
-					case 2:
-						$("#names-q1").append("<li>접수일:"+temp+"</li>");
-						break;
-					case 3:
-						$("").append("<strong class="StrongPlace">유기동물 발견장소 ㅣ "+temp+"</strong>");
-						break;
-					case 4:
-						$("").append("<strong class="StrongKind">유기동물 품종 ㅣ "+temp+"</strong>");
-						break;
-					case 5:
-						$("#names-q1").append("<li>색상:"+temp+"</li>");
-						break;
-					case 6:
-						$("#names-q1").append("<li>나이:"+temp+"</li>");
-						break;
-					case 7:
-						$("#names-q1").append("<li>체중:"+temp+"</li>");
-						break;
-					case 8:
-						$("#names-q1").append("<li>공고번호:"+temp+"</li>");
-						break;
-					case 9:
-						$("#names-q1").append("<li>공고시작일:"+temp+"</li>");
-						break;
-					case 10:
-						$("#names-q1").append("<li>공고종료일:"+temp+"</li>");
-						break;
-					case 11:
-						break;
-					case 12:
-						$("#names-q1").append("<li>상태:"+temp+"</li>");
-						break;
-					case 13:
-						$("#names-q1").append("<li>성별:"+temp+"</li>");
-						break;
-					case 14:
-						$("#names-q1").append("<li>중성화여부:"+temp+"</li>");
-						break;
-					case 15:
-						$("#names-q1").append("<li>특징:"+temp+"</li>");
-						break;
-					case 16:
-						$("#names-q1").append("<li>보호소이름:"+temp+"</li>");
-						break;
-					case 17:
-						$("#names-q1").append("<li>보호소전화번호:"+temp+"</li>");
-						break;
-					case 18:
-						$("#names-q1").append("<li>보호장소:"+temp+"</li>");
-						break;
-					case 19:
-						$("#names-q1").append("<li>관할기관:"+temp+"</li>");
-						break;
-					case 20:
-						$("#names-q1").append("<li>담당자:"+temp+"</li>");
-						break;
-					case 21:
-						$("#names-q1").append("<li>담당자연락처:"+temp+"</li>");
-						break;
-						
-						
-					}//switch
+				let $imgs = $($($items[i]).children()[1]).text();
+				console.log($imgs);
+					text += `<div class="ProjectCardList_item__1owJa">`
+                    text += `<div>`
+                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
+                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+                    text += `<div class="CommonCard_rect__2wpm4">`
+                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
+                    text += `</div>`
+                    text += `</a>`
+                    text += `<div class="CommonCard_info__1f4kq">`
+                    text += `<div class="RewardProjectCard_info__3JFub">`
+                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
+                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
+                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
+                    text += `</p>`
+                    text += `</a>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 발견장소ㅣ` + $($($items[i]).children()[3]).text()  + `</span>`
+                    text += `</div>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">보호기관주소ㅣ` + $($($items[i]).children()[18]).text()  + `</span>`
+                    text += `</div>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 특징 ㅣ` + $($($items[i]).children()[15]).text() + `</span>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
 				}//inner forloop
-				$("#names-q1").append("<hr/>");
+                    	$(".ProjectCardList_list__1YBa2").html(text);
+				
+			
 			}//outer forloop
-		}//ajax success function
+
 	});//ajax
+	
 }
+
+
+
+
+
+
+function pageing(number) {
+		let text = "";
+		text += `<button class="prev-page icon-chevron-left">`
+        text += `  <span class="text-hidden"><!-- 이전 목록 --></span>`
+        text += `</button>`
+        text += `<a href="javascript:q1();" class="current pageone" onclick="pageing(1)">1</a>`
+        text += `<a href="javascript:q2();" class="pagetwo" onclick="pageing(2)">2</a>`
+        text += `<a href="javascript:void(0);" class="pagethree" onclick="pageing(3)">3</a>`
+        text += `<a href="javascript:void(0);" class="pagefour" onclick="pageing(4)">4</a>`
+        text += `<a href="javascript:void(0);" class="pagefive" onclick="pageing(5)">5</a>`
+        text += `<a href="javascript:void(0);" class="pagesix" onclick="pageing(6)">6</a>`
+        text += `<a href="javascript:void(0);" class="pageseven" onclick="pageing(7)">7</a>`
+        text += ` <a href="javascript:void(0);" class="pageeight" onclick="pageing(8)">8</a>`
+        text += `<a href="javascript:void(0);" class="pagenine" onclick="pageing(9)">9</a>`
+        text += `<a href="javascript:void(0);" class="pageten" onclick="pageing(10)">10</a>`
+        text += `<button class="next-page icon-chevron-right">`
+        text += `<span class="text-hidden"><!-- 다음 목록 --></span>`
+        text += `</button>`
+        $(".pageing").html(text);
+	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc';
+	let apikey='DyktvVTGg0%2FIg1NivqmJPVBJRCfkCZRqGYjQoqII%2FlfiBAddeYghCugXGwLCzD4BZuP6%2FdNlVEeHoaRn7MW7Lw%3D%3D';
+	let pageNo= number;
+	let numOfRows=6;
+	console.log("들어옴1-2");
+	
+	$.ajax({
+		type:"GET",
+		url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&serviceKey="+apikey,
+		data:{},
+		success:function(response){
+			console.log("들어옴2-2");
+			$(".ProjectCardList_list__1YBa2").empty();
+			/* 길이 */
+			let $items=$(response).find("item");
+			let $length=$($items).children().length;
+			let $numOfRows=$(response).find("numOfRows").text();
+			
+			/* 항목들 */
+			let $desertionno=$(response).find("desertionNo");
+			let $happenDt=$(response).find("happenDt");
+			let $happenPlace=$(response).find("happenPlace");
+			let $kindCd=$(response).find("kindCd");
+			let $colorCd=$(response).find("colorCd");
+			let $age=$(response).find("age");
+			let $weight=$(response).find("weight");
+			let $noticeNo=$(response).find("noticeNo");
+			let $noticeSdt=$(response).find("noticeSdt");
+			let $noticeEdt=$(response).find("noticeEdt");
+			let $popfile=$(response).find("popfile");
+			let $processState=$(response).find("processState");
+			let $sexCd=$(response).find("sexCd");
+			let $neuterYn=$(response).find("neuterYn");
+			let $specialMark=$(response).find("specialMark");
+			let $careNm=$(response).find("careNm");
+			let $careTel=$(response).find("careTel");
+			let $careAddr=$(response).find("careAddr");
+			let $orgNm=$(response).find("orgNm");
+			let $chargeNm=$(response).find("chargeNm");
+			let $officetel=$(response).find("officetel");
+					
+			let text = "";
+			let count=0;
+			for(let i=0;i<$numOfRows;i++){
+				let $imgs = $($($items[i]).children()[1]).text();
+				console.log($imgs);
+					text += `<div class="ProjectCardList_item__1owJa">`
+                    text += `<div>`
+                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
+                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+                    text += `<div class="CommonCard_rect__2wpm4">`
+                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
+                    text += `</div>`
+                    text += `</a>`
+                    text += `<div class="CommonCard_info__1f4kq">`
+                    text += `<div class="RewardProjectCard_info__3JFub">`
+                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
+                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
+                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
+                    text += `</p>`
+                    text += `</a>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 발견장소ㅣ` + $($($items[i]).children()[3]).text()  + `</span>`
+                    text += `</div>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">보호기관주소ㅣ` + $($($items[i]).children()[18]).text()  + `</span>`
+                    text += `</div>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 특징 ㅣ` + $($($items[i]).children()[15]).text() + `</span>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+				}//inner forloop
+                    	$(".ProjectCardList_list__1YBa2").html(text);
+				
+			
+			}//outer forloop
+
+	});//ajax
+	
+}
+// 위에 카테고리 맞춰야함
+function dog(number){
+	let text = "";
+	text += `<button class="prev-page icon-chevron-left">`
+    text += `  <span class="text-hidden"><!-- 이전 목록 --></span>`
+    text += `</button>`
+    text += `<a href="javascript:q1();" class="current pageone" onclick="dog(1)">1</a>`
+    text += `<a href="javascript:q2();" class="pagetwo" onclick="dog(2)">2</a>`
+    text += `<a href="javascript:void(0);" class="pagethree" onclick="dog(3)">3</a>`
+    text += `<a href="javascript:void(0);" class="pagefour" onclick="dog(4)">4</a>`
+    text += `<a href="javascript:void(0);" class="pagefive" onclick="dog(5)">5</a>`
+    text += `<a href="javascript:void(0);" class="pagesix" onclick="dog(6)">6</a>`
+    text += `<a href="javascript:void(0);" class="pageseven" onclick="dog(7)">7</a>`
+    text += ` <a href="javascript:void(0);" class="pageeight" onclick="dog(8)">8</a>`
+    text += `<a href="javascript:void(0);" class="pagenine" onclick="dog(9)">9</a>`
+    text += `<a href="javascript:void(0);" class="pageten" onclick="dog(10)">10</a>`
+    text += `<button class="next-page icon-chevron-right">`
+    text += `<span class="text-hidden"><!-- 다음 목록 --></span>`
+    text += `</button>`
+    $(".pageing").html(text);
+	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc';
+	let apikey='DyktvVTGg0%2FIg1NivqmJPVBJRCfkCZRqGYjQoqII%2FlfiBAddeYghCugXGwLCzD4BZuP6%2FdNlVEeHoaRn7MW7Lw%3D%3D';
+	let check = true;
+	let pageNo=1;
+	
+	
+	
+	if(check == true){
+	
+	let numOfRows=6;
+	return;
+}
+	let numOfRows=number;
+	let upkind = 417000;
+	console.log("들어옴1");
+	
+	$.ajax({
+		type:"GET",
+		url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&upkind="+upkind+"&serviceKey="+apikey,
+		data:{},
+		success:function(response){
+			console.log("들어옴2");
+			$(".ProjectCardList_list__1YBa2").empty();
+			/* 길이 */
+			let $items=$(response).find("item");
+			let $length=$($items).children().length;
+			let $numOfRows=$(response).find("numOfRows").text();
+			
+			/* 항목들 */
+			let $desertionno=$(response).find("desertionNo");
+			let $happenDt=$(response).find("happenDt");
+			let $happenPlace=$(response).find("happenPlace");
+			let $kindCd=$(response).find("kindCd");
+			let $colorCd=$(response).find("colorCd");
+			let $age=$(response).find("age");
+			let $weight=$(response).find("weight");
+			let $noticeNo=$(response).find("noticeNo");
+			let $noticeSdt=$(response).find("noticeSdt");
+			let $noticeEdt=$(response).find("noticeEdt");
+			let $popfile=$(response).find("popfile");
+			let $processState=$(response).find("processState");
+			let $sexCd=$(response).find("sexCd");
+			let $neuterYn=$(response).find("neuterYn");
+			let $specialMark=$(response).find("specialMark");
+			let $careNm=$(response).find("careNm");
+			let $careTel=$(response).find("careTel");
+			let $careAddr=$(response).find("careAddr");
+			let $orgNm=$(response).find("orgNm");
+			let $chargeNm=$(response).find("chargeNm");
+			let $officetel=$(response).find("officetel");
+					
+			let text = "";
+			let count=0;
+			for(let i=0;i<$numOfRows;i++){
+				let $imgs = $($($items[i]).children()[1]).text();
+				console.log($imgs);
+					text += `<div class="ProjectCardList_item__1owJa">`
+                    text += `<div>`
+                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
+                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+                    text += `<div class="CommonCard_rect__2wpm4">`
+                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
+                    text += `</div>`
+                    text += `</a>`
+                    text += `<div class="CommonCard_info__1f4kq">`
+                    text += `<div class="RewardProjectCard_info__3JFub">`
+                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
+                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
+                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
+                    text += `</p>`
+                    text += `</a>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 발견장소ㅣ` + $($($items[i]).children()[3]).text()  + `</span>`
+                    text += `</div>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">보호기관주소ㅣ` + $($($items[i]).children()[18]).text()  + `</span>`
+                    text += `</div>`
+                    text += `<div>`
+                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 특징 ㅣ` + $($($items[i]).children()[15]).text() + `</span>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+                    text += `</div>`
+				}//inner forloop
+                    	$(".ProjectCardList_list__1YBa2").html(text);
+				
+			
+			}//outer forloop
+
+	});//ajax
+	
+}
+
+
+
+
+
+
+
+
 </script>
 </html>
