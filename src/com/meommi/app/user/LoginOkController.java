@@ -39,7 +39,7 @@ public class LoginOkController implements Execute {
 
 //			세션에 아이디, 비번 저장
 			session.setAttribute("userId", userId);
-			session.setAttribute("userPassword", userPassword);
+			session.setAttribute("userNumber", userNumber);
 			
 			System.out.println(session.getAttribute("userId"));
 			

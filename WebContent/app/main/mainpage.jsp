@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,13 @@
 <title>h.hyeoniya_main</title>
 </head>
 <body>
+
+
 	<%
 	    String userId = (String)session.getAttribute("userId");
 	    boolean loginOk = userId == null ? false : true;
 	    System.out.println("userId: " + userId);
-	    System.out.println("카카오 로그인" + loginOk);
+	    System.out.println("로그인: " + loginOk);
 
 	    if(loginOk){ %>
 	 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
