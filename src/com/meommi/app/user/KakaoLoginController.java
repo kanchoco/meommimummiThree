@@ -48,7 +48,7 @@ public class KakaoLoginController implements Execute {
 		session.setAttribute("userId", userId);
 		session.setAttribute("userNumber", userNumber);
 		
-		System.out.println(session.getAttribute("userId"));
+		System.out.println("카카오 아이디: " + session.getAttribute("userId"));
 		
 		return null;
 	}

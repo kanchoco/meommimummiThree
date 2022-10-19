@@ -71,7 +71,7 @@ function getInfo(){
 					id: res.id,
 					userName: res.kakao_account.profile.nickname
 				},
-				contentType:  "application/x-www-form-urlencoded"
+				contentType:  "application/x-www-form-urlencoded",
 			})
 		},
 		fail: function (error){

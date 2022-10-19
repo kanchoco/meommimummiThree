@@ -99,7 +99,7 @@
                     <div id="iam-account-app">
                         <div>
                             <div>
-                            <form name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">
+                            <form name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/app/main/mainpage.jsp?userId=">
 	                            <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_kakaoButton__2lTDs SNSButtonList_spacer__38ac5" onclick="kakaoLogin()" type="button" style="background-color: #FEE500;">
 		                            <span>
 		                            	<span class="Button_children__VGHI5">
