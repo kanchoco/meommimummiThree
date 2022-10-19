@@ -2,14 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Post">
 
-	<select id="selectPostDefault" resultType="postDTO">
-		select post_number,post_contents,post_time,post_like_number,post_writer_nickname from 
-		tbl_post p join tbl_user u on p.post_writer_nickname=u.user_nickname order by post_time desc limit 0,5 
-	</select>
-	
-	<select id="selectPostIncrement" parameterType="_int" resultType="postDTO">
-		select post_number,post_contents,post_time,post_like_number,post_writer_nickname from 
-		tbl_post p join tbl_user u on p.post_writer_nickname=u.user_nickname order by post_time desc limit 0,#{Outputnum} 
-	</select>
-	
+   <select id="selectPostDefault" resultType="postDTO">
+      select post_number,post_contents,post_time,post_like_number,post_writer_nickname from 
+      tbl_post p join tbl_user u on p.post_writer_nickname=u.user_nickname order by post_time desc limit 0,5 
+   </select>
+   
+   <select id="selectPostIncrement" parameterType="_int" resultType="postDTO">
+      select post_number,post_contents,post_time,post_like_number,post_writer_nickname from 
+      tbl_post p join tbl_user u on p.post_writer_nickname=u.user_nickname order by post_time desc limit 0,#{Outputnum} 
+   </select>
+   
+   <insert id="insertContent" parameterType = "postVO">
+   insert into tbl_post 
+   values (post_content, user_number)
+   into (#{postContent}, #{userNumber})
+   </insert>
+   
 </mapper>
