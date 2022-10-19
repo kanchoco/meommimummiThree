@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.meommi.app.comments.vo.CommentsVO;
+import com.meommi.app.favoritePlace.vo.FavoritePlaceVO;
+import com.meommi.app.placeReview.vo.PlaceReviewDTO;
 import com.meommi.app.post.vo.PostVO;
 import com.meommi.app.user.vo.UserVO;
 import com.meommi.mybatis.config.MyBatisConfig;
@@ -58,5 +60,29 @@ public class UserDAO {
 	   public int countMyComment(int userNumber) {
 		   return sqlSession.selectOne("User.countMyComment", userNumber);
 	   }
+	   
+//	   내 리뷰 목록
+	   public List<String> review(){
+		   return sqlSession.selectList("User.review");
+	   }
+	   public List<PlaceReviewDTO> selectMyReview(Map<String, Integer> pageMap){
+		   return sqlSession.selectList("User.selectMyReview", pageMap);
+	   }
+	   
+//	   내 리뷰 수
+	   public int countMyReview(int userNumber) {
+		   return sqlSession.selectOne("User.countMyReview");
+	   }
+	   
+//	   내 장소 불러오기
+	   public List<FavoritePlaceVO> selectMyPlace(Map<String, Integer> pageMap){
+		   return sqlSession.selectList("User.selectMyPlace", pageMap);
+	   }
+	   
+//	   내 장소 수
+	   public int countMyPlace(int userNumber) {
+		   return sqlSession.selectOne("User.countMyPlace", userNumber);
+	   }
+
 
 }
