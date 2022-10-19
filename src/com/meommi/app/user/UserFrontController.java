@@ -54,9 +54,9 @@ public class UserFrontController extends HttpServlet {
 		} else if(request.equals("/user/myPage.us")) {
 			//myPage.jsp 마이페이지 이동
 			result = new Result();
-			result.setPath("/app/user/myPage.jsp");
+			result.setPath("/app/user/myPage.jsp?userId=" + req.getSession().getAttribute("userId"));
 		}else if(request.equals("/user/writePostOk.us")) {
-			//postLookup -> 게시글 불러오기 
+			//postLookup -> 게시글 불러오기 (수정중)
 			 new WritePostLookupOkController().execute(req, resp);
 		}else if(request.equals("/user/writeCommentOk.us")) {
 			//->댓글 불러오기
@@ -64,6 +64,12 @@ public class UserFrontController extends HttpServlet {
 		}else if(request.equals("/user/loginGoogle.us")) {
 			//->카카오 로그인
 			new GoogleLoginController().execute(req, resp);
+		}else if(request.equals("/user/writeReviewOk.us")) {
+			//-> 리뷰 불러오기(수정중)
+			new WriteReviewLookupOkController().execute(req, resp);
+		}else if(request.equals("/user/myPlaceOk.us")) {
+			//--> 내 장소 불러오기
+			new MyPlaceLookupOkController().execute(req, resp);
 		}
 
 

@@ -626,6 +626,7 @@ element.style {
     display: inline-block;
     margin-top: -1px;
     margin-right: 4px;
+	margin-left: 5px;
     background-color: #babdc0;
     width: 2px;
     height: 2px;
@@ -685,6 +686,8 @@ h3 {
 }
 
 .MymummList_list .myPost .thumb {
+	width : 100%;
+	background-size : cover;
     margin-top: -12px;
     margin-bottom: 20px;
     padding-bottom: 108px;
