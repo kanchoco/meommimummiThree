@@ -26,13 +26,12 @@ function loginCheck(){
 
 /*카카오 로그인 서비스 */
 /*세팅 초기화 원할 시 accounts.kakao.com/weblogin/account/info */
-
-
 /* 자바스크립트 키 기재 */
 Kakao.init("d99c2c688be9d7dacb2763bc4919b67a"); 
-console.log(Kakao.isInitialized());
 
 /*카카오 로그인 */
+let id;
+let nickname;
 
 /*리다이렉트 페이지*/
 function loginWithKakao() {
@@ -50,7 +49,7 @@ function kakaoLogin() {
 		success: function (authObj){
 			console.log(authObj); //access 토큰 값
 			Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
-			
+		
 			getInfo();
 		},
 		fail: function(err){
@@ -65,16 +64,22 @@ function getInfo(){
 		success: function(res){
 			console.log(res);
 			/*이메일 정보*/
-			var id = res.id;
-			var nickname = res.kakao_account.profile.nickname;
-			
-			console.log(id, nickname);
-			console.log(Kakao.Auth.getAccessToken());
+			$.ajax({
+				url: contextPath + "/user/loginKakao.us",
+				type: "post",
+				data: {
+					id: res.id,
+					userName: res.kakao_account.profile.nickname
+				},
+				contentType:  "application/x-www-form-urlencoded"
+			})
 		},
 		fail: function (error){
 			alert('카카오 로그인에 실패했습니다. 다시 시도해주세요.' + JSON.stringify(error));
+			return;
 		}
 	})
+	frm_login_kakao.submit();
 }
 
 
@@ -88,7 +93,6 @@ function kakaoLogout(){
 	
 	Kakao.Auth.logout(function(){
 		alert("로그아웃 되었습니다. ");
-		console.log(Kakao.Auth.getAccessToken());
 	})
 }
 
@@ -108,4 +112,53 @@ function kakaoDisconnected() {
       })
       Kakao.Auth.setAccessToken(undefined)
     }
-  }  
+}
+
+
+/*구글 로그인 서비스 */
+function handleCredentialResponse(response) {
+	const responsePayload = parseJwt(response.credential);
+	console.log("ID: " + responsePayload.sub);
+    console.log('Full Name: ' + responsePayload.name);
+    console.log('Given Name: ' + responsePayload.given_name);
+    console.log('Family Name: ' + responsePayload.family_name);
+    console.log("Image URL: " + responsePayload.picture);
+    console.log("Email: " + responsePayload.email);
+	$.ajax({
+		url: contextPath + "/user/loginGoogle.us", // 컨트롤러
+		type: "post",
+		data: {
+			id: responsePayload.sub,
+			userName: responsePayload.name
+		},
+		contentType:  "application/x-www-form-urlencoded"
+	})
+	
+	frm_login_google.submit();
+}
+
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
+window.onload = function () {
+  google.accounts.id.initialize({
+    client_id: "609009193609-b797q62q035jhkamfo8ebei82sr5612j.apps.googleusercontent.com", //직접 클라이언트 ID를 받아서 진행해야함
+    callback: handleCredentialResponse
+  });
+  google.accounts.id.renderButton(
+    document.getElementById("buttonDiv"),
+    { theme: "outline", size: "large", width: 368}  // 로고 커스터마이징
+  );
+  google.accounts.id.prompt(); // 원탭 화면으로 출력
+}
+
+
+
+/* 구글 로그아웃 */

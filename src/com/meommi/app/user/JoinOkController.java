@@ -26,12 +26,14 @@ public class JoinOkController implements Execute {
 	      String userId = req.getParameter("inputId");
 	      String userName = req.getParameter("inputName");
 	      String userPassword = req.getParameter("inputPassword");
+	      int userLoginMethod = 0;
 	      
 	      userPassword = new String(Base64.getEncoder().encode(userPassword.getBytes()));
 	      
 	      userVO.setUserId(userId);
 	      userVO.setUserName(userName);
 	      userVO.setUserPassword(userPassword);
+	      userVO.setUserLoginMethod(userLoginMethod);
 	      
 	      userDAO.join(userVO);
 	      
