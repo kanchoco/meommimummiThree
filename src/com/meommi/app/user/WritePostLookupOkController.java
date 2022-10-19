@@ -2,6 +2,7 @@ package com.meommi.app.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class WritePostLookupOkController implements Execute {
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
 		
-		userDAO.selectMyPost(pageMap).forEach(v -> {JSONObject post = new JSONObject(v); System.out.println(post); posts.put(post); });
+		userDAO.selectMyPost(pageMap).forEach(v -> {JSONObject post = new JSONObject(v); posts.put(post); });
 		posts.put(pages);
 		out.print(posts.toString());
 		out.close();

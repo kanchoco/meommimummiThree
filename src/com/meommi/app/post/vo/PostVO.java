@@ -3,56 +3,58 @@ package com.meommi.app.post.vo;
 public class PostVO {
 
 	private int postNumber; 
+	private int userNumber;
 	private String postContent;
 	private String postDateTime;
 	private int postLikeNumber;
-	private int userNumber;
 	
 	public PostVO() {;}
 
-	protected int getPostNumber() {
+	public int getPostNumber() {
 		return postNumber;
 	}
 
-	protected void setPostNumber(int postNumber) {
+	public void setPostNumber(int postNumber) {
 		this.postNumber = postNumber;
 	}
 
-	protected String getPostContent() {
-		return postContent;
-	}
-
-	protected void setPostContent(String postContent) {
-		this.postContent = postContent;
-	}
-
-	protected String getPostDateTime() {
-		return postDateTime;
-	}
-
-	protected void setPostDateTime(String postDateTime) {
-		this.postDateTime = postDateTime;
-	}
-
-	protected int getPostLikeNumber() {
-		return postLikeNumber;
-	}
-
-	protected void setPostLikeNumber(int postLikeNumber) {
-		this.postLikeNumber = postLikeNumber;
-	}
-
-	protected int getUserNumber() {
+	public int getUserNumber() {
 		return userNumber;
 	}
 
-	protected void setUserNumber(int userNumber) {
+	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
+	}
+
+	public String getPostContent() {
+		return postContent;
+	}
+
+	public void setPostContent(String postContent) {
+		this.postContent = postContent;
+	}
+
+	public String getPostDateTime() {
+		return postDateTime;
+	}
+
+	public void setPostDateTime(String postDateTime) {
+		this.postDateTime = postDateTime;
+	}
+
+	public int getPostLikeNumber() {
+		return postLikeNumber;
+	}
+
+	public void setPostLikeNumber(int postLikeNumbe) {
+		this.postLikeNumber = postLikeNumbe;
 	}
 
 	@Override
 	public String toString() {
-		return "PostVO [postNumber=" + postNumber + ", postContent=" + postContent + ", postDateTime=" + postDateTime
-				+ ", postLikeNumber=" + postLikeNumber + ", userNumber=" + userNumber + "]";
+		return "PostVO [postNumber=" + postNumber + ", userNumber=" + userNumber + ", postContent=" + postContent
+				+ ", postDateTime=" + postDateTime + ", postLikeNumbe=" + postLikeNumber + "]";
 	}
+	
+	
 }
