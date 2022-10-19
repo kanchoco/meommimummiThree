@@ -189,7 +189,7 @@ $deleteBtn.click(function(){
 
 
 
-const infiniteScrollTemplate = `								<div class="FeedCard_container__2vyLX">
+const infiniteScrollTemplate = `                        <div class="FeedCard_container__2vyLX">
 <section class="FeedCard_header__3R2hC">
     <a href="/web/wmypage/myprofile/fundinglist/1152357015"
         class="FeedCard_leftPanel__wkbbV">
@@ -376,3 +376,23 @@ function resize(obj) {
     obj.style.height = '1px';
     obj.style.height = (obj.scrollHeight) + 'px';
 }
+
+
+/*글 등록 ajax*/
+function contentRegist(){
+   console.log("ajax 들어옴")
+      $.ajax({
+      url:  context + "/meommi/PostRegistration.po",
+      type: "get",
+      data: {postContent: postContent, userNumber: userNumber},
+      contentType: "application/json; charset=utf-8",
+      success: function(){console.log("실행됨")}
+   });
+}
+
+
+/*$("#contentResistButton").click(function(){
+   
+   
+})*/
+
