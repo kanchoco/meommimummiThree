@@ -382,12 +382,18 @@ function resize(obj) {
 function contentRegist(){
    console.log("ajax 들어옴")
       $.ajax({
-      url:  context + "/meommi/PostRegistration.po",
-      type: "get",
-      data: {postContent: postContent, userNumber: userNumber},
-      contentType: "application/json; charset=utf-8",
-      success: function(){console.log("실행됨")}
-   });
+         url:  context + "/meommi/PostRegistration.po",
+         type: "get",
+         data: {
+            postContent: $("textarea[name='feedMainWriting']").val(), 
+            userNumber: userNumber
+        },
+         contentType: "application/json; charset=utf-8",
+        success: function(){
+         console.log($("textarea[name='feedMainWriting']").val());
+      }
+        
+      });
 }
 
 
