@@ -1767,10 +1767,10 @@ label[for='attach'] {
 
 
 #map-wrap {
-    float: left;
+	float: left;
     position: fixed;
     right: 0px;
-    top: 559px;
+    top: 598px;
     font-size: 25px;
     width: 32%;
 }

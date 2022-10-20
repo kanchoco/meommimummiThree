@@ -3282,7 +3282,7 @@ function initMap() {
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "난 어디에 있는건가요?";
+  locationButton.textContent = "내 위치 찾기";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
