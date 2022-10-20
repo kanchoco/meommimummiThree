@@ -13,9 +13,9 @@
    </select>
    
    <insert id="insertContent" parameterType = "postVO">
-   insert into tbl_post 
-   values (post_content, user_number)
-   into (#{postContent}, #{userNumber})
+      insert into tbl_post 
+      (post_content, user_number)
+      values(#{postContent}, #{userNumber})
    </insert>
-   
+
 </mapper>
