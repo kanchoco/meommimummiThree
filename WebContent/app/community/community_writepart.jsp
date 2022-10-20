@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community/community.css">
 </head>
 <body>
-m
+
    <!-- 게시글 작성 부분 시작 -->
                      <div class="FeedCardList_list__2yOEy" aria-label="피드 리스트">
                            <!-- 글 작성 div -->
@@ -18,6 +21,21 @@ m
                            <textarea name="feedMainWriting" id="feedMainWriting" cols="30" rows="10" placeholder="내 반려동물을 자랑해주세요!" style="margin-bottom: 10px; width: 100%; height: 200px; resize: none; padding: 20px;"></textarea>
                            <div>
                               <!-- 사진 첨부 -->
+                                                     <!-- 첨부파일 목록 -->
+                        <c:choose>
+                           <c:when test="${files != null and fn:length(files) > 0}">
+                              <c:forEach var="file" items="${files}">
+                                 <a href="${pageContext.request.contextPath}/file/download.file?fileSystemName=${file.getFileSystemName()}&fileOriginalName=${file.getFileOriginalName()}">
+                                    <c:out value="${file.getFileOriginalName()}"/>
+                                 </a>
+                                 <br>
+                              </c:forEach>
+                           </c:when>
+                           <c:otherwise>
+                               첨부파일이 없습니다.
+                              <hr>
+                           </c:otherwise>
+                        </c:choose>
                               <div class="ImageUploader_container__2FM0D">
                                  <div class="ImageUploader_contentWrap__1P_48">
                                     <div class="ImageUploader_button__FPX_Y" id="addPhotoButton">
@@ -64,7 +82,7 @@ m
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
-let postContent = $("textarea[name=feedMainWriting]").text();
+let postContent = $("textarea[name='feedMainWriting']").val();
 let userNumber = 1;
 let context = "${pageContext.request.contextPath}";
 
