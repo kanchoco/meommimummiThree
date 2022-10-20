@@ -62,8 +62,8 @@ public class UserFrontController extends HttpServlet {
 			//->댓글 불러오기
 			new WriteCommentLookupOkController().execute(req, resp);
 		}else if(request.equals("/user/loginGoogle.us")) {
-			//->카카오 로그인
-			new GoogleLoginController().execute(req, resp);
+			//->구글 로그인
+			result = new GoogleLoginController().execute(req, resp);
 		}else if(request.equals("/user/writeReviewOk.us")) {
 			//-> 리뷰 불러오기(수정중)
 			new WriteReviewLookupOkController().execute(req, resp);
@@ -71,8 +71,6 @@ public class UserFrontController extends HttpServlet {
 			//--> 내 장소 불러오기
 			new MyPlaceLookupOkController().execute(req, resp);
 		}
-
-
 
 		if (result != null) {
 			if (result.isRedirect()) {

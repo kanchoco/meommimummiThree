@@ -18,12 +18,14 @@ public class GoogleLoginController implements Execute {
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		
+		Result result = new Result();
 		UserVO userVO = new UserVO();
 		UserDAO userDAO = new UserDAO();
 		HttpSession session = req.getSession();
 		
-		String userId = req.getParameter("id");
-		String userName = req.getParameter("userName");
+		
+		String userId = req.getParameter("googleLoginForm");
+		String userName = req.getParameter("googleNameForm");
 		String password = "GoogleLogin";
 		int loginMethod = 2, userNumber=0;
 
@@ -32,25 +34,30 @@ public class GoogleLoginController implements Execute {
 		userVO.setUserPassword(password);
 		userVO.setUserLoginMethod(loginMethod);
 		
-		if(userDAO.checkId(userId)) {
-//			아이디가 있을 때
-			userNumber = userDAO.login(userVO);
-			System.out.println("아이디 있음");
-		} else {
-//			아이디가 없을 때, 회원가입 후 로그인을 바로 진행한다.
-			userDAO.join(userVO);
-			userNumber = userDAO.login(userVO);
-			System.out.println("아이디 없음");
-		}
-		
+	try {
+			if(userDAO.checkId(userId)) {
+//					아이디가 있을 때
+				userNumber = userDAO.login(userVO);
+			} else {
+//					아이디가 없을 때, 회원가입 후 로그인을 바로 진행한다.
+				userDAO.join(userVO);
+				userNumber = userDAO.login(userVO);
+			}
+			
+//				세션에 아이디, 회원번호 저장
+			session.setAttribute("userId", userId);
+			session.setAttribute("userNumber", userNumber);
+			
+			result.setRedirect(true);
+			result.setPath(req.getContextPath() + "/app/main/mainpage.jsp");
+			
+			} catch (Exception e) {
+//					로그인 실패 시
+				result.setRedirect(true);
+				result.setPath("/user/login.us?login=false");
+			}
 
-//		세션에 아이디, 회원번호 저장
-		session.setAttribute("userId", userId);
-		session.setAttribute("userNumber", userNumber);
-		
-		System.out.println(session.getAttribute("userId"));
-		
-		return null;
+			return result;
 	}
 
 }

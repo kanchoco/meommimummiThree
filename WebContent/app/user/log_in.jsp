@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +100,7 @@
                     <div id="iam-account-app">
                         <div>
                             <div>
-                            <form name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">
+                            
 	                            <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_kakaoButton__2lTDs SNSButtonList_spacer__38ac5" onclick="kakaoLogin()" type="button" style="background-color: #FEE500;">
 		                            <span>
 		                            	<span class="Button_children__VGHI5">
@@ -113,8 +114,8 @@
 		                                </span>
 		                            </span>
 		                         </button>
-                             </form>
-                             <form  name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/app/main/mainpage.jsp">                             	
+
+                                                         	
 	                             <div id="buttonDiv" style="margin-top:15px;"></div> 
 	                             <button class="Button_button__3ip2b Button_lg__m4_5e Button_block__2nblq SNSButtonList_naverButton__1rzZ_ SNSButtonList_spacer__38ac5" onclick="signOut()" type="button">
 	                             	<span>
@@ -141,7 +142,7 @@
 	                                	</span>
 	                             	</span>
 	                             </button>
-                             </form>
+                             
                              
                             </div>
                         </div>
@@ -153,10 +154,18 @@
                 </div>
         </main>
 
-        <!-- S : 리턴 폼 -->
-        <input type="hidden" id="returnForm" value="">
-        <input type="hidden" id="joinType" value="">
-
+        <!-- 카카오 로그인 히든 폼 --> 
+        <form method="post" name="frm_login_kakao" id="frm_login_kakao" action="${pageContext.request.contextPath}/user/loginKakao.us">
+        	<input type="hidden" name="kakaoLoginForm" id="kakaoLoginForm" value="">
+        	<input type="hidden" name="kakaoNameForm" id="kakaoNameForm" value="">        	
+        </form>
+        
+        <!-- 구글 로그인 히든 폼 --> 
+        <form method="post" name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/user/loginGoogle.us"> 
+             <input type="hidden" name="googleLoginForm" id="googleLoginForm" value="">
+        	<input type="hidden" name="googleNameForm" id="googleNameForm" value="">       
+        </form>
+        
     </div>
 </body>
 
