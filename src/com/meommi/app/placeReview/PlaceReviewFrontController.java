@@ -43,13 +43,13 @@ public class PlaceReviewFrontController extends HttpServlet {
 					new mapReviewController().execute(req,resp);
 				}
 		      
-		      if(result != null) {
-		         if(result.isRedirect()) {
-		            resp.sendRedirect(result.getPath());
-		         }else {
-		            RequestDispatcher dispatcher = req.getRequestDispatcher(result.getPath());
-		            dispatcher.forward(req, resp);
-		         }
-		      }
-		   }
+	      if(result != null) {
+	         if(result.isRedirect()) {
+	            resp.sendRedirect(result.getPath());
+	         }else {
+	            RequestDispatcher dispatcher = req.getRequestDispatcher(result.getPath());
+	            dispatcher.forward(req, resp);
+	         }
+	      }
+	   }
 }
