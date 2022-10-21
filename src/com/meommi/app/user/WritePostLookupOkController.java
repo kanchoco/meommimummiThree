@@ -26,7 +26,7 @@ public class WritePostLookupOkController implements Execute {
 		resp.setContentType("text/html;charset=UTF-8");
 		//로그인이랑 합쳤을때, 세션에 들어간 유저 넘버로 바꿀것
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
-		int userNumber = 1;
+		int userNumber = Integer.parseInt(req.getParameter("userNumber"));
 		UserDAO userDAO = new UserDAO();
 		JSONArray posts = new JSONArray();
 		PrintWriter out = resp.getWriter();
@@ -53,8 +53,9 @@ public class WritePostLookupOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
-		
-		userDAO.selectMyPost(pageMap).forEach(v -> {JSONObject post = new JSONObject(v); posts.put(post); });
+		userDAO.selectMyPost(pageMap).forEach(v -> {  
+			v.setPostFileSystemName(userDAO.selectPostFile(v.getPostNumber()));
+			JSONObject post = new JSONObject(v); posts.put(post); });
 		posts.put(pages);
 		out.print(posts.toString());
 		out.close();

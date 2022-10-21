@@ -23,7 +23,7 @@ public class WriteCommentLookupOkController implements Execute {
 		resp.setContentType("text/html;charset=UTF-8");
 		//로그인이랑 합쳤을때, 세션에 들어간 유저 넘버로 바꿀것
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
-		int userNumber = 1;
+		int userNumber = Integer.parseInt(req.getParameter("userNumber"));
 		UserDAO userDAO = new UserDAO();
 		JSONArray comments = new JSONArray();
 		PrintWriter out = resp.getWriter();

@@ -5,6 +5,14 @@ var check = false;
 let count = 1;
 var $pageNumber = $('.pageButton a');
 
+//로그인 방법 체킹
+loginMethodCheck(loginMethod);
+if(loginMethod ==1 || loginMethod == 2){
+	none = "";
+	$('.sub-text').text('SNS회원은 비밀번호 변경이 불가합니다.');
+	$('.changePw').css('display', 'none');
+}
+
 /* if($('.MymummSection_section').find('.MymummList_list').css('display') != 'none'){
     $('.page').css('display', '');
 }else{
@@ -31,7 +39,7 @@ $(".check-list-wrap li input[type='checkbox']").on('click', function(){
 				if(j < posts.length){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
-					text += `<div class="thumb" style="background-image: url('`+ (post.postFilePath == null ? $context + `/images/logo.png ` :  post.postFilePath) +` ')"></div>`;
+					text += `<div class="thumb" style="background-image: url('`+ (post.postFileSystemName == null ? $context + `/images/logo.png ` :  $context +`/upload/post/` +post.postFileSystemName) +` ')"></div>`;
 					text += `<div class="info">`;
 					text += `<h3 class="title">[`+ post.postContent +`]</h3>`;
 					text += `<span class="created-at">`+ post.postDateTime +`</span>`; 
@@ -164,7 +172,7 @@ function myComment(){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
 					text += `<div class="info">`;
-					text += `<div class="thumb" style="background-image: url('` +(review.reviewFilePath == null ? $context + `/images/logo.png ` :  review.reviewFilePath) +`');"></div>`;
+					text += `<div class="thumb" style="background-image: url('` +(review.reviewFileSystemName == null ? $context + `/images/logo.png ` :  $context +`/upload/post/` +review.reviewFileSystemName) +`');"></div>`;
 					text += `<h3 class="place">[`+ review.favoritePlaceName +`]</h3>`;
 					text += `<h3 class="review">[`+ review.placeReviewContents +`]</h3>`;
 					text += `<span class="liked">`;
@@ -406,37 +414,118 @@ if($('.profileSetting').css('display') == 'none'){
     $('.MymummProjectInfo_projectLink').css('display', '');
 }
 
-function checkNick(){
-    console.log('실행');
-    if($('.changeNick .input-text').val() == '배다빈'){
-        console.log('중복')
-        $('.changeNick #result').text('중복된 닉네임입니다.');
-    }
-    else if(!$('.changeNick .input-text').val()){
-        $('.changeNick #result').text('입력한 값이 없습니다.');
+function checkPw(){
+	text = '';
+	
+    if($('.changePw #exPassword').val() == atob(userPw)){
+        console.log('맞음')
+        $('.changePw #result').text('확인완료');
+		text += `<p class="sub-text">새로 사용하실 비밀 번호를 입력해주세요</p>`;
+		text += `<div class="changePw">`;
+		text += `<input type="password" class="input-text" maxlength="50" id="newPassword" name="new" autocomplete="new-password"  onblur="checkPassword()">`
+		text += `<p id="changeError"></p>`;
+		text += `<p class="sub-text">비밀번호 확인</p>`;
+		text += `<input type="password" class="input-text" maxlength="50" id="newPasswordCheck" name = "check" autocomplete="new-password" onblur ="confirmPw()">`
+		text += `<p id="changeResult"></p>`;
+		text += `</div>`;
+		
+		$('.newPw').html(text);
     }
     else{
-        console.log('중복안됨')
-        $('.changeNick #result').text('사용 가능한 닉네임입니다.');
+        $('.changePw #result').text('일치하지 않는 비밀번호');
     }
 }
 
-var kakao = "<span class='MymummLoginMode_kakaoIcon'>"+
-"<svg viewBox='0 0 32 32' focusable='false' role='presentation' class='withIcon_icon' aria-hidden='true'><path d='M16 4.64c-6.96 0-12.64 4.48-12.64 10.08 0 3.52 2.32 6.64 5.76 8.48l-.96 4.96 5.44-3.6 2.4.16c6.96 0 12.64-4.48 12.64-10.08S22.96 4.56 16 4.64z'></path></svg>"+
-"</span>카카오로 로그인 중"
-var mumm = "멈미뭄미로 로그인 중"
-var google = "<span><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><g fill='none' fill-rule='evenodd'><path d='M0.8 0.645H15.600000000000001V15.355H0.8z'></path><path fill='#4285F4' d='M13.471 6.598c.085.388.129.79.129 1.202 0 .204-.01.405-.032.603-.158 1.478-.89 2.79-1.976 3.727L9.65 10.575c.568-.393 1.01-.944 1.257-1.587h-3.27v-2.39h5.834z'></path><path fill='#34A853' d='M7.4 11.61c.82 0 1.573-.29 2.161-.773l1.89 1.515C10.404 13.372 8.975 14 7.4 14c-2.35 0-4.373-1.397-5.284-3.406L4.1 9.061c.381 1.466 1.714 2.549 3.3 2.549z'></path><path fill='#FBBC05' d='M2.385 5.187l1.734 1.58c-.188.435-.294.92-.294 1.433 0 .408.067.799.19 1.161l-1.773 1.585c-.177-.354-.321-.73-.428-1.124l-.206-1.95c.051-.98.329-1.894.777-2.685z'></path><path fill='#EA4335' d='M7.6 2c1.662 0 3.166.653 4.253 1.708L10.11 5.405C9.47 4.778 8.582 4.39 7.6 4.39c-1.66 0-3.051 1.108-3.427 2.6L2.126 5.421C3.066 3.404 5.163 2 7.6 2z'></path></g></svg></span>구글로 로그인 중"
+/* 회원가입 양식에 맞게 모두 작성했는지 체크 */
+/*8자리 이상, 대문자/소문자/숫자/특수문자 모두 포함되어 있는 지 검사*/
+var pwCheck = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+/*한글이 포함되었는 지 검사*/
+var hangleCheck = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+/*같은 문자 4번 이상*/
+var wordCheck = /(\w)\1\1\1/;
+/*공백검사*/
+var spaceCheck = /\s/;
+/*아이디 이메일 검사*/
+var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
 
-function loginKakao(){
-    $('.MymummLoginMode_loginMode').append(kakao); 
+function checkPassword(){
+	let pw = $('.changePw #newPassword');
+	/*비밀번호가 기재되지 않았을 경우*/
+	if(!pw.val()){
+		$('#newPassword').focus();
+		$("#changeError").text("비밀번호를 입력해주세요.");
+		return;
+	}
+	
+	/*비밀번호가 4자 이하이거나 20자 초과일 경우*/
+	 if(pw.val().length < 4 || pw.val().length > 20){
+		$('#newPassword').focus();
+		$("#changeError").text("비밀번호는 5자 이상, 20자 이하로 작성해주세요.");
+      return;
+   	}
+
+	/*비밀번호에 대문자/소문자/숫자/특수문자가 모두 포함되어있는지 검사*/
+	if(!pwCheck.test(pw.val())){
+		$('#newPassword').focus();
+		$("#changeError").text("비밀번호는 대문자, 소문자, 특수문자가 모두 포함되어야 합니다.");
+		return;
+	}
+	
+	/*비밀번호에 같은 문자가 4번 이상 들어갔는지 검사*/
+	if(wordCheck.test(pw.val())){
+		$('#newPassword').focus();
+		$("#changeError").text("비밀번호는 같은 문자가 4번 이상 들어갈 수 없습니다.");
+		return;
+	}
+	/*비밀번호 공백 검사*/
+	if(spaceCheck.test(pw.val())){
+		$('#newPassword').focus();
+		$("#changeError").text("비밀번호는 공백이 들어갈 수 없습니다.");
+		return;
+	}
+	
+		$("#changeError").text("확인");
+	
 }
+	
+function confirmPw(){
+	/*비밀번호와 비밀번호 확인이 일치하지 않는 경우*/
+		if($('#newPasswordCheck').val() != $('#newPassword').val()){
+				$('#newPasswordCheck').focus();
+			$("#changeResult").text("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+			return;
+		}
+	/*비밀번호가 기재되지 않았을 경우*/
+		if(!$('#newPasswordCheck').val()){
+			$('#newPassword').focus();
+			$("#changeError").text("비밀번호를 입력해주세요.");
+			return;
+		}
 
-function loginGoogle(){
-    $('.MymummLoginMode_loginMode').append(google); 
+			$("#changeResult").text("확인");
 }
+	
 
-function loginMumm(){
-    $('.MymummLoginMode_loginMode').append(mumm); 
+function loginMethodCheck(loginMethod){
+	var kakao = "<span class='MymummLoginMode_kakaoIcon'>"+
+	"<svg viewBox='0 0 32 32' focusable='false' role='presentation' class='withIcon_icon' aria-hidden='true'><path d='M16 4.64c-6.96 0-12.64 4.48-12.64 10.08 0 3.52 2.32 6.64 5.76 8.48l-.96 4.96 5.44-3.6 2.4.16c6.96 0 12.64-4.48 12.64-10.08S22.96 4.56 16 4.64z'></path></svg>"+
+	"</span>카카오로 로그인 중"
+	var mumm = "멈미뭄미로 로그인 중"
+	var google = "<span><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><g fill='none' fill-rule='evenodd'><path d='M0.8 0.645H15.600000000000001V15.355H0.8z'></path><path fill='#4285F4' d='M13.471 6.598c.085.388.129.79.129 1.202 0 .204-.01.405-.032.603-.158 1.478-.89 2.79-1.976 3.727L9.65 10.575c.568-.393 1.01-.944 1.257-1.587h-3.27v-2.39h5.834z'></path><path fill='#34A853' d='M7.4 11.61c.82 0 1.573-.29 2.161-.773l1.89 1.515C10.404 13.372 8.975 14 7.4 14c-2.35 0-4.373-1.397-5.284-3.406L4.1 9.061c.381 1.466 1.714 2.549 3.3 2.549z'></path><path fill='#FBBC05' d='M2.385 5.187l1.734 1.58c-.188.435-.294.92-.294 1.433 0 .408.067.799.19 1.161l-1.773 1.585c-.177-.354-.321-.73-.428-1.124l-.206-1.95c.051-.98.329-1.894.777-2.685z'></path><path fill='#EA4335' d='M7.6 2c1.662 0 3.166.653 4.253 1.708L10.11 5.405C9.47 4.778 8.582 4.39 7.6 4.39c-1.66 0-3.051 1.108-3.427 2.6L2.126 5.421C3.066 3.404 5.163 2 7.6 2z'></path></g></svg></span>구글로 로그인 중"
+	switch(loginMethod){
+		case '1' :
+		console.log("1");
+	    	$('.MymummLoginMode_loginMode').append(kakao); 
+		break;
+		case '2' :
+		console.log("2");
+		    $('.MymummLoginMode_loginMode').append(google); 
+		break;
+		default :
+		console.log("3");
+		    $('.MymummLoginMode_loginMode').append(mumm); 
+		break;
+	}
 }
 
 /* 프로필 변경 확인 */
@@ -444,14 +533,20 @@ var cancel = $('#alertify-o-cancel');
 
 
 function modify() {
+	console.log(setProfileForm);
+	//유효성검사
+ 	if($('#changeResult').text() != '' && $('#changeResult').text() != '확인'){ 
+		$('#newPasswordCheck').focus();
+		return;
+	}
     $('.MymummProfile_detailProfile.avatar').css('background-image', $('#resultProfileImg em').css("background-image"));
-    $('.alertify-o-message').text('프로필 설정이 성공적으로 변경되었습니다.')
+    $('.alertify-o-message').text('프로필 설정이 성공적으로 변경되었습니다.');
     
     $('#alertify-o-cancel').detach();
     $('#alertify-o-cover').attr('class', 'alertify-o-cover');
     $('#alertify-o').attr('class', 'alertify-o alertify-o-confirm');
 }   
-
+//-----------------------------------------------------------------------------------------------------------------------
 
 /* 프로필 변경 취소 */
 function cancelModify(){
@@ -464,20 +559,18 @@ $('#alertify-o-cancel').on('click', function(){
     $('#alertify-o-cover').attr('class', 'alertify-o-cover alertify-o-cover-hidden');
     $('#alertify-o').attr('class', 'alertify-o alertify-o-hide alertify-o-hidden');
 });
-/* 유효성 검사 추가 */
+//최종 확인을 눌렀을 때.
 $('#alertify-o-ok').on('click', function(){
-/*     if($()) */
+
 
     $('#alertify-o-cover').attr('class', 'alertify-o-cover alertify-o-cover-hidden');
     $('#alertify-o').attr('class', 'alertify-o alertify-o-hide alertify-o-hidden');
 
 
     setTimeout(function(){
-        location.reload();
     }, 500);
-    // $('#alertify-o').detach();
-    // $('#alertify-o-cover').detach();
-
+	console.log("ddd");
+		setProfileForm.submit();
 });
 
 /* 섹션 닫기 버튼 */
@@ -491,7 +584,7 @@ function closeSection(){
 
 
 
-
+//정보설정 안에 프로필이미지에서 사용하는 함수
 function readURL(input) {
     if (input.files && input.files[0]) {
         
@@ -503,7 +596,7 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
+//정보설정 밖에 프로필 이미지에서 사용하는 함수
 function changeAvatar(input) {
     if (input.files && input.files[0]) {
         
@@ -517,10 +610,12 @@ function changeAvatar(input) {
 }
 
 $('#uploadProfileImg').on('change', function(){
-    readURL(this);
+	$('.uploadCheck').val('true');
+ 	readURL(this);
 });
 
 $('#editProfileImg').on('change', function(){
+	$('.editCheck').val('true');
     changeAvatar(this);
     $('.MyMummProfile_profileUser').append(`<div class="btn-bottom">
     <ul class="btn-div2 editProfile">
