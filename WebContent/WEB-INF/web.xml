@@ -130,4 +130,14 @@
      <url-pattern>*.us</url-pattern>
   </servlet-mapping>
   
+	<servlet>
+     <servlet-name>UserFileFrontController</servlet-name>
+     <servlet-class>com.meommi.app.userFile.UserFileFrontController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+     <servlet-name>UserFileFrontController</servlet-name>
+     <url-pattern>*.uf</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
