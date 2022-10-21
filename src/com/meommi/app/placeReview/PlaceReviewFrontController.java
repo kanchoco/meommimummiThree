@@ -39,15 +39,17 @@ public class PlaceReviewFrontController extends HttpServlet {
 				}else if(request.equals("/map/myLocation.pl")) {	/*사용자 위치 지도 조회 컨트롤러*/
 					new MyLocationController().execute(req, resp);
 					
+				} else if(request.equals("/map/mapReview.pl")) {
+					new mapReviewController().execute(req,resp);
 				}
 		      
-		      if(result != null) {
-		         if(result.isRedirect()) {
-		            resp.sendRedirect(result.getPath());
-		         }else {
-		            RequestDispatcher dispatcher = req.getRequestDispatcher(result.getPath());
-		            dispatcher.forward(req, resp);
-		         }
-		      }
-		   }
+	      if(result != null) {
+	         if(result.isRedirect()) {
+	            resp.sendRedirect(result.getPath());
+	         }else {
+	            RequestDispatcher dispatcher = req.getRequestDispatcher(result.getPath());
+	            dispatcher.forward(req, resp);
+	         }
+	      }
+	   }
 }
