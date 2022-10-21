@@ -6,6 +6,7 @@ public class PlaceReviewDTO {
 	private int placeReviewRating;
 	private String placeReviewDateTime;
 	private int userNumber;
+	private String userName;
 	private String placeId;
 	private String reviewFilePath;
 	private String favoritePlaceName;
@@ -54,6 +55,14 @@ public class PlaceReviewDTO {
 
 	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPlaceId() {
@@ -116,11 +125,14 @@ public class PlaceReviewDTO {
 	public String toString() {
 		return "PlaceReviewDTO [placeReviewNumber=" + placeReviewNumber + ", placeReviewContents=" + placeReviewContents
 				+ ", placeReviewRating=" + placeReviewRating + ", placeReviewDateTime=" + placeReviewDateTime
-				+ ", userNumber=" + userNumber + ", placeId=" + placeId + ", favoritePlaceName=" + favoritePlaceName
-				+ ", placeReviewHelful=" + placeReviewHelful + ", reviewFileNumber=" + reviewFileNumber
-				+ ", reviewFileSystemName=" + reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName
-				+ ", reviewFilePath=" + reviewFilePath + "]";
+				+ ", userNumber=" + userNumber + ", userName=" + userName + ", placeId=" + placeId + ", reviewFilePath="
+				+ reviewFilePath + ", favoritePlaceName=" + favoritePlaceName + ", placeReviewHelful="
+				+ placeReviewHelful + ", reviewFileNumber=" + reviewFileNumber + ", reviewFileSystemName="
+				+ reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName + "]";
 	}
+
+	
+	
 
 	
 }

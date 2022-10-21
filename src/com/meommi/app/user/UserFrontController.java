@@ -53,8 +53,7 @@ public class UserFrontController extends HttpServlet {
 			result = new KakaoLoginController().execute(req,resp);
 		} else if(request.equals("/user/myPage.us")) {
 			//myPage.jsp 마이페이지 이동
-			result = new Result();
-			result.setPath("/app/user/myPage.jsp?userId=" + req.getSession().getAttribute("userId"));
+			result = new MyPageLoadController().execute(req, resp);
 		}else if(request.equals("/user/writePostOk.us")) {
 			//postLookup -> 게시글 불러오기 (수정중)
 			 new WritePostLookupOkController().execute(req, resp);
@@ -65,11 +64,13 @@ public class UserFrontController extends HttpServlet {
 			//->구글 로그인
 			result = new GoogleLoginController().execute(req, resp);
 		}else if(request.equals("/user/writeReviewOk.us")) {
-			//-> 리뷰 불러오기(수정중)
+			//-> 리뷰 불러오기
 			new WriteReviewLookupOkController().execute(req, resp);
 		}else if(request.equals("/user/myPlaceOk.us")) {
 			//--> 내 장소 불러오기
 			new MyPlaceLookupOkController().execute(req, resp);
+		}else if(request.equals("/user/setOk.us")) {
+			result = new PrivacySetOkController().execute(req, resp);
 		}
 
 		if (result != null) {

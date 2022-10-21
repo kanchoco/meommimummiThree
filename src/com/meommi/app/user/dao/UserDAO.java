@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.meommi.app.comments.vo.CommentsVO;
 import com.meommi.app.favoritePlace.vo.FavoritePlaceVO;
 import com.meommi.app.placeReview.vo.PlaceReviewDTO;
-import com.meommi.app.post.vo.PostVO;
+import com.meommi.app.post.vo.PostDTO;
 import com.meommi.app.user.vo.UserVO;
 import com.meommi.mybatis.config.MyBatisConfig;
 
@@ -42,8 +42,13 @@ public class UserDAO {
 	   }
 	   
 //	   내 게시글 불러오기
-	   public List<PostVO> selectMyPost(Map<String, Integer> pageMap){
+	   public List<PostDTO> selectMyPost(Map<String, Integer> pageMap){
 		   return sqlSession.selectList("User.selectMyPost", pageMap);
+	   }
+	   
+//	   내 게시글 사진
+	   public String selectPostFile(int postNumber){
+		   return sqlSession.selectOne("User.selectPostFile", postNumber);
 	   }
 	   
 //	   내 게시글 수
@@ -62,9 +67,6 @@ public class UserDAO {
 	   }
 	   
 //	   내 리뷰 목록
-	   public List<String> review(){
-		   return sqlSession.selectList("User.review");
-	   }
 	   public List<PlaceReviewDTO> selectMyReview(Map<String, Integer> pageMap){
 		   return sqlSession.selectList("User.selectMyReview", pageMap);
 	   }
@@ -72,6 +74,11 @@ public class UserDAO {
 //	   내 리뷰 수
 	   public int countMyReview(int userNumber) {
 		   return sqlSession.selectOne("User.countMyReview");
+	   }
+	   
+//	   내 리뷰 사진
+	   public String selectReviewFile(int postNumber){
+		   return sqlSession.selectOne("User.selectReviewFile", postNumber);
 	   }
 	   
 //	   내 장소 불러오기
@@ -83,6 +90,20 @@ public class UserDAO {
 	   public int countMyPlace(int userNumber) {
 		   return sqlSession.selectOne("User.countMyPlace", userNumber);
 	   }
+	   
+//	   로그인 회원 정보
+	   public UserVO loginUser(String userId) {
+		   return sqlSession.selectOne("User.loginUser", userId);
+	   }
+	   
+//	   로그인 회원사진 정보
+	   public String userProfile(String userId) {
+		   return sqlSession.selectOne("User.userProfile", userId);
+	   }
 
+//	   내 정보 수정
+	   public void updateMyProfile(UserVO userVO) {
+		   sqlSession.update("User.updateMyProfile",  userVO);
+	   }
 
 }
