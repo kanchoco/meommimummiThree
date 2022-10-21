@@ -16,7 +16,7 @@ public class PlaceReviewDAO {
 		   sqlSession = sqlSessionFactory.openSession(true);
 	}
 	   
-	   public List<PlaceReviewDTO> selectAll(int placeId){
+	   public List<PlaceReviewDTO> selectAll(String placeId){
 		   return sqlSession.selectList("PlaceReview.selectAll", placeId);
 	   }
 	   

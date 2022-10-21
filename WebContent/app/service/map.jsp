@@ -1135,48 +1135,84 @@
 
 
                                 <!-- 리뷰 코멘트들 -->
-									<div class="reviewList">
-									
-									<c:choose>
-										<c:when test="${placeReviews !=null and fn:length(placeReviews) > 0}">
-											<c:forEach var="placeReview" items="${placeReviews}">
-													<article class="reviewItem">
-			                                            <div class="reviewWriter">
-			                                                <a href="">
-			                                                    <img src="게시글 작성자 이미지" class="writerImage">
-			                                                </a>
-			                                                <div class="reviewWriterInfo">
-			                                                    <p class="writerInfoId"><c:out value="placeReview.getUserNumber()"/></p>
-			                                                    <div class="reviewWriterInfoBottomWrap">
-			                                                        <div class="reviewWriterInfoStarWrap" type="button">
-			                                                            <span class="reviewWriterInfoTotalStar">
-			                                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>
-			                                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>
-			                                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>
-			                                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>
-			                                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>
-			                                                            </span>
-			                                                        </div>
-			                                                        <span class="reviewWriterInfoDate"><c:out value="placeReview.getPlaceReviewDateTime()"/></span>
-			                                                    </div>
-			                                                </div>
-			                                            </div>
-			                                            <button type="button" class="reviewItemImage">
-			                                                <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=144&h=144&c=c&webp=1"
-			                                                    srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=240&h=240&c=c&webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=320&h=320&c=c&webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=480&h=480&c=c&webp=1 3x"
-			                                                    class="reviewItemImageBtn">
-			                                            </button>
-			                                            <p class="reviewComment"><c:out value="placeReview.getPlaceReviewContents()"/></p>
-			                                            <div class="reviewCommentGood" style="margin-bottom:15px;">
-			                                                <button type="button" class="reviewCommentGoodBtn">
-			                                                    <div class="reviewCommentGoodBtnTxt">도움이 돼요</div>
-			                                                </button>
-			                                            </div>
-			                                        </article>
-                                        		</c:forEach>
-                                        	</c:when>
-                                        </c:choose>
-									</div>
+									<div class="reviewList" id="reviewList"></div>
+
+
+                                <!-- 리뷰 작성 -->
+                                <div class="attachWrap">
+                                    <!-- 첨부파일 이미지 공간 -->
+                                    <div class="xButton" onclick="xBtn()"></div>
+                                    <label for="attach">
+                                        <div class="attach"></div>
+                                    </label>
+                                </div>
+                                <div class="reviewWritingSection">
+                                    <div class="review-modal__section">
+                                        <div class="review-modal__form__star__wrap">
+                                            <div class="review-modal__form__star">
+                                                <div class="review-modal__form__star__label">별점</div>
+                                                <div class="review-modal__form__star__value">
+                                                    <ul class="rating-input">
+                                                        <li>
+                                                            <label class="rating-input__star" aria-label="별점 1점">
+                                                                <input type="radio" value="1">
+                                                                <svg class="star" fill="currentColor" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z">
+                                                                    </path>
+                                                                </svg>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="rating-input__star" aria-label="별점 2점">
+                                                                <input type="radio" value="2">
+                                                                <svg class="star" fill="currentColor" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z">
+                                                                    </path>
+                                                                </svg>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="rating-input__star" aria-label="별점 3점">
+                                                                <input type="radio" value="3">
+                                                                <svg class="star" fill="currentColor" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z">
+                                                                    </path>
+                                                                </svg>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="rating-input__star" aria-label="별점 4점">
+                                                                <input type="radio" value="4">
+                                                                <svg class="star" fill="currentColor" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z">
+                                                                    </path>
+                                                                </svg>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="rating-input__star" aria-label="별점 5점">
+                                                                <input type="radio" value="5">
+                                                                <svg class="star" fill="currentColor" width="1em" height="1em"
+                                                                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M18 30.7l-9 3.8c-1.5.7-2.6-.2-2.5-1.8l.8-9.7L1 15.6c-1-1.3-.6-2.6 1-3l9.5-2.2 5-8.3c1-1.5 2.3-1.5 3.1 0l5 8.3 9.6 2.2c1.6.4 2 1.7 1 3L28.7 23l.8 9.7c.1 1.6-1 2.5-2.5 1.8l-9-3.8z">
+                                                                    </path>
+                                                                </svg>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 								<!-- 댓글 작성 라인 -->	
 								<form class="reviewWritingForm" name="reviewForm">
