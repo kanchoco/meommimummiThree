@@ -6,86 +6,73 @@ public class PostDTO {
    private String postDateTime;
    private int userNumber;
    private int postFileNumber;
-   private int postFileSystemName;
-   private int postFileOriginName;
-   private int postFilePath;
+   private String postFileSystemName;
+   private String postFileOriginName;
    
-   public PostDTO() {
-      // TODO Auto-generated constructor stub
-   }
-   
-   
-   public PostDTO(int postNumber, String postContent, String postDateTime, int userNumber, int postFileNumber,
-         int postFileSystemName, int postFileOriginName, int postFilePath) {
-      super();
-      this.postNumber = postNumber;
-      this.postContent = postContent;
-      this.postDateTime = postDateTime;
-      this.userNumber = userNumber;
-      this.postFileNumber = postFileNumber;
-      this.postFileSystemName = postFileSystemName;
-      this.postFileOriginName = postFileOriginName;
-      this.postFilePath = postFilePath;
-   }
+   public PostDTO() {;}
 
+public int getPostNumber() {
+	return postNumber;
+}
 
-   public int getPostNumber() {
-      return postNumber;
-   }
-   public void setPostNumber(int postNumber) {
-      this.postNumber = postNumber;
-   }
-   public String getPostContent() {
-      return postContent;
-   }
-   public void setPostContent(String postContent) {
-      this.postContent = postContent;
-   }
-   public String getPostDateTime() {
-      return postDateTime;
-   }
-   public void setPostDateTime(String postDateTime) {
-      this.postDateTime = postDateTime;
-   }
-   public int getUserNumber() {
-      return userNumber;
-   }
-   public void setUserNumber(int userNumber) {
-      this.userNumber = userNumber;
-   }
-   public int getPostFileNumber() {
-      return postFileNumber;
-   }
-   public void setPostFileNumber(int postFileNumber) {
-      this.postFileNumber = postFileNumber;
-   }
-   public int getPostFileSystemName() {
-      return postFileSystemName;
-   }
-   public void setPostFileSystemName(int postFileSystemName) {
-      this.postFileSystemName = postFileSystemName;
-   }
-   public int getPostFileOriginName() {
-      return postFileOriginName;
-   }
-   public void setPostFileOriginName(int postFileOriginName) {
-      this.postFileOriginName = postFileOriginName;
-   }
-   public int getPostFilePath() {
-      return postFilePath;
-   }
-   public void setPostFilePath(int postFilePath) {
-      this.postFilePath = postFilePath;
-   }
+public void setPostNumber(int postNumber) {
+	this.postNumber = postNumber;
+}
 
+public String getPostContent() {
+	return postContent;
+}
 
-   @Override
-   public String toString() {
-      return "PostDTO [postNumber=" + postNumber + ", postContent=" + postContent + ", postDateTime=" + postDateTime
-            + ", userNumber=" + userNumber + ", postFileNumber=" + postFileNumber + ", postFileSystemName="
-            + postFileSystemName + ", postFileOriginName=" + postFileOriginName + ", postFilePath=" + postFilePath
-            + "]";
-   }
+public void setPostContent(String postContent) {
+	this.postContent = postContent;
+}
+
+public String getPostDateTime() {
+	return postDateTime;
+}
+
+public void setPostDateTime(String postDateTime) {
+	this.postDateTime = postDateTime;
+}
+
+public int getUserNumber() {
+	return userNumber;
+}
+
+public void setUserNumber(int userNumber) {
+	this.userNumber = userNumber;
+}
+
+public int getPostFileNumber() {
+	return postFileNumber;
+}
+
+public void setPostFileNumber(int postFileNumber) {
+	this.postFileNumber = postFileNumber;
+}
+
+public String getPostFileSystemName() {
+	return postFileSystemName;
+}
+
+public void setPostFileSystemName(String postFileSystemName) {
+	this.postFileSystemName = postFileSystemName;
+}
+
+public String getPostFileOriginName() {
+	return postFileOriginName;
+}
+
+public void setPostFileOriginName(String postFileOriginName) {
+	this.postFileOriginName = postFileOriginName;
+}
+
+@Override
+public String toString() {
+	return "PostDTO [postNumber=" + postNumber + ", postContent=" + postContent + ", postDateTime=" + postDateTime
+			+ ", userNumber=" + userNumber + ", postFileNumber=" + postFileNumber + ", postFileSystemName="
+			+ postFileSystemName + ", postFileOriginName=" + postFileOriginName + "]";
+}
    
    
    
