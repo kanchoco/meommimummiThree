@@ -17,11 +17,15 @@ public class PostDAO {
       public List<PostDTO> selectPostDefault() {
          return sqlSession.selectList("Post.selectPostDefault");
       }
-      public List<PostDTO> selectPostIncrement(int Outputnum) {
-         return sqlSession.selectList("Post.selectPostIncrement",Outputnum);
+      public List<PostDTO> selectPostRow(int Outputnum) {
+         return sqlSession.selectList("Post.selectPostRow",Outputnum);
       }
       
       public void insertContent(PostVO postVO) {
          sqlSession.insert("Post.insertContent", postVO);
       }
+      
+      public int selectCurrentSequence() {
+          return sqlSession.selectOne("Post.selectCurrentSequence");
+       }
 }

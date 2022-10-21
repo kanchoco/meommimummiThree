@@ -19,6 +19,7 @@
      <typeAlias type="com.meommi.app.follow.vo.FollowVO" alias="followVO"/>
 	<typeAlias type="com.meommi.app.favoritePlace.vo.FavoritePlaceVO" alias="favoritePlaceVO"/>
      <typeAlias type="com.meommi.app.comments.vo.CommentsVO" alias="commentsVO"/>
+     <typeAlias type="com.meommi.app.comments.vo.CommentsDTO" alias="commentsDTO"/>
      
    </typeAliases>
 

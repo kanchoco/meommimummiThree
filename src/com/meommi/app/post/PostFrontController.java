@@ -32,7 +32,6 @@ public class PostFrontController extends HttpServlet {
          }else if(request.equals("/meommi/PostlistOk.po")) {
             new PostListOkController().execute(req, resp);
          }else if (request.equals("/meommi/PostRegistration.po")) {
-        	 System.out.println("프론트 컨트롤러 들어옴");
             new PostRegistrationController().execute(req, resp);
          }
             

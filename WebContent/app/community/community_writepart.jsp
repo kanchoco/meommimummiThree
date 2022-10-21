@@ -36,6 +36,7 @@
                               <hr>
                            </c:otherwise>
                         </c:choose>
+                        	<form method="post" enctype="multipart/form-data">
                               <div class="ImageUploader_container__2FM0D">
                                  <div class="ImageUploader_contentWrap__1P_48">
                                     <div class="ImageUploader_button__FPX_Y" id="addPhotoButton">
@@ -52,7 +53,7 @@
                                        <span class="uploadPhotoCount">
                                                         <div class="uploadBeforeText">0/3</div>
                                                     </span> 
-                                                    <input type="file" class="realUpload" id = "realUpload" accept="image/*" required multiple style="display: none;">
+                                                    <input type="file" class="realUpload" id = "realUpload"  accept="image/*"  required multiple style="display: none;" multiple>
                                        <div
                                           class="StaticPopper_container__3fEN8 ImageUploader_popper__3yY05">
                                           <div>
@@ -69,11 +70,12 @@
                                                 </div>
                                                 
                                             </div>
-                                            <button class="registBtn Button_button__341ce Button_primary__2Xc2p Button_contained__1azJ6 Button_md__3IA0_ Button_block__1sz_j RecommendationSupporterList_moreButton__Gp4KF"  onclick = "contentRegist()"id = "contentResistButton"type="button" style="margin-bottom: 50px;margin-top: 10px;">
+                                            <button class="registBtn Button_button__341ce Button_primary__2Xc2p Button_contained__1azJ6 Button_md__3IA0_ Button_block__1sz_j RecommendationSupporterList_moreButton__Gp4KF" id = "contentResistButton"type="button" style="margin-bottom: 50px;margin-top: 10px;">
                                                 <span><span class="Button_children__10ESl">게시글 등록 <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO"aria-hidden="true">
                                                             <path d="M28 20L15 33l-1.4-1.4L25.2 20 13.6 8.4 15 7l13 13z"></path>
                                                         </svg></span></span>
                                             </button>
+									</form>
                               </div>
                            </div>
                            <div class="FeedCard_divider__3V9EP"></div>
@@ -86,6 +88,12 @@ let postContent = $("textarea[name='feedMainWriting']").val();
 let userNumber = 1;
 let context = "${pageContext.request.contextPath}";
 
+ 
+/*  function cancelFile(fileName){
+    $("input#" + fileName).val("");
+    $("img#" + fileName + "Img").attr("src", "${pageContext.request.contextPath}/images/filePlus.png");
+ } */
 </script>
-<script src="${pageContext.request.contextPath}/assets/js/community/community.js"></script>
+<script
+   src="${pageContext.request.contextPath}/assets/js/community/community.js"></script>
 </html>
