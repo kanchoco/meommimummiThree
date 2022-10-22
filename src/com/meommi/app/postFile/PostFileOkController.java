@@ -1,4 +1,4 @@
-package com.meommi.app.comments;
+package com.meommi.app.postFile;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,18 +12,18 @@ import org.json.JSONObject;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
-import com.meommi.app.comments.dao.CommentsDAO;
+import com.meommi.app.postFile.dao.PostFileDAO;
 
-public class CommentListController implements Execute {
+public class PostFileOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("utf-8");
-		CommentsDAO commentsDAO=new CommentsDAO();
+		PostFileDAO postfileDAO=new PostFileDAO();
+		int startIndex=Integer.valueOf(req.getParameter("Increment"));
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
-		commentsDAO.selectCommentDefault().forEach(comments->{
-			JSONObject jsonObject =new JSONObject(comments);  jsonArray.put(jsonObject);
+		postfileDAO.selectPostfileRow(startIndex).forEach(postfile->{
+			JSONObject fileobject=new JSONObject(postfile); jsonArray.put(fileobject);
 		});
 		out.print(jsonArray.toString());
 		out.close();

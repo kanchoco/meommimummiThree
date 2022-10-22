@@ -24,7 +24,7 @@ public class PostListOkController implements Execute {
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
 		
-		postDAO.selectPostIncrement(increment).forEach(posts->{
+		postDAO.selectPostRow(increment).forEach(posts->{
 			JSONObject jsonObject =new JSONObject(posts);  jsonArray.put(jsonObject);
 		});
 		out.print(jsonArray.toString());
