@@ -171,7 +171,7 @@ function placesSearchCB(data, status, pagination) {
         return;
     }
 }
-
+var placeId="";
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
 	$(".searchError").text("");
@@ -232,7 +232,7 @@ function displayPlaces(places) {
 				
 								
 				/*DB에 저장할 장소 ID값*/
-				var placeId = place.id;
+				placeId = place.id;
 				var placeAddress = place.address_name;
 				var placeName = place.place_name;
 
@@ -261,7 +261,7 @@ function displayPlaces(places) {
 								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
 								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
 								text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span></div></div></div><button type="button" class="reviewItemImage">`;
-								text +=`<img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=144&h=144&c=c&webp=1" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=240&h=240&c=c&webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=320&h=320&c=c&webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/snapshots/166443833118377189.jpeg?gif=1&w=480&h=480&c=c&webp=1 3x" class="reviewItemImageBtn"></button><p class="reviewComment">`;
+								text +=`<img src="`+ `place.reviewFileSystemName` +`" class="reviewItemImageBtn"></button><p class="reviewComment">`;
 								text += place.placeReviewContents + `</p><div class="reviewCommentGood" style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn"><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
 								text += `</button></div></article>`;						
 							});
@@ -820,14 +820,51 @@ function xBtn(){
 }
  
 
+function refreshReviewList(){
+        location.reload();
+}
+
 /* 글 작성 안하면 알람창 */
 function resist(){
-	console.log($userRegist.val().length);
     if($userRegist.val().length < 10){
         alert("글은 10자 이상 작성해주셔야 합니다.");
         return false;
     }
+
+	/*formData 생성 및 key, value 삽입*/
+   var formData = new FormData();
+	/*글*/
+	 formData.append("placeReviewContents", $(".userCommentWritingSector").val())
+	
+	/*사진*/
+	formData.append("placeReviewFile", $('.cameraImgWrap')[0].files[0])
+	
+	/*placeId*/
+	formData.append("placeId", placeId)
+
+/*==================== 글등록 + 사진등록 ajax =====================*/    
+    $.ajax({             
+       type: "POST",          
+        enctype: 'multipart/form-data',  
+        url: context + "/map/mapReviewOk.pl",        
+        data: formData,
+        processData: false,    
+        contentType: false,      
+        cache: false,           
+        timeout: 600000,       
+        success: function () { 
+           alert("complete");           
+/*           $("#contentResistButton").prop("disabled", false);      
+*/        },          
+        error: function (e) {  
+           console.log("ERROR : ", e);     
+/*            $("#contentResistButton").prop("disabled", false);    
+*/            alert("fail");      
+	         }     
+	   });
+	refreshReviewList();  
 }
+
 
 
 

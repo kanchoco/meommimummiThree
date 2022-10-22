@@ -1226,8 +1226,8 @@
                                         </div>
                                     </div>
 
-								<!-- 댓글 작성 라인 -->	
-								<form class="reviewWritingForm" name="reviewForm">
+					<!-- 리뷰 텍스트 작성 및 사진 첨부 라인 -->   
+                        <form class="reviewWritingForm" name="reviewForm" enctype="multipart/form-data">
 								<img class="userProfileImg"
                                             src="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=36&webp=1"
                                             srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=72&webp=1 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=72&webp=1 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/default_images/avatar.png?gif=1&w=144&webp=1 3x">
@@ -1237,7 +1237,7 @@
                                                     <input type="text" class="userCommentWritingSector" placeholder="후기를 남겨보세요.">
                                                     <div class="commentPhoto">
                                                         <label class="cameraImg" for="attach">
-                                                        <img src="${pageContext.request.contextPath}/images/camera.PNG">
+                                                            <img src="${pageContext.request.contextPath}/images/camera.PNG">
                                                             <input type="file" id="attach" class="cameraImgWrap" style="display:none;"></input>
                                                         </label>
                                                     </div>
@@ -1245,8 +1245,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                	</form>
+                              </div>
                         </section>
                          <!--    <ul class="commentPageNumber">
                                 이전 페이지 버튼
@@ -1292,4 +1292,5 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a1ec4d4442397ef5dc28bccc78eef58&libraries=services"></script>
 <script src="${pageContext.request.contextPath}/assets/js/service/map.js"></script>
 <script>var contextPath="${pageContext.request.contextPath}";</script>
+<script>let context = "${pageContext.request.contextPath}"</script>
 </html>

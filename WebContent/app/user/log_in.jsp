@@ -66,10 +66,7 @@
                             </div>
                             <em id="emailError" class="error-text helper error">이메일 형식이 올바르지 않습니다.</em>
                         </div>
-                        
-                        
-                        
-                        
+                    
                         <div class="field">
                             <div class="wz input">
                                 <input type="password" id="password" name="password" class="input-text" maxlength="20"

@@ -41,7 +41,9 @@ public class PlaceReviewFrontController extends HttpServlet {
 					
 				} else if(request.equals("/map/mapReview.pl")) {
 					new mapReviewController().execute(req,resp);
-				}
+				} else if(request.equals("/map/mapReviewOk.pl")) {/*리뷰 등록 컨트롤러*/
+                    new PlaceReviewOkController().execute(req,resp);
+                }
 		      
 	      if(result != null) {
 	         if(result.isRedirect()) {

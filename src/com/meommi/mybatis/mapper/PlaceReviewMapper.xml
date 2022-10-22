@@ -8,5 +8,16 @@
 		where place_id = #{placeId}
 	</select>
 
+	<insert id="insertContent" parameterType = "placeReviewVO">
+		insert into tbl_place_review
+		(place_review_contents, place_review_rating, user_number, place_id, place_review_helful, place)
+		values(#{placeReviewContents}, #{placeReviewRating}, #{userNumber},#{placeId}, #{placeReviewHelful})
+    
+    </insert>
+    
+    <select id="selectCurrentSequence" resultType="_int">
+      select place_review_number from tbl_place_review order by place_review_number desc limit 0,1
+   </select>
+
 </mapper>
 	
