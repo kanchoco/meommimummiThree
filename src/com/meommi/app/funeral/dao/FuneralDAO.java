@@ -21,6 +21,10 @@ public class FuneralDAO {
 			return sqlSession.selectList("Funeral.selectAll", pageMap);
 			
 		}
+	   public List<FuneralVO> selectAlltwo(){
+			return sqlSession.selectList("Funeral.selectAlltwo");
+			
+		}
 	   
 	   
 	   public List<FuneralVO> selectOne(String funeralSearch){

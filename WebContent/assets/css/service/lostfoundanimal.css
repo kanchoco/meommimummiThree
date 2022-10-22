@@ -1012,4 +1012,58 @@ ul {
 	/* 검색 드롭다운리스트 추가 */
 
 	/* 검색 드롭다운리스트 추가 끝 */
+	
+	
+	
 }
+
+.buttonpageSeach {
+    border: none;
+    color: #fff;
+    font: inherit;
+    margin-left: 8px;
+    min-width: 93px;
+    height: 48px;
+    padding: 9px 16px;
+    line-height: 1.45;
+    opacity: .45;
+    position: relative;
+    transition-property: background-color, border-color, color, opacity;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ff914d;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 13px 13px 13px 13px;
+    cursor: pointer;
+	}
+	
+	.buttonpageSeachimpack {
+	  border: none;
+    color: #fff;
+    font: inherit;
+    margin-left: 8px;
+    min-width: 93px;
+    height: 48px;
+    padding: 9px 16px;
+    line-height: 1.45;
+    opacity: .45;
+    position: relative;
+    transition-property: background-color, border-color, color, opacity;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #d55506;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 13px 13px 13px 13px;
+    cursor: pointer;
+	}
+	
