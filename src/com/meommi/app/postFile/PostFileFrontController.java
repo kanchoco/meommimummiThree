@@ -28,8 +28,10 @@ public class PostFileFrontController extends HttpServlet {
 		      Result result = null;
 		   
 		   if(request.equals("/meommi/PostFile.pf")) {
-		       
-		      }
+			   new PostFileController().execute(req, resp);
+		   }else if(request.equals("/meommi/PostFileOk.pf")) {
+			   new PostFileOkController().execute(req,resp);
+		   }
 		      
 		      if(result != null) {
 		         if(result.isRedirect()) {

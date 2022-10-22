@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
+import com.meommi.app.comments.dao.CommentsDAO;
 
 public class CommentDeleteController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		CommentsDAO commentsDAO=new CommentsDAO();
+		int commentsNumber=Integer.valueOf(req.getParameter("commentNumber"));
+		commentsDAO.deleteComment(commentsNumber);
 		return null;
 	}
 
