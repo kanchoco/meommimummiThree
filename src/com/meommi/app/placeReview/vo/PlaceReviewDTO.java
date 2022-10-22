@@ -130,9 +130,4 @@ public class PlaceReviewDTO {
 				+ placeReviewHelful + ", reviewFileNumber=" + reviewFileNumber + ", reviewFileSystemName="
 				+ reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName + "]";
 	}
-
-	
-	
-
-	
 }

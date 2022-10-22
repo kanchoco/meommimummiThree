@@ -23,8 +23,11 @@ public class PlaceReviewDAO {
 	   public void insert(PlaceReviewDTO placeReviewDTO) {
            sqlSession.insert("PlaceReview.insertContent", placeReviewDTO);
        }
-         public int selectCurrentSequence() {
-             return sqlSession.selectOne("PlaceReview.selectCurrentSequence");
-          }
+     public int selectCurrentSequence() {
+         return sqlSession.selectOne("PlaceReview.selectCurrentSequence");
+      }
+     	public String selectFile(int placeReviewNumber) {
+     		return sqlSession.selectOne("PlaceReview.selectFile", placeReviewNumber);
+     	}
 	   
 }
