@@ -225,8 +225,9 @@ main{
     margin-top:20px;
 }
 
-.title {
+.title.main {
     margin-top:5px;
+    margin-bottom:15px;
 }
 
 .search_point {
@@ -764,8 +765,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, nav, menu, 
 
 /* 검색창 */
 .mapSearch{
-    margin-top: 10px;
-    width: 77%;
+    margin-top: 15px;
+    width: 100%;
 }
 .searchForm{
     display: block;
@@ -1711,7 +1712,7 @@ label[for='attach'] {
 
 
 .xButtonActive {
-    background-image: url(../../images/xButton.png);
+    background-image: url(../../../images/xButton.png);
     content: "";
     display: flex;
 	height: 20px;
@@ -1858,13 +1859,95 @@ label[for='attach'] {
 }
 
 
+
+/* 카테고리 필터  */
+.categoryContainer {
+	margin-bottom: 30px;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:50px;
+    height:50px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type="checkbox"]:checked + label span{
+	border: solid 1px rgb(227, 122, 56);
+	border-radius:50%;
+	color: rgb(227, 122, 56);
+}
+
+.categoryCheckboxText{
+	position:relative;
+	top:50px;
+	left: 8px;
+}
+
+.searchError{
+	color: rgb(227, 122, 56);
+}
+
+input[id="hotel"] + label span {
+	background: url('../../../images/hotel.png') no-repeat 0 0px / contain;
+	border: solid 1px rgb(203, 203, 203);
+	border-radius:50%;
+}
+input[id="hotel"]:checked + label span {
+	background: url('../../../images/hotelChecked.png') no-repeat 0 0px / contain;
+}
+
+input[id="restaurant"] + label span {
+	background: url('../../../images/restaurant.png') no-repeat 0 0px / contain;
+	border: solid 1px rgb(203, 203, 203);
+	border-radius:50%;
+}
+input[id="restaurant"]:checked + label span {
+	background: url('../../../images/restaurantChecked.png') no-repeat 0 0px / contain;
+}
+
+input[id="playground"] + label span {
+	background: url('../../../images/playground.png') no-repeat 0 0px / contain;
+	border: solid 1px rgb(203, 203, 203);
+	border-radius:50%;
+}
+
+input[id="playground"]:checked + label span {
+	background: url('../../../images/playgroundChecked.png') no-repeat 0 0px / contain;
+}
+
+input[id="hospital"] + label span {
+	background: url('../../../images/hospital.png') no-repeat 0 0px / contain;
+	border: solid 1px rgb(203, 203, 203);
+	border-radius:50%;
+}
+input[id="hospital"]:checked + label span {
+	background: url('../../../images/hospitalChecked.png') no-repeat 0 0px / contain;
+}
+
+input[id="school"] + label span {
+	background: url('../../../images/school.png') no-repeat 0 0px / contain;
+	border: solid 1px rgb(203, 203, 203);
+	border-radius:50%;
+}
+input[id="school"]:checked + label span {
+	background: url('../../../images/schoolChecked.png') no-repeat 0 0px / contain;
+}
+
+
+
 /* 지도 검색 결과창 */
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-size:14px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
 #menu_wrap {    
     position: absolute;
-    top: 21px;
+    top: -5px;
     left: -24px;
     bottom: 0;
     width: 370px;
@@ -1912,7 +1995,7 @@ label[for='attach'] {
 
 /* 주소 좌표 CSS */
 .map_wrap {position:relative;width:100%;height:500px;}
-.title {font-weight:bold;display:block;}
+.title {font-weight:bold;display:block;margin-bottom:5px;}
 .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
 #centerAddr {display:block;margin-top:2px;font-weight: normal;}
 .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}

@@ -130,7 +130,6 @@ function handleCredentialResponse(response) {
     console.log("Image URL: " + responsePayload.picture);
     console.log("Email: " + responsePayload.email);
 	$.ajax({
-		url: contextPath + "/user/loginGoogle.us", // 컨트롤러
 		type: "post",
 		data: {
 			id: responsePayload.sub,

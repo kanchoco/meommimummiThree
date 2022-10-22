@@ -33,10 +33,83 @@ var filterStar = "<svg fill='#35C5F0' width='1em' height='1em'preserveAspectRati
 
 let filterCheck = true;
 
-$searchKeywords.click(function(e){
+/*카테고리 필터*/
+
+$categoryCheckbox = $("input[name='cc']");
+
+$(".mapSearch").hide();
+$(".region_by_keywords_wrap").hide();
+
+$categoryCheckbox.click(function(){
+	$(".searchError").text("");
+	document.getElementById('keyword').value="";
+	if($(this).attr('class')=="categoryCheckbox checked"){
+		$(this).attr('class', 'categoryCheckbox');
+		$("input[name='categoryValueForm']").val("");
+		$(".mapSearch").hide();
+		$(".region_by_keywords_wrap").hide();
+		$(".searchSection").val("");
+	} else{
+		if($(".categoryCheckbox checked")){
+			$(".region_by_keywords_wrap").show();
+		}
+		var recommendText = "";
+		if($(this).attr('id')=="hotel"){
+			recommendText += `<div class="region_by_keywords">`;
+			recommendText +=`<a class="region_by_keyword" href="">호텔</a>`
+			recommendText +=`<a class="region_by_keyword" href="">펜션</a>`
+			recommendText +=`<a class="region_by_keyword" href="">캠핑장</a>`
+            recommendText +=`</div>`;
+			$(".mapSearch").hide();               
+		} else if($(this).attr('id')=="restaurant"){
+			recommendText += `<div class="region_by_keywords">`;
+			recommendText +=`<a class="region_by_keyword" href="">식당</a>`
+			recommendText +=`<a class="region_by_keyword" href="">카페</a>`
+            recommendText +=`</div>`;        
+			$(".mapSearch").hide();
+		} else if($(this).attr('id')=="playground"){
+			$(".region_by_keywords_wrap").hide();
+			$(".mapSearch").show();
+			$("input[name='categoryValueForm']").val($(this).val())
+			searchPlaces();
+		} else if($(this).attr('id')=="hospital"){
+			recommendText += `<div class="region_by_keywords">`;
+			recommendText +=`<a class="region_by_keyword" href="">일반</a>`
+			recommendText +=`<a class="region_by_keyword" href="">24시</a>`
+			recommendText +=`<a class="region_by_keyword" href="">특수동물</a>`
+            recommendText +=`</div>`; 
+			$(".mapSearch").hide();     
+		} else if($(this).attr('id')=="school"){
+			$(".region_by_keywords_wrap").hide();
+			$(".mapSearch").show();
+			$("input[name='categoryValueForm']").val($(this).val())
+			searchPlaces();
+		} 
+ 
+		$(".region_by_keywords_wrap").html(recommendText);
+		$categoryCheckbox.prop('checked', false);
+		$(this).prop('checked', true);
+		$categoryCheckbox.attr('class', 'categoryCheckbox');
+		$(this).attr('class','categoryCheckbox checked');
+		$("input[name='categoryValueForm']").val($(this).val());
+	}
+})
+
+/* ======== */
+$(".inner").on("click", ".region_by_keyword", function(e){
 	e.preventDefault();
-	console.log($(this).text());
-	document.getElementById('keyword').value=$(this).text();
+	$(".region_by_keyword").attr('class', 'region_by_keyword');
+	$(".region_by_keyword").css('color', '#7F7F7F');
+	$(this).attr('class', 'region_by_keyword selected');
+	$(this).css('color', 'rgb(227, 122, 56)');
+	$(".mapSearch").show();     
+	document.getElementById('categoryValueForm').value = $(".categoryCheckbox.checked").val();
+	var firstCategoryText = $(this).text();
+	if($(this).text() == "특수동물"){document.getElementById('categoryValueForm').value = "특수동물 병원";}
+	else if($(this).text() == "일반"){document.getElementById('categoryValueForm').value = "동물 병원";}
+	else{
+		document.getElementById('categoryValueForm').value = document.getElementById('categoryValueForm').value + $(this).text();
+	}
 	searchPlaces();
 })
 
@@ -65,10 +138,10 @@ var count = 0;
 // 키워드로 장소를 검색합니다
 searchPlaces();
 
+
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
-
-    var keyword = document.getElementById('keyword').value;
+    var keyword = document.getElementById('categoryValueForm').value + " " + document.getElementById('keyword').value;
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         return false;
     }
@@ -90,21 +163,18 @@ function placesSearchCB(data, status, pagination) {
         displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-
-        alert('검색 결과가 존재하지 않습니다.');
+		$(".searchError").text("검색 결과가 존재하지 않습니다.");
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
-
         alert('검색 결과 중 오류가 발생했습니다.');
         return;
-
     }
 }
 
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
-
+	$(".searchError").text("");
     var listEl = document.getElementById('placesList'), 
     menuEl = document.getElementById('menu_wrap'),
     fragment = document.createDocumentFragment(), 
@@ -116,13 +186,16 @@ function displayPlaces(places) {
 
     // 지도에 표시되고 있는 마커를 제거합니다
     removeMarker();
+
     
     for ( var i=0; i<places.length; i++ ) {
 
+		
         // 마커를 생성하고 지도에 표시합니다
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i), 
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+	
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
@@ -140,6 +213,8 @@ function displayPlaces(places) {
                 infowindow.close();
             });
 
+
+
             itemEl.onmouseover =  function () {
                 displayInfowindow(marker, title);
             };
@@ -154,8 +229,7 @@ function displayPlaces(places) {
 				console.log(place.place_name);
 				
 				
-				/*URL 클릭 시 카카오맵 실제 페이지로 연동*/
-				/*window.open(url, '_blank');*/
+				
 								
 				/*DB에 저장할 장소 ID값*/
 				var placeId = place.id;
@@ -177,7 +251,7 @@ function displayPlaces(places) {
 					success: function(result){
 						if(result.length>0){
 							let text ="";
-							
+							let placeId = place.id;
 							result.forEach(place => {
 								text +=`<article class="reviewItem"><div class="reviewWriter"><a href="">`;
 								text +=`<img src="`+ place.reviewFileOriginName + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
@@ -197,7 +271,7 @@ function displayPlaces(places) {
 				});
 				return;
 			}
-
+			
             itemEl.onmouseout =  function () {
                 infowindow.close();
             };

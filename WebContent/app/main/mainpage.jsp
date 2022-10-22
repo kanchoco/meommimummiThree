@@ -13,15 +13,14 @@
 	<%
 	    String userId = (String)session.getAttribute("userId");
 	    boolean loginOk = userId == null ? false : true;
-	    System.out.println("userId: " + userId);
-	    System.out.println("로그인: " + loginOk);
-
+	    
 	    if(loginOk){ %>
 	 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
 	<% }else{ %>
 		<jsp:include page = '${pageContext.request.contextPath}/app/fix/header.jsp'/>
 	<% } %>
-
+	
+	<% System.out.println("세션 값: " + (String)session.getAttribute("userId")); %>
 	
 	<jsp:include page = '${pageContext.request.contextPath}/app/main/banner.jsp'/>  
 	<jsp:include page = '${pageContext.request.contextPath}/app/main/mainFinal.jsp'/>  

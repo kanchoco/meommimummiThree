@@ -27,43 +27,55 @@
                         <section class="module search-results short-bottom">
                             <div class="search_info">
 
-                                <div class="search-options"
+<!--                                 <div class="search-options"
                                     ng-class="{is_empty_result: search_result_list.length === 0}">
                                     <button class="btn filter"
                                         data-background_url="https://d1jrqqyoo3n46w.cloudfront.net/web/resources/prwed8gjtoikxz6h.png"
                                         style="position:relative;bottom:-47px;">필터</button>
-                                </div>
+                                </div> -->
                                 <div class="search_top_title_wrap">
                                     <div class="title_wrap">
-                                        <h1 class="title" ng-show="search_result_list.length">멈미뭄미 프로젝트 지도</h1>
+                                        <h1 class="title main" ng-show="search_result_list.length">멈미뭄미 프로젝트 지도</h1>
+                                        
+                                        <!-- 내가 수정한 내용 -->
+                                        <div class="categoryContainer">
+	                                        <input type="checkbox" id="hotel" class="categoryCheckbox" name="cc" value="반려견 동반 "/>
+											<label for="hotel"><span><div class="categoryCheckboxText">숙소</div></span></label>
+											
+											<input type="checkbox" id="restaurant" class="categoryCheckbox" name="cc" value="반려견 동반 "/>
+											<label for="restaurant"><span><div class="categoryCheckboxText">식당</div></span></label>
+											
+											<input type="checkbox" id="playground" class="categoryCheckbox" name="cc" value="반려동물 놀이터"/>
+											<label for="playground"><span><div class="categoryCheckboxText" style="left: 2px;">놀이터</div></span></label>
+											
+											<input type="checkbox" id="hospital" class="categoryCheckbox" name="cc" value="동물병원"/>
+											<label for="hospital"><span><div class="categoryCheckboxText">병원</div></span></label>
+											
+											<input type="checkbox" id="school" class="categoryCheckbox" name="cc" value="애견 훈련"/>
+											<label for="school"><span><div class="categoryCheckboxText">학교</div></span></label>
+											
+											<input type="hidden" name="categoryValueForm" id="categoryValueForm" value="">
+										</div>
+										<!-- =================================== -->
+										<section class="region_by_keywords_wrap">
+                                        	<div class="region_by_keywords"></div>
+                                    	</section>
+										
                                         <div class="mapSearch">
                                             <div class="searchInputFormContainer">
                                                 <form class="searchForm" onsubmit="searchPlaces(); return false;">
                                                     <i class="searchIcon">
                                                         <img src="${pageContext.request.contextPath}/images/searchIcon.PNG">
                                                     </i>
-                                                   <input id="keyword" size="15" name = "placeSearch" type="text" placeholder="검색어를 입력해주세요"
+                                                   <input id="keyword" size="15" name = "placeSearch" type="text" placeholder="찾으시는 지역을 검색해주세요"
                                                         class="searchSection" value=""></input>
                                                         <button type="submit"></button>
                                                 </form>
                                             </div>
                                         </div>
+                                        <p class="searchError"></p>
                                     </div>
-                                    <section class="region_by_keywords_wrap">
-                                        <div class="region_by_keywords">
-                                            <a class="region_by_keyword" href="">대형견</a>
-                                            <a class="region_by_keyword" href="">강아지호텔</a>
-                                            <a class="region_by_keyword" href="">애견 놀이터</a>
-                                            <a class="region_by_keyword" href="">강아지 놀이터</a>
-                                            <a class="region_by_keyword" href="">동물병원</a>
-                                            <a class="region_by_keyword" href="">24시 동물병원</a>
-                                            <a class="region_by_keyword" href="">애견카페</a>
-                                            <a class="region_by_keyword" href="">애견 동반 카페</a>
-                                            <a class="region_by_keyword" href="">애견 식당</a>
-                                            <a class="region_by_keyword" href="">애견 펜션</a>
-                                            <a class="region_by_keyword" href="">강아지 산책</a>
-                                        </div>
-                                    </section>
+
                                 </div>
                             </div>
                             
@@ -1225,6 +1237,7 @@
                                                     <input type="text" class="userCommentWritingSector" placeholder="후기를 남겨보세요.">
                                                     <div class="commentPhoto">
                                                         <label class="cameraImg" for="attach">
+                                                        <img src="${pageContext.request.contextPath}/images/camera.PNG">
                                                             <input type="file" id="attach" class="cameraImgWrap" style="display:none;"></input>
                                                         </label>
                                                     </div>
