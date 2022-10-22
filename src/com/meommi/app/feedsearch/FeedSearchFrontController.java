@@ -28,7 +28,7 @@ public class FeedSearchFrontController extends HttpServlet {
 		      Result result = null;
 		   
 		   if(request.equals("/meommi/FeedSearch.fe")) {
-		       
+				new FeedSearchController().execute(req,resp);
 		      }
 		      
 		      if(result != null) {
