@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>사료 검색</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animalfeed.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/service/animalfeed.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fix/footer.css">
 <script src="https://kit.fontawesome.com/5ee2c7b38b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -77,10 +77,11 @@
                     <div class="RewardProjectListApp_container__1ZYeD RewardMainProjectList_listApp__2noRS">
                         <div class="ProjectListHead_container__rpQ37 RewardProjectListHead_container__2FzIj">
                             <div class="ProjectListHead_bar__2dyHz">
-                                <!-- <span id="addtitle">최신순</span> -->
-                                <div class="FilterTab_container__2Zmmg" role="group" aria-label="피드 카테고리">
+                            	<!-- 강아지,고양이 필터 -->
+                            	<div class ="FilterWrapper_container" style="display:flex;">
+                                <div class="leftButton FilterTab_container__2Zmmg" role="group" aria-label="피드 카테고리">
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="Button_button__341ce Button_tertiaryMint__1fcKK Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" type="button">
+                                        <button class="Button_button__341ce Button_tertiaryMint__1fcKK Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "사료" aria-current="page" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     전체
@@ -89,7 +90,8 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" type="button">
+                                    
+                                        <button class="DogButton Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "강아지 사료" aria-current="page" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     강아지
@@ -98,7 +100,7 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" type="button">
+                                        <button class="CatButton Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "고양이 사료" aria-current="page" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     고양이
@@ -106,7 +108,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <div class="FilterTabButton_container__1eoXX">
+                                   <!--  <div class="FilterTabButton_container__1eoXX">
                                         <button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" type="button">
                                             <span>
                                                 <span class="Button_children__10ESl">
@@ -114,17 +116,50 @@
                                                 </span>
                                             </span>
                                         </button>
+                                    </div> -->
+                                </div>
+                                <!-- sim:유사순, date, asc, dsc -->
+                                <div class="RightButton FilterTab_container__2Zmmg" role="group" aria-label="피드 카테고리" style="justify-content: end;">
+                                    <div class="FilterTabButton_container__1eoXX">
+                                        <button class="DateButton SearchFilter_0601 Button_tertiaryMint__1fcKK Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " id = "sortDate" aria-current="page" type="button" onclick="feedSearch(this)">
+                                            <span>
+                                                <span class="Button_children__10ESl">
+                                                    날짜순
+                                                </span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="FilterTabButton_container__1eoXX">
+                                        <button class="AscButton SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "sortAsc" aria-current="page" type="button" onclick="feedSearch(this)">
+                                            <span>
+                                                <span class="Button_children__10ESl">
+                                                    가격높은순
+                                                </span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="FilterTabButton_container__1eoXX">
+                                        <button class="DescButton SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "sortDesc" aria-current="page" type="button" onclick="feedSearch(this)">
+                                            <span>
+                                                <span class="Button_children__10ESl">
+                                                    가격낮은순
+                                                </span>
+                                            </span>
+                                        </button>
                                     </div>
                                 </div>
-                                <form class="ProjectListHead_search__HN3am">
+                                
+                            	</div>
+                                <form class="ProjectListHead_search__HN3am" onsubmit="return false;">
                                     <label for="search-list">
-                                        <input class="" type="search" id="search-list" placeholder="검색" value="">
+                                        <input name="search-list" type="search" id="search-list" placeholder="검색" value="아르르"><!-- 초기키워드 -->
+                                        <input name="search-lista" type="hidden"  placeholder="검색" value="">
                                         <div class="ProjectListHead_right__3_Jo1">
-                                            <button class="ProjectListHead_find__3HsFc" type="submit" aria-label="검색">
+                                            <button type="button" class="ProjectListHead_find__3HsFc"  onclick="feedSearch(this)" aria-label="검색">
                                                 <img src="../../images/search.png" style="width:25px;margin-top:20px;"/>
                                             </button>
                                         </div>
-                                    </label>
+                                    </label> 
                                 </form>
                             </div>
                         </div>
@@ -132,11 +167,11 @@
 
 
                         <div class="ProjectCardList_container__3Y14k">
-                            <div class="ProjectCardList_list__1YBa2">
+                            <div class="ProjectCardList_list__1YBa2"><!-- Wrapper -->
                                 <div class="ProjectCardList_item__1owJa">
                                     <div>
                                         <div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">
-                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">
+                                            <a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="#" aria-hidden="true" tabindex="-1">
                                                 <div class="CommonCard_rect__2wpm4">
                                                     <span class="CommonCard_background__3toTR CommonCard_visible__ABkYx" style="background-image: url('https://cdn.ziksir.com/news/photo/202205/24299_54245_035.jpg');"></span>
                                                 </div>
@@ -146,20 +181,20 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>사료 이름ㅣ</strong><strong class="titlename">자연산 사료</strong>
+                                                                <strong class="titleName">사료 이름</strong>
                                                             </p>
                                                         </a>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">제조업체</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">대형식품</span>
+                                                            <span class="RewardProjectCard_category__2muXk">가격 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">원산지</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">국내산</span>
+                                                            <span class="RewardProjectCard_category__2muXk">브랜드 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titleKind"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">무게</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">1kg</span>
+                                                            <span class="RewardProjectCard_category__2muXk">카테고리 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH category1"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,20 +216,21 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>사료 이름ㅣ</strong><strong class="titlename">반려동물 사료</strong>
+                                                                <strong class="titleName">사료 이름</strong>
+                                                                <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">제조업체</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">대형식품</span>
+                                          			  	<div>
+                                                            <span class="RewardProjectCard_category__2muXk">가격 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">원산지</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">국내산</span>
+                                                            <span class="RewardProjectCard_category__2muXk">브랜드 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titleKind"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">무게</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">1kg</span>
+                                                            <span class="RewardProjectCard_category__2muXk">카테고리 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH category1"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,20 +252,21 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>사료 이름ㅣ</strong><strong class="titlename">강아지 외국산 사료</strong>
+                                                                <strong class="titleName">사료 이름</strong>
+                                                                <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">제조업체</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">대형식품</span>
+                                          			  	<div>
+                                                            <span class="RewardProjectCard_category__2muXk">가격 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">원산지</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">국내산</span>
+                                                            <span class="RewardProjectCard_category__2muXk">브랜드 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titleKind"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">무게</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">1kg</span>
+                                                            <span class="RewardProjectCard_category__2muXk">카테고리 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH category1"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -251,20 +288,21 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>사료 이름ㅣ</strong><strong class="titlename">강아지 유기농 사료</strong>
+                                                                <strong class="titleName">사료 이름</strong>
+                                                                <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">제조업체</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">대형식품</span>
+                                          			  	<div>
+                                                            <span class="RewardProjectCard_category__2muXk">가격 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">원산지</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">국내산</span>
+                                                            <span class="RewardProjectCard_category__2muXk">브랜드 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titleKind"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">무게</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">1kg</span>
+                                                            <span class="RewardProjectCard_category__2muXk">카테고리 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH category1"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -286,20 +324,21 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>사료 이름ㅣ</strong><strong class="titlename"> 고양이 국내산 사료</strong>
+                                                                <strong class="titleName">사료 이름</strong>
+                                                                <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">제조업체</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">대형식품</span>
+                                          			  	<div>
+                                                            <span class="RewardProjectCard_category__2muXk">가격 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">원산지</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">국내산</span>
+                                                            <span class="RewardProjectCard_category__2muXk">브랜드 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titleKind"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">무게</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">1kg</span>
+                                                            <span class="RewardProjectCard_category__2muXk">카테고리 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH category1"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -321,20 +360,21 @@
                                                     <div class="RewardProjectCard_infoTop__3QR5w">
                                                         <a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">
                                                             <p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">
-                                                                <strong>사료 이름ㅣ</strong><strong class="titlename">고양이 유기농 사료</strong>
+                                                                <strong class="titleName">사료 이름</strong>
+                                                                <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                                        <div>
-                                                            <span class="RewardProjectCard_category__2muXk">제조업체</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">대형식품</span>
+                                          			  	<div>
+                                                            <span class="RewardProjectCard_category__2muXk">가격 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">원산지</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">국내산</span>
+                                                            <span class="RewardProjectCard_category__2muXk">브랜드 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH titleKind"></span>
                                                         </div>
                                                         <div>
-                                                            <span class="RewardProjectCard_category__2muXk">무게</span>
-                                                            <span class="RewardProjectCard_makerName__2q4oH">1kg</span>
+                                                            <span class="RewardProjectCard_category__2muXk">카테고리 </span>
+                                                            <span class="RewardProjectCard_makerName__2q4oH category1"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -456,12 +496,13 @@
     <div id="wadiz-waffle-toast-container-component2">
         <div class="ToastContainer_container__98N9u2">
             <div class="Toast_container_1G4tm2 Toast_hideMobile__3rnMR2">
-                <div class="Toast_content__2vDRT2">URL이 복사되었습니다.</div>
+                <div class="Toast_content__2vDRT2">URL이 복사되었습니다.</div> 
             </div>
         </div>
     </div>
     <!-- url_link_popup 창 추가 screen:1097px-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/animalfeed.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/service/animalfeed.js"></script>
+
 </html>
