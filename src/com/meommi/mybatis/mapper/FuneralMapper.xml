@@ -14,4 +14,10 @@
 	<select id="selectCount" resultType="_int">
 		select count(funeral_number) from tbl_funeral
 	</select>
+	
+	<select id="selectAlltwo" resultType="funeralVO">
+		select funeral_number, funeral_name, funeral_phone, funeral_address, funeral_content, funeral_url
+		from tbl_funeral
+		order by funeral_number desc
+	</select>
 </mapper>
