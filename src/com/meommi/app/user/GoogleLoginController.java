@@ -28,36 +28,38 @@ public class GoogleLoginController implements Execute {
 		String userName = req.getParameter("googleNameForm");
 		String password = "GoogleLogin";
 		int loginMethod = 2, userNumber=0;
-
+		
 		userVO.setUserId(userId);
 		userVO.setUserName(userName);
 		userVO.setUserPassword(password);
 		userVO.setUserLoginMethod(loginMethod);
+
 		
 	try {
 			if(userDAO.checkId(userId)) {
 //					아이디가 있을 때
 				userNumber = userDAO.login(userVO);
+				System.out.println("아이디 있음");
 			} else {
 //					아이디가 없을 때, 회원가입 후 로그인을 바로 진행한다.
+				System.out.println("아이디 없음");
 				userDAO.join(userVO);
 				userNumber = userDAO.login(userVO);
 			}
 			
-//				세션에 아이디, 회원번호 저장
+//			세션에 아이디, 회원번호 저장
 			session.setAttribute("userId", userId);
 			session.setAttribute("userNumber", userNumber);
-			
-			result.setRedirect(true);
+
+			result.setRedirect(true); 
 			result.setPath(req.getContextPath() + "/app/main/mainpage.jsp");
 			
 			} catch (Exception e) {
 //					로그인 실패 시
-				result.setRedirect(true);
+				result.setRedirect(false);
 				result.setPath("/user/login.us?login=false");
 			}
 
 			return result;
 	}
-
 }

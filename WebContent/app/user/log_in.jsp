@@ -58,8 +58,6 @@
                     <h2 class="wz text display2">로그인</h2>
                     
                     
-                    
-                    
                     <form name="frm_login" id="frm_login" class="wz form" action="${pageContext.request.contextPath}/user/loginOk.us">
                         <div class="field">
                             <div class="wz input">
@@ -68,10 +66,7 @@
                             </div>
                             <em id="emailError" class="error-text helper error">이메일 형식이 올바르지 않습니다.</em>
                         </div>
-                        
-                        
-                        
-                        
+                    
                         <div class="field">
                             <div class="wz input">
                                 <input type="password" id="password" name="password" class="input-text" maxlength="20"
@@ -163,7 +158,7 @@
         <!-- 구글 로그인 히든 폼 --> 
         <form method="post" name="frm_login_google" id="frm_login_google" action="${pageContext.request.contextPath}/user/loginGoogle.us"> 
              <input type="hidden" name="googleLoginForm" id="googleLoginForm" value="">
-        	<input type="hidden" name="googleNameForm" id="googleNameForm" value="">       
+        	<input type="hidden" name="googleNameForm" id="googleNameForm" value="">
         </form>
         
     </div>

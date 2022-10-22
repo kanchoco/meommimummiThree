@@ -20,4 +20,11 @@ public class PlaceReviewDAO {
 		   return sqlSession.selectList("PlaceReview.selectAll", placeId);
 	   }
 	   
+	   public void insert(PlaceReviewDTO placeReviewDTO) {
+           sqlSession.insert("PlaceReview.insertContent", placeReviewDTO);
+       }
+         public int selectCurrentSequence() {
+             return sqlSession.selectOne("PlaceReview.selectCurrentSequence");
+          }
+	   
 }
