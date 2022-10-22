@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main desktop_first</title>
+    <title>멈미뭉미</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main/mainFinal.css">
     <link rel="stylesheet" href="https://static.wadiz.kr/static/web/wui.css?e5a9644b">
     <link rel="stylesheet" href="https://static.wadiz.kr/static/web/css/vendor.5f64dbd5.chunk.css">
@@ -557,146 +559,40 @@
                     <h1>회원님이 <strong style="color:#ff914d">좋아하는</strong> 친구목록</h1>
                 </div>
                 <div class="LikableFundingWrap_wrap__1ZPJw">
-                    <ul class="LikableFundingWrap_cardList__aExBc">
-                        <li class="LikableCard_card__kI_2A"><a
-                                href="/web/campaign/detail/159773?_refer_section_st=likeable_0" data-ec-id="159773"
-                                data-ec-name="[보글보글 구름을 만지는 촉감] COX #무접점키보드 #레트로" data-ec-list="likeable"
-                                data-ec-position="0">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">
-                                    <article>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0906/20220906134500990_159773.jpg/wadiz/resizecrop/169x93/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">[보글보글 구름을 만지는 촉감] COX #무접점키보드 #레트로</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">8990%</span>펀딩 </p>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></li>
-                        <li class="LikableCard_card__kI_2A"><a
-                                href="/web/campaign/detail/160905?_refer_section_st=likeable_1" data-ec-id="160905"
-                                data-ec-name="[평점4.8점]부피 50%가 쓱-싹! 2단 압축파우치" data-ec-list="likeable"
-                                data-ec-position="1">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">
-                                    <article>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0826/20220826002134638_160905.png/wadiz/resizecrop/169x93/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">[평점4.8점]부피 50%가 쓱-싹! 2단 압축파우치</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">369%</span>펀딩 </p>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></li>
-                        <li class="LikableCard_card__kI_2A"><a
-                                href="/web/campaign/detail/158970?_refer_section_st=likeable_2" data-ec-id="158970"
-                                data-ec-name="입체V패턴으로 똥배 쏙-! 심리스 똥배 지우개 #브이팬티" data-ec-list="likeable"
-                                data-ec-position="2">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">
-                                    <article>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0902/20220902152053712_158970.jpg/wadiz/resizecrop/169x93/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">입체V패턴으로 똥배 쏙-! 심리스 똥배 지우개 #브이팬티</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">3360%</span>펀딩 </p>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></li>
-                        <li class="LikableCard_card__kI_2A"><a
-                                href="/web/campaign/detail/142457?_refer_section_st=likeable_3" data-ec-id="142457"
-                                data-ec-name="[전설의 바디크림&amp;괄사]바르고 문지르기만 하세요! 바디관리 종결템 " data-ec-list="likeable"
-                                data-ec-position="3">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">
-                                    <article>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0816/20220816183557019_142457.jpg/wadiz/resizecrop/169x93/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">[전설의 바디크림&amp;괄사]바르고 문지르기만 하세요! 바디관리
-                                                종결템 </h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">2244%</span>펀딩 </p>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></li>
-                    </ul>
-                    <div
-                        class="CardType_projectCard__3xhjb CardType_plannedCard__Yyg0B LikableFundingWrap_plannedCard__ZG4TD">
-                        <a href="/web/wreward/collection/oversoon">
-                            <article>
-                                <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                    <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                        style="background-image: url(&quot;https://cdn.wadiz.kr/ft/images/green001/2022/0812/20220812143140691_null.png/wadiz/resizecrop/372x93/format/jpg/quality/85/&quot;);">
-                                    </div>
-                                </div>
-                                <div><span class="CardType_badge__OjSmY">기획전</span><span
-                                        class="CardType_title__2qEmh">놓치면 아쉬운 종료 임박 펀딩</span></div>
-                            </article>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
+                   
     </div>
     <div class="Main_wrap__2jKMu">
         <div
             class="RecommendationDesktop_innerGroup__as4jB RecommendationDesktop_visualBanners__13p13 Main_innerWrap__7-_Vm">
-            <section
-                class="SectionContainerLayout_container__1f8kt VisualBanner_container__3MB_0 Ads_visualBanner__fYh_g">
-                <div><a href="https://www.wadiz.kr/web/supporter-club/intro?_refer_section_st=MM1_3"
-                        class="banner_imageBanner__3x6lO">
-                        <article>
-                            <div class="commons_thumbnail__3wYGv banner_thumbnail__3VPaQ">
-                                <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                    style="background-image: url(&quot;https://cdn.wadiz.kr/ft/images/green001/2022/0721/20220721111451229_5824.png/wadiz/resizecrop/372x205/format/jpg/quality/85/&quot;);">
-                                </div>
-                            </div>
-                            <div class="banner_content__2HQ8i">
-                                <div class="banner_textWrapper__2zjfa">
-                                    <h1 class="banner_mainCopy__1rYe7">첫 달 무료 서포터클럽</h1>
-                                    <p class="banner_subCopy__2ZvNy">와디즈 멤버십만 누리는 혜택</p>
-                                </div><button class="wz button primary-outline mini banner_bannerBtn__3ntRR"
-                                    aria-label="자세히 보기">자세히 보기</button>
-                            </div>
-                        </article>
-                    </a></div>
-            </section>
+            <tbody>
+			<c:choose>
+			<c:when test="${(funerals != null and fn:length(funerals) > 0)}">			
+			<c:forEach  begin="1" end="3" step="1" var="funeral" items="${funerals}">
             <section
                 class="SectionContainerLayout_container__1f8kt VisualBanner_container__3MB_0 Ads_visualBanner__fYh_g" style="margin-left:0 !important">
-                <div><a href="https://www.wadiz.kr/web/wevent/wadiz_welcomecoupon?_refer_section_st=MM1_5"
+                <div><a href="${pageContext.request.contextPath}/funeral.fu"
                         class="banner_imageBanner__3x6lO">
                         <article>
                             <div class="commons_thumbnail__3wYGv banner_thumbnail__3VPaQ">
                                 <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                    style="background-image: url(&quot;https://cdn.wadiz.kr/ft/images/green001/2022/0726/20220726121457086_5835.jpg/wadiz/resizecrop/372x205/format/jpg/quality/85/&quot;);">
+                                    style="background-image: url('https://cdn.imweb.me/upload/S2020060844c46e5f6596d/a47e7ff60709f.png');">
                                 </div>
                             </div>
                             <div class="banner_content__2HQ8i">
                                 <div class="banner_textWrapper__2zjfa">
-                                    <h1 class="banner_mainCopy__1rYe7">신규회원 웰컴 혜택</h1>
-                                    <p class="banner_subCopy__2ZvNy">최대 7만원 쿠폰받고 시작하기</p>
+                                    <h1 class="banner_mainCopy__1rYe7"><c:out value="${funeral.getFuneralName()}" /></h1>
+                                    <p class="banner_subCopy__2ZvNy"><c:out value="${funeral.getFuneralAddress()}" /></p>
+                                    <p class="banner_subCopy__2ZvNy"><c:out value="${funeral.getFuneralUrl()}" /></p>
                                 </div><button class="wz button primary-outline mini banner_bannerBtn__3ntRR"
                                     aria-label="바로가기">바로가기</button>
                             </div>
                         </article>
                     </a></div>
             </section>
+            </c:forEach>
+</c:when>
+</c:choose>
+</tbody>
         </div>
     </div>
     <div class="Main_wrap__2jKMu Main_wrap__2jKMuEnd">
@@ -714,12 +610,6 @@
                                     aria-hidden="true"></i></button><button
                                 class="Pagination_paginationBtn__31dPl Pagination_next__2VEGc" aria-label="다음 페이지"><i
                                     class="icon chevron-right" aria-hidden="true"></i></button></div>
-                        <ul class="Pagination_pageList__KyPel">
-                            <li class="Pagination_listItem__1atqr Pagination_active__3Lx2R"><button>1</button></li>
-                            <li class="Pagination_listItem__1atqr"><button>2</button></li>
-                            <li class="Pagination_listItem__1atqr"><button>3</button></li>
-                            <li class="Pagination_listItem__1atqr"><button>4</button></li>
-                        </ul>
                     </div>
                 </div>
                 <ul class="EarlybirdDesktop_earlybirdList__2XjA6">
@@ -741,13 +631,6 @@
                                             <p class="commons_summary__2Ynez"><span
                                                     class="commons_achievementRate__2J-KL">708%</span>테크·가전</p>
                                         </div>
-                                    </div>
-                                    <div class="CardType_earlybirdContent__1b8VN">
-                                        <h2 class="CardType_title__2qEmh">[얼리버드]Big-In Jasper 미니 PC Expert</h2>
-                                        <p class="CardType_description__2BtXk">미니PC 본체, 16GB RAM, 500GB SSD, Windows
-                                            10Pro, 12V 어댑터
-                                            +[얼리버드 선물]무선랜/블루투스 무료 추가</p>
-                                        <p class="CardType_subContent__3QETf">449,000원</p>
                                     </div>
                                     <div class="CardType_linkBtn__1QHvM">지금 참여하기<i class="wz icon chevron-right"></i>
                                     </div>
@@ -774,12 +657,6 @@
                                                     class="commons_achievementRate__2J-KL">4057%</span>여행·레저</p>
                                         </div>
                                     </div>
-                                    <div class="CardType_earlybirdContent__1b8VN">
-                                        <h2 class="CardType_title__2qEmh">슈퍼 얼리버드 뉴 캠핑식기 커플세트 13종</h2>
-                                        <p class="CardType_description__2BtXk">와디즈슈퍼 얼리버드 펀딩 서포터 분에게만 드리는 혜택!
-                                            304스텐 4구 소스볼 (스텐식판), 캠핑컵2p 증정</p>
-                                        <p class="CardType_subContent__3QETf">61,000원</p>
-                                    </div>
                                     <div class="CardType_linkBtn__1QHvM">지금 참여하기<i class="wz icon chevron-right"></i>
                                     </div>
                                 </div>
@@ -804,19 +681,6 @@
                                             <p class="commons_summary__2Ynez"><span
                                                     class="commons_achievementRate__2J-KL">2198%</span>홈·리빙</p>
                                         </div>
-                                    </div>
-                                    <div class="CardType_earlybirdContent__1b8VN">
-                                        <h2 class="CardType_title__2qEmh">[슈퍼얼리버드] 티크도마 Size 중</h2>
-                                        <p class="CardType_description__2BtXk">슈퍼 얼리버드
-
-                                            비안트 티크 도마 중 1개
-                                            [50%혜택] 56,900-&gt;24,900
-
-
-                                            +
-                                            추가상품
-                                            오일관리키트</p>
-                                        <p class="CardType_subContent__3QETf">24,900원</p>
                                     </div>
                                     <div class="CardType_linkBtn__1QHvM">지금 참여하기<i class="wz icon chevron-right"></i>
                                     </div>
@@ -850,9 +714,312 @@
         })
         $(this).addClass('Pagination_active__3Lx2R');
     })
+    
+  
+    
+    //처음 시작할때 함수 한번 실행!
+lostfoundanimal()
+    
+function lostfoundanimal() {
 
+	
+
+		
+		const rendomnumber = Math.floor(Math.random() * 7) + 1;
     
+	
+	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
+	let apikey='vxcVfXBaPnpk793GY5gONJ53VqXJU0mYt5fRS0YQT8xiBsyilSLdGLwe7muRYs0D5obYpeEZ%2B5OolaUd29nrRw%3D%3D';
+	let pageNo= rendomnumber;
+	let numOfRows=5;
+	$.ajax({
+		type:"GET",
+		url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&serviceKey="+apikey,
+		data:{},
+		success:function(response){
+			$("#names-q1").empty();
+			/* 길이 */
+			let $items=$(response).find("item");
+			let $length=$($items).children().length;
+			let $numOfRows=$(response).find("numOfRows").text();
+			
+			/* 항목들 */
+			let $desertionno=$(response).find("desertionNo");
+			let $happenDt=$(response).find("happenDt");
+			let $happenPlace=$(response).find("happenPlace");
+			let $kindCd=$(response).find("kindCd");
+			let $colorCd=$(response).find("colorCd");
+			let $age=$(response).find("age");
+			let $weight=$(response).find("weight");
+			let $noticeNo=$(response).find("noticeNo");
+			let $noticeSdt=$(response).find("noticeSdt");
+			let $noticeEdt=$(response).find("noticeEdt");
+			let $popfile=$(response).find("popfile");
+			let $processState=$(response).find("processState");
+			let $sexCd=$(response).find("sexCd");
+			let $neuterYn=$(response).find("neuterYn");
+			let $specialMark=$(response).find("specialMark");
+			let $careNm=$(response).find("careNm");
+			let $careTel=$(response).find("careTel");
+			let $careAddr=$(response).find("careAddr");
+			let $orgNm=$(response).find("orgNm");
+			let $chargeNm=$(response).find("chargeNm");
+			let $officetel=$(response).find("officetel");
+					
+			let text="";
+			let count=0;
+			for(let i=0;i< 1;i++){
+					
+						text += `<ul class="LikableFundingWrap_cardList__aExBc">`
+						//유기동물 서비스 주소 
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[0]).children()[15]).text() + `</h1>`
+						//유기동물 품종 , 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[0]).children()[4]).text() +`</span>` + $($($items[0]).children()[16]).text() + `</p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						//유기동물 서비스 주소
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[1]).children()[15]).text() + `</h1>`
+						//유기동물 품종 , 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[1]).children()[4]).text() +`</span>` + $($($items[1]).children()[16]).text() + ` </p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						//유기동물 서비스 주소
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징 
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[2]).children()[15]).text() + `</h1>`
+						//유기동물 품종, 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[2]).children()[4]).text() +`</span>` + $($($items[2]).children()[16]).text() + ` </p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[3]).children()[15]).text() + `</h1>`
+						//유기동물 품종, 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[3]).children()[4]).text() +`</span>` + $($($items[3]).children()[16]).text() + ` </p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						text += `</ul>`
+
+				}//inner forloop
+			$(".LikableFundingWrap_wrap__1ZPJw").html(text);
+			}//outer forloop
+	});//ajax
+}
+
+//타이머 변수
+let timer
+ 
+// 유기동물api로 불러오기전 반복 함수 실
+startClock();
+
+function startClock() {
+	
+// 유기동물 api로 불러오기
+function lostfoundanimals() {
+/* 	let  overlaparray = [];
+
+	
+	function overlapOne () {   
+		let i = 0;  
+		while (i < 4) {    
+			let n = Math.floor(Math.random() * 4) + 1;    
+			if (! overlapTwo(n)) {      
+				overlaparray.push(n);      
+				i++;    
+				}  
+			}  
+		function overlapTwo (n) {    
+				for (var i = 0; i < overlaparray.length; i++) {      
+					if (n === overlaparray[i]) {       
+						return true;  
+						}  
+					}    
+				return false; 
+				} 
+		return overlaparray;
+		}
+	
+	overlapOne();
+	
+	console.log(overlaparray);
+	 */
+	// 중간에 랜덤 숫자 구현 
+	
+
+	const rendomnumber = Math.floor(Math.random() * 7) + 1;
     
+
+	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
+	let apikey='vxcVfXBaPnpk793GY5gONJ53VqXJU0mYt5fRS0YQT8xiBsyilSLdGLwe7muRYs0D5obYpeEZ%2B5OolaUd29nrRw%3D%3D';
+	let pageNo= rendomnumber;
+	let numOfRows=4;
+	$.ajax({
+		type:"GET",
+		url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&serviceKey="+apikey,
+		data:{},
+		success:function(response){
+			$("#names-q1").empty();
+			/* 길이 */
+			let $items=$(response).find("item");
+			let $length=$($items).children().length;
+			let $numOfRows=$(response).find("numOfRows").text();
+			
+			/* 항목들 */
+			let $desertionno=$(response).find("desertionNo");
+			let $happenDt=$(response).find("happenDt");
+			let $happenPlace=$(response).find("happenPlace");
+			let $kindCd=$(response).find("kindCd");
+			let $colorCd=$(response).find("colorCd");
+			let $age=$(response).find("age");
+			let $weight=$(response).find("weight");
+			let $noticeNo=$(response).find("noticeNo");
+			let $noticeSdt=$(response).find("noticeSdt");
+			let $noticeEdt=$(response).find("noticeEdt");
+			let $popfile=$(response).find("popfile");
+			let $processState=$(response).find("processState");
+			let $sexCd=$(response).find("sexCd");
+			let $neuterYn=$(response).find("neuterYn");
+			let $specialMark=$(response).find("specialMark");
+			let $careNm=$(response).find("careNm");
+			let $careTel=$(response).find("careTel");
+			let $careAddr=$(response).find("careAddr");
+			let $orgNm=$(response).find("orgNm");
+			let $chargeNm=$(response).find("chargeNm");
+			let $officetel=$(response).find("officetel");
+					//src=`+ $imgs + `
+			let text="";
+			let count=0;
+			for(let i=0;i< 1;i++){
+				
+						text += `<ul class="LikableFundingWrap_cardList__aExBc">`
+						//유기동물 서비스 주소 
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);;">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[0]).children()[15]).text() + `</h1>`
+						//유기동물 품종 , 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[0]).children()[4]).text() +`</span>` + $($($items[0]).children()[16]).text() + `</p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						//유기동물 서비스 주소
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);;">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[1]).children()[15]).text() + `</h1>`
+						//유기동물 품종 , 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[1]).children()[4]).text() +`</span>` + $($($items[1]).children()[16]).text() + ` </p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						//유기동물 서비스 주소
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징 
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[2]).children()[15]).text() + `</h1>`
+						//유기동물 품종, 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[2]).children()[4]).text() +`</span>` + $($($items[2]).children()[16]).text() + ` </p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						text += `<li class="LikableCard_card__kI_2A"><a href="/app/service/lostfoundanimal.jsp">`
+						text += `<div class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks">`
+						text += `<article>`
+						text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+						text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url(../../images/dogcatone.jpg);">`
+						text += `</div>`
+						text += `</div>`
+						text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+						//유기동물 특징
+						text += `<h1 class="commons_title__1yGWm">` + $($($items[3]).children()[15]).text() + `</h1>`
+						//유기동물 품종, 보호기관이름
+						text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+ $($($items[3]).children()[4]).text() +`</span>` + $($($items[3]).children()[16]).text() + ` </p>`
+						text += `</div>`
+						text += `</article>`
+						text += `</div>`
+						text += `</a></li>`
+						text += `</ul>`
+
+				}//inner forloop
+			$(".LikableFundingWrap_wrap__1ZPJw").html(text);
+			}//outer forloop
+	});//ajax
+}
+// 타이머 설정 (1초 당 1000)
+// 변수로 담는것은 혹시 나중에 종료를 해야 할때 필요하면 사용할려고합니다
+ timer = setInterval(lostfoundanimals, 5000);
+  
+}
+// 타이머 종료 함수
+// '종료' 버튼을 누르면 실행된다.
+//function stopClock() {
+  // timer의 반복실행을 종료한다.
+  //clearInterval(timer);
+//}
+
+
+
 
     
     

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.meommi.app.Result;
+import com.meommi.app.funeral.FuneralListController;
 
 public class MainFrontController extends HttpServlet {
 
@@ -27,8 +28,8 @@ public class MainFrontController extends HttpServlet {
 		String request = requestURI.substring(contextPath.length());
 		Result result = null;
 
-		if (request.equals("/meommi/Main.ma")) {
-
+		if (request.equals("/meommi/main.ma")) {
+			result = new MainServiceListcontroller().execute(req, resp);
 		}
 
 		if (result != null) {
