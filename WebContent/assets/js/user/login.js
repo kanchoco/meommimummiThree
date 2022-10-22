@@ -22,6 +22,10 @@ function loginCheck(){
 }
 
 
+/* 뒤로가기 막기 */
+window.history.forward(); function noBack(){ 
+  window.history.forward();
+}
 
 
 /*카카오 로그인 서비스 */
@@ -65,13 +69,15 @@ function getInfo(){
 			console.log(res);
 			/*이메일 정보*/
 			$.ajax({
-				url: contextPath + "/user/loginKakao.us",
-				type: "post",
 				data: {
 					id: res.id,
 					userName: res.kakao_account.profile.nickname
 				},
-				contentType:  "application/x-www-form-urlencoded"
+				success: function(){
+					$("input[name='kakaoLoginForm']").val(res.id);
+					$("input[name='kakaoNameForm']").val(res.kakao_account.profile.nickname);
+					frm_login_kakao.submit();
+				}
 			})
 		},
 		fail: function (error){
@@ -79,7 +85,6 @@ function getInfo(){
 			return;
 		}
 	})
-	frm_login_kakao.submit();
 }
 
 
@@ -131,10 +136,12 @@ function handleCredentialResponse(response) {
 			id: responsePayload.sub,
 			userName: responsePayload.name
 		},
-		contentType:  "application/x-www-form-urlencoded"
+		success: function(){
+			$("input[name='googleLoginForm']").val(responsePayload.sub);
+			$("input[name='googleNameForm']").val(responsePayload.name);
+			frm_login_google.submit();
+		}
 	})
-	
-	frm_login_google.submit();
 }
 
 function parseJwt (token) {

@@ -24,7 +24,7 @@ public class WriteReviewLookupOkController implements Execute {
 		resp.setContentType("text/html;charset=UTF-8");
 		//로그인이랑 합쳤을때, 세션에 들어간 유저 넘버로 바꿀것
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
-		int userNumber = 1;
+		int userNumber = Integer.parseInt(req.getParameter("userNumber"));
 		UserDAO userDAO = new UserDAO();
 		JSONArray reviews = new JSONArray();
 		PrintWriter out = resp.getWriter();
@@ -51,10 +51,10 @@ public class WriteReviewLookupOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
-//		for(int i = 0; i < userDAO.review().size(); i++) {
-//			userDAO.selectMyReview(pageMap).get(i).setReviewFilePath((userDAO.review().get(i)));
-//		}
-		userDAO.selectMyReview(pageMap).forEach(v -> {System.out.println(v); JSONObject review = new JSONObject(v);System.out.println(review);  reviews.put(review); });
+		
+		userDAO.selectMyReview(pageMap).forEach(v -> {
+			 v.setReviewFileSystemName(userDAO.selectReviewFile(v.getPlaceReviewNumber()));
+			 JSONObject review = new JSONObject(v); reviews.put(review); });
 		reviews.put(pages);
 		out.print(reviews.toString());
 		out.close();

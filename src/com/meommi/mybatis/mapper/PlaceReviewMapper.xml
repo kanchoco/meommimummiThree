@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="PlaceReview">
+	<!-- 게시글 클릭 시 모든 후기 나오게 하기 -->
+	<select id="selectAll" parameterType="string" resultType="placeReviewDTO">
+		select place_review_number, place_review_contents, place_review_rating, place_review_dateTime, user_number, user_name
+		from tbl_place_review
+		where place_id = #{placeId}
+	</select>
+
 </mapper>
+	

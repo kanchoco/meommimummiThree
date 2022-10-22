@@ -16,5 +16,4 @@ public class LoginOutController implements Execute {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

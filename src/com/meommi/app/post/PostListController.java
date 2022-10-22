@@ -22,7 +22,6 @@ public class PostListController implements Execute {
 		PostDAO postDAO=new PostDAO();
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
-		
 		postDAO.selectPostDefault().forEach(posts->{
 			JSONObject jsonObject =new JSONObject(posts);  jsonArray.put(jsonObject);
 		});

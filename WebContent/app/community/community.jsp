@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +38,7 @@
 							</div> -->
 						</div>
 
+						
 						<div id="friends-container">
 							<div
 								style="line-height: 28px; letter-spacing: -.3px; font-size: 16px; font-weight: 700; font-style: normal; line-height: 24px; display: flex; flex-direction: row;">김인영님,
@@ -187,676 +190,19 @@
 							</ul>
 							
 						</div>
+                           <!-- 글 작성 div -->
+                        <jsp:include page="${pageContext.request.contextPath}/app/community/community_writepart.jsp"/>
 						<div class="FeedCardList_container__13rc1">
-							<div class="FeedCardList_list__2yOEy" aria-label="피드 리스트">
-								<div class="FeedCard_container__2vyLX">
-									<!-- 글 작성 div -->
-									<textarea name="feedMainWriting" id="feedMainWriting" cols="30" rows="10" placeholder="내 반려동물을 자랑해주세요!" style="margin-bottom: 10px; width: 100%; height: 200px; resize: none; padding: 20px;"></textarea>
-									<div>
-										<!-- 사진 첨부 -->
-										<div class="ImageUploader_container__2FM0D">
-											<div class="ImageUploader_contentWrap__1P_48">
-												<div class="ImageUploader_button__FPX_Y" id="addPhotoButton">
-													<svg viewBox="0 0 32 32" focusable="false"
-														role="presentation"
-														class="withIcon_icon__2l2ds ImageUploader_addIcon__1tond" aria-hidden="true" style="width: 24px; height: 24px;">
-                                                        <path
-															d="M20.8 16.8a4.8 4.8 0 1 1-9.6 0 4.8 4.8 0 0 1 9.6 0z">
-                                                        </path>
-                                                        <path
-															d="M22.4 6.4L20 3.2h-8L9.6 6.4h-8v20.8h28.8V6.4zM16 23.2c-3.535 0-6.4-2.865-6.4-6.4s2.865-6.4 6.4-6.4 6.4 2.865 6.4 6.4-2.865 6.4-6.4 6.4z">
-                                                        </path>
-                                                    </svg>
-													<span class="uploadPhotoCount">
-                                                        <div class="uploadBeforeText">0/3</div>
-                                                    </span> 
-                                                    <input type="file" class="realUpload" id = "realUpload" accept="image/*" required multiple style="display: none;">
-													<div
-														class="StaticPopper_container__3fEN8 ImageUploader_popper__3yY05">
-														<div>
-															소중한 나의 반려동물을<br>마음껏 자랑해주세요!
-														</div>
-														<div
-															class="StaticPopper_arrow__3okBO ImageUploader_popperArrow__21T9p">
-														</div>
-													</div>
-												</div>
-                                                <ul class="image-preview"></ul>
-                                                <button class="deleteBtn" type="button">사진 초기화</div>
-												<div class="ImageUploader_imageContainer__2QUb6" style="transform: translateX(0px);">
-                                                </div>
-                                                
-                                            </div>
-                                            <button class="registBtn Button_button__341ce Button_primary__2Xc2p Button_contained__1azJ6 Button_md__3IA0_ Button_block__1sz_j RecommendationSupporterList_moreButton__Gp4KF" type="button" style="margin-bottom: 50px;margin-top: 10px;">
-                                                <span><span class="Button_children__10ESl">게시글 등록 <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO" aria-hidden="true">
-                                                            <path d="M28 20L15 33l-1.4-1.4L25.2 20 13.6 8.4 15 7l13 13z"></path>
-                                                        </svg></span></span>
-                                            </button>
-										</div>
-									</div>
-									<div class="FeedCard_divider__3V9EP"></div>
-								</div>
-								<div class="FeedCard_container__2vyLX">
-									<section class="FeedCard_header__3R2hC">
-										<a href="/web/wmypage/myprofile/fundinglist/1496989203"
-											class="FeedCard_leftPanel__wkbbV">
-											<div class="FeedCard_leftPanel__wkbbV">
-												<span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
-													style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-4.png&quot;) 1x, url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-4.png&quot;) 2x);"></span>
-												<div class="FeedCard_headerContent__37gxQ">
-													<div class="FeedCard_nickNameWrap__3dGXP">
-														<p class="FeedCard_nickName__3vNYO">박**</p>
-													</div>
-													<div class="FeedCard_summary__17A5w">
-														<div
-															class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-															<div class="RatingScore_icon__rIS_k"></div>
-															<span class="RatingScore_score__2a-SN">5.0</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="FeedCard_rightPanel__3MoD7">
-											<button
-												class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
-												type="button">
-												<span><svg viewBox="0 0 32 32" focusable="false"
-														role="presentation"
-														class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-														aria-hidden="true" style="width: 12px; height: 12px;">
-                                                        <path
-															d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-                                                        </path>
-                                                    </svg><span
-													class="Button_children__3HY2l">팔로우</span></span>
-											</button>
-											<button class="FeedCard_moreWrap__1AsqH" aria-label="피드 신고, 차단">
-												<svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO FeedCard_more__3VATZ" aria-hidden="true">
-                                                    <path
-														d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-                                                    </path>
-                                                </svg>
-											</button>
-                                            <div class="modal">
-                                                <div class="modal_content">
-                                                    <button class="report">신고하기</button>
-                                                    <button class="close">닫기</button>
-                                                </div>
-                                            </div>
-										</div>
-									</section>
-									<div class="FeedCard_reviewImage__3HK8Q">
-										<div class="FeedCard_imageWrap__hiMPd">
-											<div class="FeedCard_image__2-Puq">
-												<div class="FeedCard_thumbnail__22k7x"
-													style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/64ee8551-b8d4-4d6e-9810-5da9e48b4ed3.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/64ee8551-b8d4-4d6e-9810-5da9e48b4ed3.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
-												</div>
-											</div>
-										</div>
-									</div>
-									<section class="FeedCard_content__2ato7">
-										<p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">문제점까지
-											잘 알 려주셨어요. 현재까지는 잘 사용하고있어요.</p>
-										<span class="FeedCard_date__nQ9NI">6분 전</span>
-									</section>
-									<a href="/web/store/detail/2751?_refer_section_st=feed_0"
-										class="FeedCard_footer__2JOxv" data-ec-list="피드"
-										data-ec-id="2751"
-										data-ec-name="진짜 괴물샤워기가 뭔지 보여줄께! 국산 수압샤워기의 신화 소프롱 신제품"
-										data-ec-price="24900" data-ec-category="리빙·베이비"
-										data-ec-brand="주식회사 비엠비즈" data-ec-usertype="SUPPORTER"
-										data-ec-feedtype="SATISFACTION" data-ec-contenttype="store"
-										data-gtm-vis-first-on-screen-11319722_2073="1758625"
-										data-gtm-vis-total-visible-time-11319722_2073="400"><img
-										loading="lazy"
-										srcset="https://cdn2.wadiz.kr/2022/04/20/ed07a213-200d-457c-a0fe-174621932c60.jpg/wadiz/resize/180/quality/85/ 1x, https://cdn2.wadiz.kr/2022/04/20/ed07a213-200d-457c-a0fe-174621932c60.jpg/wadiz/resize/360/quality/85/ 2x"
-										alt="진짜 괴물샤워기가 뭔지 보여줄께! 국산 수압샤워기의 신화 소프롱 신제품"
-										class="FeedCard_thumbnail__22k7x">
-										<div class="FeedCard_projectInfo__3FAY7">
-											<p class="FeedCard_title__3ETaX FeedCard_ellipsis2__uNpJo">진짜
-												괴물샤워기가 뭔지 보여줄께! 국산 수압샤워기의 신화 소프롱 신제품</p>
-											<div class="FeedCard_priceWrap__10crH">
-												<span class="FeedCard_price__3OfRF">24,900원</span>
-												<span class="Badge_container__3PJ1J Badge_visible__T0Jpp FeedCard_badge__2rxTW">
-													<span class="Badge_badge__1ygl8 Badge_label__3VWNx Badge_sm__19RLo Badge_secondary__3rKeB Badge_circular__2oYt7 Badge_tertiary__cuJeE">무료배송</span></span>
-											</div>
-										</div> </a>
-										<div class="replyWrap">
-											<a href="replyContents" class="replyShow">댓글 보기 ▼</a>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hongjunsung</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">누가 졸아 또</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">GTA5</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아니 근데 막상... 괜찮지 않을까?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">deliveryBin</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">네? 저요? 저 컴퓨터가 없는데요?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">lovesickGirl</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 진짜 모르겠다 강산님 저 좀 봐주실래요 아니 강.산.님 말고 강.사.님이요</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">foodfighter</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">그때 강산님이 그렇게 말하셨잖아요 또 말을...</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hate3team</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 모르겠다고오오오오오오오 하기싫다고오오오오오오오</div></span>
-											</div>
-										</div>
-
-										<div class="replyWritingWrap">
-											<form class="replyWriting">
-												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-												<button type="button" class="replyEnter">입력</button>
-											</form>
-											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
-										</div>
-									<div class="FeedCard_divider__3V9EP"></div>
-								</div>
-
-                                          
-
-								<div class="FeedCard_container__2vyLX">
-									<section class="FeedCard_header__3R2hC">
-										<a href="/web/wmypage/myprofile/fundinglist/1152357015"
-											class="FeedCard_leftPanel__wkbbV">
-											<div class="FeedCard_leftPanel__wkbbV">
-												<span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
-													style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/32/quality/85/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/64/quality/85/&quot;) 2x);"></span>
-												<div class="FeedCard_headerContent__37gxQ">
-													<div class="FeedCard_nickNameWrap__3dGXP">
-														<p class="FeedCard_nickName__3vNYO">라온**</p>
-														<div class="FeedCard_supporterClub__7EgiL"></div>
-													</div>
-													<div class="FeedCard_summary__17A5w">
-														<div
-															class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-															<div class="RatingScore_icon__rIS_k"></div>
-															<span class="RatingScore_score__2a-SN">4.5</span>
-														</div>
-														<div class="FeedCard_follower__23ddV">
-															팔로워<span class="FeedCard_count__1fbWO">14</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="FeedCard_rightPanel__3MoD7">
-											<button
-												class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
-												type="button">
-												<span><svg viewBox="0 0 32 32" focusable="false"
-														role="presentation"
-														class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-														aria-hidden="true" style="width: 12px; height: 12px;">
-                                                        <path
-															d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-                                                        </path>
-                                                    </svg><span
-													class="Button_children__3HY2l">팔로우</span></span>
-											</button>
-											<button class="FeedCard_moreWrap__1AsqH"
-												aria-label="피드 신고, 차단">
-												<svg viewBox="0 0 40 40" focusable="false"
-													role="presentation"
-													class="withIcon_icon__20lDO FeedCard_more__3VATZ"
-													aria-hidden="true">
-                                                    <path
-														d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-                                                    </path>
-                                                </svg>
-											</button>
-                                            <div class="modal">
-                                                <div class="modal_content">
-                                                    <button class="report">신고하기</button>
-                                                    <button class="close">닫기</button>
-                                                </div>
-                                            </div>
-										</div>
-
-									</section>
-									<div class="FeedCard_reviewImage__3HK8Q">
-										<div class="FeedCard_imageWrap__hiMPd">
-											<div class="FeedCard_image__2-Puq">
-												<div class="FeedCard_thumbnail__22k7x"
-													style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
-												</div>
-											</div>
-										</div>
-									</div>
-									<section class="FeedCard_content__2ato7">
-										<p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">우선
-											배송박스 상태도 그렇고 체어 담는 가방도 한쪽이 살짝 찢겨있어서 반품상품 받은것 같아서 기분이 좀 그랬지만
-											일단 의자는 정말 편하네요. 넓어서 의자가 넉넉하니 좋아요. 야외도 좋겠지만 집에서 사용해도 좋을것 같네요.
-											저보다 저희집 냥이가 내려오질 않네요.</p>
-										<p class="FeedCard_showMore__1IK43">더보기</p>
-										<span class="FeedCard_date__nQ9NI">33분 전</span>
-									</section>
-									<a href="/web/store/detail/1921?_refer_section_st=feed_3"
-										class="FeedCard_footer__2JOxv" data-ec-list="피드"
-										data-ec-id="1921"
-										data-ec-name="쇼파의 푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어"
-										data-ec-price="98000" data-ec-category="여행·스포츠"
-										data-ec-brand="태산레져" data-ec-usertype="SUPPORTER"
-										data-ec-feedtype="SATISFACTION" data-ec-contenttype="store"><img
-										loading="lazy"
-										srcset="https://cdn2.wadiz.kr/2021/12/15/de5fbe95-d57d-48f6-a014-dd3042091568.jpg/wadiz/resize/180/quality/85/ 1x, https://cdn2.wadiz.kr/2021/12/15/de5fbe95-d57d-48f6-a014-dd3042091568.jpg/wadiz/resize/360/quality/85/ 2x"
-										alt="쇼파의 푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어"
-										class="FeedCard_thumbnail__22k7x">
-										<div class="FeedCard_projectInfo__3FAY7">
-											<p class="FeedCard_title__3ETaX FeedCard_ellipsis2__uNpJo">쇼파의
-												푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어</p>
-											<div class="FeedCard_priceWrap__10crH">
-												<span class="FeedCard_price__3OfRF">98,000원</span><span
-													class="Badge_container__3PJ1J Badge_visible__T0Jpp FeedCard_badge__2rxTW"><span
-													class="Badge_badge__1ygl8 Badge_label__3VWNx Badge_sm__19RLo Badge_secondary__3rKeB Badge_circular__2oYt7 Badge_tertiary__cuJeE">무료배송</span></span>
-											</div>
-										</div> </a>
-										<div class="replyWrap">
-											<a href="replyContents" class="replyShow">댓글 보기 ▼</a>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hongjunsung</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">누가 졸아 또</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">GTA5</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아니 근데 막상... 괜찮지 않을까?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">deliveryBin</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">네? 저요? 저 컴퓨터가 없는데요?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">lovesickGirl</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 진짜 모르겠다 강산님 저 좀 봐주실래요 아니 강.산.님 말고 강.사.님이요</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">foodfighter</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">그때 강산님이 그렇게 말하셨잖아요 또 말을...</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hate3team</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 모르겠다고오오오오오오오 하기싫다고오오오오오오오</div></span>
-											</div>
-										</div>
-
-										<div class="replyWritingWrap">
-											<form class="replyWriting">
-												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-												<button type="button" class="replyEnter">입력</button>
-											</form>
-											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
-										</div>
-									<div class="FeedCard_divider__3V9EP"></div>
-								</div>
-								<div class="FeedCard_container__2vyLX">
-									<section class="FeedCard_header__3R2hC">
-										<a href="/web/wmypage/myprofile/fundinglist/2001937005"
-											class="FeedCard_leftPanel__wkbbV">
-											<div class="FeedCard_leftPanel__wkbbV">
-												<span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
-													style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-2.png&quot;) 1x, url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-2.png&quot;) 2x);"></span>
-												<div class="FeedCard_headerContent__37gxQ">
-													<div class="FeedCard_nickNameWrap__3dGXP">
-														<p class="FeedCard_nickName__3vNYO">정**</p>
-														<div class="FeedCard_supporterClub__7EgiL"></div>
-													</div>
-													<div class="FeedCard_summary__17A5w">
-														<div
-															class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-															<div class="RatingScore_icon__rIS_k"></div>
-															<span class="RatingScore_score__2a-SN">5.0</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="FeedCard_rightPanel__3MoD7">
-											<button
-												class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
-												type="button">
-												<span><svg viewBox="0 0 32 32" focusable="false"
-														role="presentation"
-														class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-														aria-hidden="true" style="width: 12px; height: 12px;">
-                                                        <path
-															d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-                                                        </path>
-                                                    </svg><span
-													class="Button_children__3HY2l">팔로우</span></span>
-											</button>
-											<button class="FeedCard_moreWrap__1AsqH"
-												aria-label="피드 신고, 차단">
-												<svg viewBox="0 0 40 40" focusable="false"
-													role="presentation"
-													class="withIcon_icon__20lDO FeedCard_more__3VATZ"
-													aria-hidden="true">
-                                                    <path
-														d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-                                                    </path>
-                                                </svg>
-											</button>
-                                            <div class="modal">
-                                                <div class="modal_content">
-                                                    <button class="report">신고하기</button>
-                                                    <button class="close">닫기</button>
-                                                </div>
-                                            </div>
-										</div>
-									</section>
-									<section class="FeedCard_content__2ato7">
-										<p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">사용느낌은
-											소음이 약간 좋아 졌다는 느낌이 듭니다.</p>
-										<span class="FeedCard_date__nQ9NI">39분 전</span>
-									</section>
-									<a href="/web/store/detail/117?_refer_section_st=feed_4"
-										class="FeedCard_footer__2JOxv" data-ec-list="피드"
-										data-ec-id="117"
-										data-ec-name="한 병 8,500원으로 엔진을 새것처럼 바꿔주는 마법  좋은연료 첨가제"
-										data-ec-price="8500" data-ec-category="여행·스포츠"
-										data-ec-brand="(주)본투로드" data-ec-usertype="SUPPORTER"
-										data-ec-feedtype="SATISFACTION" data-ec-contenttype="store"><img
-										loading="lazy"
-										srcset="https://cdn2.wadiz.kr/2021/09/01/e92c9b0a-acfa-4957-ae30-5bcee64793b0/wadiz/resize/180/quality/85/ 1x, https://cdn2.wadiz.kr/2021/09/01/e92c9b0a-acfa-4957-ae30-5bcee64793b0/wadiz/resize/360/quality/85/ 2x"
-										alt="한 병 8,500원으로 엔진을 새것처럼 바꿔주는 마법  좋은연료 첨가제"
-										class="FeedCard_thumbnail__22k7x">
-										<div class="FeedCard_projectInfo__3FAY7">
-											<p class="FeedCard_title__3ETaX FeedCard_ellipsis2__uNpJo">한
-												병 8,500원으로 엔진을 새것처럼 바꿔주는 마법 좋은연료 첨가제</p>
-											<div class="FeedCard_priceWrap__10crH">
-												<span class="FeedCard_price__3OfRF">8,500원</span>
-											</div>
-										</div> </a>
-										<div class="replyWrap">
-											<a href="replyContents" class="replyShow">댓글 보기 ▼</a>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hongjunsung</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">누가 졸아 또</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">GTA5</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아니 근데 막상... 괜찮지 않을까?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">deliveryBin</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">네? 저요? 저 컴퓨터가 없는데요?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">lovesickGirl</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 진짜 모르겠다 강산님 저 좀 봐주실래요 아니 강.산.님 말고 강.사.님이요</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">foodfighter</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">그때 강산님이 그렇게 말하셨잖아요 또 말을...</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hate3team</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 모르겠다고오오오오오오오 하기싫다고오오오오오오오</div></span>
-											</div>
-										</div>
-
-										<div class="replyWritingWrap">
-											<form class="replyWriting">
-												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-												<button type="button" class="replyEnter">입력</button>
-											</form>
-											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
-										</div>
-									<div class="FeedCard_divider__3V9EP"></div>
-								</div>
-								<div class="FeedCard_container__2vyLX">
-									<section class="FeedCard_header__3R2hC">
-										<a href="/web/wmypage/myprofile/fundinglist/800950812"
-											class="FeedCard_leftPanel__wkbbV">
-											<div class="FeedCard_leftPanel__wkbbV">
-												<span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
-													style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-1.png&quot;) 1x, url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-1.png&quot;) 2x);"></span>
-												<div class="FeedCard_headerContent__37gxQ">
-													<div class="FeedCard_nickNameWrap__3dGXP">
-														<p class="FeedCard_nickName__3vNYO">조**</p>
-													</div>
-													<div class="FeedCard_summary__17A5w">
-														<div
-															class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-															<div class="RatingScore_icon__rIS_k"></div>
-															<span class="RatingScore_score__2a-SN">5.0</span>
-														</div>
-														<div class="FeedCard_follower__23ddV">
-															팔로워<span class="FeedCard_count__1fbWO">2</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="FeedCard_rightPanel__3MoD7">
-											<button
-												class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
-												type="button">
-												<span><svg viewBox="0 0 32 32" focusable="false"
-														role="presentation"
-														class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-														aria-hidden="true" style="width: 12px; height: 12px;">
-                                                        <path
-															d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-                                                        </path>
-                                                    </svg><span
-													class="Button_children__3HY2l">팔로우</span></span>
-											</button>
-											<button class="FeedCard_moreWrap__1AsqH"
-												aria-label="피드 신고, 차단">
-												<svg viewBox="0 0 40 40" focusable="false"
-													role="presentation"
-													class="withIcon_icon__20lDO FeedCard_more__3VATZ"
-													aria-hidden="true">
-                                                    <path
-														d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-                                                    </path>
-                                                </svg>
-											</button>
-                                            <div class="modal">
-                                                <div class="modal_content">
-                                                    <button class="report">신고하기</button>
-                                                    <button class="close">닫기</button>
-                                                </div>
-                                            </div>
-										</div>
-									</section>
-									<div class="FeedCard_reviewImage__3HK8Q">
-										<div class="FeedCard_imageWrap__hiMPd">
-											<div class="FeedCard_image__2-Puq">
-												<div class="FeedCard_thumbnail__22k7x"
-													style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/a40f8ac5-7b6e-44bb-92a9-00ae16bb8c22.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/a40f8ac5-7b6e-44bb-92a9-00ae16bb8c22.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
-												</div>
-											</div>
-										</div>
-									</div>
-									<section class="FeedCard_content__2ato7">
-										<p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">가네만넨
-											안경 코받침이 편한데 잘 흘려내려서 샀는데 대박입니다! 단 한 번도 흘러내린 안경을 올린 적이 없네요~</p>
-										<span class="FeedCard_date__nQ9NI">한 시간 전</span>
-									</section>
-									<a href="/web/store/detail/1590?_refer_section_st=feed_5"
-										class="FeedCard_footer__2JOxv" data-ec-list="피드"
-										data-ec-id="1590"
-										data-ec-name="[안경/선글라스] 안경 착용시 안경 흘러내림 방지 및 코 눌림 완화 패드"
-										data-ec-price="10500" data-ec-category="패션·잡화"
-										data-ec-brand="엔와이지" data-ec-usertype="SUPPORTER"
-										data-ec-feedtype="SATISFACTION" data-ec-contenttype="store"><img
-										loading="lazy"
-										srcset="https://cdn2.wadiz.kr/2021/11/15/fe3e986d-584d-4918-80f5-54445e9c8592.jpg/wadiz/resize/180/quality/85/ 1x, https://cdn2.wadiz.kr/2021/11/15/fe3e986d-584d-4918-80f5-54445e9c8592.jpg/wadiz/resize/360/quality/85/ 2x"
-										alt="[안경/선글라스] 안경 착용시 안경 흘러내림 방지 및 코 눌림 완화 패드"
-										class="FeedCard_thumbnail__22k7x">
-										<div class="FeedCard_projectInfo__3FAY7">
-											<p class="FeedCard_title__3ETaX FeedCard_ellipsis2__uNpJo">[안경/선글라스]
-												안경 착용시 안경 흘러내림 방지 및 코 눌림 완화 패드</p>
-											<div class="FeedCard_priceWrap__10crH">
-												<span class="FeedCard_price__3OfRF">10,500원</span>
-											</div>
-										</div> </a>
-										<div class="replyWrap">
-											<a href="replyContents" class="replyShow">댓글 보기 ▼</a>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hongjunsung</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">누가 졸아 또</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">GTA5</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아니 근데 막상... 괜찮지 않을까?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">deliveryBin</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">네? 저요? 저 컴퓨터가 없는데요?</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">lovesickGirl</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 진짜 모르겠다 강산님 저 좀 봐주실래요 아니 강.산.님 말고 강.사.님이요</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">foodfighter</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">그때 강산님이 그렇게 말하셨잖아요 또 말을...</div></span>
-											</div>
-											<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-												<span class="replyIdWrap"><div class="replyId">hate3team</div></span>
-												<span class="replyCommentWrap"><div class="replyComment">아 모르겠다고오오오오오오오 하기싫다고오오오오오오오</div></span>
-											</div>
-										</div>
-
-										<div class="replyWritingWrap">
-											<form class="replyWriting">
-												<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-												<button type="button" class="replyEnter">입력</button>
-											</form>
-											<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
-										</div>
-									<div class="FeedCard_divider__3V9EP"></div>
-								</div>
-									<div class="FeedCard_container__2vyLX">
-										<section class="FeedCard_header__3R2hC">
-											<a href="/web/wmypage/myprofile/fundinglist/3293742015"
-												class="FeedCard_leftPanel__wkbbV">
-												<div class="FeedCard_leftPanel__wkbbV">
-													<span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
-														style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-2.png&quot;) 1x, url(&quot;https://static.wadiz.kr/assets/icon/profile-icon-2.png&quot;) 2x);"></span>
-													<div class="FeedCard_headerContent__37gxQ">
-														<div class="FeedCard_nickNameWrap__3dGXP">
-															<p class="FeedCard_nickName__3vNYO">이**</p>
-															<div class="FeedCard_supporterClub__7EgiL"></div>
-														</div>
-														<div class="FeedCard_summary__17A5w">
-															<div
-																class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-																<div class="RatingScore_icon__rIS_k"></div>
-																<span class="RatingScore_score__2a-SN">4.5</span>
-															</div>
-															<div class="FeedCard_follower__23ddV">
-																팔로워<span class="FeedCard_count__1fbWO">43</span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</a>
-											<div class="FeedCard_rightPanel__3MoD7">
-												<button
-													class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
-													type="button">
-													<span><svg viewBox="0 0 32 32" focusable="false"
-															role="presentation"
-															class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-															aria-hidden="true" style="width: 12px; height: 12px;">
-															<path
-																d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-															</path>
-														</svg><span
-														class="Button_children__3HY2l">팔로우</span></span>
-												</button>
-												<button class="FeedCard_moreWrap__1AsqH"
-													aria-label="피드 신고, 차단">
-													<svg viewBox="0 0 40 40" focusable="false"
-														role="presentation"
-														class="withIcon_icon__20lDO FeedCard_more__3VATZ"
-														aria-hidden="true">
-														<path
-															d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-														</path>
-													</svg>
-												</button>
-												<div class="modal">
-													<div class="modal_content">
-														<button class="report">신고하기</button>
-														<button class="close">닫기</button>
-													</div>
-												</div>
-											</div>
-										</section>
-										<section class="FeedCard_content__2ato7">
-											<p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">스틱으로나왔는지만
-												점성은 연고정도의무르고부드러운재형입니다그래서 빨리 쓸것같네요 하루지나간거라효과는 아직 지켜볼게요</p>
-											<span class="FeedCard_date__nQ9NI">한 시간 전</span>
-										</section>
-										<a href="/web/store/detail/56?_refer_section_st=feed_7"
-											class="FeedCard_footer__2JOxv" data-ec-list="피드"
-											data-ec-id="56"
-											data-ec-name="[주말특가](1+1증정) 임상 5가지! 눈/팔자/목주름 밀착관리 주름스틱"
-											data-ec-price="38000" data-ec-category="뷰티"
-											data-ec-brand="대우제약" data-ec-usertype="SUPPORTER"
-											data-ec-feedtype="SATISFACTION" data-ec-contenttype="store"><img
-											loading="lazy"
-											srcset="https://cdn2.wadiz.kr/2022/05/18/d216358c-370f-4a94-8aa1-90433988cf0d.jpg/wadiz/resize/180/quality/85/ 1x, https://cdn2.wadiz.kr/2022/05/18/d216358c-370f-4a94-8aa1-90433988cf0d.jpg/wadiz/resize/360/quality/85/ 2x"
-											alt="[주말특가](1+1증정) 임상 5가지! 눈/팔자/목주름 밀착관리 주름스틱"
-											class="FeedCard_thumbnail__22k7x">
-											<div class="FeedCard_projectInfo__3FAY7">
-												<p class="FeedCard_title__3ETaX FeedCard_ellipsis2__uNpJo">[주말특가](1+1증정)
-													임상 5가지! 눈/팔자/목주름 밀착관리 주름스틱</p>
-												<div class="FeedCard_priceWrap__10crH">
-													<span class="FeedCard_price__3OfRF">38,000원</span><span
-														class="Badge_container__3PJ1J Badge_visible__T0Jpp FeedCard_badge__2rxTW"><span
-														class="Badge_badge__1ygl8 Badge_label__3VWNx Badge_sm__19RLo Badge_secondary__3rKeB Badge_circular__2oYt7 Badge_tertiary__cuJeE">무료배송</span></span>
-												</div>
-											</div> </a>
-											<div class="replyWrap">
-												<a href="replyContents" class="replyShow">댓글 보기 ▼</a>
-												<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-													<span class="replyIdWrap"><div class="replyId">hongjunsung</div></span>
-													<span class="replyCommentWrap"><div class="replyComment">누가 졸아 또</div></span>
-												</div>
-												<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-													<span class="replyIdWrap"><div class="replyId">GTA5</div></span>
-													<span class="replyCommentWrap"><div class="replyComment">아니 근데 막상... 괜찮지 않을까?</div></span>
-												</div>
-												<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-													<span class="replyIdWrap"><div class="replyId">deliveryBin</div></span>
-													<span class="replyCommentWrap"><div class="replyComment">네? 저요? 저 컴퓨터가 없는데요?</div></span>
-												</div>
-												<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-													<span class="replyIdWrap"><div class="replyId">lovesickGirl</div></span>
-													<span class="replyCommentWrap"><div class="replyComment">아 진짜 모르겠다 강산님 저 좀 봐주실래요 아니 강.산.님 말고 강.사.님이요</div></span>
-												</div>
-												<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-													<span class="replyIdWrap"><div class="replyId">foodfighter</div></span>
-													<span class="replyCommentWrap"><div class="replyComment">그때 강산님이 그렇게 말하셨잖아요 또 말을...</div></span>
-												</div>
-												<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-													<span class="replyIdWrap"><div class="replyId">hate3team</div></span>
-													<span class="replyCommentWrap"><div class="replyComment">아 모르겠다고오오오오오오오 하기싫다고오오오오오오오</div></span>
-												</div>
-											</div>
-	
-											<div class="replyWritingWrap">
-												<form class="replyWriting">
-													<textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-													<button type="button" class="replyEnter">입력</button>
-												</form>
-												<p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
-											</div>
-										<div class="FeedCard_divider__3V9EP"></div>
-								</div>
-									</div>
+						 <div class="FeedCardList_list__2yOEy" aria-label="피드 리스트">
+                           <div class="FeedCard_divider__3V9EP"></div>
+                        </div>
+						<!-- 게시글 작성 부분 시작 -->
+							
+									<!-- 추가되는 부분 -->
+						</div>
+									
+									
+									
 								</div>
 								</div>
 								<div></div>
@@ -947,21 +293,555 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/community/community.js"></script>
 <script>
-$.ajax({
-	url:"${pageContext.request.contextPath}/meommi/PostlistOk.po",
-	type:"get",
-	contentType:"text/html; charset=utf-8",
-	success:function(resultpost){
+
+
+/* const $aTags = $(".replyShow"); */
+/* const $parentposition=$(".replyWrap"); */
+
+var checks = -1;
+
+$parentposition=$(".FeedCardList_container__13rc1");
+
+$parentposition.on("click","a.replyShow", function(e){
+   e.preventDefault();
+   checks *= -1;
+   console.log(this);
+   $(this).text(checks > 0 ? "댓글 닫기 ▲" : "댓글 보기 ▼");
+   $(this).nextAll().slideToggle();
+});
+
+
+/* const $replyCheck = $(".replyCheck"); */
+$replyEnter = $(".replyEnter");
+
+$parentposition.on("click",".replyEnter",function(){
+    if($(this).prev().val().length==0){
+        console.log($(this).next());
+        $(this).parent().next().attr('class','replyAlarmOn');
+    } else{
+        $(this).parent().next().attr('class','replyAlarmOff');
+    }
+});
+
+let Outputindex=5;
+var textinit="";
+window.onload=function(){
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/Postlist.po",
+		type:"get",
+		contentType:"text/html; charset=utf-8",
+		dataType:"json",
+		success:function(resultpost){
+			$.ajax({
+				url:"${pageContext.request.contextPath}/meommi/Commentlist.co",
+				type:"get",
+				contentType:"text/html; charset=utf-8",
+				dataType:"json",
+				success:function(resultcomment){
+					$.ajax({
+						url:"${pageContext.request.contextPath}/meommi/PostFile.pf",
+						type:"get",
+						contentType:"text/html; charset=utf-8",
+						dataType:"json",
+						success:function(resultfile){
+							
+							
+							resultpost.forEach(post=>{
+								
+								/* console.log(post.postContent);
+								console.log(post.postDatetime);
+								console.log(post.postLikeNumber);
+								console.log(post.userNumber);
+								console.log("==============================================="); */
+								textinit+=`<div class="FeedCard_container__2vyLX">
+								<section class="FeedCard_header__3R2hC">
+								<a href="/web/wmypage/myprofile/fundinglist/1152357015"
+								        class="FeedCard_leftPanel__wkbbV">
+								        <div class="FeedCard_leftPanel__wkbbV">
+								        <span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
+								                style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/32/quality/85/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/64/quality/85/&quot;) 2x);"></span>
+								                <div class="FeedCard_headerContent__37gxQ">
+								                <div class="FeedCard_nickNameWrap__3dGXP">`;
+								                textinit+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
+								                textinit+=`<div class="FeedCard_supporterClub__7EgiL"></div>
+								                	</div>
+								                	<div class="FeedCard_summary__17A5w">
+								                    <div
+								                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
+								                        <div class="RatingScore_icon__rIS_k"></div>`;
+								                        textinit+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
+								                        textinit+=`</div>
+								                    <div class="FeedCard_follower__23ddV">`;
+								                    textinit+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
+								                    textinit+=`</div>
+								                </div>
+								            </div>
+								        </div>
+								    </a>
+								    <div class="FeedCard_rightPanel__3MoD7">
+								        <button
+								            class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
+								            type="button">
+								            <span><svg viewBox="0 0 32 32" focusable="false"
+								                    role="presentation"
+								                    class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
+								                    aria-hidden="true" style="width: 12px; height: 12px;">
+								                    <path
+								                        d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
+								                    </path>
+								                </svg><span
+								                class="Button_children__3HY2l">팔로우</span></span>
+								        </button>
+								        <button class="FeedCard_moreWrap__1AsqH"
+								            aria-label="피드 신고, 차단">
+								            <svg viewBox="0 0 40 40" focusable="false"
+								                role="presentation"
+								                class="withIcon_icon__20lDO FeedCard_more__3VATZ"
+								                aria-hidden="true">
+								                <path
+								                    d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
+								                </path>
+								            </svg>
+								        </button>
+								        <div class="modal">
+								            <div class="modal_content">
+								                <button class="report">신고하기</button>
+								                <button class="close">닫기</button>
+								            </div>
+								        </div>
+								    </div>
+
+								</section>
+								<div class="FeedCard_reviewImage__3HK8Q">
+								    <div class="FeedCard_imageWrap__hiMPd">
+								        <div class="FeedCard_image__2-Puq">`;
+								        /* 사진 추가 부분 */
+								        
+								        resultfile.forEach(file=>{
+								        	if(post.postNumber==file.postNumber){
+								        		console.log("file.postNumber:"+file.postNumber+"post.postNumber:"+post.postNumber);
+								        		/* console.log(file.postFileSystemName);
+								        		console.log(file.postFileOriginalName);
+								        		console.log(file.postFilePath);
+								        		console.log(file.postNumber);
+								        		console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"); */
+								        	/* console.log("file in"); */
+									        	textinit+=`<div class="FeedCard_thumbnail__22k7x">`+file.postFileSystemName+`</div>`;
+									            /* <div class="FeedCard_thumbnail__22k7x"
+									                style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
+									            </div> */
+								        	}
+								        });
+								        textinit+=`</div>
+								    </div>
+								</div>
+								<section class="FeedCard_content__2ato7">
+								    <p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">`+post.postContent+`</p>`;
+								    textinit+=`<p class="FeedCard_showMore__1IK43">더보기</p>
+								    <span class="FeedCard_date__nQ9NI">`+post.postDateTime+`</span>`;
+								    
+								    /* textinit+=`<div class="postContents" name="postContents" style="display:none;" data-index="0">
+						            textinit+=`<span class="postContentReadyModifyWrap" data-number=`+post.postNumber+`><div class="postContentReadyModify"></div></span>`;
+						            textinit+=`<span class="postContentModifyWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentModify"></div></span>`;
+						            textinit+=`<span class="postContentDeleteWrap" data-number=`+post.postNumber+`><div class="postContentDelete"></div></span>`;
+						            textinit+=`<span class="postContentCancelWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentCancel"></div></span>`;
+						        	textinit+=`</div>`; */
+						        	
+								    textinit+=`</section>
+								<a href="/web/store/detail/1921?_refer_section_st=feed_3"
+								    class="FeedCard_footer__2JOxv" data-ec-list="피드"
+								    data-ec-id="1921"
+								    data-ec-name="쇼파의 푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어"
+								    data-ec-price="98000" data-ec-category="여행·스포츠"
+								    data-ec-brand="태산레져" data-ec-usertype="SUPPORTER"
+								    data-ec-feedtype="SATISFACTION" data-ec-contenttype="store">
+								 </a>
+								    <div class="replyWrap">
+								        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
+								        resultcomment.forEach(comment=>{
+								        	if(comment.postNumber==post.postNumber){
+								        		textinit+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
+								        			<span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
+								        			textinit+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
+								        			textinit+=`<span>`+comment.commentsDatetime+`</span>`;
+								        			textinit+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
+								        			textinit+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
+								        			textinit+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
+								        			textinit+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
+								        			textinit+=`</div>`;
+								        	}
+								        });
+								        textinit+=`</div>
+
+								    <div class="replyWritingWrap">
+								        <form class="replyWriting" name="replyForm">
+								        <textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+								            <button type="button" class="replyEnter" data-number=`+post.postNumber+`>입력</button>
+								        </form>
+								        <p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
+								    </div>
+								<div class="FeedCard_divider__3V9EP"></div>
+							</div>`;
+							$('.FeedCardList_container__13rc1').html(textinit);
+							});
+						}//success(file)
+					});//ajax(file)
+				}//success(comment)
+			});//ajax(comment)
+		}//success(post)
+	});//ajax(post)
+};
+//무한 스크롤
+window.onscroll = function(e) {
+	/* console.log(window.innerHeight , window.scrollY,document.body.offsetHeight); */
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight-5) { 
+      setTimeout(function(){
+        /* var addContent = "<div class='FeedCard_container__2vyLX'>" + "김인영..." + "</div>";
+		
+        $('.FeedCardList_container__13rc1').append(infiniteScrollTemplate); */
+        
+        Outputindex+=1;
+        /* ======================================================= */
+        $.ajax({
+    		url:"${pageContext.request.contextPath}/meommi/PostlistOk.po",
+    		type:"get",
+    		data:{Increment:Outputindex},
+    		contentType:"text/html; charset=utf-8",
+    		dataType:"json",
+    		success:function(resultpost){
+    			$.ajax({
+    				url:"${pageContext.request.contextPath}/meommi/CommentlistOk.co",
+    				type:"get",
+    				data:{Increment:Outputindex},
+    				contentType:"text/html; charset=utf-8",
+    				dataType:"json",
+    				success:function(resultcomment){
+    					$.ajax({
+    						url:"${pageContext.request.contextPath}/meommi/PostFileOk.pf",
+    						type:"get",
+    						data:{Increment:Outputindex},
+    						contentType:"text/html; charset=utf-8",
+    						dataType:"json",
+    						success:function(resultfile){
+    							var text="";
+    							resultpost.forEach(post=>{
+    							text+=`<div class="FeedCard_container__2vyLX">
+    								<section class="FeedCard_header__3R2hC">
+    								<a href="/web/wmypage/myprofile/fundinglist/1152357015"
+    								        class="FeedCard_leftPanel__wkbbV">
+    								        <div class="FeedCard_leftPanel__wkbbV">
+    								        <span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
+    								                style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/32/quality/85/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/64/quality/85/&quot;) 2x);"></span>
+    								                <div class="FeedCard_headerContent__37gxQ">
+    								                <div class="FeedCard_nickNameWrap__3dGXP">`;
+    								                text+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
+    								                text+=`<div class="FeedCard_supporterClub__7EgiL"></div>
+    								                	</div>
+    								                	<div class="FeedCard_summary__17A5w">
+    								                    <div
+    								                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
+    								                        <div class="RatingScore_icon__rIS_k"></div>`;
+    								                        text+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
+    								                        text+=`</div>
+    								                    <div class="FeedCard_follower__23ddV">`;
+    								                    text+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
+    								                    text+=`</div>
+    								                </div>
+    								            </div>
+    								        </div>
+    								    </a>
+    								    <div class="FeedCard_rightPanel__3MoD7">
+    								        <button
+    								            class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
+    								            type="button">
+    								            <span><svg viewBox="0 0 32 32" focusable="false"
+    								                    role="presentation"
+    								                    class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
+    								                    aria-hidden="true" style="width: 12px; height: 12px;">
+    								                    <path
+    								                        d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
+    								                    </path>
+    								                </svg><span
+    								                class="Button_children__3HY2l">팔로우</span></span>
+    								        </button>
+    								        <button class="FeedCard_moreWrap__1AsqH"
+    								            aria-label="피드 신고, 차단">
+    								            <svg viewBox="0 0 40 40" focusable="false"
+    								                role="presentation"
+    								                class="withIcon_icon__20lDO FeedCard_more__3VATZ"
+    								                aria-hidden="true">
+    								                <path
+    								                    d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
+    								                </path>
+    								            </svg>
+    								        </button>
+    								        <div class="modal">
+    								            <div class="modal_content">
+    								                <button class="report">신고하기</button>
+    								                <button class="close">닫기</button>
+    								            </div>
+    								        </div>
+    								    </div>
+
+    								</section>
+    								<div class="FeedCard_reviewImage__3HK8Q">
+    								    <div class="FeedCard_imageWrap__hiMPd">
+    								        <div class="FeedCard_image__2-Puq">`;
+    								        /* 사진 추가 부분 */
+    								        
+    								        resultfile.forEach(file=>{
+    								        	/* console.log("file.postNumber:"+file.postNumber);
+    								        	console.log("post.postNumber:"+post.postNumber); */
+    								        	if(file.postNumber==post.postNumber && file.userNumber==post.userNumber){
+    									        	text+=`<div class="FeedCard_thumbnail__22k7x">`+file.postFileSystemName+`</div>`;
+    									            /* <div class="FeedCard_thumbnail__22k7x"
+    									                style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
+    									            </div> */
+    								        	}
+    								        });
+    								        text+=`</div>
+    								    </div>
+    								</div>
+    								<section class="FeedCard_content__2ato7">
+    								    <p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">`+post.postContent+`</p>`;
+    								    text+=`<p class="FeedCard_showMore__1IK43">더보기</p>
+    								    <span class="FeedCard_date__nQ9NI">`+post.postDatetime+`</span>`;
+    								    
+    								  	/* text+=`<div class="postContents" name="postContents" style="display:none;" data-index="0">
+							            text+=`<span class="postContentReadyModifyWrap" data-number=`+post.postNumber+`><div class="postContentReadyModify"></div></span>`;
+							            text+=`<span class="postContentModifyWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentModify"></div></span>`;
+							            text+=`<span class="postContentDeleteWrap" data-number=`+post.postNumber+`><div class="postContentDelete"></div></span>`;
+							            text+=`<span class="postContentCancelWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentCancel"></div></span>`;
+							        	text+=`</div>`; */
+    								    
+    								    
+    								    
+    								    
+    								    
+    								text+=`</section>
+    								<a href="/web/store/detail/1921?_refer_section_st=feed_3"
+    								    class="FeedCard_footer__2JOxv" data-ec-list="피드"
+    								    data-ec-id="1921"
+    								    data-ec-name="쇼파의 푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어"
+    								    data-ec-price="98000" data-ec-category="여행·스포츠"
+    								    data-ec-brand="태산레져" data-ec-usertype="SUPPORTER"
+    								    data-ec-feedtype="SATISFACTION" data-ec-contenttype="store">
+    								 </a>
+    								    <div class="replyWrap">
+    								        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
+    								        resultcomment.forEach(comment=>{
+    								        	if(comment.postNumber==post.postNumber){
+	    									        text+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
+	    									            <span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
+	    									            text+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
+	    									            text+=`<span>`+comment.commentsDatetime+`</span>`;
+	    									            text+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
+	    									            text+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
+	    									            text+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
+	    									            text+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
+	    									        text+=`</div>`;
+    								        	}
+    								        });
+    								    text+=`</div>
+
+    								    <div class="replyWritingWrap">
+    								        <form class="replyWriting" name="replyForm">
+    								        <textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+    								            <button type="button" class="replyEnter" data-number=`+post.postNumber+`>입력</button>
+    								        </form>
+    								        <p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
+    								    </div>
+    								<div class="FeedCard_divider__3V9EP"></div>
+    							</div>`;
+    							$('.FeedCardList_container__13rc1').html(text);
+    							
+    							});
+    						}//success(fileOk)
+    					});//ajax(fileOk)
+    				}//success(commentOk)
+    			});//ajax(commentOk)
+    		}//success(postOk)
+    	});//ajax(postOk)
+        /* ======================================================= */
+      }, 500)  
+    }
+  }
+  /* ===============댓글 추가 부분=================== */
+let replytext="";
+$parentposition.on("input change keyup",".replyWriting textarea",function(){
+	replytext=this.value;
+});
+
+$parentposition.on("click",".replyEnter",function(){
+	var postNumber=$(this).data("number");
+	console.log("number:"+postNumber);
+	if(!replytext){
+		alert('댓글을 입력해주세요.');
+		return;
+	}
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/CommentRegistration.co",
+		type:"get",
+		data:{content:replytext,postNumber:postNumber},
+		success:function(){
+			console.log("comment reply enter success");
+		}
+	});
+	$(".replyWriting textarea").val("");
+});
+/* =====================댓글 수정 준비 버튼=================== */
+$parentposition.on("click","span.replyCommentModifyReadyWrap",function(){
+	const buttonWrap=$(this).closest("div.replyContents");
+	const buttons=buttonWrap.children();
+	const content=buttons.eq(1);
+	
+	buttons.eq(3).hide();
+	buttons.eq(4).show();
+	buttons.eq(5).hide();
+	buttons.eq(6).show();
+	
+	content.replaceWith("<textarea>"+content.text()+"</textarea>");
+});
+/* ==============댓글 수정 취소 버튼============= */
+$parentposition.on("click","span.replyCommentCancelWrap",function(){
+	const buttonWrap=$(this).closest("div.replyContents");
+	const buttons=buttonWrap.children();
+	const content=buttons.eq(1);
+	
+	buttons.eq(3).show();
+	buttons.eq(4).hide();
+	buttons.eq(5).show();
+	buttons.eq(6).hide();
+	
+	content.replaceWith("<pre>"+content.text()+"</pre>");
+	/*const content=buttons.eq(1).val(); 3,4,5,6*/
+});
+/* ==============댓글 수정 버튼============= */
+$parentposition.on("click","span.replyCommentModifyWrap",function(){
+	const buttonWrap=$(this).closest("div.replyContents");
+	const commentContent=buttonWrap.children().eq(1).val();
+	const commentNumber=$(this).data("number");
+	
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/CommentRetouch.co",
+		type:"get",
+		data:{commentContent:commentContent,commentNumber:commentNumber},
+		success:function(){
+			console.log("comment modify success");
+		}
+	});
+	
+});
+/* ==============댓글 삭제 버튼============= */
+$parentposition.on("click","span.replyCommentDeleteWrap",function(){
+	
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/CommentDelete.co",
+		type:"get",
+		data:{commentNumber:$(this).data("number")},
+		success:function(){
+			console.log("comment delete success");
+		},
+		error:function(){
+			console.log("comment delete fail");
+		}
+	});
+	
+});
+
+/* ================게시글 삭제 ================== */
+let replydelete="";
+$parentposition.on("click",".FeedCard_content__2ato7 p",function(){
+	replydelete=$(this).text();
+});
+
+/* =====================댓글 수정 준비 버튼=================== */
+$parentposition.on("click","span.postContentReadyModifyWrap",function(){
+	console.log(this);
+	/* const buttonWrap=$(this).closest("div.postContents");
+	const buttons=buttonWrap.children();
+	const content=buttons.eq(1); */
+	/* FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo */
+	/* buttons.eq(0).hide();
+	buttons.eq(1).show();
+	buttons.eq(2).hide();
+	buttons.eq(3).show();
+	
+	content.replaceWith("<textarea>"+content.text()+"</textarea>"); */
+});
+/* ==============댓글 수정 취소 버튼============= */
+/* $parentposition.on("click","span.replyCommentCancelWrap",function(){
+	const buttonWrap=$(this).closest("div.replyContents");
+	const buttons=buttonWrap.children();
+	const content=buttons.eq(1);
+	
+	buttons.eq(3).show();
+	buttons.eq(4).hide();
+	buttons.eq(5).show();
+	buttons.eq(6).hide();
+	
+	content.replaceWith("<pre>"+content.text()+"</pre>");
+	
+}); */
+/* $parentposition.on("click",".replyEnter",function(){
+	var postNumber=$(this).data("number");
+	console.log("number:"+postNumber);
+	if(!replytext){
+		alert('댓글을 입력해주세요.');
+		return;
+	}
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/CommentRegistration.co",
+		type:"get",
+		data:{content:replytext,postNumber:postNumber},
+		success:function(){
+			console.log("comment reply enter success");
+		}
+	});
+	$(".replyWriting textarea").val("");
+}); */
+/* ================게시글 필터 ================== */
+$(".tab-button").on("click",function(){
+	var keyword=$(this).find("button").text();
+	
+	if(keyword=="전체"){
+		console.log("전체 사용된거 이용");
+	}
+	else if(keyword=="내팔로잉"){
 		$.ajax({
-			url:"${pageContext.request.contextPath}/meommi/CommentlistOk.co",
+			url:"${pageContext.request.contextPath}/meommi/FollowingListOk.fo",
 			type:"get",
-			contentType:"text/html; charset=utf-8",
-			success:function(resultcomment){
-				console.log(resultpost);
-				console.log(resultcomment);
+			data:{keyword:keyword},
+			success:function(){
+				console.log("내 팔로잉 성공");
 			}
 		});
 	}
+	else if(keyword=="내팔로워"){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/meommi/FollowerListOk.fo",
+			type:"get",
+			data:{keyword:keyword},
+			success:function(){
+				console.log("내 팔로워 성공");
+			}
+		})
+	}
 });
+/* var output;
+$("textarea").on("input change keyup",function(){
+	 if (this.value.length) {
+		 output = this.value;
+     } else {
+    	 output = "";
+     }
+	 console.log(output);
+}); */
+/* text += `<div class="button-wrap">`;
+text += `<div class="modify-ready-button" data-number=` + reply.replyNumber +`></div>`;
+text += `<div class="modify-button" data-number=` + reply.replyNumber +` style="display:none;"></div>`;
+text += `<div class="delete-button" data-number=` + reply.replyNumber +`></div>`;
+text += `<div class="cancel-button" data-number=` + reply.replyNumber +` style="display:none;"></div>`;
+text += `</div>`; */
 </script>
 </html>
