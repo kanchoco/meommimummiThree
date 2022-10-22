@@ -77,8 +77,8 @@
                     <div class="RewardProjectListApp_container__1ZYeD RewardMainProjectList_listApp__2noRS">
                         <div class="ProjectListHead_container__rpQ37 RewardProjectListHead_container__2FzIj">
                             <div class="ProjectListHead_bar__2dyHz">
-                            	<!-- 강아지,고양이 필터 -->
-                            	<div class ="FilterWrapper_container" style="display:flex;">
+                               <!-- 강아지,고양이 필터 -->
+                               <div class ="FilterWrapper_container" style="display:flex;">
                                 <div class="leftButton FilterTab_container__2Zmmg" role="group" aria-label="피드 카테고리">
                                     <div class="FilterTabButton_container__1eoXX">
                                         <button class="Button_button__341ce Button_tertiaryMint__1fcKK Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "사료" aria-current="page" type="button" onclick="feedSearch(this)">
@@ -90,7 +90,6 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                    
                                         <button class="DogButton Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "강아지 사료" aria-current="page" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
@@ -121,7 +120,16 @@
                                 <!-- sim:유사순, date, asc, dsc -->
                                 <div class="RightButton FilterTab_container__2Zmmg" role="group" aria-label="피드 카테고리" style="justify-content: end;">
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="DateButton SearchFilter_0601 Button_tertiaryMint__1fcKK Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " id = "sortDate" aria-current="page" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " aria-current="page" id="sim" type="button" onclick="feedSearch(this)">
+                                            <span>
+                                                <span class="Button_children__10ESl">
+                                                    유사도순
+                                                </span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="FilterTabButton_container__1eoXX">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " aria-current="page" id="date" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     날짜순
@@ -130,7 +138,7 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="AscButton SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "sortAsc" aria-current="page" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" id="dsc" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     가격높은순
@@ -139,7 +147,7 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="DescButton SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" id = "sortDesc" aria-current="page" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" id="asc" type="button" onclick="feedSearch(this)">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     가격낮은순
@@ -149,14 +157,14 @@
                                     </div>
                                 </div>
                                 
-                            	</div>
+                               </div>
                                 <form class="ProjectListHead_search__HN3am" onsubmit="return false;">
                                     <label for="search-list">
                                         <input name="search-list" type="search" id="search-list" placeholder="검색" value="아르르"><!-- 초기키워드 -->
                                         <input name="search-lista" type="hidden"  placeholder="검색" value="">
                                         <div class="ProjectListHead_right__3_Jo1">
                                             <button type="button" class="ProjectListHead_find__3HsFc"  onclick="feedSearch(this)" aria-label="검색">
-                                                <img src="../../images/search.png" style="width:25px;margin-top:20px;"/>
+                                                <img src="../../images/search.png" style="width:28px;margin-top:14px;"/>
                                             </button>
                                         </div>
                                     </label> 
@@ -220,7 +228,7 @@
                                                                 <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                          			  	<div>
+                                                        <div>
                                                             <span class="RewardProjectCard_category__2muXk">가격 </span>
                                                             <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
@@ -256,7 +264,7 @@
                                                                 <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                          			  	<div>
+                                                        <div>
                                                             <span class="RewardProjectCard_category__2muXk">가격 </span>
                                                             <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
@@ -292,7 +300,7 @@
                                                                 <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                          			  	<div>
+                                                        <div>
                                                             <span class="RewardProjectCard_category__2muXk">가격 </span>
                                                             <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
@@ -328,7 +336,7 @@
                                                                 <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                          			  	<div>
+                                                        <div>
                                                             <span class="RewardProjectCard_category__2muXk">가격 </span>
                                                             <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
@@ -364,7 +372,7 @@
                                                                 <strong class="titleKind">브랜드ㅣ</strong>
                                                             </p>
                                                         </a>
-                                          			  	<div>
+                                                        <div>
                                                             <span class="RewardProjectCard_category__2muXk">가격 </span>
                                                             <span class="RewardProjectCard_makerName__2q4oH titlePrice"></span>
                                                         </div>
@@ -387,12 +395,12 @@
                                 <!-- 3개씩 반복 -->
                             </div>
                             <!-- page number추가 -->
-                            <div class="board-footer">
+                           <!--  <div class="board-footer">
                                 <div class="pagination">
                                     <div class="page">
                                         <div class="desktop-only">
                                             <button class="prev-page icon-chevron-left">
-                                                <span class="text-hidden"><!-- 이전 목록 --></span>
+                                                <span class="text-hidden">이전 목록</span>
                                             </button>
                                             <a href="javascript:void(0);" class="current">1</a>
                                             <a href="javascript:void(0);">2</a>
@@ -401,12 +409,12 @@
                                             <a href="javascript:void(0);">5</a>
                                             <a href="javascript:void(0);">6</a>
                                             <button class="next-page icon-chevron-right">
-                                                <span class="text-hidden"><!-- 다음 목록 --></span>
+                                                <span class="text-hidden">다음 목록</span>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- page number 추가 끝 -->
                         </div>
                     </div>
@@ -502,6 +510,10 @@
     </div>
     <!-- url_link_popup 창 추가 screen:1097px-->
 </body>
+
+<script>
+const pageURI = "${pageContext.request.contextPath}";
+</script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/service/animalfeed.js"></script>
 

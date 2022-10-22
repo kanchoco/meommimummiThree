@@ -38,12 +38,10 @@ public class FeedSearchController implements Execute {
 	        } catch (UnsupportedEncodingException e) {
 	            throw new RuntimeException("검색어 인코딩 실패",e);
 	        }
-			System.out.println(text);
 
 	        String apiURL = "https://openapi.naver.com/v1/search/shop?query=" + text +"&display=100&sort="+sort;    // JSON 결과
 	        //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // XML 결과
 
-	        System.out.println(apiURL);
 
 	        Map<String, String> requestHeaders = new HashMap<>();
 	        requestHeaders.put("X-Naver-Client-Id", clientId);
