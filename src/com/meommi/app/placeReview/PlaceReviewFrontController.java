@@ -35,10 +35,8 @@ public class PlaceReviewFrontController extends HttpServlet {
 				   
 				}else if(request.equals("/map/filter.pl")) {	/*장소 필터링 기능 컨트롤러*/
 					new MapFilterController().execute(req, resp);
-					
 				}else if(request.equals("/map/myLocation.pl")) {	/*사용자 위치 지도 조회 컨트롤러*/
 					new MyLocationController().execute(req, resp);
-					
 				} else if(request.equals("/map/mapReview.pl")) {
 					new mapReviewController().execute(req,resp);
 				} else if(request.equals("/map/mapReviewOk.pl")) {/*리뷰 등록 컨트롤러*/

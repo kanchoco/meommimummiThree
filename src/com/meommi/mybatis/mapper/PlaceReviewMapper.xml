@@ -16,7 +16,6 @@
 		insert into tbl_place_review
 		(place_review_contents, place_review_rating, user_number, place_id, place_review_helful)
 		values(#{placeReviewContents}, #{placeReviewRating}, #{userNumber},#{placeId}, #{placeReviewHelful})
-    
     </insert>
     
     <select id="selectCurrentSequence" resultType="_int">
