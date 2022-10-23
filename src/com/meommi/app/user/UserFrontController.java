@@ -71,6 +71,8 @@ public class UserFrontController extends HttpServlet {
 			new MyPlaceLookupOkController().execute(req, resp);
 		}else if(request.equals("/user/setOk.us")) {
 			result = new PrivacySetOkController().execute(req, resp);
+		}else if(request.equals("/user/logout.us")) {
+			result = new LoginOutController().execute(req, resp);
 		}
 
 		if (result != null) {
