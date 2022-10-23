@@ -1,3 +1,6 @@
+
+
+
 var tabButton = document.getElementsByClassName('tab-button');
 var followButton = document.getElementsByClassName('Button_button__mRXZC Button_primary__1HJqX Button_xs__2zuKd Button_startIcon__SRdP5 Button_block__1LAUA SupporterFollowingButton_followingButton__6GRdi RecommendationSupporterCard_followingButton__342zZ');
 var followButtonBelow = document.getElementsByClassName('Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS');
@@ -5,7 +8,9 @@ var showAllButton = document.getElementsByClassName('Button_button__341ce Button
 var reportButton = "<div class = 'modal' ><div class = 'modal_overlay'></div><div class = 'modal_content'><button class = 'report'>신고하기</button><button class = 'close'>닫기</button></div></div>"
 var temp = 0;
 var count = 0;
-
+/*=====================================*/
+$jsparentposition=$(".FeedCardList_container__13rc1");
+/*=====================================*/
 const realUpload = document.querySelector('#realUpload');
 const upload = document.querySelector('#addPhotoButton');
 const $moreBtn = $(".FeedCard_moreWrap__1AsqH");
@@ -324,8 +329,8 @@ const infiniteScrollTemplate = `                        <div class="FeedCard_con
 </div>`;
 
 // 무한 스크롤
-window.onscroll = function(e) {
-    /* console.log(window.innerHeight , window.scrollY,document.body.offsetHeight); */
+/*window.onscroll = function(e) {
+     console.log(window.innerHeight , window.scrollY,document.body.offsetHeight);
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight-5) { 
       setTimeout(function(){
         var addContent = "<div class='FeedCard_container__2vyLX'>" + "김인영..." + "</div>";
@@ -334,20 +339,13 @@ window.onscroll = function(e) {
 
       }, 500)  
     }
-  }
+  }*/
 
 
 //   게시글 등록 시 내용이 아무것도 없으면 등록 못하게 막기
-const $registBtn = $('.registBtn');
-$registBtn.click(function(){
-    if($("#feedMainWriting").val().length==0){
-        alert("게시글은 최소 한 글자 이상 입력해주세요.");
-        return;
-    }
-})
 
 // 토글창
-const $aTags = $("a.replyShow");
+/*const $aTags = $("a.replyShow");
 let checks = -1; 
 
 $aTags.on("click", function(e){
@@ -355,10 +353,10 @@ $aTags.on("click", function(e){
    checks *= -1;
    $(this).text(checks > 0 ? "댓글 닫기 ▲" : "댓글 보기 ▼");
    $(this).nextAll().slideToggle();
-});
+});*/
 
 // 토글창 작성 없을 시 제한
-const $replyCheck = $(".replyCheck");
+/*const $replyCheck = $(".replyCheck");
 $replyEnter = $(".replyEnter");
 
 $replyEnter.click(function(){
@@ -368,7 +366,7 @@ $replyEnter.click(function(){
     } else{
         $(this).parent().next().attr('class','replyAlarmOff');
     }
-})
+})*/
 
 /* textarea 길이 자동 늘리기 */
 function resize(obj) {
@@ -378,27 +376,49 @@ function resize(obj) {
 }
 
 
-/*글 등록 ajax*/
-function contentRegist(){
-   console.log("ajax 들어옴")
-      $.ajax({
-         url:  context + "/meommi/PostRegistration.po",
-         type: "get",
-         data: {
-            postContent: $("textarea[name='feedMainWriting']").val(), 
-            userNumber: userNumber
-        },
-         contentType: "application/json; charset=utf-8",
-        success: function(){
-         console.log($("textarea[name='feedMainWriting']").val());
-      }
-        
-      });
-}
 
 
-/*$("#contentResistButton").click(function(){
+
+
+/*let postContent = $("textarea[name=feedMainWriting]").text();
+let userNumber = 1;
+let context = "${pageContext.request.contextPath}";*/
+
+//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+    // disabled the submit button         
+/*formData 생성 및 key, value 삽입*/
+/*==================== 글등록 + 사진등록 ajax =====================*/    
+/*$("#contentResistButton").click(function (event) {         
+   event.preventDefault();          
+    $("#contentResistButton").prop("disabled", true);   
+    
+   var formData = new FormData();
+   formData.append("postContent", $("textarea[name='feedMainWriting']").val())
+   formData.append("postFile1", $('.realUpload')[0].files[0])  
+   formData.append("postFile2", $('.realUpload')[0].files[1])
+   formData.append("postFile3", $('.realUpload')[0].files[2])
    
-   
-})*/
 
+
+    $.ajax({             
+       type: "POST",          
+        url: context + "/meommi/PostRegistration.po",        
+        data: formData,
+        processData: false,    
+        contentType: false,      
+        cache: false,           
+        timeout: 600000,       
+        success: function (data) { 
+           alert("complete");           
+           $("#contentResistButton").prop("disabled", false);
+			location.reload();
+			showDefault();
+        },          
+        error: function (e) {  
+           console.log("ERROR : ", e);     
+            $("#contentResistButton").prop("disabled", false);    
+            alert("fail");      
+         }     
+   });  
+});
+*/
