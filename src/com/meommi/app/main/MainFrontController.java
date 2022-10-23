@@ -30,8 +30,15 @@ public class MainFrontController extends HttpServlet {
 
 		if (request.equals("/meommi/main.ma")) {
 			result = new MainServiceListcontroller().execute(req, resp);
-		}else if(request.equals("/meommi/mainfeedsearch.ma"))
+		}else if(request.equals("/meommi/mainfeedsearch.ma")) {
 			new MainFeedSearchController().execute(req,resp);
+		}else if(request.equals("/meommi/mainpost.ma")) {
+			new MainFeedSearchController().execute(req,resp);
+		}else if(request.equals("/meommi/mainpostfile.ma")) {
+			new MainFeedSearchController().execute(req,resp);
+	
+		
+	
 		if (result != null) {
 			if (result.isRedirect()) {
 				resp.sendRedirect(result.getPath());
@@ -41,4 +48,7 @@ public class MainFrontController extends HttpServlet {
 			}
 		}
 	}
+		
+	}
 }
+
