@@ -1,4 +1,4 @@
-package com.meommi.app.comments;
+package src.com.meommi.app.comments;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -37,6 +37,8 @@ public class CommentsFrontController extends HttpServlet {
 				   new CommentRetouchController().execute(req, resp);
 			   }else if(request.equals("/meommi/CommentDelete.co")) {
 				   new CommentDeleteController().execute(req, resp);
+			   }else if(request.equals("/meommi/CommentlistFollower.co")) {
+				   new CommentListFollowerController().execute(req,resp);
 			   }
 			   
 			      if(result != null) {

@@ -1,4 +1,4 @@
-package com.meommi.app.post;
+package src.com.meommi.app.post;
 
 import java.io.IOException;
 import java.io.PrintWriter;
