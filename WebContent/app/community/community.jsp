@@ -390,52 +390,11 @@ function showDefaultList(resultpost,resultcomment,resultfile){
 		                <div class="FeedCard_nickNameWrap__3dGXP">`;
 		                textinit+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
 		                textinit+=`<div class="FeedCard_supporterClub__7EgiL"></div>
-		                	</div>
-		                	<div class="FeedCard_summary__17A5w">
-		                    <div
-		                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-		                        <div class="RatingScore_icon__rIS_k"></div>`;
-		                        textinit+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
-		                        textinit+=`</div>
-		                    <div class="FeedCard_follower__23ddV">`;
-		                    textinit+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
-		                    textinit+=`</div>
 		                </div>
-		            </div>
-		        </div>
+		                	
+		            	</div>
+		        	</div>
 		    </a>
-		    <div class="FeedCard_rightPanel__3MoD7">
-		        <button
-		            class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS Dynamic"
-		            type="button">
-		            <span><svg viewBox="0 0 32 32" focusable="false"
-		                    role="presentation"
-		                    class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-		                    aria-hidden="true" style="width: 12px; height: 12px;">
-		                    <path
-		                        d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-		                    </path>
-		                </svg><span
-		                class="Button_children__3HY2l">팔로우</span></span>
-		        </button>
-		        <button class="FeedCard_moreWrap__1AsqH"
-		            aria-label="피드 신고, 차단">
-		            <svg viewBox="0 0 40 40" focusable="false"
-		                role="presentation"
-		                class="withIcon_icon__20lDO FeedCard_more__3VATZ"
-		                aria-hidden="true">
-		                <path
-		                    d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-		                </path>
-		            </svg>
-		        </button>
-		        <div class="modal">
-		            <div class="modal_content">
-		                <button class="report">신고하기</button>
-		                <button class="close">닫기</button>
-		            </div>
-		        </div>
-		    </div>
 
 		</section>
 		<div class="FeedCard_reviewImage__3HK8Q">
@@ -890,7 +849,7 @@ $(".tab-button").on("click",function(){
 	if(keyword=="전체"){
 		console.log("전체 사용된거 이용");
 	}
-	/* else if(keyword=="내팔로잉"){
+	else if(keyword=="내팔로잉"){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/meommi/PostlistFollowing.po",
 			type:"get",
@@ -899,7 +858,7 @@ $(".tab-button").on("click",function(){
 				console.log(followingpost);
 			}
 		});
-	} */
+	}
 	else if(keyword=="내팔로워"){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/meommi/PostlistFollower.po",
