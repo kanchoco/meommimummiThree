@@ -1,4 +1,4 @@
-package src.com.meommi.app.comments;
+package com.meommi.app.comments;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;

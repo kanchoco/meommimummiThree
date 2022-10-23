@@ -1,4 +1,4 @@
-package src.com.meommi.app.postFile;
+package com.meommi.app.postFile;
 
 import java.io.IOException;
 
