@@ -73,7 +73,7 @@ public class UserDAO {
 	   
 //	   내 리뷰 수
 	   public int countMyReview(int userNumber) {
-		   return sqlSession.selectOne("User.countMyReview");
+		   return sqlSession.selectOne("User.countMyReview", userNumber);
 	   }
 	   
 //	   내 리뷰 사진
