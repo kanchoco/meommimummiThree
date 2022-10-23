@@ -3,7 +3,7 @@
 <mapper namespace="PostFile">
 	<select id="selectPostfileDefault" resultType="postFileVO" >
 		select post_file_number,post_file_system_name,post_file_origin_name,post_file_path,pf.post_number 
-		from tbl_post_file pf, tbl_post p,tbl_user u where pf.post_number=p.post_number
+		from tbl_post_file pf, tbl_post p,tbl_user u where pf.post_number=p.post_number and u.user_number=p.user_number
 	</select>
 
 	<select id="selectPostfileRow" parameterType="int" resultType="postFileVO">
@@ -16,4 +16,10 @@
 		(post_file_system_name, post_file_origin_name, post_file_path, post_number,user_number)
 		values(#{postFileSystemName}, #{postFileOriginName}, #{postFilePath}, #{postNumber},#{userNumber})
 	</insert>
+	
+	<select id="selectFollowerPostfileDefault" parameterType="_int" resultType="postFileVO">
+		select post_file_number,post_file_system_name,post_file_origin_name,p.post_number,pf.post_number,pf.user_number,u.user_number 
+		from tbl_post_file pf, tbl_post p,tbl_user u where pf.post_number=p.post_number and u.user_number=p.user_number and p.user_number=#{userNumber}
+	</select>
+	
 </mapper>
