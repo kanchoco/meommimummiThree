@@ -844,50 +844,7 @@ $parentposition.on("click","span.postContentDeleteWrap",function(){
  	});
  	
  });
-/* ================게시글 필터 ================== */
-/* $(".tab-button").on("click",function(){
-	var keyword=$(this).find("button").text();
-	console.log("keyword:"+keyword);
-	if(keyword=="전체"){
-		console.log("전체 사용된거 이용");
-	}
-	else if(keyword=="내팔로잉"){
-		$.ajax({
-			url:"${pageContext.request.contextPath}/meommi/FollowingListOk.fo",
-			type:"get",
-			data:{keyword:keyword},
-			success:function(){
-				console.log("내 팔로잉 성공");
-			}
-		});
-	}
-	else if(keyword=="내팔로워"){
-		$.ajax({
-			url:"${pageContext.request.contextPath}/meommi/PostlistFollower.po",
-			type:"get",
-			data:{keyword:keyword},
-			success:function(){
-				console.log("내 팔로워 게시글 성공");
-				$.ajax({
-					url:"${pageContext.request.contextPath}/meommi/CommentlistFollower.po",
-					type:"get",
-					data:{keyword:keyword},
-					success:function(){
-						console.log("내 팔로워 댓글 성공");
-						$.ajax({
-							url:"${pageContext.request.contextPath}/meommi/PostfilelistFollower.po",
-							type:"get",
-							data:{keyword:keyword},
-							success:function(){
-								console.log("내 팔로워 파일 성공");
-							}
-						});
-					}
-				});
-			}
-		});
-	}
-}); */
+ /* ===================게시글 등록=========================== */
 $("#contentResistButton").click(function (event) {         
 	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
 	   event.preventDefault();          
@@ -925,6 +882,49 @@ $("#contentResistButton").click(function (event) {
 	            alert("fail")
 	         }     
 	   });  
+});
+/* ================게시글 필터 ================== */
+$(".tab-button").on("click",function(){
+	var keyword=$(this).find("button").text();
+	console.log("keyword:"+keyword);
+	if(keyword=="전체"){
+		console.log("전체 사용된거 이용");
+	}
+	/* else if(keyword=="내팔로잉"){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/meommi/PostlistFollowing.po",
+			type:"get",
+			data:{keyword:keyword},
+			success:function(followingpost){
+				console.log(followingpost);
+			}
+		});
+	} */
+	else if(keyword=="내팔로워"){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/meommi/PostlistFollower.po",
+			type:"get",
+			data:{keyword:keyword},
+			success:function(followerpost){
+				$.ajax({
+					url:"${pageContext.request.contextPath}/meommi/CommentlistFollower.co",
+					type:"get",
+					data:{keyword:keyword},
+					success:function(followercomment){
+						$.ajax({
+							url:"${pageContext.request.contextPath}/meommi/PostFilelistFollower.co",
+							type:"get",
+							data:{keyword:keyword},
+							success:function(followerfile){
+								location.reload();
+								showDefaultList(followerpost,followercomment,followerfile);//팔로우 사람들의 게시글(게시글의 댓글 및 파일)
+							}
+						});
+					}
+				});
+			}
+		});
+	}
 });
 </script>
 </html>
