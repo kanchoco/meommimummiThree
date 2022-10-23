@@ -6,11 +6,11 @@ public class PostDTO {
    private String postDateTime;
    private int userNumber;
    private int postFileNumber;
-   private int postFileSystemName;
-   private int postFileOriginName;
-   private int postFilePath;
+   private String postFileSystemName;
+   private String postFileOriginName;
+   private String postFilePath;
    private String userId;
-   
+
    public PostDTO() {;}
 
 	public int getPostNumber() {
@@ -53,27 +53,27 @@ public class PostDTO {
 		this.postFileNumber = postFileNumber;
 	}
 	
-	public int getPostFileSystemName() {
+	public String getPostFileSystemName() {
 		return postFileSystemName;
 	}
 	
-	public void setPostFileSystemName(int postFileSystemName) {
+	public void setPostFileSystemName(String postFileSystemName) {
 		this.postFileSystemName = postFileSystemName;
 	}
 	
-	public int getPostFileOriginName() {
+	public String getPostFileOriginName() {
 		return postFileOriginName;
 	}
 	
-	public void setPostFileOriginName(int postFileOriginName) {
+	public void setPostFileOriginName(String postFileOriginName) {
 		this.postFileOriginName = postFileOriginName;
 	}
 	
-	public int getPostFilePath() {
+	public String getPostFilePath() {
 		return postFilePath;
 	}
 	
-	public void setPostFilePath(int postFilePath) {
+	public void setPostFilePath(String postFilePath) {
 		this.postFilePath = postFilePath;
 	}
 	
@@ -84,7 +84,7 @@ public class PostDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "PostDTO [postNumber=" + postNumber + ", postContent=" + postContent + ", postDateTime=" + postDateTime
@@ -92,6 +92,6 @@ public class PostDTO {
 				+ postFileSystemName + ", postFileOriginName=" + postFileOriginName + ", postFilePath=" + postFilePath
 				+ ", userId=" + userId + "]";
 	}
- 
-
+   
+   
 }
