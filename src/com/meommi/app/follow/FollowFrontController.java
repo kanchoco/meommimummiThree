@@ -28,7 +28,17 @@ public class FollowFrontController extends HttpServlet {
 		      Result result = null;
 		   
 		   if(request.equals("/meommi/Follow.fo")) {
-		       
+			   result = new FollowLoadController().execute(req, resp);
+		      }else if(request.equals("/meommi/FollowerOk.fo")) {
+		    	  new FollowerListOkController().execute(req, resp);
+		      }else if(request.equals("/meommi/FollowingOk.fo")) {
+		    	  new FollowingListOkController().execute(req, resp);
+		      }else if(request.equals("/meommi/FollowingUserOk.fo")) {
+		    	  new FollowingUserOkController().execute(req, resp);
+		      }else if(request.equals("/meommi/UnfollowOk.fo")) {
+		    	  new UnFollowOkController().execute(req, resp);
+		      }else if(request.equals("/meommi/fff.fo")) {
+		    	  result = new FollowRecommend().execute(req, resp);
 		      }
 		      
 		      if(result != null) {

@@ -720,9 +720,9 @@
                                     <div class="reviewFilterWrap">
                                         <div class="reviewFilterUpper">
                                             <div class="reviewFilterRight">
-                                                <button class="bestReview reviewSecond timeReview filterActive" type="button" aria-pressed="true" id="bestReview">베스트순</button>
-                                                <button class="bestReview reviewSecond timeReview" type="button" aria-pressed="true" id="recentReview">최신순</button>
-                                                <button class="bestReview reviewSecond filterPhoto" type="button" aria-pressed="true" id="filterPhoto">
+                                                <button class="bestReview reviewSecond timeReview filterActive" type="button" aria-pressed="true" id="bestReview" value="b" onclick="filterLoad('b', 'order')">베스트순</button>
+                                                <button class="bestReview reviewSecond timeReview" type="button" aria-pressed="true" id="recentReview" value="n" onclick="filterLoad(this.value, 'order')">최신순</button>
+                                                <button class="bestReview reviewSecond filterPhoto" type="button" aria-pressed="true" id="filterPhoto" value="p" onclick="filterLoad(this.value, 'photo')">
                                                     <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet">
                                                         <path fill="currentColor" d="M15.821 3a.67.67 0 0 1 .679.672v10.656a.67.67 0 0 1-.679.672H2.18a.67.67 0 0 1-.679-.672V3.672c0-.375.3-.672.679-.672H15.82zm-.679 1.344H2.858v8.14L7.01 7.781c.094-.125.284-.125.394 0l2.321 2.657c.048.046.063.109.048.156l-.3 1.375c-.016.11.11.172.173.094l2.369-2.579a.202.202 0 0 1 .284 0l2.842 3.094V4.344zm-2.526 3.61a1.1 1.1 0 0 1-1.105-1.095 1.1 1.1 0 0 1 1.105-1.093 1.1 1.1 0 0 1 1.105 1.093 1.1 1.1 0 0 1-1.105 1.094z"></path>
                                                     </svg><div class=""></div>
@@ -741,7 +741,7 @@
                                                             <div id="starFilterOption" class="filterBtnOff">
                                                                 <div class="share-drop-down__content css-1q9dafi e11jpdq02">
                                                                     <div class="starCountWrap">
-                                                                        <button type="button" class="css-3t2wtg e11jpdq01">
+                                                                        <button type="button" class="css-3t2wtg e11jpdq01" value="5" onclick = "filterLoad(this.value,'star')">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
                                                                                     <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -802,7 +802,7 @@
 
 
                                                                     <div class="starCountWrap">
-                                                                        <button type="button" class="css-3t2wtg e11jpdq01">
+                                                                        <button type="button" class="css-3t2wtg e11jpdq01" value="4" onclick = "filterLoad(this.value, 'star')">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
                                                                                     <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -864,7 +864,7 @@
 
 
                                                                     <div class="starCountWrap">
-                                                                        <button type="button" class="css-3t2wtg e11jpdq01">
+                                                                        <button type="button" class="css-3t2wtg e11jpdq01" value="3" onclick = "filterLoad(this.value, 'star')">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
                                                                                     <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -925,7 +925,7 @@
 
 
                                                                     <div class="starCountWrap">
-                                                                        <button type="button" class="css-3t2wtg e11jpdq01">
+                                                                        <button type="button" class="css-3t2wtg e11jpdq01" value = "2" onclick = "filterLoad(this.value, 'star')">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
                                                                                     <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -987,7 +987,7 @@
 
 
                                                                     <div class="starCountWrap">
-                                                                        <button type="button" class="css-3t2wtg e11jpdq01">
+                                                                        <button type="button" class="css-3t2wtg e11jpdq01" value = "1" onclick = "filterLoad(this.value, 'star')">
                                                                             <span class="starCount">
                                                                                 <span class="reviewWriterInfoTotalStar">
                                                                                     <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -1164,6 +1164,7 @@
                                 	</form>
                               </div>
                         </section>
+                        
                          <!--    <ul class="commentPageNumber">
                                 이전 페이지 버튼
                                 <li class="beforePageArrow firstPage" id="beforePageArrow">
@@ -1201,10 +1202,13 @@
     </main>
 <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/> 
 </body>
+ <script>
+	let userNumber = "${sessionScope.userNumber}";
+</script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <!-- 카카오맵 api -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a1ec4d4442397ef5dc28bccc78eef58&libraries=services"></script>
-<script>const contextPath="${pageContext.request.contextPath}"</script>
+<script>var contextPath="${pageContext.request.contextPath}"</script>
 <script>let context = "${pageContext.request.contextPath}"</script>
-<script src="${pageContext.request.contextPath}/assets/js/service/map.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/service/map.js?ver=1"></script>
 </html>
