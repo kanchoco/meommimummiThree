@@ -32,10 +32,10 @@ public class mapReviewController implements Execute {
 		placeReviewDAO.selectAll(placeId).forEach(
 				placeReviewDTO -> {
 					placeReviewDTO.setReviewFileSystemName(placeReviewDAO.selectFile(placeReviewDTO.getPlaceReviewNumber()));
-					System.out.println(placeReviewDTO);
 					JSONObject review = new JSONObject(placeReviewDTO);
 					reviews.put(review);
 				});
+
 		out.print(reviews.toString());
 		out.close();
 		

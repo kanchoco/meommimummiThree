@@ -28,7 +28,7 @@ const $filteringStar = $(".filteringStar");
 
 var clickNumberPages = document.querySelectorAll(".pageBtnNumber");
 var clickNumberPagesLeft = document.querySelectorAll(".pageBtnNumberLeft");
-var filterStarFull = "<svg fill='#35C5F0' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'><defs><path id='star-path-0' d='M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z'></path><clipPath id='star-clip-0'><rect x='0' y='0' width='24' height='24'></rect></clipPath></defs><use xlink:href='#star-path-0' fill='#DBDBDB'></use><use clip-path='url(#star-clip-0)' xlink:href='#star-path-0'></use></svg>";
+var filterStarFull = "<svg fill='#FF914D' width='1em' height='1em' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'><defs><path id='star-path-0' d='M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z'></path><clipPath id='star-clip-0'><rect x='0' y='0' width='24' height='24'></rect></clipPath></defs><use xlink:href='#star-path-0' fill='#DBDBDB'></use><use clip-path='url(#star-clip-0)' xlink:href='#star-path-0'></use></svg>";
 var filterStar = "<svg fill='#35C5F0' width='1em' height='1em'preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'><defs><path id='star-path-114'd='M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z'></path><clipPath id='star-clip-114'><rect x='0' y='0' width='0' height='24'></rect></clipPath></defs><use xlink:href='#star-path-114' fill='#DBDBDB'></use><use clip-path='url(#star-clip-114)'xlink:href='#star-path-114'></use></svg>";
 
 let filterCheck = true;
@@ -104,7 +104,6 @@ $(".inner").on("click", ".region_by_keyword", function(e){
 	$(this).css('color', 'rgb(227, 122, 56)');
 	$(".mapSearch").show();     
 	document.getElementById('categoryValueForm').value = $(".categoryCheckbox.checked").val();
-	var firstCategoryText = $(this).text();
 	if($(this).text() == "특수동물"){document.getElementById('categoryValueForm').value = "특수동물 병원";}
 	else if($(this).text() == "일반"){document.getElementById('categoryValueForm').value = "동물 병원";}
 	else{
@@ -171,9 +170,17 @@ function placesSearchCB(data, status, pagination) {
         return;
     }
 }
+
+
+/*전역변수로 선언*/
 var placeId="";
+var dataNumber ="";
+var place="";
+$(".reviewItemContainer").hide();
+$(".reviewWritingSection").hide();
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
+	
 	$(".searchError").text("");
     var listEl = document.getElementById('placesList'), 
     menuEl = document.getElementById('menu_wrap'),
@@ -195,7 +202,6 @@ function displayPlaces(places) {
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i), 
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-	
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
@@ -212,6 +218,10 @@ function displayPlaces(places) {
             kakao.maps.event.addListener(marker, 'mouseout', function() {
                 infowindow.close();
             });
+			
+			kakao.maps.event.addListener(marker, 'click', function() {
+				console.log(marker);
+            });
 
 
 
@@ -220,8 +230,8 @@ function displayPlaces(places) {
             };
 
 			itemEl.onclick = function(){
-				var dataNumber = $(this).parent().children().length-$(this).nextAll().length-1;
-				var place = places[dataNumber];
+				dataNumber = $(this).parent().children().length-$(this).nextAll().length-1;
+				place = places[dataNumber];
 
 				var url = 'https://map.kakao.com/link/map/' + place.id;
 				console.log(place.id);
@@ -238,7 +248,9 @@ function displayPlaces(places) {
 
 				
 				/*여기서 aJax로 게시글 정보 부르고, 게시글 작성하기*/
-				$.ajax({
+			
+			let text ="";
+			$.ajax({
 					url: contextPath +"/map/mapReview.pl",
 					type: "get", 
 					dataType: "json", 
@@ -249,24 +261,129 @@ function displayPlaces(places) {
 						placeName: place.place_name
 					},
 					success: function(result){
-						console.log(contextPath);
+						text += `<p style="font-size:25px;font-weight:700;margin-bottom:25px;">`+ place.place_name+`<span><a href="`+ place.place_url+`"style="font-size:15px;font-weight: 500;opacity: 50%;position: relative;right: -12px;top: 2px;">상세보기</a></span></p>`;
 						if(result.length>0){
-							let text ="";
-							let placeId = place.id;
+							$(".reviewItemContainer").show();
+							$(".reviewWritingSection").show();
+							var totalReviewRating=0;
+							var averageReviewRating=0;
+							var fiveStar=0, fourStar=0, threeStar=0, twoStar=0, oneStar = 0;							
 							result.forEach(place => {
-								text +=`<article class="reviewItem"><div class="reviewWriter"><a href="">`;
+								totalReviewRating += place.placeReviewRating;
+								text +=`<article class="reviewItem" style="border-top: solid 1px #ededed;"><div class="reviewWriter" style="margin-top: 10px;"><a href="">`;
 								text +=`<img src="`+ place.reviewFileOriginName + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
-								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
-								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
-								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
-								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
-								text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
-								text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span></div></div></div><button type="button" class="reviewItemImage">`;
-								text +=`<img src="`+  contextPath + "/images/" + place.reviewFileSystemName + `" class="reviewItemImageBtn"></button><p class="reviewComment">`;
+								for(var i = 0; i < place.placeReviewRating; i++){
+									text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;									
+								}
+								if(place.placeReviewRating !=5){
+									var reviewRatingCount = 5-place.placeReviewRating;
+									for(var i=0; i< reviewRatingCount; i++){
+										text +=`<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;								
+									}									
+								}
+								text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
+								text += `<span class="modifyDeleteLine" style="position: relative;right: -420px;"><span><button>수정</button></span><span><button>삭제</button></span></span>`;
+								text +=`</div></div></div><button type="button" class="reviewItemImage">`;
+								if(place.reviewFileSystemName){
+									text +=`<img src="`+ contextPath + "/images/" + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
+								}
+								text += `</button><p class="reviewComment">`;
 								text += place.placeReviewContents + `</p><div class="reviewCommentGood" style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn"><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
-								text += `</button></div></article>`;						
+								text += `</button><span class="helpful" style="line-height:30px; font-size:12px">0명에게 도움이 되는 댓글입니다.</span></div></article>`;	
+								
+								
+								/* 막대 필터에 필요한 정보 추가 */
+								if(place.placeReviewRating == 5){
+									fiveStar++;
+								} else if(place.placeReviewRating ==4){
+									fourStar++;
+								} else if(place.placeReviewRating ==3){
+									threeStar++;
+								} else if(place.placeReviewRating ==2){
+									twoStar++;
+								} else if(place.placeReviewRating ==1){
+									oneStar++;
+								} 
+								
 							});
+							
+							/*리뷰 항목들 리스트 출력*/
 							$("#reviewList").html(text);
+							
+							/*전체 평점 구하기*/
+							
+							var averageStar="";
+							averageReviewRating = totalReviewRating / result.length;
+							$(".badge").html(averageReviewRating.toFixed(1));
+							var avgReviewRating = 0;
+							avgReviewRating = parseInt(averageReviewRating.toFixed(0))+1;
+							if(averageReviewRating.toFixed(1)-averageReviewRating.toFixed(0)>=0.5){
+								/*평균 평점이 5점인 경우*/
+								if(averageReviewRating.toFixed(0)==5){
+									for(var i=0; i<5; i++){
+										averageStar += `<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
+									}
+								} else {
+									for(i=0; i < avgReviewRating;i++){
+										averageStar += `<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
+									}
+									for(i=0; i < 5-(avgReviewRating);i++){
+										averageStar += `<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
+									}
+												
+								}
+							} else{
+									for(var i=0; i<averageReviewRating.toFixed(0); i++){
+										averageStar += `<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
+									}
+									for(i=0; i < 5-averageReviewRating.toFixed(0);i++){
+										averageStar += `<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
+									}
+							}
+							
+							$(".starIcon").html(averageStar);
+							
+							
+							/* 점수 막대 필터 구하기*/
+							var scoreBar = "";
+
+							scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 5점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+							scoreBar += (fiveStar / result.length)*100;
+							scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+							scoreBar += fiveStar;
+							scoreBar += `</div></div>`
+
+							scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 4점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+							scoreBar += (fourStar / result.length)*100;
+							scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+							scoreBar += fourStar;
+							scoreBar += `</div></div>`
+
+							scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 3점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+							scoreBar += (threeStar / result.length)*100;
+							scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+							scoreBar += threeStar;
+							scoreBar += `</div></div>`
+
+							scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 2점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+							scoreBar += (twoStar / result.length)*100;
+							scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+							scoreBar += twoStar;
+							scoreBar += `</div></div>`
+
+							scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 1점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+							scoreBar += (oneStar / result.length)*100;
+							scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+							scoreBar += oneStar;
+							scoreBar += `</div></div>`
+							
+							$(".rightReviewScore").html(scoreBar);
+							
+						} else{
+							text += `<p>등록된 후기가 없습니다.</p>`;
+							$("#reviewList").html(text);
+							$(".reviewItemContainer").hide();
+							$(".reviewWritingSection").show();
 						}
 					}
 				});
@@ -288,6 +405,9 @@ function displayPlaces(places) {
     // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
     map.setBounds(bounds);
 }
+
+
+
 
 // 검색결과 항목을 Element로 반환하는 함수입니다
 function getListItem(index, places) {
@@ -490,10 +610,16 @@ function closeStarFilter() {
 /* 별점 필터 누적 */
 $starCountWrap.click(function(){
     var star="";
+
+	/*몇 점짜리인지 알아보기 위해 숫자 저장*/
+	var filterCountStar=0;
+	filterCountStar = $(this).nextAll().length+1
+	
     
     if($(this).attr('class')=="starCountWrap"){
+		$(".starCountWrap").attr("class", "starCountWrap");
         $(this).attr("class", "starCountWrap select");
-        console.log($('.filteringStar').children.length);
+		$filteringStar.empty();
         for(var i=0; i<$starCountWrap.length; i++){
             if($starCountWrap[i].className=="starCountWrap select"){
                 
@@ -506,6 +632,7 @@ $starCountWrap.click(function(){
                     }
                 }
                 var countText = $starCountWrap[i].innerText.trim();
+				
                 $filteringStar.append("<span class='starFilters'><span class='hoverStar'>" + star + countText + "</span><button type='button' class='starPic'><img src='../../images/xButton.png' style='width: 20px;height: 15px;margin-right: 5px;position: relative;opacity: 75%;'></button></span>");
                 $(this).attr("class", "starCountWrap selected");
                 return;
@@ -776,6 +903,7 @@ $ratingInputStar.mouseover(function () {
             }
         }
     }
+
 })
 
 $ratingInputStar.click(function () {
@@ -832,16 +960,26 @@ function resist(){
         return false;
     }
 
+	if(!$(".rating-input__star.suggested").length){
+		alert("별점을 기재해주세요.")
+		return;
+	}
+
+	var reviewRating = $(".rating-input__star.suggested").length;
+
 	/*formData 생성 및 key, value 삽입*/
-   var formData = new FormData();
+   	var formData = new FormData();
 	/*글*/
-	 formData.append("placeReviewContents", $(".userCommentWritingSector").val())
+	formData.append("placeReviewContents", $(".userCommentWritingSector").val())
 	
 	/*사진*/
 	formData.append("placeReviewFile", $('.cameraImgWrap')[0].files[0])
 	
 	/*placeId*/
 	formData.append("placeId", placeId)
+	
+	/*점수*/
+	formData.append("reviewRating", $(".rating-input__star.suggested").length)
 
 /*==================== 글등록 + 사진등록 ajax =====================*/    
     $.ajax({             
@@ -854,20 +992,21 @@ function resist(){
         cache: false,           
         timeout: 600000,       
         success: function () { 
-           alert("complete");           
+			$(".userCommentWritingSector").val("");
+			$(".rating-input__star").attr('class', 'rating-input__star');
+			xBtn();
+			console.log(place);
+			$(".item")[dataNumber].click();
+			
 /*           $("#contentResistButton").prop("disabled", false);      
 */        },          
         error: function (e) {  
            console.log("ERROR : ", e);     
 /*            $("#contentResistButton").prop("disabled", false);    
-*/            alert("fail");      
+*/            alert("글 등록을 실패하였습니다. 다시 시도해주세요.");      
 	         }     
 	   });
-	refreshReviewList();  
 }
-
-
-
 
 
 
