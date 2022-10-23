@@ -1,6 +1,8 @@
 package com.meommi.app.comments;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,11 +19,15 @@ public class CommentRetouchController implements Execute {
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		CommentsDAO commentsDAO=new CommentsDAO();
 		CommentsDTO commentsDTO=new CommentsDTO();
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date now=new Date();
+		String commentUpdateTime=simpleDateFormat.format(now);
 		String content=req.getParameter("commentContent");
 		int commentNumber=Integer.valueOf(req.getParameter("commentNumber"));
 		
 		commentsDTO.setCommentsContent(content);
 		commentsDTO.setCommentsNumber(commentNumber);
+		commentsDTO.setCommentsDatetime(commentUpdateTime);
 		commentsDAO.updateComment(commentsDTO);
 		return null;
 	}

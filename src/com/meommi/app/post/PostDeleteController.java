@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
+import com.meommi.app.post.dao.PostDAO;
 
 public class PostDeleteController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		PostDAO postDAO=new PostDAO();
+		postDAO.deletePost(Integer.valueOf(req.getParameter("postNumber")));
 		return null;
 	}
 

@@ -292,16 +292,30 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/community/community.js"></script>
+<script>var $context = "${pageContext.request.contextPath}"</script>
+<script>var $requestURL = "${pageContext.request.requestURL}"</script>
+<script>var $requestURI = "${pageContext.request.requestURI}"</script>
 <script>
 
-
-/* const $aTags = $(".replyShow"); */
-/* const $parentposition=$(".replyWrap"); */
-
-var checks = -1;
-
+let postContentContains=true;
+let commentContentContains=true;
+//문서가 로드될때 실행되는 함수(Render Tree 생성)
+/* window.onload=function(){ */
+/* console.log("context:"+$context);
+console.log("requestURL:"+$requestURL);
+console.log("requestURI:"+$requestURI);
+console.log("location.pathname:"+location.pathname); */
+$temp="C://gb_0900_lhy/jsp/workspace/runningtests/WebContent/";
+var jsonPost="";
+var jsonComment="";
+var jsonFile="";
+//ajax를 통해 동적으로 추가되는 요소들의 기준점이 되는 부모요소(statictag)
 $parentposition=$(".FeedCardList_container__13rc1");
 
+//댓글의 여닫기의 flag변수
+var checks = -1;
+
+//ajax를 통해 동적으로 추가되는 요소의 이벤트 위임(dynamictag,댓글 여닫는 기능)
 $parentposition.on("click","a.replyShow", function(e){
    e.preventDefault();
    checks *= -1;
@@ -310,10 +324,7 @@ $parentposition.on("click","a.replyShow", function(e){
    $(this).nextAll().slideToggle();
 });
 
-
-/* const $replyCheck = $(".replyCheck"); */
-$replyEnter = $(".replyEnter");
-
+//ajax를 통해 동적으로 추가되는 요소의 이벤트 위임(dynamictag,댓글 입력여부 유효성 검사)
 $parentposition.on("click",".replyEnter",function(){
     if($(this).prev().val().length==0){
         console.log($(this).next());
@@ -323,37 +334,206 @@ $parentposition.on("click",".replyEnter",function(){
     }
 });
 
-let Outputindex=5;
+//기본으로 띄워줄 5개의 게시글
+var Outputindex=5;
+var Increment=0;
+
+//부모요소에 추가하여 붙이기 위해 변수 선언
 var textinit="";
-window.onload=function(){
+
+showDefault();
+//기본으로 
+function showDefault(){
+	console.log(Outputindex);
+	console.log(Increment);
 	$.ajax({
 		url:"${pageContext.request.contextPath}/meommi/Postlist.po",
 		type:"get",
 		contentType:"text/html; charset=utf-8",
+		data:{Outputindex:Outputindex+Increment},
 		dataType:"json",
 		success:function(resultpost){
 			$.ajax({
 				url:"${pageContext.request.contextPath}/meommi/Commentlist.co",
 				type:"get",
 				contentType:"text/html; charset=utf-8",
+				data:{Outputindex:Outputindex+Increment},
 				dataType:"json",
 				success:function(resultcomment){
 					$.ajax({
 						url:"${pageContext.request.contextPath}/meommi/PostFile.pf",
+						type:"post",
+						contentType:"text/html; charset=utf-8",
+						data:{Outputindex:Outputindex+Increment},
+						dataType:"json",
+						success:function(resultfile){
+							//파일 비교 후 추가하기
+							showDefaultList(resultpost,resultcomment,resultfile);
+						}//ajax(success:file)
+					});//ajax(file)
+				}//ajax(success:comment)
+			});//ajax(comment)
+		}//ajax(success:post)
+	});//ajax(post)
+}
+function showDefaultList(resultpost,resultcomment,resultfile){
+	
+	resultpost.forEach(post=>{
+		textinit+=`<div class="FeedCard_container__2vyLX">
+		<section class="FeedCard_header__3R2hC">
+		<a href="/web/wmypage/myprofile/fundinglist/1152357015"
+		        class="FeedCard_leftPanel__wkbbV">
+		        <div class="FeedCard_leftPanel__wkbbV">
+		        <span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
+		                style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/32/quality/85/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/64/quality/85/&quot;) 2x);"></span>
+		                <div class="FeedCard_headerContent__37gxQ">
+		                <div class="FeedCard_nickNameWrap__3dGXP">`;
+		                textinit+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
+		                textinit+=`<div class="FeedCard_supporterClub__7EgiL"></div>
+		                	</div>
+		                	<div class="FeedCard_summary__17A5w">
+		                    <div
+		                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
+		                        <div class="RatingScore_icon__rIS_k"></div>`;
+		                        textinit+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
+		                        textinit+=`</div>
+		                    <div class="FeedCard_follower__23ddV">`;
+		                    textinit+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
+		                    textinit+=`</div>
+		                </div>
+		            </div>
+		        </div>
+		    </a>
+		    <div class="FeedCard_rightPanel__3MoD7">
+		        <button
+		            class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS Dynamic"
+		            type="button">
+		            <span><svg viewBox="0 0 32 32" focusable="false"
+		                    role="presentation"
+		                    class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
+		                    aria-hidden="true" style="width: 12px; height: 12px;">
+		                    <path
+		                        d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
+		                    </path>
+		                </svg><span
+		                class="Button_children__3HY2l">팔로우</span></span>
+		        </button>
+		        <button class="FeedCard_moreWrap__1AsqH"
+		            aria-label="피드 신고, 차단">
+		            <svg viewBox="0 0 40 40" focusable="false"
+		                role="presentation"
+		                class="withIcon_icon__20lDO FeedCard_more__3VATZ"
+		                aria-hidden="true">
+		                <path
+		                    d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
+		                </path>
+		            </svg>
+		        </button>
+		        <div class="modal">
+		            <div class="modal_content">
+		                <button class="report">신고하기</button>
+		                <button class="close">닫기</button>
+		            </div>
+		        </div>
+		    </div>
+
+		</section>
+		<div class="FeedCard_reviewImage__3HK8Q">
+		    <div class="FeedCard_imageWrap__hiMPd">
+		        <div class="FeedCard_image__2-Puq">`;
+		        /* 사진 추가 부분 */
+		        
+		        resultfile.forEach(file=>{
+		        	if(post.postNumber==file.postNumber && file.postFileSystemName!=null){
+		        		textinit+=`<div class="FeedCard_thumbnail__22k7x"><img class="contentimage" src="../../upload/`+file.postFileOriginName+`"/>`+`</div>`;
+		        		console.log("post.postNumber:"+post.postNumber+"|"+"file.postNumber:"+file.postNumber);
+			        	/* textinit+=`<span class="FeedCard_thumbnail__22k7x" style="background-image:url(`+${pageContext.request.contextPath}+`/upload/`+file.postFileOriginName+`)"> </span>`; */
+			            /* <div class="FeedCard_thumbnail__22k7x"
+			                style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
+			            </div> */
+		        	}
+		        });
+		        textinit+=`</div>
+		    </div>
+		</div>
+		<section class="FeedCard_content__2ato7">
+		    <p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">`+post.postContent+`</p>`;
+		    /* textinit+=`<p class="FeedCard_showMore__1IK43">더보기</p>`; */
+		    textinit+=`<span class="FeedCard_date__nQ9NI">`+post.postDateTime+`</span>`;
+        	
+		    textinit+=`</section>
+		<a href="/web/store/detail/1921?_refer_section_st=feed_3"
+		    class="FeedCard_footer__2JOxv" data-ec-list="피드"
+		    data-ec-id="1921"
+		    data-ec-name="쇼파의 푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어"
+		    data-ec-price="98000" data-ec-category="여행·스포츠"
+		    data-ec-brand="태산레져" data-ec-usertype="SUPPORTER"
+		    data-ec-feedtype="SATISFACTION" data-ec-contenttype="store">
+		 </a>`;
+		 	textinit+=`<div class="postContents" name="postContents" data-index="0">`;
+            textinit+=`<span class="postContentReadyModifyWrap" data-number=`+post.postNumber+`><div class="postContentReadyModify"></div></span>`;
+            textinit+=`<span class="postContentModifyWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentModify"></div></span>`;
+            textinit+=`<span class="postContentDeleteWrap" data-number=`+post.postNumber+`><div class="postContentDelete"></div></span>`;
+            textinit+=`<span class="postContentCancelWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentCancel"></div></span>`;
+        	textinit+=`</div>`;
+		    textinit+=`<div class="replyWrap">
+		        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
+		        resultcomment.forEach(comment=>{
+		        	if(comment.postNumber==post.postNumber){
+		        		textinit+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
+		        			<span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
+		        			textinit+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
+		        			textinit+=`<span>`+comment.commentsDatetime+`</span>`;
+		        			textinit+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
+		        			textinit+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
+		        			textinit+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
+		        			textinit+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
+		        			textinit+=`</div>`;
+		        	}
+		        });
+		        textinit+=`</div>
+
+		    <div class="replyWritingWrap">
+		        <form class="replyWriting" name="replyForm">
+		        <textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+		            <button type="button" class="replyEnter" data-number=`+post.postNumber+`>입력</button>
+		        </form>
+		        <p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
+		    </div>
+		<div class="FeedCard_divider__3V9EP"></div>
+	</div>`;
+	$('.FeedCardList_container__13rc1').html(textinit);
+	});
+}
+
+function showScrollDown(){
+	console.log(Outputindex);
+	console.log(Increment);
+	Increment+=1;
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/PostlistOk.po",
+		type:"get",
+		data:{Increment:1},
+		contentType:"text/html; charset=utf-8",
+		dataType:"json",
+		success:function(resultpost){
+			$.ajax({
+				url:"${pageContext.request.contextPath}/meommi/CommentlistOk.co",
+				type:"get",
+				data:{Increment:1},
+				contentType:"text/html; charset=utf-8",
+				dataType:"json",
+				success:function(resultcomment){
+					$.ajax({
+						url:"${pageContext.request.contextPath}/meommi/PostFileOk.pf",
 						type:"get",
+						data:{Increment:1},
 						contentType:"text/html; charset=utf-8",
 						dataType:"json",
 						success:function(resultfile){
-							
-							
+							var text="";
 							resultpost.forEach(post=>{
-								
-								/* console.log(post.postContent);
-								console.log(post.postDatetime);
-								console.log(post.postLikeNumber);
-								console.log(post.userNumber);
-								console.log("==============================================="); */
-								textinit+=`<div class="FeedCard_container__2vyLX">
+							text+=`<div class="FeedCard_container__2vyLX">
 								<section class="FeedCard_header__3R2hC">
 								<a href="/web/wmypage/myprofile/fundinglist/1152357015"
 								        class="FeedCard_leftPanel__wkbbV">
@@ -362,18 +542,18 @@ window.onload=function(){
 								                style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/32/quality/85/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/64/quality/85/&quot;) 2x);"></span>
 								                <div class="FeedCard_headerContent__37gxQ">
 								                <div class="FeedCard_nickNameWrap__3dGXP">`;
-								                textinit+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
-								                textinit+=`<div class="FeedCard_supporterClub__7EgiL"></div>
+								                text+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
+								                text+=`<div class="FeedCard_supporterClub__7EgiL"></div>
 								                	</div>
 								                	<div class="FeedCard_summary__17A5w">
 								                    <div
 								                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
 								                        <div class="RatingScore_icon__rIS_k"></div>`;
-								                        textinit+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
-								                        textinit+=`</div>
+								                        text+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
+								                        text+=`</div>
 								                    <div class="FeedCard_follower__23ddV">`;
-								                    textinit+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
-								                    textinit+=`</div>
+								                    text+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
+								                    text+=`</div>
 								                </div>
 								            </div>
 								        </div>
@@ -418,36 +598,23 @@ window.onload=function(){
 								        /* 사진 추가 부분 */
 								        
 								        resultfile.forEach(file=>{
-								        	if(post.postNumber==file.postNumber){
-								        		console.log("file.postNumber:"+file.postNumber+"post.postNumber:"+post.postNumber);
-								        		/* console.log(file.postFileSystemName);
-								        		console.log(file.postFileOriginalName);
-								        		console.log(file.postFilePath);
-								        		console.log(file.postNumber);
-								        		console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"); */
-								        	/* console.log("file in"); */
-									        	textinit+=`<div class="FeedCard_thumbnail__22k7x">`+file.postFileSystemName+`</div>`;
+								        	/* console.log("file.postNumber:"+file.postNumber);
+								        	console.log("post.postNumber:"+post.postNumber); */
+								        	if(post.postNumber==file.postNumber && file.postFileSystemName!=null){
+								        		text+=`<div class="FeedCard_thumbnail__22k7x"><img class="contentimage" src="../../upload/`+file.postFileOriginName+`"/>`+`</div>`;
 									            /* <div class="FeedCard_thumbnail__22k7x"
 									                style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
 									            </div> */
 								        	}
 								        });
-								        textinit+=`</div>
+								        text+=`</div>
 								    </div>
 								</div>
 								<section class="FeedCard_content__2ato7">
 								    <p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">`+post.postContent+`</p>`;
-								    textinit+=`<p class="FeedCard_showMore__1IK43">더보기</p>
-								    <span class="FeedCard_date__nQ9NI">`+post.postDateTime+`</span>`;
-								    
-								    /* textinit+=`<div class="postContents" name="postContents" style="display:none;" data-index="0">
-						            textinit+=`<span class="postContentReadyModifyWrap" data-number=`+post.postNumber+`><div class="postContentReadyModify"></div></span>`;
-						            textinit+=`<span class="postContentModifyWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentModify"></div></span>`;
-						            textinit+=`<span class="postContentDeleteWrap" data-number=`+post.postNumber+`><div class="postContentDelete"></div></span>`;
-						            textinit+=`<span class="postContentCancelWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentCancel"></div></span>`;
-						        	textinit+=`</div>`; */
-						        	
-								    textinit+=`</section>
+								    /* text+=`<p class="FeedCard_showMore__1IK43">더보기</p>`; */
+								    text+=`<span class="FeedCard_date__nQ9NI">`+post.postDatetime+`</span>`;    
+								text+=`</section>
 								<a href="/web/store/detail/1921?_refer_section_st=feed_3"
 								    class="FeedCard_footer__2JOxv" data-ec-list="피드"
 								    data-ec-id="1921"
@@ -455,23 +622,29 @@ window.onload=function(){
 								    data-ec-price="98000" data-ec-category="여행·스포츠"
 								    data-ec-brand="태산레져" data-ec-usertype="SUPPORTER"
 								    data-ec-feedtype="SATISFACTION" data-ec-contenttype="store">
-								 </a>
-								    <div class="replyWrap">
+								 </a>`;
+								 	text+=`<div class="postContents" name="postContents" data-index="0">`;
+						            text+=`<span class="postContentReadyModifyWrap" data-number=`+post.postNumber+`><div class="postContentReadyModify"></div></span>`;
+						            text+=`<span class="postContentModifyWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentModify"></div></span>`;
+						            text+=`<span class="postContentDeleteWrap" data-number=`+post.postNumber+`><div class="postContentDelete"></div></span>`;
+						            text+=`<span class="postContentCancelWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentCancel"></div></span>`;
+						        	text+=`</div>`;
+								    text+=`<div class="replyWrap">
 								        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
 								        resultcomment.forEach(comment=>{
 								        	if(comment.postNumber==post.postNumber){
-								        		textinit+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-								        			<span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
-								        			textinit+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
-								        			textinit+=`<span>`+comment.commentsDatetime+`</span>`;
-								        			textinit+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
-								        			textinit+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
-								        			textinit+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
-								        			textinit+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
-								        			textinit+=`</div>`;
+    									        text+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
+    									            <span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
+    									            text+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
+    									            text+=`<span>`+comment.commentsDatetime+`</span>`;
+    									            text+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
+    									            text+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
+    									            text+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
+    									            text+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
+    									        text+=`</div>`;
 								        	}
 								        });
-								        textinit+=`</div>
+								    text+=`</div>
 
 								    <div class="replyWritingWrap">
 								        <form class="replyWriting" name="replyForm">
@@ -482,190 +655,27 @@ window.onload=function(){
 								    </div>
 								<div class="FeedCard_divider__3V9EP"></div>
 							</div>`;
-							$('.FeedCardList_container__13rc1').html(textinit);
+							$('.FeedCardList_container__13rc1').append(text);
+							
 							});
-						}//success(file)
-					});//ajax(file)
-				}//success(comment)
-			});//ajax(comment)
-		}//success(post)
-	});//ajax(post)
-};
+						}//success(fileOk)
+					});//ajax(fileOk)
+				}//success(commentOk)
+			});//ajax(commentOk)
+		}//success(postOk)
+	});//ajax(postOk)
+}
 //무한 스크롤
 window.onscroll = function(e) {
 	/* console.log(window.innerHeight , window.scrollY,document.body.offsetHeight); */
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight-5) { 
       setTimeout(function(){
         /* var addContent = "<div class='FeedCard_container__2vyLX'>" + "김인영..." + "</div>";
-		
         $('.FeedCardList_container__13rc1').append(infiniteScrollTemplate); */
-        
-        Outputindex+=1;
-        /* ======================================================= */
-        $.ajax({
-    		url:"${pageContext.request.contextPath}/meommi/PostlistOk.po",
-    		type:"get",
-    		data:{Increment:Outputindex},
-    		contentType:"text/html; charset=utf-8",
-    		dataType:"json",
-    		success:function(resultpost){
-    			$.ajax({
-    				url:"${pageContext.request.contextPath}/meommi/CommentlistOk.co",
-    				type:"get",
-    				data:{Increment:Outputindex},
-    				contentType:"text/html; charset=utf-8",
-    				dataType:"json",
-    				success:function(resultcomment){
-    					$.ajax({
-    						url:"${pageContext.request.contextPath}/meommi/PostFileOk.pf",
-    						type:"get",
-    						data:{Increment:Outputindex},
-    						contentType:"text/html; charset=utf-8",
-    						dataType:"json",
-    						success:function(resultfile){
-    							var text="";
-    							resultpost.forEach(post=>{
-    							text+=`<div class="FeedCard_container__2vyLX">
-    								<section class="FeedCard_header__3R2hC">
-    								<a href="/web/wmypage/myprofile/fundinglist/1152357015"
-    								        class="FeedCard_leftPanel__wkbbV">
-    								        <div class="FeedCard_leftPanel__wkbbV">
-    								        <span class="Avatar_container__3ynJF FeedCard_avatar__M0EvN"
-    								                style="width: 32px; height: 32px; background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/32/quality/85/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/sns_profile_pics/20180912120628616_38897851.jpg/wadiz/format/jpg/quality/80/optimize/wadiz/resize/64/quality/85/&quot;) 2x);"></span>
-    								                <div class="FeedCard_headerContent__37gxQ">
-    								                <div class="FeedCard_nickNameWrap__3dGXP">`;
-    								                text+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
-    								                text+=`<div class="FeedCard_supporterClub__7EgiL"></div>
-    								                	</div>
-    								                	<div class="FeedCard_summary__17A5w">
-    								                    <div
-    								                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-    								                        <div class="RatingScore_icon__rIS_k"></div>`;
-    								                        text+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
-    								                        text+=`</div>
-    								                    <div class="FeedCard_follower__23ddV">`;
-    								                    text+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
-    								                    text+=`</div>
-    								                </div>
-    								            </div>
-    								        </div>
-    								    </a>
-    								    <div class="FeedCard_rightPanel__3MoD7">
-    								        <button
-    								            class="Button_button__mRXZC Button_primary__1HJqX Button_sm__1aKYg Button_startIcon__SRdP5 SupporterFollowingButton_followingButton__6GRdi FeedCard_followingButton__3oUdS"
-    								            type="button">
-    								            <span><svg viewBox="0 0 32 32" focusable="false"
-    								                    role="presentation"
-    								                    class="withIcon_icon__20lDO Button_icon__1JHRV SupporterFollowingButton_icon__1j7ZA"
-    								                    aria-hidden="true" style="width: 12px; height: 12px;">
-    								                    <path
-    								                        d="M30.4 15.2H16.8V1.6h-1.6v13.6H1.6v1.6h13.6v13.6h1.6V16.8h13.6v-1.6z">
-    								                    </path>
-    								                </svg><span
-    								                class="Button_children__3HY2l">팔로우</span></span>
-    								        </button>
-    								        <button class="FeedCard_moreWrap__1AsqH"
-    								            aria-label="피드 신고, 차단">
-    								            <svg viewBox="0 0 40 40" focusable="false"
-    								                role="presentation"
-    								                class="withIcon_icon__20lDO FeedCard_more__3VATZ"
-    								                aria-hidden="true">
-    								                <path
-    								                    d="M24.52 5A4.52 4.52 0 1020 9.57 4.53 4.53 0 0024.52 5zm0 30A4.52 4.52 0 1020 39.48 4.53 4.53 0 0024.52 35zm0-15A4.52 4.52 0 1020 24.52 4.53 4.53 0 0024.52 20z">
-    								                </path>
-    								            </svg>
-    								        </button>
-    								        <div class="modal">
-    								            <div class="modal_content">
-    								                <button class="report">신고하기</button>
-    								                <button class="close">닫기</button>
-    								            </div>
-    								        </div>
-    								    </div>
-
-    								</section>
-    								<div class="FeedCard_reviewImage__3HK8Q">
-    								    <div class="FeedCard_imageWrap__hiMPd">
-    								        <div class="FeedCard_image__2-Puq">`;
-    								        /* 사진 추가 부분 */
-    								        
-    								        resultfile.forEach(file=>{
-    								        	/* console.log("file.postNumber:"+file.postNumber);
-    								        	console.log("post.postNumber:"+post.postNumber); */
-    								        	if(file.postNumber==post.postNumber && file.userNumber==post.userNumber){
-    									        	text+=`<div class="FeedCard_thumbnail__22k7x">`+file.postFileSystemName+`</div>`;
-    									            /* <div class="FeedCard_thumbnail__22k7x"
-    									                style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
-    									            </div> */
-    								        	}
-    								        });
-    								        text+=`</div>
-    								    </div>
-    								</div>
-    								<section class="FeedCard_content__2ato7">
-    								    <p class="FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo">`+post.postContent+`</p>`;
-    								    text+=`<p class="FeedCard_showMore__1IK43">더보기</p>
-    								    <span class="FeedCard_date__nQ9NI">`+post.postDatetime+`</span>`;
-    								    
-    								  	/* text+=`<div class="postContents" name="postContents" style="display:none;" data-index="0">
-							            text+=`<span class="postContentReadyModifyWrap" data-number=`+post.postNumber+`><div class="postContentReadyModify"></div></span>`;
-							            text+=`<span class="postContentModifyWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentModify"></div></span>`;
-							            text+=`<span class="postContentDeleteWrap" data-number=`+post.postNumber+`><div class="postContentDelete"></div></span>`;
-							            text+=`<span class="postContentCancelWrap" style="display:none;" data-number=`+post.postNumber+`><div class="postContentCancel"></div></span>`;
-							        	text+=`</div>`; */
-    								    
-    								    
-    								    
-    								    
-    								    
-    								text+=`</section>
-    								<a href="/web/store/detail/1921?_refer_section_st=feed_3"
-    								    class="FeedCard_footer__2JOxv" data-ec-list="피드"
-    								    data-ec-id="1921"
-    								    data-ec-name="쇼파의 푹신함을 캠핑장으로! 멍때리기 좋은 리베로 폴딩체어"
-    								    data-ec-price="98000" data-ec-category="여행·스포츠"
-    								    data-ec-brand="태산레져" data-ec-usertype="SUPPORTER"
-    								    data-ec-feedtype="SATISFACTION" data-ec-contenttype="store">
-    								 </a>
-    								    <div class="replyWrap">
-    								        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
-    								        resultcomment.forEach(comment=>{
-    								        	if(comment.postNumber==post.postNumber){
-	    									        text+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
-	    									            <span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
-	    									            text+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
-	    									            text+=`<span>`+comment.commentsDatetime+`</span>`;
-	    									            text+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
-	    									            text+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
-	    									            text+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
-	    									            text+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
-	    									        text+=`</div>`;
-    								        	}
-    								        });
-    								    text+=`</div>
-
-    								    <div class="replyWritingWrap">
-    								        <form class="replyWriting" name="replyForm">
-    								        <textarea name="realReply" class="realReply" placeholder="바르고 예쁜 말을 사용해주세요." cols="30" rows="10" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-    								            <button type="button" class="replyEnter" data-number=`+post.postNumber+`>입력</button>
-    								        </form>
-    								        <p class="replyAlarmOff replyCheck">작성하신 댓글이 없습니다.</p>
-    								    </div>
-    								<div class="FeedCard_divider__3V9EP"></div>
-    							</div>`;
-    							$('.FeedCardList_container__13rc1').html(text);
-    							
-    							});
-    						}//success(fileOk)
-    					});//ajax(fileOk)
-    				}//success(commentOk)
-    			});//ajax(commentOk)
-    		}//success(postOk)
-    	});//ajax(postOk)
-        /* ======================================================= */
-      }, 500)  
-    }
-  }
+        showScrollDown();
+		}, 500);
+	}
+}
   /* ===============댓글 추가 부분=================== */
 let replytext="";
 $parentposition.on("input change keyup",".replyWriting textarea",function(){
@@ -673,24 +683,34 @@ $parentposition.on("input change keyup",".replyWriting textarea",function(){
 });
 
 $parentposition.on("click",".replyEnter",function(){
-	var postNumber=$(this).data("number");
-	console.log("number:"+postNumber);
+	//댓글 입력여부 유효성 검사
 	if(!replytext){
 		alert('댓글을 입력해주세요.');
 		return;
 	}
+	
+	//
 	$.ajax({
 		url:"${pageContext.request.contextPath}/meommi/CommentRegistration.co",
 		type:"get",
-		data:{content:replytext,postNumber:postNumber},
+		data:{content:replytext,postNumber:$(this).data("number")},
 		success:function(){
 			console.log("comment reply enter success");
+			location.reload();
+			showDefault();
 		}
 	});
+	
+	//댓글 입력 후 입력 값을 초기화 시켜주는 부분
 	$(".replyWriting textarea").val("");
 });
 /* =====================댓글 수정 준비 버튼=================== */
 $parentposition.on("click","span.replyCommentModifyReadyWrap",function(){
+	if(!commentContentContains){
+		alert('수정중인 댓글이 있습니다.');
+		return;
+	}
+	commentContentContains=false;
 	const buttonWrap=$(this).closest("div.replyContents");
 	const buttons=buttonWrap.children();
 	const content=buttons.eq(1);
@@ -714,20 +734,27 @@ $parentposition.on("click","span.replyCommentCancelWrap",function(){
 	buttons.eq(6).hide();
 	
 	content.replaceWith("<pre>"+content.text()+"</pre>");
-	/*const content=buttons.eq(1).val(); 3,4,5,6*/
+	commentContentContains=true;
 });
 /* ==============댓글 수정 버튼============= */
 $parentposition.on("click","span.replyCommentModifyWrap",function(){
 	const buttonWrap=$(this).closest("div.replyContents");
-	const commentContent=buttonWrap.children().eq(1).val();
+	const commentContent=buttonWrap.children().eq(1);
 	const commentNumber=$(this).data("number");
 	
+	if(!commentContent.val()){
+		alert('댓글을 입력해주세요.');
+		return;
+	}
 	$.ajax({
 		url:"${pageContext.request.contextPath}/meommi/CommentRetouch.co",
 		type:"get",
-		data:{commentContent:commentContent,commentNumber:commentNumber},
+		data:{commentContent:commentContent.val(),commentNumber:commentNumber},
 		success:function(){
 			console.log("comment modify success");
+			postContentContains=true;
+			location.reload();
+			showDefault();
 		}
 	});
 	
@@ -741,107 +768,163 @@ $parentposition.on("click","span.replyCommentDeleteWrap",function(){
 		data:{commentNumber:$(this).data("number")},
 		success:function(){
 			console.log("comment delete success");
-		},
-		error:function(){
-			console.log("comment delete fail");
+			location.reload();
+			showDefault();
 		}
 	});
 	
 });
 
-/* ================게시글 삭제 ================== */
-let replydelete="";
-$parentposition.on("click",".FeedCard_content__2ato7 p",function(){
-	replydelete=$(this).text();
-});
-
-/* =====================댓글 수정 준비 버튼=================== */
+/* =====================게시글 수정 준비 버튼=================== */
 $parentposition.on("click","span.postContentReadyModifyWrap",function(){
-	console.log(this);
-	/* const buttonWrap=$(this).closest("div.postContents");
+	const buttonWrap=$(this).closest("div.postContents");
 	const buttons=buttonWrap.children();
-	const content=buttons.eq(1); */
-	/* FeedCard_comment__3PXr8 FeedCard_ellipsis2__uNpJo */
-	/* buttons.eq(0).hide();
+	const content=buttonWrap.prev().prev().find(":first-child");
+	if(!postContentContains){
+		alert('수정중인 게시글이 있습니다.');
+		return;
+	}
+	postContentContains=false;
+	buttons.eq(0).hide();
 	buttons.eq(1).show();
 	buttons.eq(2).hide();
 	buttons.eq(3).show();
 	
-	content.replaceWith("<textarea>"+content.text()+"</textarea>"); */
+	content.replaceWith("<textarea>"+content.text()+"</textarea>");
 });
-/* ==============댓글 수정 취소 버튼============= */
-/* $parentposition.on("click","span.replyCommentCancelWrap",function(){
-	const buttonWrap=$(this).closest("div.replyContents");
+/* ==============게시글 수정 취소 버튼============= */
+ $parentposition.on("click","span.postContentCancelWrap",function(){
+	const buttonWrap=$(this).closest("div.postContents");
 	const buttons=buttonWrap.children();
-	const content=buttons.eq(1);
+	const content=buttonWrap.prev().prev().find(":first-child");
 	
-	buttons.eq(3).show();
-	buttons.eq(4).hide();
-	buttons.eq(5).show();
-	buttons.eq(6).hide();
+	buttons.eq(0).show();
+	buttons.eq(1).hide();
+	buttons.eq(2).show();
+	buttons.eq(3).hide();
 	
 	content.replaceWith("<pre>"+content.text()+"</pre>");
-	
-}); */
-/* $parentposition.on("click",".replyEnter",function(){
-	var postNumber=$(this).data("number");
-	console.log("number:"+postNumber);
-	if(!replytext){
-		alert('댓글을 입력해주세요.');
-		return;
-	}
-	$.ajax({
-		url:"${pageContext.request.contextPath}/meommi/CommentRegistration.co",
-		type:"get",
-		data:{content:replytext,postNumber:postNumber},
-		success:function(){
-			console.log("comment reply enter success");
-		}
-	});
-	$(".replyWriting textarea").val("");
-}); */
+	postContentContains=true;
+});
+
+ /* ==============게시글 수정 버튼============= */
+  $parentposition.on("click","span.postContentModifyWrap",function(){
+ 	const buttonWrap=$(this).closest("div.postContents");
+ 	const postContent=buttonWrap.prev().prev().find(":first-child");
+ 	const postNumber=$(this).data("number");
+ 	if(!postContent.val()){
+ 		alert('게시글 내용을 입력해주세요.');
+ 		return;
+ 	}
+ 	
+ 	$.ajax({
+ 		url:"${pageContext.request.contextPath}/meommi/PostRetouch.po",
+ 		type:"get",
+ 		data:{postContent:postContent.val(),postNumber:postNumber},
+ 		success:function(){
+ 			postContentContains=true;
+ 			location.reload();
+ 			showDefault();
+ 			console.log("post modify success");
+ 		}
+ 	});
+ 	/* postContent.append("<pre>"+postContent.val()+"</pre>"); */
+ });
+ /* ==============게시글 삭제 버튼============= */
+$parentposition.on("click","span.postContentDeleteWrap",function(){
+ 	$.ajax({
+ 		url:"${pageContext.request.contextPath}/meommi/PostDelete.po",
+ 		type:"get",
+ 		data:{postNumber:$(this).data("number")},
+ 		success:function(){
+ 			console.log("post delete success");
+ 			location.reload();
+ 			showDefault();
+ 		}
+ 	});
+ 	
+ });
+ /* ===================게시글 등록=========================== */
+$("#contentResistButton").click(function (event) {         
+	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+	   event.preventDefault();          
+	    // disabled the submit button         
+	    $("#contentResistButton").prop("disabled", true);   
+	    
+	/*formData 생성 및 key, value 삽입*/
+	   var formData = new FormData();
+	   formData.append("postContent", $("textarea[name='feedMainWriting']").val())
+	   formData.append("postFile1", $('.realUpload')[0].files[0])  
+	   formData.append("postFile2", $('.realUpload')[0].files[1])
+	   formData.append("postFile3", $('.realUpload')[0].files[2])
+	   
+		console.log("게시글 업로드 이벤트 들어옴");
+		console.log("formData:"+formData);
+	/*==================== 글등록 + 사진등록 ajax =====================*/    
+	    $.ajax({             
+	       type: "POST",          
+	        url: context + "/meommi/PostRegistration.po",        
+	        data: formData,
+	        processData: false,    
+	        contentType: false,      
+	        cache: false,           
+	        timeout: 600000,       
+	        success: function (data) {
+	        	alert('게시글,이미지 업로드 성공');
+	        	console.log("data:"+data);
+				location.reload(true);
+				showDefault();
+	           $("#contentResistButton").prop("disabled", false);
+	        },          
+	        error: function (e) {  
+	           console.log("ERROR : ", e);     
+	            $("#contentResistButton").prop("disabled", false);    
+	            alert("fail")
+	         }     
+	   });  
+});
 /* ================게시글 필터 ================== */
 $(".tab-button").on("click",function(){
 	var keyword=$(this).find("button").text();
-	
+	console.log("keyword:"+keyword);
 	if(keyword=="전체"){
 		console.log("전체 사용된거 이용");
 	}
-	else if(keyword=="내팔로잉"){
+	/* else if(keyword=="내팔로잉"){
 		$.ajax({
-			url:"${pageContext.request.contextPath}/meommi/FollowingListOk.fo",
+			url:"${pageContext.request.contextPath}/meommi/PostlistFollowing.po",
 			type:"get",
 			data:{keyword:keyword},
-			success:function(){
-				console.log("내 팔로잉 성공");
+			success:function(followingpost){
+				console.log(followingpost);
+			}
+		});
+	} */
+	else if(keyword=="내팔로워"){
+		$.ajax({
+			url:"${pageContext.request.contextPath}/meommi/PostlistFollower.po",
+			type:"get",
+			data:{keyword:keyword},
+			success:function(followerpost){
+				$.ajax({
+					url:"${pageContext.request.contextPath}/meommi/CommentlistFollower.co",
+					type:"get",
+					data:{keyword:keyword},
+					success:function(followercomment){
+						$.ajax({
+							url:"${pageContext.request.contextPath}/meommi/PostFilelistFollower.co",
+							type:"get",
+							data:{keyword:keyword},
+							success:function(followerfile){
+								location.reload();
+								showDefaultList(followerpost,followercomment,followerfile);//팔로우 사람들의 게시글(게시글의 댓글 및 파일)
+							}
+						});
+					}
+				});
 			}
 		});
 	}
-	else if(keyword=="내팔로워"){
-		$.ajax({
-			url:"${pageContext.request.contextPath}/meommi/FollowerListOk.fo",
-			type:"get",
-			data:{keyword:keyword},
-			success:function(){
-				console.log("내 팔로워 성공");
-			}
-		})
-	}
 });
-/* var output;
-$("textarea").on("input change keyup",function(){
-	 if (this.value.length) {
-		 output = this.value;
-     } else {
-    	 output = "";
-     }
-	 console.log(output);
-}); */
-/* text += `<div class="button-wrap">`;
-text += `<div class="modify-ready-button" data-number=` + reply.replyNumber +`></div>`;
-text += `<div class="modify-button" data-number=` + reply.replyNumber +` style="display:none;"></div>`;
-text += `<div class="delete-button" data-number=` + reply.replyNumber +`></div>`;
-text += `<div class="cancel-button" data-number=` + reply.replyNumber +` style="display:none;"></div>`;
-text += `</div>`; */
 </script>
 </html>

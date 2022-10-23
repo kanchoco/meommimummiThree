@@ -30,8 +30,8 @@ public class MainFrontController extends HttpServlet {
 
 		if (request.equals("/meommi/main.ma")) {
 			result = new MainServiceListcontroller().execute(req, resp);
-		}
-
+		}else if(request.equals("/meommi/mainfeedsearch.ma"))
+			new MainFeedSearchController().execute(req,resp);
 		if (result != null) {
 			if (result.isRedirect()) {
 				resp.sendRedirect(result.getPath());

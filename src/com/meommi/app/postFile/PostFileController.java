@@ -18,6 +18,8 @@ public class PostFileController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		resp.setContentType("text/html; charset=utf-8");
 		PostFileDAO postFileDAO=new PostFileDAO();
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();

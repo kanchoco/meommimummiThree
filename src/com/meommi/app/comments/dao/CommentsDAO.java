@@ -32,4 +32,7 @@ public class CommentsDAO {
 	   public void deleteComment(int commentsNumber) {
 		   sqlSession.delete("Comments.deleteComment",commentsNumber);
 	   }
+	   public List<CommentsDTO> selectFollowerCommentDefault(int userNumber){
+		   return sqlSession.selectList("Comments.selectFollowerCommentDefault",userNumber);
+	   }
 }

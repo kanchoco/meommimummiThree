@@ -31,6 +31,8 @@ public class PostFileFrontController extends HttpServlet {
 			   new PostFileController().execute(req, resp);
 		   }else if(request.equals("/meommi/PostFileOk.pf")) {
 			   new PostFileOkController().execute(req,resp);
+		   }else if(request.equals("/meommi/PostFilelistFollower.pf")) {
+			   new PostFileListFollowerController().execute(req,resp);
 		   }
 		      
 		      if(result != null) {

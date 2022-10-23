@@ -37,6 +37,8 @@ public class CommentsFrontController extends HttpServlet {
 				   new CommentRetouchController().execute(req, resp);
 			   }else if(request.equals("/meommi/CommentDelete.co")) {
 				   new CommentDeleteController().execute(req, resp);
+			   }else if(request.equals("/meommi/CommentlistFollower.co")) {
+				   new CommentListFollowerController().execute(req,resp);
 			   }
 			   
 			      if(result != null) {
