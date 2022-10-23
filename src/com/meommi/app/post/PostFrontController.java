@@ -1,4 +1,4 @@
-package com.meommi.app.post;
+package src.com.meommi.app.post;
 
 import java.io.IOException;
 
@@ -33,6 +33,15 @@ public class PostFrontController extends HttpServlet {
             new PostListOkController().execute(req, resp);
          }else if (request.equals("/meommi/PostRegistration.po")) {
             new PostRegistrationController().execute(req, resp);
+         }else if(request.equals("/meommi/PostRetouch.po")) {
+        	 new PostRetouchController().execute(req, resp);
+         }else if(request.equals("/meommi/PostDelete.po")) {
+        	 new PostDeleteController().execute(req, resp);
+         }else if(request.equals("/meommi/PostlistFollower.po")) {
+        	 new PostListFollowerController().execute(req, resp);
+         }else if(request.equals("/meommi/PostlistFollowing.po")) {
+        	 System.out.println("들어옴1");
+        	 new postListFollwingController().execute(req,resp);
          }
             
          /*
