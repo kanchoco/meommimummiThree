@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.meommi.app.placeReview.vo.Criteria;
 import com.meommi.app.placeReview.vo.PlaceReviewDTO;
 import com.meommi.app.placeReview.vo.PlaceReviewVO;
 import com.meommi.mybatis.config.MyBatisConfig;

@@ -38,7 +38,7 @@ let filterCheck = true;
 
 
 
-let filterCheck = true;
+
 var filterCountStar = 0;
 
 console.log(filterCountStar);
