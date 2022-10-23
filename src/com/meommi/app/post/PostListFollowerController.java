@@ -14,11 +14,9 @@ import org.json.JSONObject;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
-import com.meommi.app.comments.dao.CommentsDAO;
 import com.meommi.app.follow.dao.FollowDAO;
 import com.meommi.app.post.dao.PostDAO;
 import com.meommi.app.post.vo.PostDTO;
-import com.meommi.app.postFile.dao.PostFileDAO;
 
 public class PostListFollowerController implements Execute {
 
