@@ -856,7 +856,7 @@ function startClock() {
 	
 // 유기동물 api로 불러오기
 function lostfoundanimals() {
-	console.log(
+	
 /* 	let  overlaparray = [];
 	
 	function overlapOne () {   
@@ -1009,7 +1009,8 @@ function lostfoundanimals() {
 // 타이머 설정 (1초 당 1000)
 // 변수로 담는것은 혹시 나중에 종료를 해야 할때 필요하면 사용할려고합니다
  timer = setInterval(lostfoundanimals, 5000);
-  
+
+
 }
 // 타이머 종료 함수
 // '종료' 버튼을 누르면 실행된다.
@@ -1017,10 +1018,100 @@ function lostfoundanimals() {
   // timer의 반복실행을 종료한다.
   //clearInterval(timer);
 //}
-
+navershop()
 //네이버 쇼핑 api 불러 오기!
+function navershop() {
+	conslo.sa'
+var keyword = "아르르사료";
+   var sort ="sim";
+      $.ajax({
+         url: "/meommi/mainfeedsearch.ma",
+         type: "get",
+         data:{keyword:keyword, sort:sort}, 
+         contentType: "application/json; charset=utf-8",
+         success: function(result){
+        	 console.log(result);
+         let text="";
+         var resultM = JSON.parse(result)
+         /* Conslole 의 items 배열 */ 
+         var items = resultM.items
+         /* 이미지태그 */
+         var imgSpan = $(".CommonCard_background__3toTR");
+         /* 제목,가격,브랜드,카테고리 태그 */
+         var iTitle = $(".titleName");
+         var iPrice = $(".titlePrice");
+         var iKind = $(".titleKind");
+         var iCategory = $(".category1");
+         /* items 배열에서 카테고리에 맞는 값 가져오기 */
+         var Wrapper = $(".ProjectCardList_list__1YBa2");
+            items = items.filter(i=>i.category2.includes("반려"));
+         
+   
 
+            /* image, title, lprice, brand, category 수정 */
+            items.forEach(i=>{
+text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/158251?_refer_section_st=PersonalCurator_2">`
+text += `<article>`
+text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url("`+i.image+`");">`
+text += `</div>`
+text += `</div>`
+text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+text += `<h1 class="commons_title__1yGWm">`+i.title+`</h1>`
+text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">`+i.lprice+`</span>`+i.brand+`</p>`
+text += `</div>`
+text += `</article>`
+text += `</a></div>`
+text += `</div>`
+text += `<div class="RecommendFundingWrap_card___LnVO">`
+text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/156028?_refer_section_st=PersonalCurator_3">`
+text += `<article>`
+text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url("`+i.image+`");">`
+text += `</div>`
+text += `</div>`
+text += `<div class="commons_content__2K1SH CardType_content__1Pavj">`
+text += `<h1 class="commons_title__1yGWm">`+i.title+`</h1>`
+text += `<p class="commons_summary__2Ynez"><span class="commons_achievementRate__2J-KL">+i.lprice+</span>`+i.brand+`</p>`
+text += `</div>`
+text += `</article>`
+text += `</a></div>`
+text += `</div>`
+text += `<div class="RecommendFundingWrap_showMoreRecommendWrap__1LWUo"><button data-event="web.main.recommendation.more" class="Button_button__341ce Button_secondary__bK717 Button_startIcon__3du3p Button_block__1sz_j RecommendFundingWrap_googleTaggedButton__2mK7y" type="button"><span><svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO Button_icon__3U08m" aria-hidden="true">`
+text += `<path d="M35 16V7l-3.5 3.5A15 15 0 1034.4 24h-2.1a13 13 0 11-2.2-12.1L26 16z">`
+text += `</path>`
+text += `</svg><span class="Button_children__10ESl"><span class="RecommendFundingWrap_fontHighlight__2LEw7">AI </span>추천 더보기<span class="RecommendFundingWrap_pageNum__1yoDT"><span class="RecommendFundingWrap_fontHighlight__2LEw7">1</span>/3</span></span></span></button>`
+text += `</div>`
+text += `<div class="RecommendFundingWrap_plannedCard__2e9vM">`
+text += `<div class="CardType_projectCard__3xhjb CardType_plannedCard__Yyg0B RecommendFundingWrap_collectionCard__QQv01">`
+text += `<a href="/web/wreward/comingsoon/collection/hotcomingsoon">`
+text += `<article>`
+text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
+text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ" style="background-image: url("`+i.image+`");">`
+text += `</div>`
+text += `</div>`
+text += `<div><span class="CardType_badge__OjSmY">기획전</span><span class="CardType_title__2qEmh">알림신청 TOP 20</span></div>`
+text += `</article>`
+text += `</a>`
+text += `</div>`
+text += `</div>`
+text += `</div>`
+text += `</section>`
 
+            })
+            
+            Wrapper.html(text);/*html 수정*/
+            var images = $('.CommonCard_visible__ABkYx');
+            items.forEach((j,v,item)=>{
+               /*html text 이미지를 css로 다시 줌*/
+               images.eq(v).css("background-image",`url("`+j.image+`")`)
+            /*   images.eq(i).css("background-image",`url("`+items[i].image+`")`)*/
+               /*상세페이지 링크연결*/
+               images.eq(v).parent().parent().parent().attr("onclick",`location.href="`+j.link+`"`)
+            })
+         }
+         });
+}
 
     
     
