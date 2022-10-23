@@ -1734,8 +1734,22 @@ label[for='attach'] {
     margin-right: 22px;
 }
 
+.textAreaModify {
+	width:100%;
+	resize:none;
+	height:45px;
+	background: transparent;
+	border:  1px solid #C2C8CC;
+	border-radius: 4px;
+	padding:13px;
+	overflow:hidden;
+	max-length: "50";
+	margin-top: 10px;
+}
 
-
+textarea:focus {
+  outline: none;
+}
 
 
 .deletePic {

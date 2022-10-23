@@ -33,8 +33,209 @@ var filterStar = "<svg fill='#35C5F0' width='1em' height='1em'preserveAspectRati
 
 let filterCheck = true;
 
-/*카테고리 필터*/
 
+/* 리뷰 페이징 처리 */
+
+
+
+let filterCheck = true;
+var filterCountStar = 0;
+
+console.log(filterCountStar);
+
+
+
+function filterLoad(filter, type){
+      let star = (filterCountStar == 0) ? 'none': filterCountStar;
+      let order= $(".timeReview.filterActive").val();
+      let photo= (!$(".filterPhoto.filterActive").val()) ? 'none': $(".filterPhoto.filterActive").val();
+      
+      switch(type){
+         case 'order':
+            order = filter;
+         break;
+         case 'star':
+            star = filter;
+         break;
+         case 'photo':
+            photo = filter;
+         break;
+      }
+      
+      console.log(star, order, photo);
+      
+      $.ajax({
+         url: context + "/map/filterOk.pl",
+         type: "get",
+         data: {star: star, order: order, photo: photo, placeId : placeId},
+         dataType: "json",
+         success:function(result){
+                  //$(".item")[dataNumber].click();
+                  var text = "";
+                  
+                  text += `<p style="font-size:25px;font-weight:700;margin-bottom:25px;">`+ place.place_name+`<span><a href="`+ place.place_url+`"style="font-size:15px;font-weight: 500;opacity: 50%;position: relative;right: -12px;top: 2px;">상세보기</a></span></p>`;
+                  if(result.length>0){
+                     console.log('있음');
+                     $(".reviewItemContainer").show();
+                     $(".reviewWritingSection").show();
+                     var totalReviewRating=0;
+                     var averageReviewRating=0;
+                     var fiveStar=0, fourStar=0, threeStar=0, twoStar=0, oneStar = 0;                     
+                     result.forEach(place => {
+                        totalReviewRating += place.placeReviewRating;
+                        text +=`<article class="reviewItem" style="border-top: solid 1px #ededed;"><div class="reviewWriter" style="margin-top: 10px;"><a href="">`;
+                        text +=`<img src="`+ place.reviewFileOriginName + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
+                        for(var i = 0; i < place.placeReviewRating; i++){
+                           text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;                           
+                        }
+                        if(place.placeReviewRating !=5){
+                           var reviewRatingCount = 5-place.placeReviewRating;
+                           for(var i=0; i< reviewRatingCount; i++){
+                              text +=`<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;                        
+                           }                           
+                        }
+                        text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
+                        text += `<span class="modifyDeleteLine" style="position: relative;right: -464px;"><span style="margin-right:5px;"><button>수정</button></span><span><button>삭제</button></span></span>`;
+                        text +=`</div></div></div><button type="button" class="reviewItemImage">`;
+                        if(place.reviewFileSystemName){
+                           text +=`<img src="`+ contextPath + "/images/" + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;                           
+                        }
+                        text += `</button><p class="reviewComment">`;
+                        text += place.placeReviewContents + `</p><div class="reviewCommentGood" style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn"><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
+                        text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful  +`명에게 도움이 되는 댓글입니다.</span></div></article>`;   
+                        
+                                             /* 점수 막대 필터 구하기*/
+                     var scoreBar = "";
+
+                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 5점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+                     scoreBar += (fiveStar / result.length)*100;
+                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+                     scoreBar += fiveStar;
+                     scoreBar += `</div></div>`
+
+                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 4점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+                     scoreBar += (fourStar / result.length)*100;
+                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+                     scoreBar += fourStar;
+                     scoreBar += `</div></div>`
+
+                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 3점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+                     scoreBar += (threeStar / result.length)*100;
+                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+                     scoreBar += threeStar;
+                     scoreBar += `</div></div>`
+
+                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 2점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+                     scoreBar += (twoStar / result.length)*100;
+                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+                     scoreBar += twoStar;
+                     scoreBar += `</div></div>`
+
+                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 1점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
+                     scoreBar += (oneStar / result.length)*100;
+                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
+                     scoreBar += oneStar;
+                     scoreBar += `</div></div>`
+                     
+                     $(".rightReviewScore").html(scoreBar);
+                     });
+                     
+                     /*리뷰 항목들 리스트 출력*/
+                     $("#reviewList").html(text);
+                  } else{
+                     console.log('없음');
+                     $(".reviewItemContainer").show();
+                     text += `<p>등록된 후기가 없습니다.</p>`;
+                     $("#reviewList").html(text);
+                     $(".reviewWritingSection").show();
+                  }
+               }
+   });
+}
+
+
+
+/* 게시글 삭제 */
+$(".reviewList").on("click", ".delete", function(){
+	let reviewNumber = $(this).data("number");
+	if(!confirm('삭제하시면 복구할 수 없습니다. \n 정말로 삭제하시겠습니까?')){
+		return;
+	} else{
+		$.ajax({
+			url: contextPath + "/map/mapReviewDelete.pl",
+			type: "get",
+			data: {reviewNumber: reviewNumber},
+			contentType: "application/json; charset=utf-8",
+			success:function(){
+				console.log("성공");
+				$(".item")[dataNumber].click();
+			},
+			error: function(){
+				alert("실패");
+			}
+		})
+	}
+})
+
+var modifyOriginaltext = "";
+
+/* 게시글 수정 */
+
+/* 수정 버튼 클릭 시 */
+$(".reviewList").on("click", ".modify", function(){
+	
+	/*수정 버튼 클릭 시 텍스트 바뀜*/
+	$(".modify").hide();
+	$(".delete").hide();
+	$(".modifyClicked").show();
+	$(".deleteClicked").show();
+	
+	const modifyLine = $(this).closest("article").find("p.reviewComment");
+	modifyLine.replaceWith("<p class='replyModifyLine'><textarea class='textAreaModify' maxlength='50'>" + modifyLine.text() + "</textarea></p>")
+	modifyOriginaltext = modifyLine.text();
+
+})
+
+/* 수정 취소 버튼 클릭 */
+$(".reviewList").on("click", ".modifyClicked", function(){
+	
+	/*수정 취소 버튼 클릭 시 텍스트 원상복귀*/
+	$(".modify").show();
+	$(".delete").show();
+	$(".modifyClicked").hide();
+	$(".deleteClicked").hide();
+	
+	/*textarea 없애고 다시 원글로 바꾸기*/
+	$(this).closest("article").find("p.replyModifyLine").replaceWith(`<p class="reviewComment">` + modifyOriginaltext + `</p>`);
+	
+})
+
+/* 수정 확인 버튼 클릭 시 */
+$(".reviewList").on("click", ".deleteClicked", function(){
+	var placeReviewContents = $(".textAreaModify").val();
+	
+	let reviewNumber = $(this).data("number");
+
+	$.ajax({
+		url: contextPath +"/map/mapReviewModify.pl",
+		type: "get",
+		data: {
+			reviewNumber: reviewNumber,
+			placeReviewContents: placeReviewContents
+			},
+		success: function(){
+			alert("수정이 완료되었습니다.");
+			$(".item")[dataNumber].click();
+		}
+		
+	})
+})
+
+
+
+
+
+/*카테고리 필터*/
 $categoryCheckbox = $("input[name='cc']");
 
 $(".mapSearch").hide();
@@ -281,15 +482,21 @@ function displayPlaces(places) {
 										text +=`<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;								
 									}									
 								}
-								text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
-								text += `<span class="modifyDeleteLine" style="position: relative;right: -464px;"><span style="margin-right:5px;"><button>수정</button></span><span><button>삭제</button></span></span>`;
-								text +=`</div></div></div><button type="button" class="reviewItemImage">`;
+								text += `</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
+								text += `<span class="modifyDeleteLine" style="position: relative;right: -464px;font-size:13px;">`;
+								if(place.userNumber==userNumber){
+									text += `<span class="modify" style="margin-right:5px;" data-number=`+ place.placeReviewNumber +`><button>수정</button></span>`;
+									text += `<span class="modifyClicked" style="margin-right:5px;display:none;" data-number=`+ place.placeReviewNumber +`><button>취소</button></span>`;
+									text += `<span class="delete" data-number =`+ place.placeReviewNumber +`><button>삭제</button></span>`;
+									text += `<span class="deleteClicked" style="display:none;" data-number =`+ place.placeReviewNumber +`><button>확인</button></span></span></span>`;									
+								}
+									text += `</div></div></div><button type="button" class="reviewItemImage">`;
 								if(place.reviewFileSystemName){
-									text +=`<img src="`+ contextPath + "/images/" + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
+									text +=`<img src= "/upload/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
 								}
 								text += `</button><p class="reviewComment">`;
-								text += place.placeReviewContents + `</p><div class="reviewCommentGood" style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn"><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
-								text += `</button><span class="helpful" style="line-height:30px; font-size:12px">0명에게 도움이 되는 댓글입니다.</span></div></article>`;	
+								text += place.placeReviewContents + `</p><div class="reviewCommentGood"  style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
+								text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
 								
 								
 								/* 막대 필터에 필요한 정보 추가 */
@@ -330,7 +537,6 @@ function displayPlaces(places) {
 									for(i=0; i < 5-(avgReviewRating);i++){
 										averageStar += `<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;
 									}
-												
 								}
 							} else{
 									for(var i=0; i<averageReviewRating.toFixed(0); i++){
@@ -763,12 +969,38 @@ $foodFilter.click(function(){
 
 /* 도움이 돼요 클릭 */
 $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
-	    if ($(this).attr('class') == "reviewCommentGoodBtn") {
+	if ($(this).attr('class') == "reviewCommentGoodBtn") {
         $(this).attr("class", "reviewCommentGoodBtn clicked");
         $(this).children('div').text("도움됨");
+
+    $.ajax({        /*도움이 돼요 증가*/     
+       	type: "GET",          
+        url: context + "/map/mapHelpfulUp.pl",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data : {placeReviewNumber : $(this).data("number")},
+        success: function () {       
+ 			$(".item")[dataNumber].click();
+        },
+		error: function(e){
+			$(".item")[dataNumber].click();
+		}
+	});
     } else {
         $(this).attr('class', 'reviewCommentGoodBtn');
         $(this).children('div').text("도움이 돼요");
+	    $.ajax({             /*도움이 돼요 감소*/
+	       type: "GET",          
+	        url: context + "/map/mapHelpfulDown.pl",
+	        contentType: "application/json; charset=utf-8",        
+	        dataType: "json",
+	        data : {placeReviewNumber : $(this).data("number")},      
+	        success: function () { 
+	 			$(".item")[dataNumber].click();
+	    }, error: function(){
+				$(".item")[dataNumber].click();
+			}
+	});
     }
 })
 
@@ -944,8 +1176,7 @@ file.addEventListener("change", function(e){
 function xBtn(){
     thumbnail.className = 'attach';
     xButton.className = 'xButton';
-    /* thumbnail.remove(); */
-    thumbnail.style.backgroundImage = "";
+    $(".attach").removeAttr( 'style' );
 }
  
 
@@ -987,7 +1218,7 @@ function resist(){
         enctype: 'multipart/form-data',  
         url: context + "/map/mapReviewOk.pl",        
         data: formData,
-        processData: false,    
+        processData: false,
         contentType: false,      
         cache: false,           
         timeout: 600000,       

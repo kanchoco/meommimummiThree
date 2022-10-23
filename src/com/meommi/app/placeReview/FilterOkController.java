@@ -15,7 +15,8 @@ import com.meommi.app.Result;
 import com.meommi.app.placeReview.dao.PlaceReviewDAO;
 import com.meommi.app.placeReview.vo.Criteria;
 
-public class FilterOkController implements Execute{
+public class FilterOkController implements Execute {
+
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String star = req.getParameter("star");
@@ -26,16 +27,16 @@ public class FilterOkController implements Execute{
 		Criteria criteria = new Criteria(star, order, photo, placeId);
 		PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
 		JSONArray reviews = new JSONArray();
-		
-		placeReviewDAO.filterSelect(criteria).forEach(v->{
+
+		placeReviewDAO.filterSelect(criteria).forEach(v -> {
 			v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
 			System.out.println(v);
 			JSONObject review = new JSONObject(v);
 			reviews.put(review);
 		});
-		
+
 		PrintWriter out = resp.getWriter();
-		
+
 		out.print(reviews);
 		out.close();
 
