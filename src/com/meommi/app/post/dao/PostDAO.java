@@ -28,4 +28,13 @@ public class PostDAO {
       public int selectCurrentSequence() {
           return sqlSession.selectOne("Post.selectCurrentSequence");
        }
+      public void updatePost(PostDTO postDTO) {
+    	  sqlSession.update("Post.updatePost",postDTO);
+      }
+      public void deletePost(int postNumber) {
+    	  sqlSession.delete("Post.deletePost",postNumber);
+      }
+      public List<PostDTO> selectFollowerDefault(int userNumber){
+    	  return sqlSession.selectList("Post.selectFollowerDefault",userNumber);
+      }
 }
