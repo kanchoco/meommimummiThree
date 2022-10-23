@@ -703,95 +703,13 @@
 									<div class="reviewScoreWrap">
                                     	<div class="reviewScore">
                                         	<div class="leftReviewScore">
-                                            	<span class="starIcon">
-                                                	<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                    	<defs>
-                                                        	<path id="star-path-0" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
-                                                        		<clipPath id="star-clip-0"><rect x="0" y="0" width="24" height="24"></rect></clipPath>
-                                                    	</defs>
-	                                                    <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
-	                                                    <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
-                                                	</svg>
-                                                	<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                    	<defs>
-                                                        	<path id="star-path-0" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
-                                                        		<clipPath id="star-clip-0"><rect x="0" y="0" width="24" height="24"></rect></clipPath>
-                                                    	</defs>
-	                                                    <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
-	                                                    <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
-                                                	</svg>
-                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                    	<defs>
-                                                        	<path id="star-path-0" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
-                                                        		<clipPath id="star-clip-0"><rect x="0" y="0" width="24" height="24"></rect></clipPath>
-                                                    	</defs>
-	                                                    <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
-	                                                    <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
-                                                </svg>
-                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                    	<defs>
-                                                        	<path id="star-path-0" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
-                                                        		<clipPath id="star-clip-0"><rect x="0" y="0" width="24" height="24"></rect></clipPath>
-                                                    	</defs>
-	                                                    <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
-	                                                    <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
-                                                </svg>
-                                                <svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                                    	<defs>
-                                                        	<path id="star-path-0" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path>
-                                                        		<clipPath id="star-clip-0"><rect x="0" y="0" width="24" height="24"></rect></clipPath>
-                                                    	</defs>
-	                                                    <use xlink:href="#star-path-0" fill="#DBDBDB"></use>
-	                                                    <use clip-path="url(#star-clip-0)" xlink:href="#star-path-0"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="badge">전체 평점</span>
+                                            	<span class="starIcon"></span>
+                                            <span class="badge"></span>
                                         </div>
                                         
                                         <!-- 평점 점수 분포도-->
                                         <div class="rightReviewScoreWrap">
-                                            <div class="rightReviewScore">
-                                                <div class="production-review-feed__header-v2__stars__avg__container">
-                                                    <div class="production-review-feed__header-v2__stars__avg__label label_selected"> 5점 </div>
-                                                <div class="production-review-feed__header-v2__stars__avg__bar">
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 89.1304%;"></div>
-                                                </div>
-                                                <div class="production-review-feed__header-v2__stars__avg__number label_selected"> 41 </div>
-                                                </div>
-												<div class="production-review-feed__header-v2__stars__avg__container">
-                                                    <div class="production-review-feed__header-v2__stars__avg__label">4점</div>
-                                                <div class="production-review-feed__header-v2__stars__avg__bar">
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 8.69565%;"></div>
-                                                </div>
-                                                <div class="production-review-feed__header-v2__stars__avg__number">4</div>
-                                            </div>
-                                                <div class="production-review-feed__header-v2__stars__avg__container">
-                                                    <div class="production-review-feed__header-v2__stars__avg__label">3점</div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar">
-                                                        <div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
-                                                        <div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 2.17391%;"></div>
-                                                    </div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__number">1</div>
-                                                </div>
-                                                <div class="production-review-feed__header-v2__stars__avg__container">
-                                                    <div class="production-review-feed__header-v2__stars__avg__label">2점</div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar">
-                                                        <div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
-                                                        <div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 0%;"></div>
-                                                    </div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__number">0</div>
-                                                </div>
-                                                <div class="production-review-feed__header-v2__stars__avg__container">
-                                                    <div class="production-review-feed__header-v2__stars__avg__label">1점</div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__bar">
-                                                        <div class="production-review-feed__header-v2__stars__avg__bar__bg"></div>
-                                                        <div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: 0%;"></div>
-                                                    </div>
-                                                    <div class="production-review-feed__header-v2__stars__avg__number">0</div>
-                                                </div>
-                                            </div>
+                                            <div class="rightReviewScore"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -877,7 +795,7 @@
                                                                                         <use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use>
                                                                                     </svg>
                                                                                 </span>
-                                                                                <span class="starCountText"> (41개)</span>
+                                                                                <span class="starCountText"></span>
                                                                             </span>
                                                                         </button>
                                                                     </div>
@@ -938,7 +856,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)" xlink:href="#star-path-2702"></use>
                                                                                     </svg>
                                                                                 </span>
-                                                                                <span class="starCountText">(4개)</span>
+                                                                                <span class="starCountText"></span>
                                                                             </span>
                                                                         </button>
                                                                     </div>
@@ -1000,7 +918,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)" xlink:href="#star-path-2702"></use>
                                                                                     </svg>
                                                                                 </span>
-                                                                                <span class="starCountText">(1개)</span>
+                                                                                <span class="starCountText"></span>
                                                                             </span>
                                                                         </button>
                                                                     </div>
@@ -1061,9 +979,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)" xlink:href="#star-path-2702"></use>
                                                                                     </svg>
                                                                                 </span>
-                                                                                <span class="starCountText">
-                                                                                    (0개)
-                                                                                </span>
+                                                                                <span class="starCountText"></span>
                                                                             </span>
                                                                         </button>
                                                                     </div>
@@ -1125,7 +1041,7 @@
                                                                                         <use clip-path="url(#star-clip-2702)" xlink:href="#star-path-2702"></use>
                                                                                     </svg>
                                                                                 </span>
-                                                                                <span class="starCountText">(0개)</span>
+                                                                                <span class="starCountText"></span>
                                                                             </span>
                                                                         </button>
                                                                     </div>
@@ -1160,7 +1076,7 @@
                                 </div>
                                 <div class="reviewWritingSection">
                                     <div class="review-modal__section">
-                                        <div class="review-modal__form__star__wrap">
+                                        <div class="review-modal__form__star__wrap" style="border-top: solid 1px #ededed;">
                                             <div class="review-modal__form__star">
                                                 <div class="review-modal__form__star__label">별점</div>
                                                 <div class="review-modal__form__star__value">
@@ -1281,8 +1197,6 @@
                             </ul> -->
                         </div>
                     </div>
-              </div>
-            </div> 
         </article>
     </main>
 <jsp:include page ="${pageContext.request.contextPath}/app/fix/footer.jsp"/> 
@@ -1290,7 +1204,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <!-- 카카오맵 api -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3a1ec4d4442397ef5dc28bccc78eef58&libraries=services"></script>
-<script>var contextPath="${pageContext.request.contextPath}";</script>
+<script>const contextPath="${pageContext.request.contextPath}"</script>
 <script>let context = "${pageContext.request.contextPath}"</script>
 <script src="${pageContext.request.contextPath}/assets/js/service/map.js"></script>
 </html>

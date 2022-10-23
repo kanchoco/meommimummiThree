@@ -33,23 +33,22 @@ public class PlaceReviewOkController implements Execute {
       MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
       
       String placeReviewContents = multipartRequest.getParameter("placeReviewContents");
-      
-         req.setCharacterEncoding("UTF-8");
+      int reviewRating = Integer.valueOf(multipartRequest.getParameter("reviewRating"));
+      req.setCharacterEncoding("UTF-8");
 
 //         request 객체, 업로드 할 경로, 파일의 크키, 인코딩 방식, 이름변경정책
          Enumeration<String> fileNames = multipartRequest.getFileNames();
          
-         String placeId = multipartRequest.getParameter("placeId");
-         System.out.println(placeId);      
+         String placeId = multipartRequest.getParameter("placeId"); 
          int userNumber = 1;
          /* int userNumber = Integer.valueOf(req.getParameter("userNumber")); */
-         int reviewRating = 3;
-         int placeReveiwHelful = 3;
+
+         int placeReviewHelful = 3;
 
          int currentSequence = placeReviewDAO.selectCurrentSequence();
          
          placeReviewDTO.setPlaceReviewRating(reviewRating);
-         placeReviewDTO.setPlaceReviewHelful(placeReveiwHelful);
+         placeReviewDTO.setPlaceReviewHelful(placeReviewHelful);
          placeReviewDTO.setPlaceReviewContents(placeReviewContents);
          placeReviewDTO.setUserNumber(userNumber);
          placeReviewDTO.setPlaceId(placeId);
@@ -71,8 +70,6 @@ public class PlaceReviewOkController implements Execute {
             placeReviewFileDAO.insert(placeReviewFileVO);
          }
          
-         
-         System.out.println(placeReviewFileVO.getPlaceReviewNumber());
          return null;
       }
 
