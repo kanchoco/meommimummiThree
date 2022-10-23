@@ -23,5 +23,7 @@ public class PostFileDAO {
 	   public void insert(PostFileVO postFileVO) {
 	         sqlSession.insert("PostFile.insert",postFileVO);
 	      }
-
+	   public List<PostFileVO> selectFollowerPostfileDefault(int userNumber){
+		   return sqlSession.selectList("PostFile.selectFollowerPostfileDefault",userNumber);
+	   }
 }
