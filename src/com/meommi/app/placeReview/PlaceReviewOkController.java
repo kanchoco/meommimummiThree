@@ -43,17 +43,14 @@ public class PlaceReviewOkController implements Execute {
          int userNumber = 1;
          /* int userNumber = Integer.valueOf(req.getParameter("userNumber")); */
 
-         int placeReviewHelful = 3;
-
-         int currentSequence = placeReviewDAO.selectCurrentSequence();
          
          placeReviewDTO.setPlaceReviewRating(reviewRating);
-         placeReviewDTO.setPlaceReviewHelful(placeReviewHelful);
          placeReviewDTO.setPlaceReviewContents(placeReviewContents);
          placeReviewDTO.setUserNumber(userNumber);
          placeReviewDTO.setPlaceId(placeId);
          placeReviewDAO.insert(placeReviewDTO);
 
+         int currentSequence = placeReviewDAO.selectCurrentSequence();
          
 //         화면에서 구현된 type이 file인 input태그 name속성 값을 모두 가져온다.
          while(fileNames.hasMoreElements()) {

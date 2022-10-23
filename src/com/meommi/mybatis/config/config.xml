@@ -17,6 +17,7 @@
      <typeAlias type="com.meommi.app.post.vo.PostDTO" alias="postDTO"/>
      <typeAlias type="com.meommi.app.placeReview.vo.PlaceReviewVO" alias="placeReviewVO"/>
      <typeAlias type="com.meommi.app.placeReview.vo.PlaceReviewDTO" alias="placeReviewDTO"/>
+     <typeAlias type="com.meommi.app.placeReview.vo.Criteria" alias="criteria"/>
      <typeAlias type="com.meommi.app.funeral.vo.FuneralVO" alias="funeralVO"/>
      <typeAlias type="com.meommi.app.follow.vo.FollowVO" alias="followVO"/>
 	 <typeAlias type="com.meommi.app.favoritePlace.vo.FavoritePlaceVO" alias="favoritePlaceVO"/>

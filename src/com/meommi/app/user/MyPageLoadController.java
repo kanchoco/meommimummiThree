@@ -5,6 +5,9 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
@@ -15,25 +18,38 @@ public class MyPageLoadController implements Execute{
 @Override
 public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	Result result = new Result();
+	HttpSession session = req.getSession();
 	String userId = String.valueOf(req.getSession().getAttribute("userId"));
 	UserDAO userDAO = new UserDAO();
 	UserVO userVO = new UserVO();
 	String profileImg = userDAO.userProfile(userId);
 	UserVO loginUser = userDAO.loginUser(userId);
-	int myPost = userDAO.countMyPost(loginUser.getUserNumber());
-	int myComment = userDAO.countMyComment(loginUser.getUserNumber());
-	int myReview = userDAO.countMyReview(loginUser.getUserNumber());
-	int myPlace = userDAO.countMyPlace(loginUser.getUserNumber());
 	
 
-		req.setAttribute("myPost", myPost);
-		req.setAttribute("myPlace", myPlace);
-		req.setAttribute("myReview", myReview);
-		req.setAttribute("mycomment", myComment);
-		req.setAttribute("profileImg", profileImg);
-		req.setAttribute("loginUser",  loginUser);
-		
-		result.setPath("/app/user/myPage.jsp");
+	try {
+		int userNumber= loginUser.getUserNumber();
+		int myPost = userDAO.countMyPost(2);
+		int myComment = userDAO.countMyComment(2);
+		int myReview = userDAO.countMyReview(2);
+		int myPlace = userDAO.countMyPlace(2);
+			session.setAttribute("userNumber", userNumber);
+			System.out.println(userNumber);
+			System.out.println(myPlace);
+			System.out.println(myComment);
+			System.out.println(myReview);
+			req.setAttribute("myPost", myPost);
+			req.setAttribute("myPlace", myPlace);
+			req.setAttribute("myReview", myReview);
+			req.setAttribute("myComment", myComment);
+			req.setAttribute("profileImg", profileImg);
+			req.setAttribute("loginUser",  loginUser);
+			
+			result.setPath("/app/user/myPage.jsp");
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = new Result();
+			result.setPath("/user/login.us");
+		}
 
 	return result;
 	}

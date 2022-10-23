@@ -24,7 +24,7 @@ public class WriteReviewLookupOkController implements Execute {
 		resp.setContentType("text/html;charset=UTF-8");
 		//로그인이랑 합쳤을때, 세션에 들어간 유저 넘버로 바꿀것
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
-		int userNumber = Integer.parseInt(req.getParameter("userNumber"));
+		int userNumber = Integer.valueOf(String.valueOf(req.getSession().getAttribute("userNumber")));
 		UserDAO userDAO = new UserDAO();
 		JSONArray reviews = new JSONArray();
 		PrintWriter out = resp.getWriter();
@@ -33,6 +33,7 @@ public class WriteReviewLookupOkController implements Execute {
 		
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		int total = userDAO.countMyReview(userNumber);
+		System.out.println(total);
 //		한 페이지에 출력되는 게시글의 개수
 		int rowCount = 6;
 		int startRow = (page - 1) * rowCount;

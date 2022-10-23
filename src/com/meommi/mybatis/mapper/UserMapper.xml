@@ -51,7 +51,7 @@
 		where user_number = #{userNumber}
 	</select>
 	
-	<!-- 내 댓글 목록 -->
+		<!-- 내 댓글 목록 -->
 	<select id="selectMyComment" parameterType="map" resultType="commentsVO">
 		select comments_number, comments_datetime, comments_content, user_number, post_number
 		from tbl_comments
