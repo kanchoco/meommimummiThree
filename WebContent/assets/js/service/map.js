@@ -282,7 +282,7 @@ function displayPlaces(places) {
 									}									
 								}
 								text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
-								text += `<span class="modifyDeleteLine" style="position: relative;right: -420px;"><span><button>수정</button></span><span><button>삭제</button></span></span>`;
+								text += `<span class="modifyDeleteLine" style="position: relative;right: -464px;"><span style="margin-right:5px;"><button>수정</button></span><span><button>삭제</button></span></span>`;
 								text +=`</div></div></div><button type="button" class="reviewItemImage">`;
 								if(place.reviewFileSystemName){
 									text +=`<img src="`+ contextPath + "/images/" + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
