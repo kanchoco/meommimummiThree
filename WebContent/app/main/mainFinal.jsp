@@ -856,8 +856,8 @@ function startClock() {
 	
 // 유기동물 api로 불러오기
 function lostfoundanimals() {
+	console.log(
 /* 	let  overlaparray = [];
-
 	
 	function overlapOne () {   
 		let i = 0;  
@@ -1018,6 +1018,7 @@ function lostfoundanimals() {
   //clearInterval(timer);
 //}
 
+//네이버 쇼핑 api 불러 오기!
 
 
 
