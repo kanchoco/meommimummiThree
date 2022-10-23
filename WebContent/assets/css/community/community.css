@@ -1525,3 +1525,46 @@ input:focus {outline: none;}
     margin-top:5px;
     margin-left: 2px;
 }
+/* 댓글 버튼 추가부분 */
+
+
+.replyCommentReadyModify, .postContentReadyModify{
+	background-image:url("../../../images/modify-ready.png");
+	background-size:cover;
+	position:right;
+	cursor:pointer;
+	width:25px;
+	height:25px;
+}
+.replyCommentModify, .postContentModify{
+	background-image:url("../../../images/modify-check.png");
+	background-size:cover;
+	position:right;
+	cursor:pointer;
+	width:25px;
+	height:25px;
+}
+.replyCommentDelete, .postContentDelete{
+	background-image:url("../../../images/delete.png");
+	background-size:cover;
+	position:right;
+	cursor:pointer;
+	width:25px;
+	height:25px;
+}
+.replyCommentCancel, .postContentCancel{
+	background-image:url("../../../images/cancel.png");
+	background-size:cover;
+	position:right;
+	cursor:pointer;
+	width:25px;
+	height:25px;
+}
+img.contentimage{
+	width:500px;
+	height:500px;
+	display:block;
+	margin:0 auto;
+	vertical-align:text-bottom;
+}
+/* 댓글 버튼 추가부분 끝 */
