@@ -17,7 +17,16 @@
 </head>
 
 <body>
-<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"/>
+<%
+       String userId = (String)session.getAttribute("userId");
+	   /* int userNumber = Integer.valueOf(session.getAttribute("userNumber")); */
+	   int usernumber=3;
+       boolean loginOk = userId == null ? false : true;
+       if(loginOk){ %>
+       <jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
+   <% }else{ %>
+      <jsp:include page = '${pageContext.request.contextPath}/app/fix/header.jsp'/>
+   <% } %>
 	<main>
 		<div id="page">
 			<div id="app-container">
@@ -335,17 +344,21 @@ $parentposition.on("click",".replyEnter",function(){
 });
 
 //기본으로 띄워줄 5개의 게시글
-var Outputindex=5;
+const Outputindex=5;
 var Increment=0;
 
 //부모요소에 추가하여 붙이기 위해 변수 선언
 var textinit="";
+
+//스크롤 이벤트시 추가로 붙이기 위해 변수 선언
+var text="";
 
 showDefault();
 //기본으로 
 function showDefault(){
 	console.log(Outputindex);
 	console.log(Increment);
+	$parentposition.replaceAll("");
 	$.ajax({
 		url:"${pageContext.request.contextPath}/meommi/Postlist.po",
 		type:"get",
@@ -376,8 +389,9 @@ function showDefault(){
 		}//ajax(success:post)
 	});//ajax(post)
 }
+
 function showDefaultList(resultpost,resultcomment,resultfile){
-	
+	$parentposition.replaceAll("");
 	resultpost.forEach(post=>{
 		textinit+=`<div class="FeedCard_container__2vyLX">
 		<section class="FeedCard_header__3R2hC">
@@ -438,16 +452,18 @@ function showDefaultList(resultpost,resultcomment,resultfile){
 		    textinit+=`<div class="replyWrap">
 		        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
 		        resultcomment.forEach(comment=>{
-		        	if(comment.postNumber==post.postNumber){
+		        	if(comment.postNumber==post.postNumber){console.log("comment.postNumber:"+comment.postNumber);
+						if(comment.userNumber==3){
 		        		textinit+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
 		        			<span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
 		        			textinit+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
 		        			textinit+=`<span>`+comment.commentsDatetime+`</span>`;
-		        			textinit+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
-		        			textinit+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
-		        			textinit+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
-		        			textinit+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
-		        			textinit+=`</div>`;
+			        			textinit+=`<span class="replyCommentModifyReadyWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentReadyModify"></div></span>`;
+			        			textinit+=`<span class="replyCommentModifyWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentModify"></div></span>`;
+			        			textinit+=`<span class="replyCommentDeleteWrap" data-number=`+comment.commentsNumber+`><div class="replyCommentDelete"></div></span>`;
+			        			textinit+=`<span class="replyCommentCancelWrap" style="display:none;" data-number=`+comment.commentsNumber+`><div class="replyCommentCancel"></div></span>`;
+			        			textinit+=`</div>`;
+						}
 		        	}
 		        });
 		        textinit+=`</div>
@@ -469,28 +485,28 @@ function showScrollDown(){
 	console.log(Outputindex);
 	console.log(Increment);
 	Increment+=1;
+	console.log("스크롤 다운 들어옴");
 	$.ajax({
 		url:"${pageContext.request.contextPath}/meommi/PostlistOk.po",
 		type:"get",
-		data:{Increment:1},
+		data:{Increment:Outputindex+Increment},
 		contentType:"text/html; charset=utf-8",
 		dataType:"json",
 		success:function(resultpost){
 			$.ajax({
 				url:"${pageContext.request.contextPath}/meommi/CommentlistOk.co",
 				type:"get",
-				data:{Increment:1},
+				data:{Increment:Outputindex+Increment},
 				contentType:"text/html; charset=utf-8",
 				dataType:"json",
 				success:function(resultcomment){
 					$.ajax({
 						url:"${pageContext.request.contextPath}/meommi/PostFileOk.pf",
 						type:"get",
-						data:{Increment:1},
+						data:{Increment:Outputindex+Increment},
 						contentType:"text/html; charset=utf-8",
 						dataType:"json",
 						success:function(resultfile){
-							var text="";
 							resultpost.forEach(post=>{
 							text+=`<div class="FeedCard_container__2vyLX">
 								<section class="FeedCard_header__3R2hC">
@@ -504,16 +520,7 @@ function showScrollDown(){
 								                text+=`<p class="FeedCard_nickName__3vNYO">`+post.userId+`</p>`;
 								                text+=`<div class="FeedCard_supporterClub__7EgiL"></div>
 								                	</div>
-								                	<div class="FeedCard_summary__17A5w">
-								                    <div
-								                        class="RatingScore_container__AeQ_I RatingScore_smTitle__1OhOH FeedCard_rating__2O_vL">
-								                        <div class="RatingScore_icon__rIS_k"></div>`;
-								                        text+=`<span class="RatingScore_score__2a-SN">좋아요 `+post.postLikeNumber+`</span>`;
-								                        text+=`</div>
-								                    <div class="FeedCard_follower__23ddV">`;
-								                    text+=`팔로워<span class="FeedCard_count__1fbWO">`+14+`</span>`;
-								                    text+=`</div>
-								                </div>
+								                
 								            </div>
 								        </div>
 								    </a>
@@ -560,6 +567,7 @@ function showScrollDown(){
 								        	/* console.log("file.postNumber:"+file.postNumber);
 								        	console.log("post.postNumber:"+post.postNumber); */
 								        	if(post.postNumber==file.postNumber && file.postFileSystemName!=null){
+								        		console.log("post.postNumber:"+post.postNumber+"|"+"file.postNumber:"+file.postNumber);
 								        		text+=`<div class="FeedCard_thumbnail__22k7x"><img class="contentimage" src="../../upload/`+file.postFileOriginName+`"/>`+`</div>`;
 									            /* <div class="FeedCard_thumbnail__22k7x"
 									                style="background-image: -webkit-image-set(url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/520/quality/85/&quot;) 1x, url(&quot;https://cdn2.wadiz.kr/2022/10/01/b1845cd7-8c9b-4184-8f32-2475eace29b5.jpg/wadiz/resize/1040/quality/85/&quot;) 2x);">
@@ -591,7 +599,7 @@ function showScrollDown(){
 								    text+=`<div class="replyWrap">
 								        <a href="replyContents" class="replyShow">댓글 보기 ▼</a>`;
 								        resultcomment.forEach(comment=>{
-								        	if(comment.postNumber==post.postNumber){
+								        	if(comment.postNumber==post.postNumber){console.log("comment.postNumber:"+comment.postNumber);
     									        text+=`<div class="replyContents" name="replyContents" style="display:none;" data-index="0">
     									            <span class="replyIdWrap"><div class="replyId">`+comment.userId+`</div></span>`;
     									            text+=`<span class="replyCommentWrap"><div class="replyComment">`+comment.commentsContent+`</div></span>`;
@@ -655,7 +663,8 @@ $parentposition.on("click",".replyEnter",function(){
 		data:{content:replytext,postNumber:$(this).data("number")},
 		success:function(){
 			console.log("comment reply enter success");
-			location.reload();
+			text="";
+ 			textinit="";
 			showDefault();
 		}
 	});
@@ -712,7 +721,8 @@ $parentposition.on("click","span.replyCommentModifyWrap",function(){
 		success:function(){
 			console.log("comment modify success");
 			postContentContains=true;
-			location.reload();
+			text="";
+ 			textinit="";
 			showDefault();
 		}
 	});
@@ -727,7 +737,8 @@ $parentposition.on("click","span.replyCommentDeleteWrap",function(){
 		data:{commentNumber:$(this).data("number")},
 		success:function(){
 			console.log("comment delete success");
-			location.reload();
+			text="";
+ 			textinit="";
 			showDefault();
 		}
 	});
@@ -782,7 +793,8 @@ $parentposition.on("click","span.postContentReadyModifyWrap",function(){
  		data:{postContent:postContent.val(),postNumber:postNumber},
  		success:function(){
  			postContentContains=true;
- 			location.reload();
+ 			text="";
+ 			textinit="";
  			showDefault();
  			console.log("post modify success");
  		}
@@ -797,7 +809,8 @@ $parentposition.on("click","span.postContentDeleteWrap",function(){
  		data:{postNumber:$(this).data("number")},
  		success:function(){
  			console.log("post delete success");
- 			location.reload();
+ 			text="";
+ 			textinit="";
  			showDefault();
  		}
  	});
@@ -829,9 +842,9 @@ $("#contentResistButton").click(function (event) {
 	        cache: false,           
 	        timeout: 600000,       
 	        success: function (data) {
-	        	alert('게시글,이미지 업로드 성공');
-	        	console.log("data:"+data);
-				location.reload(true);
+	        	$("textarea[name='feedMainWriting']").val("");
+				text="";
+				textinit="";
 				showDefault();
 	           $("#contentResistButton").prop("disabled", false);
 	        },          
@@ -847,15 +860,38 @@ $(".tab-button").on("click",function(){
 	var keyword=$(this).find("button").text();
 	console.log("keyword:"+keyword);
 	if(keyword=="전체"){
+		text="";
+		textinit="";
 		console.log("전체 사용된거 이용");
+		showDefault();
 	}
 	else if(keyword=="내팔로잉"){
 		$.ajax({
 			url:"${pageContext.request.contextPath}/meommi/PostlistFollowing.po",
 			type:"get",
 			data:{keyword:keyword},
+			dataType:"json",
 			success:function(followingpost){
-				console.log(followingpost);
+				$.ajax({
+					url:"${pageContext.request.contextPath}/meommi/CommentlistFollowing.co",
+					type:"get",
+					data:{keyword:keyword},
+					dataType:"json",
+					success:function(followingcomment){
+						$.ajax({
+							url:"${pageContext.request.contextPath}/meommi/PostFilelistFollowing.pf",
+							type:"get",
+							data:{keyword:keyword},
+							dataType:"json",
+							success:function(followingfile){
+								text="";
+								textinit="";
+								//팔로잉 사람들의 게시글 및 파일(게시글의 댓글)
+								showDefaultList(followingpost,followingcomment,followingfile);
+							}
+						});
+					}
+				});
 			}
 		});
 	}
@@ -864,19 +900,24 @@ $(".tab-button").on("click",function(){
 			url:"${pageContext.request.contextPath}/meommi/PostlistFollower.po",
 			type:"get",
 			data:{keyword:keyword},
+			dataType:"json",
 			success:function(followerpost){
 				$.ajax({
 					url:"${pageContext.request.contextPath}/meommi/CommentlistFollower.co",
 					type:"get",
 					data:{keyword:keyword},
+					dataType:"json",
 					success:function(followercomment){
 						$.ajax({
-							url:"${pageContext.request.contextPath}/meommi/PostFilelistFollower.co",
+							url:"${pageContext.request.contextPath}/meommi/PostFilelistFollower.pf",
 							type:"get",
 							data:{keyword:keyword},
+							dataType:"json",
 							success:function(followerfile){
-								location.reload();
-								showDefaultList(followerpost,followercomment,followerfile);//팔로우 사람들의 게시글(게시글의 댓글 및 파일)
+								text="";
+								textinit="";
+								//팔로우 사람들의 게시글 및 파일(게시글의 댓글)
+								showDefaultList(followerpost,followercomment,followerfile);
 							}
 						});
 					}

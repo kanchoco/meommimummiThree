@@ -32,6 +32,7 @@
 	<!-- following쿼리문에서 재사용 -->
 	<select id="selectFollowerDefault" parameterType="_int" resultType="postDTO">
 		select post_number,post_content,post_datetime,p.user_number,u.user_id from 
-		tbl_post p join tbl_user u on p.user_number=u.user_number where u.user_number=#{userNumber} order by post_datetime desc limit 0,5;
+		tbl_post p join tbl_user u on p.user_number=u.user_number where p.user_number=#{userNumber} order by post_datetime desc limit 0,5;
 	</select>
+	
 </mapper>

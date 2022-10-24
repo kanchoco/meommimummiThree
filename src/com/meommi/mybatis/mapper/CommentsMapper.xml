@@ -28,9 +28,11 @@
 		delete from tbl_comments where comments_number=#{commentsNumber}
 	</delete>
 	
+	<!-- following쿼리문에서 재사용 -->
 	<select id="selectFollowerCommentDefault" parameterType="_int" resultType="CommentsDTO">
 		select c.comments_number,c.comments_datetime,c.comments_content,c.user_number,c.post_number,u.user_id 
 		from tbl_comments c,tbl_post p,tbl_user u where c.post_number=p.post_number and c.user_number=u.user_number and p.user_number=#{userNumber} group by c.comments_number 
 		order by c.comments_datetime desc
 	</select>
+	
 </mapper>

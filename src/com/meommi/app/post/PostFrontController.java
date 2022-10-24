@@ -40,8 +40,7 @@ public class PostFrontController extends HttpServlet {
          }else if(request.equals("/meommi/PostlistFollower.po")) {
         	 new PostListFollowerController().execute(req, resp);
          }else if(request.equals("/meommi/PostlistFollowing.po")) {
-        	 System.out.println("들어옴1");
-        	 new postListFollwingController().execute(req,resp);
+        	 new postListFollowingController().execute(req,resp);
          }
             
          /*

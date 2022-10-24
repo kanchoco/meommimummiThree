@@ -16,7 +16,7 @@ const upload = document.querySelector('#addPhotoButton');
 const $moreBtn = $(".FeedCard_moreWrap__1AsqH");
 const $report = $(".report");
 const $reactModalPortal = $(".ReactModalPortal");
-for (var i = 0; i < tabButton.length; i++) {
+/*for (var i = 0; i < tabButton.length; i++) {
     tabButton[i].addEventListener('click', clickTab);
 }
 
@@ -41,8 +41,15 @@ function clickTab() {
 
 
     }
-}
-
+}*/
+$(".tab-button").on("click",function(){
+	$(".tab-button").css("background","#f2f4f6");
+	$(".tab-button").css("border","#f2f4f6");
+	$(".tab-button").css("color","#495057");
+	$(this).css("background","#e7f9f9");
+	$(this).css("border","#e7f9f9");
+	$(this).css("color","#00a2a2");
+})
 
 for (var i = 0; i < followButton.length; i++) {
     followButton[i].addEventListener('mouseover', overFollowButton);
