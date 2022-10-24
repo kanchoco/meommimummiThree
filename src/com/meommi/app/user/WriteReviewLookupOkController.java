@@ -56,6 +56,7 @@ public class WriteReviewLookupOkController implements Execute {
 		pageMap.put("userNumber", userNumber);
 		
 		userDAO.selectMyReview(pageMap).forEach(v -> {
+			 System.out.println(v);
 			 v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
 			 v.setReviewFileSystemName(userDAO.selectReviewFile(v.getPlaceReviewNumber()));
 			 JSONObject review = new JSONObject(v); reviews.put(review); });

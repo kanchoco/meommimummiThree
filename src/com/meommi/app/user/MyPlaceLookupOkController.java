@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
+import com.meommi.app.placeReview.dao.PlaceReviewDAO;
 import com.meommi.app.user.dao.UserDAO;
 
 public class MyPlaceLookupOkController implements Execute {
@@ -29,6 +30,7 @@ public class MyPlaceLookupOkController implements Execute {
 		PrintWriter out = resp.getWriter();
 		String temp = req.getParameter("page"); 
 		JSONObject pages = new JSONObject();
+		PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
 		System.out.println(userNumber);
 		
 		int page = temp == null ? 1 : Integer.parseInt(temp);
@@ -55,7 +57,12 @@ public class MyPlaceLookupOkController implements Execute {
 		
 		System.out.println(userDAO.selectMyPlace(pageMap));
 		
-		userDAO.selectMyPlace(pageMap).forEach(v -> {System.out.println(v); JSONObject place = new JSONObject(v); places.put(place);});
+		userDAO.selectMyPlace(pageMap).forEach(v -> {
+			v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
+			 v.setReviewFileSystemName(userDAO.selectReviewFile(v.getPlaceReviewNumber()));
+			System.out.println(v);  
+			JSONObject place = new JSONObject(v); places.put(place);
+			});
 		places.put(pages);
 		out.print(places.toString());
 		out.close();
