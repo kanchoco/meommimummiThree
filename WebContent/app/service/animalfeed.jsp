@@ -35,7 +35,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/funeral.jsp">
+                            <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/funeral.fu">
                                 <span>장례업체</span>
                             </a>
                         </li>

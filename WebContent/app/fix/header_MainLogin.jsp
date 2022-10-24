@@ -62,7 +62,7 @@
                                                         </path>
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
-                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/meommi/Follow.fo">팔로우 보기</div><span
+                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/meommi/Follow.fo"></a>팔로우 보기</div><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
@@ -76,7 +76,7 @@
                                                         </path>
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
-                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/app/community/community.jsp">커뮤니티</div><span
+                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/app/community/community.jsp"></a>커뮤니티</div><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
@@ -133,7 +133,7 @@
  -->
                         
                         <div class="HeaderDesktop_user__3zGmM">
-                            <div class="User_container__bqVd2"><a href="${pageContext.request.contextPath}/user/myPage.us"><button type="button" class="User_btnAvatar__2Mui-"
+                            <div class="User_container__bqVd2"><a href="${pageContext.request.contextPath}/user/myPage.us"></a><button type="button" class="User_btnAvatar__2Mui-"
                                     aria-label="마이 와디즈">
                                     <div><span class="Avatar_wrap__2thmY" style="width: 32px; height: 32px;"><span
                                                 class="Avatar_picture__16i7U"></span></span></div>
