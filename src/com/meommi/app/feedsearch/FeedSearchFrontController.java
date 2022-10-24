@@ -29,7 +29,9 @@ public class FeedSearchFrontController extends HttpServlet {
 		   
 		   if(request.equals("/meommi/FeedSearch.fe")) {
 				new FeedSearchController().execute(req,resp);
-				System.out.println("fron t");
+		      }else if(request.equals("/meommi/FeedSearchList.fe")) {
+		    	result = new Result();
+		    	result.setPath("/app/service/animalfeed.jsp");
 		      }
 		      
 		      if(result != null) {
