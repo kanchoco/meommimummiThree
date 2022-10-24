@@ -338,7 +338,7 @@ function Inquire(){
 								text += `<div class="ProjectCardList_item__1owJa">`
 			                    text += `<div>`
 			                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-			                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+			                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
 			                    text += `<div class="CommonCard_rect__2wpm4">`
 			                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 			                    text += `</div>`
@@ -346,7 +346,7 @@ function Inquire(){
 			                    text += `<div class="CommonCard_info__1f4kq">`
 			                    text += `<div class="RewardProjectCard_info__3JFub">`
 			                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-			                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+			                    text += `<a class="CardLink_link__1k83H" >`
 			                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 			                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 			                    text += `</p>`
@@ -535,7 +535,7 @@ function Inquire(){
 								text += `<div class="ProjectCardList_item__1owJa">`
 			                    text += `<div>`
 			                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-			                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+			                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">`
 			                    text += `<div class="CommonCard_rect__2wpm4">`
 			                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 			                    text += `</div>`
@@ -543,7 +543,7 @@ function Inquire(){
 			                    text += `<div class="CommonCard_info__1f4kq">`
 			                    text += `<div class="RewardProjectCard_info__3JFub">`
 			                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-			                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+			                    text += `<a class="CardLink_link__1k83H">`
 			                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 			                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 			                    text += `</p>`
@@ -784,7 +784,7 @@ function Inquire(){
 								text += `<div class="ProjectCardList_item__1owJa">`
 			                    text += `<div>`
 			                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-			                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+			                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
 			                    text += `<div class="CommonCard_rect__2wpm4">`
 			                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 			                    text += `</div>`
@@ -792,7 +792,7 @@ function Inquire(){
 			                    text += `<div class="CommonCard_info__1f4kq">`
 			                    text += `<div class="RewardProjectCard_info__3JFub">`
 			                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-			                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+			                    text += `<a class="CardLink_link__1k83H" >`
 			                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 			                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 			                    text += `</p>`
@@ -1032,7 +1032,7 @@ function kind(param) {
 						text += `<div class="ProjectCardList_item__1owJa">`
 	                    text += `<div>`
 	                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-	                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+	                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
 	                    text += `<div class="CommonCard_rect__2wpm4">`
 	                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 	                    text += `</div>`
@@ -1040,7 +1040,7 @@ function kind(param) {
 	                    text += `<div class="CommonCard_info__1f4kq">`
 	                    text += `<div class="RewardProjectCard_info__3JFub">`
 	                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-	                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+	                    text += `<a class="CardLink_link__1k83H" >`
 	                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 	                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 	                    text += `</p>`
@@ -1279,7 +1279,7 @@ function city(param) {
 						text += `<div class="ProjectCardList_item__1owJa">`
 	                    text += `<div>`
 	                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-	                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+	                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
 	                    text += `<div class="CommonCard_rect__2wpm4">`
 	                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 	                    text += `</div>`
@@ -1287,7 +1287,7 @@ function city(param) {
 	                    text += `<div class="CommonCard_info__1f4kq">`
 	                    text += `<div class="RewardProjectCard_info__3JFub">`
 	                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-	                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+	                    text += `<a class="CardLink_link__1k83H" >`
 	                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 	                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 	                    text += `</p>`
@@ -1521,7 +1521,7 @@ function displayData(currentPage, dataPerPage) {
 					text += `<div class="ProjectCardList_item__1owJa">`
                     text += `<div>`
                     text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
                     text += `<div class="CommonCard_rect__2wpm4">`
                     text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
                     text += `</div>`
@@ -1529,7 +1529,7 @@ function displayData(currentPage, dataPerPage) {
                     text += `<div class="CommonCard_info__1f4kq">`
                     text += `<div class="RewardProjectCard_info__3JFub">`
                     text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+                    text += `<a class="CardLink_link__1k83H" >`
                     text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
                     text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
                     text += `</p>`
@@ -1713,7 +1713,7 @@ function citycode(param) {
 						text += `<div class="ProjectCardList_item__1owJa">`
 	                    text += `<div>`
 	                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-	                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+	                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" aria-hidden="true" tabindex="-1">`
 	                    text += `<div class="CommonCard_rect__2wpm4">`
 	                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 	                    text += `</div>`
@@ -1721,7 +1721,7 @@ function citycode(param) {
 	                    text += `<div class="CommonCard_info__1f4kq">`
 	                    text += `<div class="RewardProjectCard_info__3JFub">`
 	                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-	                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+	                    text += `<a class="CardLink_link__1k83H" >`
 	                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 	                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 	                    text += `</p>`
@@ -1958,7 +1958,7 @@ function displayData(currentPage, dataPerPage) {
 					text += `<div class="ProjectCardList_item__1owJa">`
                     text += `<div>`
                     text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
                     text += `<div class="CommonCard_rect__2wpm4">`
                     text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
                     text += `</div>`
@@ -1966,7 +1966,7 @@ function displayData(currentPage, dataPerPage) {
                     text += `<div class="CommonCard_info__1f4kq">`
                     text += `<div class="RewardProjectCard_info__3JFub">`
                     text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+                    text += `<a class="CardLink_link__1k83H" >`
                     text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
                     text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
                     text += `</p>`
@@ -2202,7 +2202,7 @@ $("#dataPerPage").change(function () {
 							text += `<div class="ProjectCardList_item__1owJa">`
 		                    text += `<div>`
 		                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
-		                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+		                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf"  aria-hidden="true" tabindex="-1">`
 		                    text += `<div class="CommonCard_rect__2wpm4">`
 		                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
 		                    text += `</div>`
@@ -2210,7 +2210,7 @@ $("#dataPerPage").change(function () {
 		                    text += `<div class="CommonCard_info__1f4kq">`
 		                    text += `<div class="RewardProjectCard_info__3JFub">`
 		                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
-		                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+		                    text += `<a class="CardLink_link__1k83H" >`
 		                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
 		                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
 		                    text += `</p>`
