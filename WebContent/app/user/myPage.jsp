@@ -106,7 +106,7 @@
                                                             <span>
                                                                 <!-- before -->
                                                                 <b>
-                                                                    <c:out value="${0 eq myPlace? 0 : myPlace}"></c:out>
+                                                                    <c:out value="${0 eq myPlace ? 0 : myPlace}"></c:out>
                                                                     <i></i>
                                                                 </b>
                                                                 내 장소

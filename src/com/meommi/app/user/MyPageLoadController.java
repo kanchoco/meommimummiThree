@@ -28,12 +28,12 @@ public Result execute(HttpServletRequest req, HttpServletResponse resp) throws S
 
 	try {
 		int userNumber= loginUser.getUserNumber();
-		int myPost = userDAO.countMyPost(2);
-		int myComment = userDAO.countMyComment(2);
-		int myReview = userDAO.countMyReview(2);
-		int myPlace = userDAO.countMyPlace(2);
+		int myPost = userDAO.countMyPost(userNumber);
+		int myComment = userDAO.countMyComment(userNumber);
+		int myReview = userDAO.countMyReview(userNumber);
+		int myPlace = userDAO.countMyPlace(userNumber);
 			session.setAttribute("userNumber", userNumber);
-			System.out.println(userNumber);
+			System.out.println("유저넘버"+ userNumber);
 			System.out.println(myPlace);
 			System.out.println(myComment);
 			System.out.println(myReview);
