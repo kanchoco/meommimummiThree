@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -194,6 +194,11 @@
                     <h1>실시간 후기</h1>
                 </div>
                 <div>
+                 <tbody>
+<c:choose>
+<c:when test="${(reviews != null and fn:length(reviews) > 0)}">			
+<c:forEach  begin="1" end="5" step="1" var="review" items="${reviews}">
+                 
                  
                     <div class="TabContainer_tabList__2IbMs">
                         <div class="TabContainer_listItem__2nO5j"><a
@@ -205,9 +210,9 @@
                                         <div
                                             class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
                                             <div class="commons_orderText__3B9S_">1</div>
-                                            <h1 class="commons_title__1yGWm">마스카라 아니에요. 속눈썹 영양제에요. 영양공급과 메이크업 효과까지!</h1>
+                                            <h1 class="commons_title__1yGWm"><c:out value="${review.getPlaceReviewContents()}" /></h1>
                                             <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">30,367%</span>뷰티</p>
+                                                    class="commons_achievementRate__2J-KL">${review.getUserName()}</span>getPlaceReviewDatetime()</p>
                                         </div>
                                         <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
                                             <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
@@ -217,92 +222,14 @@
                                     </article>
                                 </div>
                             </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/158540?_refer_section_st=ranking_1" data-ec-id="158540"
-                                data-ec-name="만보를 걸어도 편안해요. 양말처럼 착! 1초만에 신고벗는 만보삭스부츠" data-ec-list="ranking"
-                                data-ec-position="1">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="1">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">2</div>
-                                            <h1 class="commons_title__1yGWm">만보를 걸어도 편안해요. 양말처럼 착! 1초만에 신고벗는 만보삭스부츠</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">28,504%</span>패션·잡화</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0824/20220824104838642_158540.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/161118?_refer_section_st=ranking_2" data-ec-id="161118"
-                                data-ec-name="[1억 앵콜 | 5개 동시 충전] 20W+괴물 용량+고속 충전 보조배터리" data-ec-list="ranking"
-                                data-ec-position="2">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="2">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">3</div>
-                                            <h1 class="commons_title__1yGWm">[1억 앵콜 | 5개 동시 충전] 20W+괴물 용량+고속 충전 보조배터리
-                                            </h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">14,022%</span>테크·가전</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0914/20220914151615177_161118.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/160927?_refer_section_st=ranking_3" data-ec-id="160927"
-                                data-ec-name="추운욕실 뜨겁게 한달 전기료 2,240원 북유럽 감성 욕실온풍기 2.0" data-ec-list="ranking"
-                                data-ec-position="3">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="3">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">4</div>
-                                            <h1 class="commons_title__1yGWm">추운욕실 뜨겁게 한달 전기료 2,240원 북유럽 감성 욕실온풍기 2.0
-                                            </h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">32,257%</span>홈·리빙</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0915/20220915135503633_160927.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/161925?_refer_section_st=ranking_4" data-ec-id="161925"
-                                data-ec-name="[미.친. 블루오션 부업] 글로벌 자동화 유튜브로 대기업 연봉 격파!" data-ec-list="ranking"
-                                data-ec-position="4">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="4">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">5</div>
-                                            <h1 class="commons_title__1yGWm">[미.친. 블루오션 부업] 글로벌 자동화 유튜브로 대기업 연봉 격파!</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">32,783%</span>클래스·컨설팅</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0907/20220907175050516_161925.png/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
+                       
+</c:forEach>
+</c:when>
+</c:choose>
+</tbody>
+                        
+                      
+                 
                     </div>
                 </div>
             </section>
@@ -556,7 +483,7 @@
         <div class="RecommendationDesktop_innerGroup__as4jB Main_innerWrap__7-_Vm" style="padding-right:36px">
             <section class="SectionContainerLayout_container__1f8kt LikableFundingWrap_container__3mzG6 undefined">
                 <div class="title_contentWrapper__1P-q0 LikableFundingWrap_title__qXo4b">
-                    <h1>회원님이 <strong style="color:#ff914d">좋아하는</strong> 친구목록</h1>
+                    <h1>회원님을 <strong style="color:#ff914d">기달리고있는</strong> 유기동물</h1>
                 </div>
                 <div class="LikableFundingWrap_wrap__1ZPJw">
                    
@@ -857,6 +784,7 @@ function startClock() {
 // 유기동물 api로 불러오기
 function lostfoundanimals() {
 	
+	
 /* 	let  overlaparray = [];
 	
 	function overlapOne () {   
@@ -1021,6 +949,7 @@ function lostfoundanimals() {
 navershop()
 //네이버 쇼핑 api 불러 오기!
 function navershop() {
+
 	
 var keyword = "아르르사료";
    var sort ="sim";
@@ -1154,8 +1083,143 @@ var keyword = "아르르사료";
          }
          });
 }
-
+var Outputindex=5;
+var Increment=0;
     
+    
+    // 커뮤니티 
+    
+    //이미지 경로??
+    //"background-image:  url("../../upload/`+file.postFileOriginName+`") #202020 no-repeat;background-size: cover;max-height: 100%; max-width: 100%;"
+    showDefault()
+    function showDefault(){
+    	console.log(Outputindex);
+    	console.log(Increment);
+	let text="";
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/mainpost.ma",
+		type:"get",
+		contentType:"text/html; charset=utf-8",
+		data:{Outputindex:Outputindex+Increment},
+		dataType:"json",
+		success:function(resultpost){
+					$.ajax({
+						url:"${pageContext.request.contextPath}/meommi/mainpostfile.ma",
+						type:"post",
+						contentType:"text/html; charset=utf-8",
+						data:{Outputindex:Outputindex+Increment},
+						dataType:"json",
+						success:function(resultfile){
+							//텍스트 태그 합치는 코드 작성
+							resultpost.forEach(post=>{
+
+										console.log(post);
+									text += `<h3 class="RecommendationFeed_title__laFXx">커뮤니티</h3>`
+									text += `<h4 class="RecommendationFeed_subTitle__3VgCT">최근 반려동물 소개하기!👀</h4>`
+									text += `<div class="CardTable_container__35uFd RecommendationFeed_cardList__1pFdE" style="width: calc(100% - 0px);">`
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-left: 0px; margin-right: 0px; margin-bottom: 16px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="/web/campaign/detail/147782?_refer_section_st=feed_0" data-ec-list="피드" data-ec-id="147782" data-ec-name="[기능8개,소재4개]순식간에 내신발을 편하게 해주는 발침대깔창,미끄럼NO" data-ec-category="패션·잡화" data-ec-brand="편한발 이지풋" data-ec-usertype="MAKER" data-ec-feedtype="MAKER_RECOMMEND_TODAY" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472854" data-gtm-vis-recent-on-screen-11319722_2073="7703291" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0929/20220929142936550_160639.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeMaker__3Uw2O">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_projectName__Fk9ZT RecommendationFeedCard_projectNameMaker__3JdNd">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-left: 28.5px; margin-right: 28.5px; margin-bottom: 16px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="/web/campaign/detail/160639?_refer_section_st=feed_1" data-ec-list="피드" data-ec-id="160639" data-ec-name="[미국 FDA 동물용 의약외품 등록] 반려동물 피부 전용 센텔라 연고" data-ec-category="반려동물" data-ec-brand="써니싸이드업" data-ec-usertype="SUPPORTER" data-ec-feedtype="REVIEW" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472854" data-gtm-vis-recent-on-screen-11319722_2073="7703291" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0929/20220929142936550_160639.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeReview__12iV2">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_content__1WP-b RecommendationFeedCard_contentSupporter__2XP6p">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px);  margin-right: 0px; margin-bottom: 16px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="/web/campaign/detail/160639?_refer_section_st=feed_2" data-ec-list="피드" data-ec-id="160639" data-ec-name="[미국 FDA 동물용 의약외품 등록] 반려동물 피부 전용 센텔라 연고" data-ec-category="반려동물" data-ec-brand="써니싸이드업" data-ec-usertype="SUPPORTER" data-ec-feedtype="REVIEW" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472854" data-gtm-vis-recent-on-screen-11319722_2073="7703292" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0929/20220929142936550_160639.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeReview__12iV2">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_content__1WP-b RecommendationFeedCard_contentSupporter__2XP6p">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="/web/campaign/detail/156965?_refer_section_st=feed_3" data-ec-list="피드" data-ec-id="156965" data-ec-name="붙이면 주름관리 끝! 완벽밀착 투명패치로 24시간 주름케어" data-ec-category="뷰티" data-ec-brand="주식회사 마르시끄" data-ec-usertype="SUPPORTER" data-ec-feedtype="REVIEW" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472950" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-recent-on-screen-11319722_2073="7703638" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0924/20220924190802096_156965.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeReview__12iV2">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_content__1WP-b RecommendationFeedCard_contentSupporter__2XP6p">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-left:28.5px; margin-right: 28.5px; margin-bottom: 0px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="/web/campaign/detail/147380?_refer_section_st=feed_4" data-ec-list="피드" data-ec-id="147380" data-ec-name="[계면활성제 NO] 99.5%천연오일로 만든 친환경 생분해 시트" data-ec-category="뷰티" data-ec-brand="Dr_YHYG" data-ec-usertype="SUPPORTER" data-ec-feedtype="REVIEW" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472951" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-recent-on-screen-11319722_2073="7703639" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0916/20220916130305830_147380.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeReview__12iV2">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_content__1WP-b RecommendationFeedCard_contentSupporter__2XP6p">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-right: 0px; margin-bottom: 0px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="/web/campaign/detail/150792?_refer_section_st=feed_5" data-ec-list="피드" data-ec-id="150792" data-ec-name="[임상완료]14일만 발라보세요. 답없는 피부를 깐달걀로 바꿔주는 진정크림" data-ec-category="뷰티" data-ec-brand="주식회사 하늘을담다" data-ec-usertype="MAKER" data-ec-feedtype="MAKER_RECOMMEND_TODAY" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472951" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-recent-on-screen-11319722_2073="7703639" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0914/20220914160156550_150792.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeMaker__3Uw2O">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_projectName__Fk9ZT RecommendationFeedCard_projectNameMaker__3JdNd">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeed_footer__15DI0"><button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_lg__3yP9R RecommendationFeed_viewMoreButton__3J1D5" type="button"><span><span class="Button_children__10ESl">커뮤니티 더보기</span></span></button></div>`
+							
+							 });
+					
+					$(".RecommendationFeed_container__MtOmG").html(text);
+						}//ajax(success:file)
+					});//ajax(file)
+				}//ajax(success:comment)
+			
+		})//ajax(success:post)
+	
+}
     
     
     

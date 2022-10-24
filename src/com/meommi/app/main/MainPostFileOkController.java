@@ -1,4 +1,4 @@
-package com.meommi.app.post;
+package com.meommi.app.main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,20 +12,18 @@ import org.json.JSONObject;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
-import com.meommi.app.post.dao.PostDAO;
+import com.meommi.app.postFile.dao.PostFileDAO;
 
-public class PostListOkController implements Execute {
+public class MainPostFileOkController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("utf-8");
-		int increment=6;
-		PostDAO postDAO=new PostDAO();
+		PostFileDAO postfileDAO=new PostFileDAO();
+		int startIndex=6;
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
-		
-		postDAO.selectPostRow(increment).forEach(posts->{
-			JSONObject jsonObject =new JSONObject(posts);  jsonArray.put(jsonObject);
+		postfileDAO.selectPostfileRow(startIndex).forEach(postfile->{
+			JSONObject fileobject=new JSONObject(postfile); jsonArray.put(fileobject);
 		});
 		out.print(jsonArray.toString());
 		out.close();
