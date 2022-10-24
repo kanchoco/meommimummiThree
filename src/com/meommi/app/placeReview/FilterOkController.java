@@ -2,6 +2,7 @@ package com.meommi.app.placeReview;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +30,17 @@ public class FilterOkController implements Execute {
       Criteria photoCreteria = new Criteria(star, order, photo, placeId);
       Criteria creteria = new Criteria(star, order, placeId);
       PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
+	  String userNumber = String.valueOf(req.getSession().getAttribute("userNumber") == null? 0 : req.getSession().getAttribute("userNumber"));
       JSONArray reviews = new JSONArray();
+      
+      HashMap<String, Integer> helpMap = new HashMap<>();
+	  helpMap.put("userNumber", Integer.valueOf(userNumber));
       
       if (photo == 0) {
           System.out.println("사진 없음");
           placeReviewDAO.noPhotoFilter(creteria).forEach(v -> {
+        	  helpMap.put("placeReviewNumber", v.getPlaceReviewNumber());
+        	  v.setHelp(placeReviewDAO.isHelp(helpMap));
         	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
               JSONObject review = new JSONObject(v);
@@ -43,6 +50,8 @@ public class FilterOkController implements Execute {
       } else {
           System.out.println("사진 있음");
           placeReviewDAO.photoFilter(photoCreteria).forEach(v -> {
+        	  helpMap.put("placeReviewNumber", v.getPlaceReviewNumber());
+        	  v.setHelp(placeReviewDAO.isHelp(helpMap));
         	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
               JSONObject review = new JSONObject(v);
