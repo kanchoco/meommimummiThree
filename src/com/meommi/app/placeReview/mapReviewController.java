@@ -39,18 +39,16 @@ public class mapReviewController implements Execute {
 		
 		HashMap<String, Integer> helpMap = new HashMap<>();
 
+		helpMap.put("userNumber", Integer.valueOf(userNumber));
 		
 		JSONArray reviews = new JSONArray();
 		placeReviewDAO.selectAll(placeId).forEach(
 				placeReviewDTO -> {
 					helpMap.put("placeReviewNumber", placeReviewDTO.getPlaceReviewNumber());
-<<<<<<< HEAD
+
 					placeReviewDTO.setHelp(placeReviewDAO.isHelp(helpMap));
 					placeReviewDTO.setPlaceReviewHelful(placeReviewDAO.helpCount(placeReviewDTO.getPlaceReviewNumber()));
-=======
-					placeReviewDTO.setHelp(placeReviewDAO.isHelp(helpMap)); 
-					placeReviewDTO.setPlaceReviewHelful(placeReviewDAO.helpCount(Integer.valueOf(placeReviewDTO.getPlaceReviewNumber())));
->>>>>>> teamProject/master
+
 					placeReviewDTO.setUserFileSystemName(userFileDAO.selectFile(Integer.valueOf(userNumber)));
 					placeReviewDTO.setReviewFileSystemName(placeReviewDAO.selectFile(placeReviewDTO.getPlaceReviewNumber()));
 

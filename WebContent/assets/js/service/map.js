@@ -118,7 +118,7 @@ function filterLoad(filter, type){
 						} else{
 							text +=`<button type="button" class="reviewCommentGoodBtn clicked" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움 됨</div>`;
 						}
-						text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelfull +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
+						text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
 						
                      });
                      
@@ -357,6 +357,8 @@ function placesSearchCB(data, status, pagination) {
 
 /*전역변수로 선언*/
 var placeId="";
+var placeAddress = "";
+var placeName = "";
 var dataNumber ="";
 var place="";
 var placeReviewNumber="";
@@ -429,8 +431,8 @@ function displayPlaces(places) {
 				/*DB에 저장할 장소 ID값*/
 				placeId = place.id;
 				placeReviewNumber = place.placeReviewNumber;
-				var placeAddress = place.address_name;
-				var placeName = place.place_name;
+				placeAddress = place.address_name;
+				placeName = place.place_name;
 		
 				
 				/*여기서 aJax로 게시글 정보 부르고, 게시글 작성하기*/
@@ -1219,7 +1221,13 @@ function resist(){
 	formData.append("placeReviewFile", $('.cameraImgWrap')[0].files[0])
 	
 	/*placeId*/
-	formData.append("placeId", placeId)
+	formData.append("placeId", placeId);
+	
+	/*placeName*/
+	formData.append("placeName", placeName);
+	
+	/*placeAddress*/
+	formData.append("placeAddress", placeAddress);
 	
 	/*점수*/
 	formData.append("reviewRating", $(".rating-input__star.suggested").length)
@@ -1245,6 +1253,9 @@ function resist(){
 */        },          
         error: function (e) {  
            console.log("ERROR : ", e);     
+				console.log(placeName);
+				console.log(placeId);
+				console.log(placeAddress);
 /*            $("#contentResistButton").prop("disabled", false);    
 */            alert("글 등록을 실패하였습니다. 다시 시도해주세요.");      
 	         }     

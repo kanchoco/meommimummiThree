@@ -29,7 +29,7 @@ public class PlaceReviewOkController implements Execute {
       PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
       PlaceReviewFileDAO placeReviewFileDAO = new PlaceReviewFileDAO();
       PlaceReviewFileVO placeReviewFileVO = new PlaceReviewFileVO();
-      String uploadPath = req.getSession().getServletContext().getRealPath("/") + "upload/";
+      String uploadPath = req.getSession().getServletContext().getRealPath("/") + "upload/review/";
       System.out.println(uploadPath);
       int fileSize = 1024 * 1024 * 5; //5M 
       MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
@@ -66,6 +66,8 @@ public class PlaceReviewOkController implements Execute {
 
          placeReviewDTO.setUserNumber(userNumber);
          placeReviewDTO.setUserName(userName);
+         
+         System.out.println(placeReviewDTO);
          
          placeReviewDAO.insert(placeReviewDTO);
 

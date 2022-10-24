@@ -19,6 +19,8 @@ public class PlaceReviewDTO {
 	private String placeName;
 	private String placeAddress;
 	
+	
+	
 	public PlaceReviewDTO() {;}
 
 	public int getPlaceReviewNumber() {

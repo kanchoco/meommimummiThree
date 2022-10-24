@@ -13,10 +13,10 @@
 		select review_file_system_name from tbl_review_file where place_review_number = #{placeReviewNumber}
 	</select>
 
-	<insert id="insertContent" parameterType = "placeReviewVO">
-        insert into tbl_place_review
-        (place_review_contents, place_review_rating, user_number, place_id)
-        values(#{placeReviewContents}, #{placeReviewRating}, #{userNumber},#{placeId})
+	<insert id="insertContent" parameterType = "placeReviewDTO">
+		INSERT INTO meommi.tbl_place_review
+		(place_review_contents, place_review_rating, user_number, place_id, place_name, place_address, user_name, place_review_helful)
+		VALUES(#{placeReviewContents}, #{placeReviewRating}, #{userNumber}, #{placeId}, #{placeName}, #{placeAddress}, #{userName}, #{placeReviewHelful})
     </insert>
     
    <update id="updateHelpfulNumberUp" parameterType = "placeReviewVO">  <!-- 도움이 돼요 개수 증가-->
