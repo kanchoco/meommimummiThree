@@ -15,16 +15,13 @@
         <div class="footerMenu_container">
             <div class="footer_menu">
                 <div id="footer_menu_left" class="footer_menu">
-                    <span>정책 · 약관</span>
+                    <span><a href="${pageContext.request.contextPath}/app/commonterm/CommonTerm_community.jsp" style=" text-decoration-line: none; color: inherit;">정책 · 약관</a></span>
                     <svg class='footer_menu_svg' viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO FooterMenu_openLinkIcon__15pDJ" aria-hidden="true"><path d="M31.42 35.84h-27V8.4h14.76v-2H2.42v31.44h31V22.55h-2v13.29z"></path><path d="M37.32 15.41l-.01-13-12.99.01v2l9.72-.01-18.19 19.42 1.46 1.37 18-19.22.01 9.43h2z"></path></svg>
 
-                    <span>개인정보처리방침</span>
+                    <span><a href="${pageContext.request.contextPath}/app/commonterm/CommonTerm_community.jsp" style=" text-decoration-line: none; color: inherit;">개인정보처리방침</a></span>
                     <svg class='footer_menu_svg' viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO FooterMenu_openLinkIcon__15pDJ" aria-hidden="true"><path d="M31.42 35.84h-27V8.4h14.76v-2H2.42v31.44h31V22.55h-2v13.29z"></path><path d="M37.32 15.41l-.01-13-12.99.01v2l9.72-.01-18.19 19.42 1.46 1.37 18-19.22.01 9.43h2z"></path></svg>
                 </div>
-                <div id="footer_menu_right" class="footer_menu">
-                    <span>관리자페이지</span>
-                    <svg class='footer_menu_svg' viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__20lDO FooterMenu_openLinkIcon__15pDJ" aria-hidden="true"><path d="M31.42 35.84h-27V8.4h14.76v-2H2.42v31.44h31V22.55h-2v13.29z"></path><path d="M37.32 15.41l-.01-13-12.99.01v2l9.72-.01-18.19 19.42 1.46 1.37 18-19.22.01 9.43h2z"></path></svg>
-                </div>
+                
             </div>
         </div>
         <div class="footer_container">
@@ -32,9 +29,9 @@
             <div class="footer_inner">
     
                 <section class="left_section">
-                    <div class="section_title">와디즈 고객센터</div>
+                    <div class="section_title">멈미뭄미 고객센터</div>
                     <div class="footer_buttons">
-                        <button type="button" class="footer_button">채팅 상담하기
+                        <button type="button" class="footer_button" onclick="OnClick()">채팅 상담하기
                             <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon" aria-hidden="true">
                                 <path d="M28 20L15 33l-1.4-1.4L25.2 20 13.6 8.4 15 7l13 13z"></path>
                             </svg>
@@ -62,11 +59,11 @@
                 </section>
                     <section class="right_section">
                         <ul>
-                            <li class="item">와디즈㈜</li>
-                            <li class="item">대표이사 손호현</li>
-                            <li class="item">사업자등록번호 258-87-01370</li>
-                            <li class="item">통신판매업신고번호 2021-성남분당C-1153</li>
-                            <li>경기 성남시 분당구 판교로 242 PDC A동 402호</li>
+                            <li class="item">멈미뭄미㈜</li>
+                            <li class="item">달려라 강산아</li>
+                            <li class="item">사업자등록번호 123-45-67890</li>
+                            <li class="item">통신판매업신고번호 2021-서울강남C-1153</li>
+                            <li>서울특별시 강남구 역삼동 736-7</li>
                         </ul>
                         <div>
                         <ul>
@@ -77,12 +74,9 @@
                                 <a href="tel:010-6545-3831">010-6545-3831</a>
                             </li>
                         </ul>
-                        <address>© wadiz Co., Ltd.</address>
+                        <address>© meommi Co., Ltd.</address>
                         </div>
-                        <div class="footer_p">
-                            <p style="margin-top: 10px;">일부 상품의 경우 와디즈는 통신판매중개자이며 통신판매 당사자가 아닙니다.</p>
-                            <p>해당되는 상품의 경우 상품, 상품정보, 거래에 관한 의무와 책임은 판매자에게 있으므로, 각 상품 페이지에서 구체적인 내용을 확인하시기 바랍니다.</p>
-                        </div>
+                       
         
                     </section>
     
@@ -91,4 +85,10 @@
         </div>
     </footer>
 </body>
+<script>
+function OnClick()  {
+	  alert('준비중입니다');
+	  return;
+	}
+</script>
 </html>

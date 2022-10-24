@@ -8,6 +8,7 @@
    
    <typeAliases>
      <typeAlias type="com.meommi.app.main.vo.MainVO" alias="mainVO"/>
+     <typeAlias type="com.meommi.app.main.vo.MainDTO" alias="mainDTO"/>
      <typeAlias type="com.meommi.app.user.vo.UserVO" alias="userVO"/>
      <typeAlias type="com.meommi.app.user.vo.UserDTO" alias="userDTO"/>
      <typeAlias type="com.meommi.app.userFile.vo.UserFileVO" alias="userFileVO"/>

@@ -31,22 +31,21 @@ public class MainFrontController extends HttpServlet {
 		Result result = null;
 
 		if (request.equals("/main.ma")) {
-			result = new MainServiceListcontroller().execute(req, resp);	
-		}else if(request.equals("/main.ma")) {
-			result =	new MainPlaceReviewOkController().execute(req,resp); 
-		}else if(request.equals("/meommi/mainfeedsearch.ma")) {
-			new MainFeedSearchController().execute(req,resp);
-		}else if(request.equals("/meommi/mainpost.ma")) {
-			new MainPostListOkController().execute(req,resp);
-		}else if(request.equals("/meommi/mainpostfile.ma")) {
-			new MainPostFileOkController().execute(req,resp);
+			System.out.println("프론트컨트롤러");
+			result = new MainServiceListcontroller().execute(req, resp);
+			result = new MainPlaceReviewOkController().execute(req, resp);
+		}  else if (request.equals("/meommi/mainfeedsearch.ma")) {
+			new MainFeedSearchController().execute(req, resp);
+		} else if (request.equals("/meommi/mainpost.ma")) {
+			new MainPostListOkController().execute(req, resp);
+		} else if (request.equals("/meommi/mainpostfile.ma")) {
+			new MainPostFileOkController().execute(req, resp);
 			/*
 			 * }else if(request.equals("/meommi/mainplacereview.ma")) { result = new
 			 * MainPlaceReviewOkController().execute(req,resp);
 			 */
-	
-		
-	
+
+		}
 		if (result != null) {
 			if (result.isRedirect()) {
 				resp.sendRedirect(result.getPath());
@@ -56,7 +55,5 @@ public class MainFrontController extends HttpServlet {
 			}
 		}
 	}
-		
-	}
-}
 
+}
