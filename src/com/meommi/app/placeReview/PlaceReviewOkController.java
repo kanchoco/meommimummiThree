@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
@@ -14,6 +15,7 @@ import com.meommi.app.placeReview.vo.PlaceReviewDTO;
 import com.meommi.app.placeReview.vo.PlaceReviewVO;
 import com.meommi.app.reviewFile.dao.PlaceReviewFileDAO;
 import com.meommi.app.reviewFile.vo.PlaceReviewFileVO;
+import com.meommi.app.user.dao.UserDAO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -40,15 +42,22 @@ public class PlaceReviewOkController implements Execute {
          Enumeration<String> fileNames = multipartRequest.getFileNames();
          
          String placeId = multipartRequest.getParameter("placeId"); 
-         int userNumber = 1;
-         /* int userNumber = Integer.valueOf(req.getParameter("userNumber")); */
 
+         
+         HttpSession session = req.getSession();
+         UserDAO userDAO = new UserDAO();
+         int userNumber = (Integer)(session.getAttribute("userNumber"));
+         String userId = (String)session.getAttribute("userId");
+         String userName = userDAO.loginUser(userId).getUserName();
          
          placeReviewDTO.setPlaceReviewRating(reviewRating);
          placeReviewDTO.setPlaceReviewContents(placeReviewContents);
          placeReviewDTO.setUserNumber(userNumber);
+         placeReviewDTO.setUserName(userName);
          placeReviewDTO.setPlaceId(placeId);
          placeReviewDAO.insert(placeReviewDTO);
+
+
 
          int currentSequence = placeReviewDAO.selectCurrentSequence();
          

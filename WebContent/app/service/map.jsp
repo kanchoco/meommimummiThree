@@ -14,7 +14,15 @@
 
 </head>
 <body>
-<jsp:include page ="${pageContext.request.contextPath}/app/fix/header.jsp"/>
+	<%
+	    String userId = (String)session.getAttribute("userId");
+	    boolean loginOk = userId == null ? false : true;
+	    if(loginOk){ %>
+	 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
+	<% }else{ %>
+		<jsp:include page = '${pageContext.request.contextPath}/app/fix/header.jsp'/>
+	<% } %>
+
 
      <main class="pg-search ng-scope reverse" ng-controller="mp20_search_result_controller" data-keyword="강남역">
         <article class="contents">
@@ -88,10 +96,10 @@
 						            </div>
 						        </div>
 	 					        <ul id="placesList"></ul>
-						        <div id="pagination"></div>
+	 					        <div id="pagination"></div>
 					    	</div>
                        </div>
-
+					</div>
   
                                     <!-- 다음 페이지 버튼 -->
                              <!--        <li class="afterPageArrowLeft">
@@ -722,7 +730,7 @@
                                             <div class="reviewFilterRight">
                                                 <button class="bestReview reviewSecond timeReview filterActive" type="button" aria-pressed="true" id="bestReview" value="b" onclick="filterLoad('b', 'order')">베스트순</button>
                                                 <button class="bestReview reviewSecond timeReview" type="button" aria-pressed="true" id="recentReview" value="n" onclick="filterLoad(this.value, 'order')">최신순</button>
-                                                <button class="bestReview reviewSecond filterPhoto" type="button" aria-pressed="true" id="filterPhoto" value="p" onclick="filterLoad(this.value, 'photo')">
+                                                <button class="bestReview reviewSecond filterPhoto" type="button" aria-pressed="true" id="filterPhoto" value="1" onclick="filterLoad(this.value, 'photo')">
                                                     <svg class="icon" width="18" height="18" viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet">
                                                         <path fill="currentColor" d="M15.821 3a.67.67 0 0 1 .679.672v10.656a.67.67 0 0 1-.679.672H2.18a.67.67 0 0 1-.679-.672V3.672c0-.375.3-.672.679-.672H15.82zm-.679 1.344H2.858v8.14L7.01 7.781c.094-.125.284-.125.394 0l2.321 2.657c.048.046.063.109.048.156l-.3 1.375c-.016.11.11.172.173.094l2.369-2.579a.202.202 0 0 1 .284 0l2.842 3.094V4.344zm-2.526 3.61a1.1 1.1 0 0 1-1.105-1.095 1.1 1.1 0 0 1 1.105-1.093 1.1 1.1 0 0 1 1.105 1.093 1.1 1.1 0 0 1-1.105 1.094z"></path>
                                                     </svg><div class=""></div>
@@ -1204,6 +1212,7 @@
 </body>
  <script>
 	let userNumber = "${sessionScope.userNumber}";
+	let userId = "${sessionScope.userId}";
 </script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <!-- 카카오맵 api -->
