@@ -149,9 +149,9 @@ let $careAddr;
 let $orgNm;
 let $chargeNm;
 let $officetel;
-
-let citycodenumber = 0;
-let kindcodenumber = 0;
+// 기본값 서울 - 강아지
+let citycodenumber = 6110000;
+let kindcodenumber = 417000;
 let citycheck = 0;
 let kindcheck = 0;
 let cityonclick = 0;

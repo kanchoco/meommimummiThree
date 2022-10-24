@@ -64,7 +64,7 @@
                                                         </path>
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
-                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/meommi/Follow.fo"></a>팔로우 보기</div><span
+                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/meommi/Follow.fo">팔로우 보기</div></a><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
                                                     <div class="MoreMenuBanner_label__1i2Cx" OnClick="location.href =''${pageContext.request.contextPath}/app/community/community.jsp"
-																			><a href="${pageContext.request.contextPath}/app/community/community.jsp"></a>커뮤니티</div><span
+																			><a href="${pageContext.request.contextPath}/app/community/community.jsp">커뮤니티</a></div><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
