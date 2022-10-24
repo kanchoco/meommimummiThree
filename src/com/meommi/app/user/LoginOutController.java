@@ -21,7 +21,7 @@ public class LoginOutController implements Execute {
 		
 //		로그아웃을 누른 후 로그인 페이지 요청 시 logout FLAG 전달
 		result.setRedirect(true);
-		result.setPath("/app/main/mainpage.jsp");
+		result.setPath("/index.jsp");
 		return result;
 	}
 

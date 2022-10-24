@@ -52,7 +52,7 @@ public class GoogleLoginController implements Execute {
 			session.setAttribute("userNumber", userNumber);
 
 			result.setRedirect(true); 
-			result.setPath(req.getContextPath() + "/app/main/mainpage.jsp");
+			result.setPath(req.getContextPath() + "/index.jsp");
 			
 			} catch (Exception e) {
 //					로그인 실패 시

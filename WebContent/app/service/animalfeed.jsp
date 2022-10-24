@@ -15,8 +15,14 @@
         <div id="wz-header">
             <div class="web-header">
                 <div class="web-header-large">
-                    <jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"/>
-
+					<%
+					    String userId = (String)session.getAttribute("userId");
+					    boolean loginOk = userId == null ? false : true;
+					    if(loginOk){ %>
+					 	<jsp:include page = '${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp'/>
+					<% }else{ %>
+						<jsp:include page = '${pageContext.request.contextPath}/app/fix/header.jsp'/>
+					<% } %>
                 </div>
             </div>
         </div>

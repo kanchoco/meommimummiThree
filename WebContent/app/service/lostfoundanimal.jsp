@@ -49,35 +49,36 @@
                         
                         <div class="ProjectListHead_container__rpQ37 RewardProjectListHead_container__2FzIj">
                             <div class="ProjectListHead_bar__2dyHz">
-                                <span id="addtitle">최신순</span>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpageseoul"  onclick="savecitycode(6110000)">서울</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagebusan"  onclick="savecitycode(6260000)">부산</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagedaegu"  onclick="savecitycode(6270000)">대구</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpageincheon" onclick="savecitycode(6280000)">인천</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagegwangju"  onclick="savecitycode(6290000)">광주</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagesejong"  onclick="savecitycode(5690000)">세종</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagedaejeon"  onclick="savecitycode(6300000)">대전</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpageulsan"  onclick="savecitycode(6310000)">울산</button>
-                               <br>
-                               <br>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagegg"  onclick="savecitycode(6410000)">경기</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagegangwon"  onclick="savecitycode(6420000)">강원</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagechungbuk"  onclick="savecitycode(6430000)">충북</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagechungnam "  onclick="savecitycode(6440000)">충남</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagecjeonbuk"  onclick="savecitycode(6450000)">전북</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagecjeonnam"  onclick="savecitycode(6460000)">전남</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagegyeonbuk"  onclick="savecitycode(6470000)">경북</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagegyeongnam"  onclick="savecitycode(6480000)">경남</button>
-                               <button class="buttonpageSeach citybuttonpage citybuttonpagejeju"  onclick="savecitycode(6500000)">제주</button>
-                               <br>
-                               <br>
-                               <button class="buttonpageSeach kindbuttonpage" onclick="savekindcode(417000)">강아지</button>
-                               <button class="buttonpageSeach kindbuttonpage" onclick="savekindcode(422400)">고양이</button>
-                               <br>
-                               <br>
-                               <button class="buttonpageSeach kindbuttonpage" onclick="Inquire()">조회</button>
-                               <button class="buttonpageSeach kindbuttonpage" onclick="cityaddkindone()">처음</button>
-                                
+                               <div class="regionSectionFirst">
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpageseoul"  onclick="savecitycode(6110000)">서울</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpageincheon" onclick="savecitycode(6280000)">인천</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagesejong"  onclick="savecitycode(5690000)">세종</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagedaejeon"  onclick="savecitycode(6300000)">대전</button>
+                               	   <button class="buttonpageSeach citybuttonpage citybuttonpagegwangju"  onclick="savecitycode(6290000)">광주</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagebusan"  onclick="savecitycode(6260000)">부산</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagedaegu"  onclick="savecitycode(6270000)">대구</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpageulsan"  onclick="savecitycode(6310000)">울산</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagejeju"  onclick="savecitycode(6500000)">제주</button>
+                               </div>
+                               <div class="regionSectionSecond">
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagegg"  onclick="savecitycode(6410000)">경기</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagechungbuk"  onclick="savecitycode(6430000)">충북</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagechungnam "  onclick="savecitycode(6440000)">충남</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagecjeonbuk"  onclick="savecitycode(6450000)">전북</button>
+                                   <button class="buttonpageSeach citybuttonpage citybuttonpagecjeonnam"  onclick="savecitycode(6460000)">전남</button>
+					               <button class="buttonpageSeach citybuttonpage citybuttonpagegyeonbuk"  onclick="savecitycode(6470000)">경북</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagegyeongnam"  onclick="savecitycode(6480000)">경남</button>
+	                               <button class="buttonpageSeach citybuttonpage citybuttonpagegangwon"  onclick="savecitycode(6420000)">강원</button>
+                               </div>
+
+								<div class="catDog">
+	                               <button class="buttonpageSeach kindbuttonpage" onclick="savekindcode(417000)">강아지</button>
+	                               <button class="buttonpageSeach kindbuttonpage" onclick="savekindcode(422400)">고양이</button>
+                               </div>
+                               <div class="searchSection">
+	                               <button class="buttonpageSeach kindbuttonpage searchSector" onclick="Inquire()" style="background:red;">조회</button>
+	                               <button class="buttonpageSeach kindbuttonpage searchSector" onclick="cityaddkindone()" style="background:red;">초기화</button>
+                                </div>
                               
                               
                                 <div class="ProjectListHead_children__2Y7-F"></div>
@@ -178,10 +179,10 @@ function savekindcode(number){
 	kindcodenumber = number;
 	switch (kindcodenumber) {
 	  case 417000:
-	 	    alert( '강아지' );
+
 	 	    break;
 	 case 422400:
-	 	    alert( '고양이' );
+
 	 	    break;
 	  default:
 	 	    alert( "어떤 값인지 파악이 되지 않습니다." );

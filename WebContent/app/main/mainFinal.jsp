@@ -198,7 +198,7 @@
 <c:choose>
 <c:when test="${(reviews != null and fn:length(reviews) > 0)}">			
 <c:forEach  begin="0" end="5" step="1" var="review" items="${reviews}">
-                 
+                 <c:set var="i" value="${i+1}"/>
                  
                     <div class="TabContainer_tabList__2IbMs">
                         <div class="TabContainer_listItem__2nO5j"><a
@@ -209,7 +209,7 @@
                                     <article>
                                         <div
                                             class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_"><c:out value="${review.getPlaceReviewNumber()}" /></div>
+                                            <div class="commons_orderText__3B9S_">${i}</div>
                                             <h1 class="commons_title__1yGWm"><c:out value="${review.getPlaceReviewContents()}" /></h1>
                                             <p class="commons_summary__2Ynez"><span
                                                     class="commons_achievementRate__2J-KL">${review.getUserName()}</span>${review.getPlaceReviewDatetime()}</p>
@@ -483,7 +483,7 @@
         <div class="RecommendationDesktop_innerGroup__as4jB Main_innerWrap__7-_Vm" style="padding-right:36px">
             <section class="SectionContainerLayout_container__1f8kt LikableFundingWrap_container__3mzG6 undefined">
                 <div class="title_contentWrapper__1P-q0 LikableFundingWrap_title__qXo4b">
-                    <h1>회원님을 <strong style="color:#ff914d">기달리고있는</strong> 유기동물</h1>
+                    <h1>회원님을 <strong style="color:#ff914d">기다리고있는</strong> 유기동물</h1>
                 </div>
                 <div class="LikableFundingWrap_wrap__1ZPJw">
                    
