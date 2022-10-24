@@ -177,7 +177,7 @@
 										<c:otherwise>
 											<tr>
 												<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
-												<td colspan="5" align="center"><c:out value="${funerals}"/></td>
+												
 											</tr>
 										</c:otherwise>
 									</c:choose>
@@ -197,6 +197,7 @@
 														<c:choose>
 															<c:when test="${not (i eq page)}">
 																<a href="${pageContext.request.contextPath}/funeral.fu?page=${i}">
+																
 																	<c:out value="${i}"/>&nbsp;&nbsp;
 																</a>
 															</c:when>

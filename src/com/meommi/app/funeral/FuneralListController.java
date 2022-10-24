@@ -46,7 +46,7 @@ public class FuneralListController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		System.out.println(funeralDAO.selectAll(pageMap));
-		System.out.println(total);
+//		System.out.println(total);
 		req.setAttribute("funerals", funeralDAO.selectAll(pageMap));
 		req.setAttribute("total", total);
 		req.setAttribute("page", page);
