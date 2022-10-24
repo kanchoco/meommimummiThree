@@ -1318,7 +1318,7 @@ article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, 
 .alertify-o-button-ok, .alertify-o-button-ok:focus, .alertify-o-button-ok:hover {
     outline: none;
     border: none;
-    background: #ff792a;
+    background: #ff792a !important;
 }
 
 .MyWadizMenu_icon {
