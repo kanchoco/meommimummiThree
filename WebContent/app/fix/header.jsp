@@ -33,18 +33,18 @@
                     </a></h1>
                     <ul class="GNBDesktop_container__3X3Cg">
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"
-                                href="/web/wreward/comingsoon"><span>펀딩예정</span></a></li>
+                                href="/web/wreward/comingsoon"><span>커뮤니티</span></a></li>
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"
-                                href="/web/wreward/main"><span>펀딩</span></a></li>
+                                href="/web/wreward/main"><span>지도</span></a></li>
                         <li class="GNBDesktop_item__H8bay"><a href="/web/store/main" class="GNBDesktop_link__1AP6q">
                                 <div class="GNBDesktop_mainGnbTooltip__2KXTZ GNBDesktop_hidden__3_7Ca">
                                     <p class="GNBDesktop_tooltipContents__DgWRu"><span>팬들이 인정한 성공펀딩 집합샵</span></p>
                                 </div>
-                                <span>스토어</span>
+                                <span>사료정보</span>
 
                             </a></li>
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"
-                                href="/web/winvest/main"><span>투자</span></a></li>
+                                href="/web/winvest/main"></a></li>
                         <li class="GNBDesktop_item__H8bay">
                             <div><button class="GNBDesktop_link__1AP6q GNBDesktop_more__39gyV">더보기<svg
                                         viewBox="0 0 40 40" focusable="false" role="presentation"
@@ -64,7 +64,7 @@
                                                         </path>
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
-                                                    <div class="MoreMenuBanner_label__1i2Cx">스타트업 찾기</div><span
+                                                    <div class="MoreMenuBanner_label__1i2Cx">팔로우 보기</div><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
@@ -84,19 +84,18 @@
                                             </div>
                                         </div>
                                         <div class="MenuList_container__3ofD- MoreMenuDesktop_moreMenuList__11cPX">
-                                            <h4 class="MenuList_label__qSsts">바로 가기</h4>
+                                            <h4 class="MenuList_label__qSsts">지도</h4>
                                             <ul>
                                                 <li><a href="/web/wsub/openfunding"
-                                                        class="MenuListItem_button__8-ecU">와디즈 메이커 알아보기<i
+                                                        class="MenuListItem_button__8-ecU">병원<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wadiznext" class="MenuListItem_button__8-ecU">wadiz
-                                                        NEXT BRAND<i class="icon chevron-right"
+                                                <li><a href="/web/wadiznext" class="MenuListItem_button__8-ecU">식당/카페<i class="icon chevron-right"
                                                             aria-hidden="true"></i></a></li>
                                                 <li><a href="https://www.partnerzone.wadiz.kr"
-                                                        class="MenuListItem_button__8-ecU">와디즈 파트너 서비스<i
+                                                        class="MenuListItem_button__8-ecU">관광지<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/iplicense/" class="MenuListItem_button__8-ecU">IP 라이선스
-                                                        사업 신청<i class="icon chevron-right" aria-hidden="true"></i></a>
+                                                <li><a href="/web/iplicense/" class="MenuListItem_button__8-ecU">놀이터
+                                                        <i class="icon chevron-right" aria-hidden="true"></i></a>
                                                 </li>
                                                 <li><a href="/web/school/main" class="MenuListItem_button__8-ecU">와디즈
                                                         스쿨<i class="icon chevron-right" aria-hidden="true"></i></a></li>
@@ -111,13 +110,13 @@
                                             </ul>
                                         </div>
                                         <div class="MenuList_container__3ofD- MoreMenuDesktop_moreMenuList__11cPX">
-                                            <h4 class="MenuList_label__qSsts">와디즈 소개</h4>
+                                            <h4 class="MenuList_label__qSsts">커뮤니티</h4>
                                             <ul>
                                                 <li><a href="https://blog.wadiz.kr"
-                                                        class="MenuListItem_button__8-ecU">와디즈 블로그<i
+                                                        class="MenuListItem_button__8-ecU">커뮤니티<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
                                                 <li><a href="/web/wsub/wadizstory"
-                                                        class="MenuListItem_button__8-ecU">와디즈 이야기<i
+                                                        class="MenuListItem_button__8-ecU">팔오워<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
                                                 <li><a href="https://spacewadiz.com"
                                                         class="MenuListItem_button__8-ecU">공간 와디즈<i
@@ -134,14 +133,14 @@
                                             </ul>
                                         </div>
                                         <div class="MenuList_container__3ofD- MoreMenuDesktop_moreMenuList__11cPX">
-                                            <h4 class="MenuList_label__qSsts">공지</h4>
+                                            <h4 class="MenuList_label__qSsts">기타 서비스</h4>
                                             <ul>
                                                 <li><a href="/web/wboard/newsBoardList"
-                                                        class="MenuListItem_button__8-ecU">공지 사항<i
+                                                        class="MenuListItem_button__8-ecU">유기동물 찾기<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
                                                 <li><a href="/web/wboard/newsBoardList/2"
-                                                        class="MenuListItem_button__8-ecU">이벤트<span
-                                                            class="NewBadge_badge__28THw">New</span><i
+                                                        class="MenuListItem_button__8-ecU">장례 업체<span
+                                                            class="NewBadge_badge__28THw">기타 서비스1</span><i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
                                                 <li><a href="https://www.wadiz.kr/link/wadiznews"
                                                         class="MenuListItem_button__8-ecU">보도 자료<i
@@ -160,11 +159,7 @@
                     </ul>
                     <div class="web-header-utils">
                         <div class="SearchInput_container__gZaY5 HeaderDesktop_search__3TGkY">
-                            <form method="GET" action="/web/wcampaign/search" class="SearchInputForm_container__1iCMr">
-                                <i class="icon search SearchInputForm_icon__3P-LK" aria-hidden="true"></i><input
-                                    type="search" placeholder="어떤 프로젝트를 찾고 계신가요?" title="어떤 프로젝트를 찾고 계신가요?"
-                                    name="keyword" class="SearchInputForm_input__2SZMG" autocomplete="off" value="">
-                            </form>
+                            
                         </div>
                         <div class="HeaderDesktop_user__3zGmM">
                             <div class="User_container__bqVd2"><button type="button"

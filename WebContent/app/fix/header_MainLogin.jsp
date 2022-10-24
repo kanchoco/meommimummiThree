@@ -156,11 +156,7 @@
                     </ul>
                     <div class="web-header-utils">
                         <div class="SearchInput_container__gZaY5 HeaderDesktop_search__3TGkY">
-                            <form method="GET" action="/web/wcampaign/search" class="SearchInputForm_container__1iCMr">
-                                <i class="icon search SearchInputForm_icon__3P-LK" aria-hidden="true"></i><input
-                                    type="search" placeholder="어떤 서비스를 찾고 계신가요?" title="어떤 서비스를 찾고 계신가요?"
-                                    name="keyword" class="SearchInputForm_input__2SZMG" autocomplete="off" value="">
-                            </form>
+                          
                         </div>
                         <!--  <div class="HeaderDesktop_user__3zGmM">
                             <div class="User_container__bqVd2"><button type="button"
@@ -181,36 +177,7 @@
                         <div class="User_container__bqVd2">
                         </div>
  -->
-                        <div class="HeaderDesktop_notificationContainer__1iRey">
-                            <div>
-                                <div class="NotificationButton_container__2nhhV"><button
-                                        class="NotificationButton_btnNotification__2fRCj" aria-label="알림"><i
-                                            class="icon notifications-o NotificationButton_icon__3bvJj"
-                                            aria-hidden="true"></i></button></div>
-                                <div class="NotificationPopover_container__3nC48">
-                                    <div class="NotificationPopover_content__7-LLx">
-                                        <div class="NotificationList_container__NsGVu">
-                                            <div class="NotificationList_listContainer__1bWY1"><button type="button"
-                                                    class="NotificationListItem_listItem__1jcZ0"><span
-                                                        class="Avatar_wrap__2thmY NotificationListItem_avatar__12BqJ"
-                                                        style="width: 35px; height: 35px;"><span
-                                                            class="Avatar_picture__16i7U Avatar_visible__puBaI"
-                                                            style="background-image: -webkit-image-set(url(&quot;https://cdn.wadiz.kr/resources/static/img/common/profile_wadiz.png/wadiz/thumbnail/35/format/jpg/quality/95/&quot;) 1x, url(&quot;https://cdn.wadiz.kr/resources/static/img/common/profile_wadiz.png/wadiz/thumbnail/70/format/jpg/quality/95/&quot;) 2x);"></span></span>
-                                                    <div class="NotificationListItem_info__1prWn">
-                                                        <p class="NotificationListItem_title__1gq8W">
-                                                            <strong>h.hyeoniya</strong>님의 카카오 친구가 멈미뭄미를 이용하는지 확인해 보고 취향도
-                                                            알아봐요!
-                                                        </p>
-                                                        <p class="NotificationListItem_time__1-UA5">5분 전</p>
-                                                    </div>
-                                                </button></div><a class="NotificationList_btnLink__3BUqf"
-                                                href="/web/wmypage/notification">알림 전체보기<i class="icon chevron-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="HeaderDesktop_user__3zGmM">
                             <div class="User_container__bqVd2"><button type="button" class="User_btnAvatar__2Mui-"
                                     aria-label="마이 와디즈">
