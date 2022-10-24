@@ -51,4 +51,12 @@
 		values(#{userNumber} , #{followNumber})
 	</insert>
 
+	<select id="selectFollower" parameterType="_int" resultType="FollowVO">
+		select follower_number from tbl_follow where following_number=#{followingNumber}
+	</select>
+	
+	<select id="selectFollowing" parameterType="_int" resultType="FollowVO">
+		select following_number from tbl_follow where follower_number=#{followerNumber}
+	</select>
+	
 </mapper>

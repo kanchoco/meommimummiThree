@@ -33,6 +33,11 @@ public class PostFileFrontController extends HttpServlet {
 			   new PostFileOkController().execute(req,resp);
 		   }else if(request.equals("/meommi/PostFilelistFollower.pf")) {
 			   new PostFileListFollowerController().execute(req,resp);
+		   }else if(request.equals("/meommi/PostFilelistFollowing.pf")) {
+			   new PostFileListFollowingController().execute(req,resp);
+		   }else if(request.equals("/meommi/postfileOriginal.pf")) {
+			   result=new Result();
+			   result.setPath("/app/community/community.jsp");
 		   }
 		      
 		      if(result != null) {

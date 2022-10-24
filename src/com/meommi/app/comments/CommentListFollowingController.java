@@ -18,26 +18,28 @@ import com.meommi.app.comments.dao.CommentsDAO;
 import com.meommi.app.comments.vo.CommentsDTO;
 import com.meommi.app.follow.dao.FollowDAO;
 
-public class CommentListFollowerController implements Execute {
+public class CommentListFollowingController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("utf-8");
-		FollowDAO followerDAO=new FollowDAO();
+		FollowDAO followingDAO=new FollowDAO();
 		CommentsDAO commentDAO=new CommentsDAO();
-		List<CommentsDTO> followercomments=new ArrayList<>();
-		int followingNumber=3;
+		List<CommentsDTO> followingcomments=new ArrayList<>();
+		int followerNumber=3;
 		PrintWriter out =resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
 		
-		followerDAO.selectFollower(followingNumber).forEach(followerNumber->{
-			followercomments.addAll(commentDAO.selectFollowerCommentDefault(followerNumber.getFollowerNumber()));
+		followingDAO.selectFollowing(followerNumber).forEach(followingNumber->{
+
+			followingcomments.addAll(commentDAO.selectFollowerCommentDefault(followingNumber.getFollowingNumber()));
 			/* postDAO.selectFollowerDefault(followerNumber.getFollowerNumber()); */
 		});
 		
-		followercomments.forEach(followercomment->{
+		followingcomments.forEach(followercomment->{
 			JSONObject jsonObject=new JSONObject(followercomment); jsonArray.put(jsonObject);
 		});
+
 		out.print(jsonArray.toString());
 		out.close();
 		return null;

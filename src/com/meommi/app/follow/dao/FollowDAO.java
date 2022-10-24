@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.meommi.app.follow.vo.FollowVO;
 import com.meommi.app.user.vo.UserDTO;
 import com.meommi.mybatis.config.MyBatisConfig;
 
@@ -53,5 +54,11 @@ public class FollowDAO {
 //	   랜덤 유저 목록
 	   public List<UserDTO> randomUser() {
 		   return sqlSession.selectList("Follow.randomUser");
+	   }
+	   public List<FollowVO> selectFollower(int followingNumber){
+		   return sqlSession.selectList("Follow.selectFollower",followingNumber);
+	   }
+	   public List<FollowVO> selectFollowing(int followerNumber){
+		   return sqlSession.selectList("Follow.selectFollowing",followerNumber);
 	   }
 }
