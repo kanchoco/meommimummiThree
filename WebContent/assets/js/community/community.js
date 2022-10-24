@@ -148,7 +148,7 @@ function getImageFiles(e) {
     }
 
     // 파일 갯수 검사
-    if (pictureCount < 3) {
+    if (pictureCount < 1) {
         uploadFiles.push(file);
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -156,12 +156,15 @@ function getImageFiles(e) {
           imagePreview.appendChild(preview);
         };
         reader.readAsDataURL(file);
-      }
+      } else{
+		alert("사진은 한 장만 등록 가능합니다.");
+		return;
+	}
     
     if(pictureCount>0){
         $('.uploadBeforeText').attr('style','display:none'); 
     }
-    var getText = (pictureCount+1) + "/3";
+    var getText = (pictureCount+1) + "/1";
     $('.uploadPhotoCount').text(getText);
 
     });
@@ -193,7 +196,7 @@ $deleteBtn.click(function(){
     else{
         for(var i=0;i<photoCount;i++){
             $thumbnail[i].remove();
-            $('.uploadPhotoCount').text('0/3');
+            $('.uploadPhotoCount').text('0/1');
         }
         
     }

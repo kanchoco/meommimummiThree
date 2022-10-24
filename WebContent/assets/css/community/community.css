@@ -1369,20 +1369,17 @@ textarea:focus {
 }
 
 .ImageUploader_container__2FM0D .ImageUploader_button__FPX_Y .ImageUploader_popper__3yY05 {
-    left: calc(100% + 340px);
-    top:46px;
+    left: calc(-125% + 340px);
+    top: -2px;
 }
 
 .image-preview{
     border-radius: 3px;
     border: 1px solid #dde2e6;
     border-style: dashed;
-    width: 310px;
+    width: 100px;
     height: 100px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    gap: 5px;
 }
 
 .deleteBtn{

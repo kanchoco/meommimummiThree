@@ -107,7 +107,7 @@ function filterLoad(filter, type){
 						}
 							text += `</div></div></div><button type="button" class="reviewItemImage">`;
 						if(place.reviewFileSystemName){
-							text +=`<img src= "/upload/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
+							text +=`<img src= "/upload/review/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
 						}
 						text += `</button><p class="reviewComment">`;
 						text += place.placeReviewContents + `</p><div class="reviewCommentGood"  style="margin-bottom:15px;">`;
@@ -479,7 +479,7 @@ function displayPlaces(places) {
 								}
 									text += `</div></div></div><button type="button" class="reviewItemImage">`;
 								if(place.reviewFileSystemName){
-									text +=`<img src= "/upload/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
+									text +=`<img src= "/upload/review/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
 								}
 								text += `</button><p class="reviewComment">`;
 								text += place.placeReviewContents + `</p><div class="reviewCommentGood"  style="margin-bottom:15px;">`;
