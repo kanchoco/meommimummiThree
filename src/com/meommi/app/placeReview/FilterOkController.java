@@ -2,6 +2,7 @@ package com.meommi.app.placeReview;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -29,14 +30,23 @@ public class FilterOkController implements Execute {
       Criteria photoCreteria = new Criteria(star, order, photo, placeId);
       Criteria creteria = new Criteria(star, order, placeId);
       PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
+	  String userNumber = String.valueOf(req.getSession().getAttribute("userNumber") == null? 0 : req.getSession().getAttribute("userNumber"));
       JSONArray reviews = new JSONArray();
+      
+      HashMap<String, Integer> helpMap = new HashMap<>();
+	  helpMap.put("userNumber", Integer.valueOf(userNumber));
       
       if (photo == 0) {
           System.out.println("사진 없음");
           placeReviewDAO.noPhotoFilter(creteria).forEach(v -> {
 <<<<<<< HEAD
+<<<<<<< HEAD
              v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
 =======
+=======
+        	  helpMap.put("placeReviewNumber", v.getPlaceReviewNumber());
+        	  v.setHelp(placeReviewDAO.isHelp(helpMap));
+>>>>>>> origin/master
         	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
 >>>>>>> teamProject/master
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
@@ -48,8 +58,13 @@ public class FilterOkController implements Execute {
           System.out.println("사진 있음");
           placeReviewDAO.photoFilter(photoCreteria).forEach(v -> {
 <<<<<<< HEAD
+<<<<<<< HEAD
              v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
 =======
+=======
+        	  helpMap.put("placeReviewNumber", v.getPlaceReviewNumber());
+        	  v.setHelp(placeReviewDAO.isHelp(helpMap));
+>>>>>>> origin/master
         	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
 >>>>>>> teamProject/master
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));

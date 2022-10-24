@@ -959,7 +959,9 @@ $foodFilter.click(function(){
 
 /* 도움이 돼요 클릭 */
 $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
-	var thisNumber = $(this).data("number");
+
+	var thisNumber =  $(this).data("number");
+	var click = $(this).next();
 	if(!userNumber){
 		alert("비회원은 도움 버튼을 클릭하실 수 없습니다.");
 		return;
@@ -980,11 +982,13 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
 			placeId : placeId
 			},
         success: function (result) {
-			console.log(result.helpCount);
-			console.log($(".helpful")[thisNumber].innerText);
-			$(".helpful")[thisNumber].innerText = result.helpCount+'명에게 도움이 되는 댓글입니다.';
-			$(".item")[dataNumber].click();
- 			
+
+			console.log(click.text());
+			click.text(result + '명에게 도움이 되는 댓글입니다.');
+ 			//console.log($('.helpful')[thisNumber-1].innerHTML);
+			//console.log(result);
+			//$('.helpful')[thisNumber-1].innerHTML = result + "명에게 도움이 되는 댓글입니다.";
+
         },
 		error: function(e){
 		}
@@ -1002,10 +1006,11 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
 				userNumber : userNumber,
 				placeId : placeId
 			},   
-	        success: function () { 
-	 			$(".item")[dataNumber].click();
-	    }, error: function(){
-				$(".item")[dataNumber].click();
+
+	         success: function (result) {
+	 			console.log(click.text());
+				click.text(result + '명에게 도움이 되는 댓글입니다.');
+        }, error: function(){
 			}
 	});
     }

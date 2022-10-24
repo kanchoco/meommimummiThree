@@ -38,6 +38,7 @@ public class MyPlaceLookupOkController implements Execute {
 		int endPage = (int)Math.ceil(total / (double)rowCount);
 		int startPage = endPage - (endPage - 1);
 		
+		System.out.println(userNumber);
 		try {
 			pages.put("page", page);
 			pages.put("total", total);
@@ -50,7 +51,7 @@ public class MyPlaceLookupOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
-		userDAO.selectMyPlace(pageMap).forEach(v -> {JSONObject place = new JSONObject(v); places.put(place);});
+		userDAO.selectMyPlace(pageMap).forEach(v -> {System.out.println(v); JSONObject place = new JSONObject(v); places.put(place);});
 		places.put(pages);
 		out.print(places.toString());
 		out.close();
