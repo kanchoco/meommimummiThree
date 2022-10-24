@@ -33,10 +33,10 @@
                         </a></h1>
                     <ul class="GNBDesktop_container__3X3Cg">
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"
-                                href="/web/wreward/comingsoon"><span>커뮤니티</span></a></li>
+                                href="${pageContext.request.contextPath}/app/community/community.jsp"><span>커뮤니티</span></a></li>
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"
-                                href="/web/wreward/main"><span>지도</span></a></li>
-                        <li class="GNBDesktop_item__H8bay"><a href="/web/store/main" class="GNBDesktop_link__1AP6q">
+                                href="${pageContext.request.contextPath}/map/mapOriginal.pl"><span>지도</span></a></li>
+                        <li class="GNBDesktop_item__H8bay"><a href="${pageContext.request.contextPath}/meommi/FeedSearch.fe" class="GNBDesktop_link__1AP6q">
                                 <div class="GNBDesktop_mainGnbTooltip__2KXTZ GNBDesktop_hidden__3_7Ca">
                                     <p class="GNBDesktop_tooltipContents__DgWRu"><span>팬들이 인정한 성공펀딩 집합샵</span></p>
                                 </div>
@@ -62,7 +62,7 @@
                                                         </path>
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
-                                                    <div class="MoreMenuBanner_label__1i2Cx">팔로워 보기</div><span
+                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/meommi/Follow.fo">팔로우 보기</div><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
@@ -76,74 +76,28 @@
                                                         </path>
                                                     </svg></div>
                                                 <div class="MoreMenuBanner_text__16n5f">
-                                                    <div class="MoreMenuBanner_label__1i2Cx">피드</div><span
+                                                    <div class="MoreMenuBanner_label__1i2Cx"><a href="${pageContext.request.contextPath}/app/community/community.jsp">커뮤니티</div><span
                                                         class="Badge_container__1jpEC MoreMenuBanner_badge__vO6gM"></span>
                                                 </div>
                                             </div>
                                         </div>
+                                 
+                                        
                                         <div class="MenuList_container__3ofD- MoreMenuDesktop_moreMenuList__11cPX">
-                                            <h4 class="MenuList_label__qSsts">지도</h4>
+                                            <h4 class="MenuList_label__qSsts">서비스</h4>
                                             <ul>
-                                                <li><a href="/web/wsub/openfunding"
-                                                        class="MenuListItem_button__8-ecU">병원<i
+                                                <li><a href="${pageContext.request.contextPath}/map/mapOriginal.pl"
+                                                        class="MenuListItem_button__8-ecU">병원/먹거리/관광 위치<span
+                                                            class="NewBadge_badge__28THw">HOT</span><i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wadiznext" class="MenuListItem_button__8-ecU">식당/카페<i class="icon chevron-right"
-                                                            aria-hidden="true"></i></a></li>
-                                                <li><a href="https://www.partnerzone.wadiz.kr"
-                                                        class="MenuListItem_button__8-ecU">관광지<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/iplicense/" class="MenuListItem_button__8-ecU">놀이터<i class="icon chevron-right" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="/web/school/main" class="MenuListItem_button__8-ecU">지도1
-                                                        <i class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wcast/main" class="MenuListItem_button__8-ecU">지도2<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="https://helpcenter.wadiz.kr"
-                                                        class="MenuListItem_button__8-ecU">지도3<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/supporter-club/intro"
-                                                        class="MenuListItem_button__8-ecU">지도4<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="MenuList_container__3ofD- MoreMenuDesktop_moreMenuList__11cPX">
-                                            <h4 class="MenuList_label__qSsts">커뮤니티</h4>
-                                            <ul>
-                                                <li><a href="https://blog.wadiz.kr"
-                                                        class="MenuListItem_button__8-ecU">커뮤니티<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wsub/wadizstory"
-                                                        class="MenuListItem_button__8-ecU">팔로워<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="https://spacewadiz.com"
-                                                        class="MenuListItem_button__8-ecU">커뮤니티1<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wpartner/main" class="MenuListItem_button__8-ecU">협력
-                                                        프로그램<i class="icon chevron-right" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="/web/wpage/makerAwards"
-                                                        class="MenuListItem_button__8-ecU">커뮤니티2<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wsub/successstory"
-                                                        class="MenuListItem_button__8-ecU">커뮤니티3<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="MenuList_container__3ofD- MoreMenuDesktop_moreMenuList__11cPX">
-                                            <h4 class="MenuList_label__qSsts">기타 서비스</h4>
-                                            <ul>
-                                                <li><a href="/web/wboard/newsBoardList"
+                                                <li><a href="${pageContext.request.contextPath}/app/service/lostfoundanimal.jsp"
                                                         class="MenuListItem_button__8-ecU">유기동물 찾기<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="/web/wboard/newsBoardList/2"
-                                                        class="MenuListItem_button__8-ecU">장례 업체<span
-                                                            class="NewBadge_badge__28THw">기타 서비스1</span><i
+                                                <li><a href="${pageContext.request.contextPath}/funeral.fu"
+                                                        class="MenuListItem_button__8-ecU">장례 업체<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="https://www.wadiz.kr/link/wadiznews"
-                                                        class="MenuListItem_button__8-ecU">기타 서비스2<i
-                                                            class="icon chevron-right" aria-hidden="true"></i></a></li>
-                                                <li><a href="https://job.wadiz.kr/"
-                                                        class="MenuListItem_button__8-ecU">기타 서비스3<i
+                                                            <li><a href="${pageContext.request.contextPath}/app/service/animalfeed.jsp"
+                                                        class="MenuListItem_button__8-ecU">사료 검색<i
                                                             class="icon chevron-right" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
@@ -179,7 +133,7 @@
  -->
                         
                         <div class="HeaderDesktop_user__3zGmM">
-                            <div class="User_container__bqVd2"><button type="button" class="User_btnAvatar__2Mui-"
+                            <div class="User_container__bqVd2"><a href="${pageContext.request.contextPath}/user/myPage.us"><button type="button" class="User_btnAvatar__2Mui-"
                                     aria-label="마이 와디즈">
                                     <div><span class="Avatar_wrap__2thmY" style="width: 32px; height: 32px;"><span
                                                 class="Avatar_picture__16i7U"></span></span></div>

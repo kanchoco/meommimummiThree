@@ -21,14 +21,13 @@ public class MainPostListOkController implements Execute {
 	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setCharacterEncoding("utf-8");
-		int increment=6;
 		PostDAO postDAO=new PostDAO();
 		PrintWriter out=resp.getWriter();
 		JSONArray jsonArray=new JSONArray();
-		
-		postDAO.selectPostRow(increment).forEach(posts->{
+		postDAO.selectPostDefault().forEach(posts->{
 			JSONObject jsonObject =new JSONObject(posts);  jsonArray.put(jsonObject);
 		});
+		System.out.println(jsonArray.toString());
 		out.print(jsonArray.toString());
 		out.close();
 		return null;
