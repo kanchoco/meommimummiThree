@@ -109,7 +109,7 @@
                                                                     <c:out value="${0 eq myPlace ? 0 : myPlace}"></c:out>
                                                                     <i></i>
                                                                 </b>
-                                                                내 장소
+                                                                저장 리뷰
                                                             </span>
                                                         </a>
                                                     </li>
