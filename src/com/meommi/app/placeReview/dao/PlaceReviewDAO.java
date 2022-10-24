@@ -1,5 +1,7 @@
 package com.meommi.app.placeReview.dao;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -56,4 +58,28 @@ public class PlaceReviewDAO {
        public List<PlaceReviewDTO> filterSelect(Criteria criteria){
            return sqlSession.selectList("PlaceReview.filterSelect", criteria);
         }
+       
+       public void addHelp(Map<String, Integer> addMap){
+    	   sqlSession.insert("PlaceReview.addHelp", addMap);
+       }
+       
+       public void deleteHelp(Map<String, Integer> deleteMap) {
+    	   sqlSession.delete("PlaceReview.deleteHelp", deleteMap);
+       }
+       
+       public boolean isHelp(Map<String, Integer> isHelpMap) {
+    	   return (Integer)sqlSession.selectOne("PlaceReview.isHelp", isHelpMap) == 1;
+       }
+       
+       public List<PlaceReviewDTO> noPhotoFilter(Criteria criteria){
+           return sqlSession.selectList("PlaceReview.noPhotoFilter", criteria);
+        }
+       
+       public int helpCount(int userNumber) {
+    	   return (Integer)sqlSession.selectOne("PlaceReview.helpCount", userNumber);
+       }
+       
+       public List<PlaceReviewDTO> photoFilter(Criteria criteria){
+           return sqlSession.selectList("PlaceReview.photoFilter", criteria);
+       }
 }

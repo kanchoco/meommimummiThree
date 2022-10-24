@@ -1,6 +1,6 @@
 package com.meommi.app.main.vo;
 
-public class MainVO {
+public class MainDTO {
 	int placeReviewNumber;
 	String placeReviewContents;
 	String placeReviewRating;
@@ -9,8 +9,9 @@ public class MainVO {
 	String userName;
 	String placeID;
 	int placeReviewHelful;
+	String reviewFileSystemName;
 	
-	public MainVO() {;}
+	public MainDTO() {;}
 
 	public int getPlaceReviewNumber() {
 		return placeReviewNumber;
@@ -76,18 +77,21 @@ public class MainVO {
 		this.placeReviewHelful = placeReviewHelful;
 	}
 
+	public String getReviewFileSystemName() {
+		return reviewFileSystemName;
+	}
+
+	public void setReviewFileSystemName(String reviewFileSystemName) {
+		this.reviewFileSystemName = reviewFileSystemName;
+	}
+
 	@Override
 	public String toString() {
-		return "MainVO [placeReviewNumber=" + placeReviewNumber + ", placeReviewContents=" + placeReviewContents
+		return "MainDTO [placeReviewNumber=" + placeReviewNumber + ", placeReviewContents=" + placeReviewContents
 				+ ", placeReviewRating=" + placeReviewRating + ", placeReviewDatetime=" + placeReviewDatetime
 				+ ", usernumber=" + usernumber + ", userName=" + userName + ", placeID=" + placeID
-				+ ", placeReviewHelful=" + placeReviewHelful + "]";
+				+ ", placeReviewHelful=" + placeReviewHelful + ", reviewFileSystemName=" + reviewFileSystemName + "]";
 	}
-	
-	
-	
-	
-	
 	
 	
 	

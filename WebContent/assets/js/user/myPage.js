@@ -172,8 +172,8 @@ function myComment(){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
 					text += `<div class="info">`;
-					text += `<div class="thumb" style="background-image: url('` +(review.reviewFileSystemName == null ? $context + `/images/logo.png ` :  $context +`/upload/post/` +review.reviewFileSystemName) +`');"></div>`;
-					text += `<h3 class="place">[`+ review.favoritePlaceName +`]</h3>`;
+					text += `<div class="thumb" style="background-image: url('` +(review.reviewFileSystemName == null ? $context + `/images/logo.png ` :  $context +`/upload/review/` +review.reviewFileSystemName) +`');"></div>`;
+					text += `<h3 class="place">[`+ review.placeName +`]</h3>`;
 					text += `<h3 class="review">[`+ review.placeReviewContents +`]</h3>`;
 					text += `<span class="liked">`;
 					text += `도움이 돼요`;
@@ -247,9 +247,9 @@ function myReview(){
 					text += `<li>`;
 					text += `<a class="myPost" href="#">`;
 					text += `<div class="info">`;
-					text += `<div class="thumb" style="background-image: url('` + (place.favoritePlacePhotos == null ? $context + `/images/logo.png ` :  place.favoritePlacePhotos)  +`');"></div>`;
-					text += `<h3 class="place">[`+ place.favoritePlaceName +`]</h3>`;
-					text += `<span class="created-at">`+ place.favoritePlaceAdrAddress +`</span>`;
+					text += `<div class="thumb" style="background-image: url('` + ($context + `/images/logo.png `)  +`');"></div>`;
+					text += `<h3 class="place">[`+ place.placeName +`]</h3>`;
+					text += `<span class="created-at">`+ place.placeAddress +`</span>`;
 					text += `</div>`; 
 					text += `</a>`; 
 					text += `</li>`; 

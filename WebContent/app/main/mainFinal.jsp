@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -194,115 +194,42 @@
                     <h1>실시간 후기</h1>
                 </div>
                 <div>
+                 <tbody>
+<c:choose>
+<c:when test="${(reviews != null and fn:length(reviews) > 0)}">			
+<c:forEach  begin="0" end="5" step="1" var="review" items="${reviews}">
+                 
                  
                     <div class="TabContainer_tabList__2IbMs">
                         <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/160326?_refer_section_st=ranking_0" data-ec-id="160326"
+                                href="${pageContext.request.contextPath}/map/mapOriginal.pl" data-ec-id="160326"
                                 data-ec-name="마스카라 아니에요. 속눈썹 영양제에요. 영양공급과 메이크업 효과까지!" data-ec-list="ranking"
                                 data-ec-position="0">
                                 <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="0">
                                     <article>
                                         <div
                                             class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">1</div>
-                                            <h1 class="commons_title__1yGWm">마스카라 아니에요. 속눈썹 영양제에요. 영양공급과 메이크업 효과까지!</h1>
+                                            <div class="commons_orderText__3B9S_"><c:out value="${review.getPlaceReviewNumber()}" /></div>
+                                            <h1 class="commons_title__1yGWm"><c:out value="${review.getPlaceReviewContents()}" /></h1>
                                             <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">30,367%</span>뷰티</p>
+                                                    class="commons_achievementRate__2J-KL">${review.getUserName()}</span>${review.getPlaceReviewDatetime()}</p>
                                         </div>
                                         <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0823/20220823151316835_160326.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
+                                                                                        <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
+                                                style="background-image: url(' <c:choose><c:when test="${empty  review.getReviewFileSystemName()}"><c:out value="${pageContext.request.contextPath}/images/logo.png"/></c:when><c:otherwise><c:out value="${pageContext.request.contextPath}/upload/review/${review.getReviewFileSystemName()}"/></c:otherwise></c:choose> ');">
                                             </div>
                                         </div>
                                     </article>
                                 </div>
                             </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/158540?_refer_section_st=ranking_1" data-ec-id="158540"
-                                data-ec-name="만보를 걸어도 편안해요. 양말처럼 착! 1초만에 신고벗는 만보삭스부츠" data-ec-list="ranking"
-                                data-ec-position="1">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="1">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">2</div>
-                                            <h1 class="commons_title__1yGWm">만보를 걸어도 편안해요. 양말처럼 착! 1초만에 신고벗는 만보삭스부츠</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">28,504%</span>패션·잡화</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0824/20220824104838642_158540.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/161118?_refer_section_st=ranking_2" data-ec-id="161118"
-                                data-ec-name="[1억 앵콜 | 5개 동시 충전] 20W+괴물 용량+고속 충전 보조배터리" data-ec-list="ranking"
-                                data-ec-position="2">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="2">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">3</div>
-                                            <h1 class="commons_title__1yGWm">[1억 앵콜 | 5개 동시 충전] 20W+괴물 용량+고속 충전 보조배터리
-                                            </h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">14,022%</span>테크·가전</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0914/20220914151615177_161118.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/160927?_refer_section_st=ranking_3" data-ec-id="160927"
-                                data-ec-name="추운욕실 뜨겁게 한달 전기료 2,240원 북유럽 감성 욕실온풍기 2.0" data-ec-list="ranking"
-                                data-ec-position="3">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="3">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">4</div>
-                                            <h1 class="commons_title__1yGWm">추운욕실 뜨겁게 한달 전기료 2,240원 북유럽 감성 욕실온풍기 2.0
-                                            </h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">32,257%</span>홈·리빙</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0915/20220915135503633_160927.jpg/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
-                        <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/161925?_refer_section_st=ranking_4" data-ec-id="161925"
-                                data-ec-name="[미.친. 블루오션 부업] 글로벌 자동화 유튜브로 대기업 연봉 격파!" data-ec-list="ranking"
-                                data-ec-position="4">
-                                <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="4">
-                                    <article>
-                                        <div
-                                            class="commons_content__2K1SH commons_order__3AewF CardType_content__1Pavj">
-                                            <div class="commons_orderText__3B9S_">5</div>
-                                            <h1 class="commons_title__1yGWm">[미.친. 블루오션 부업] 글로벌 자동화 유튜브로 대기업 연봉 격파!</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">32,783%</span>클래스·컨설팅</p>
-                                        </div>
-                                        <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0907/20220907175050516_161925.png/wadiz/resizecrop/91x64/format/jpg/quality/85/&quot;);">
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </a></div>
+                       
+</c:forEach>
+</c:when>
+</c:choose>
+</tbody>
+                        
+                      
+                 
                     </div>
                 </div>
             </section>
@@ -556,7 +483,7 @@
         <div class="RecommendationDesktop_innerGroup__as4jB Main_innerWrap__7-_Vm" style="padding-right:36px">
             <section class="SectionContainerLayout_container__1f8kt LikableFundingWrap_container__3mzG6 undefined">
                 <div class="title_contentWrapper__1P-q0 LikableFundingWrap_title__qXo4b">
-                    <h1>회원님이 <strong style="color:#ff914d">좋아하는</strong> 친구목록</h1>
+                    <h1>회원님을 <strong style="color:#ff914d">기달리고있는</strong> 유기동물</h1>
                 </div>
                 <div class="LikableFundingWrap_wrap__1ZPJw">
                    
@@ -595,102 +522,7 @@
 </tbody>
         </div>
     </div>
-    <div class="Main_wrap__2jKMu Main_wrap__2jKMuEnd">
-        <div class="Main_innerWrap__7-_Vm" style='padding-left:80px; padding-bottom:40px;padding-right:80px;'>
-            <div class="EarlybirdDesktop_container__1IoRp">
-                <div class="EarlybirdDesktop_wrap__314kI">
-                    <div class="title_titleWrapper__1ggAh">
-                        <h1 class="title_title__2rv2M">유기견</h1>
-                        <p>먼저 참여하는 분들께 드리는 얼리버드 혜택</p>
-                    </div>
-                    <div class="Pagination_container__28uaq EarlybirdDesktop_pagination__1CGN5">
-                        <div class="Pagination_btnGroup__3o2gm"><button
-                                class="Pagination_paginationBtn__31dPl Pagination_prev__OAUZT Pagination_isFirstPage__1nscH"
-                                disabled="" aria-label="이전 페이지"><i class="icon chevron-left"
-                                    aria-hidden="true"></i></button><button
-                                class="Pagination_paginationBtn__31dPl Pagination_next__2VEGc" aria-label="다음 페이지"><i
-                                    class="icon chevron-right" aria-hidden="true"></i></button></div>
-                    </div>
-                </div>
-                <ul class="EarlybirdDesktop_earlybirdList__2XjA6">
-                    <li class="EarlybirdDesktop_listItem__2j7AD"><a
-                            href="/web/campaign/detail/120712?_refer_section_st=earlyBird_0" data-ec-id="120712"
-                            data-ec-name="느리고 낡은 구형 PC를 빠르고 예쁜 빅인 미니 PC로 바꿔주세요!" data-ec-list="earlyBird"
-                            data-ec-position="0">
-                            <div class="CardType_projectCard__3xhjb CardType_earlybirdCard__1t1n1">
-                                <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                    <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                        style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0825/20220825180221879_120712.png/wadiz/resizecrop/372x208/format/jpg/quality/85/&quot;);">
-                                    </div>
-                                </div>
-                                <div class="CardType_cardContent__3UMOr">
-                                    <div>
-                                        <p class="CardType_type__El7XP">펀딩</p>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">느리고 낡은 구형 PC를 빠르고 예쁜 빅인 미니 PC로 바꿔주세요!</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">708%</span>테크·가전</p>
-                                        </div>
-                                    </div>
-                                    <div class="CardType_linkBtn__1QHvM">지금 참여하기<i class="wz icon chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></li>
-                    <li class="EarlybirdDesktop_listItem__2j7AD"><a
-                            href="/web/campaign/detail/159564?_refer_section_st=earlyBird_1" data-ec-id="159564"
-                            data-ec-name="40년 스텐제조사의 한 끗이 다른 올스텐 캠핑 식기ㅣ마음껏 비교해보세요" data-ec-list="earlyBird"
-                            data-ec-position="1">
-                            <div class="CardType_projectCard__3xhjb CardType_earlybirdCard__1t1n1">
-                                <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                    <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                        style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0905/20220905140340024_159564.jpg/wadiz/resizecrop/372x208/format/jpg/quality/85/&quot;);">
-                                    </div>
-                                </div>
-                                <div class="CardType_cardContent__3UMOr">
-                                    <div>
-                                        <p class="CardType_type__El7XP">펀딩</p>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">40년 스텐제조사의 한 끗이 다른 올스텐 캠핑 식기ㅣ마음껏 비교해보세요
-                                            </h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">4057%</span>여행·레저</p>
-                                        </div>
-                                    </div>
-                                    <div class="CardType_linkBtn__1QHvM">지금 참여하기<i class="wz icon chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></li>
-                    <li class="EarlybirdDesktop_listItem__2j7AD"><a
-                            href="/web/campaign/detail/160881?_refer_section_st=earlyBird_2" data-ec-id="160881"
-                            data-ec-name="[9만원대 갓성비] 3초 세팅 끝! 5kg 초경량 원목 폴딩 테이블&amp;체어" data-ec-list="earlyBird"
-                            data-ec-position="2">
-                            <div class="CardType_projectCard__3xhjb CardType_earlybirdCard__1t1n1">
-                                <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                    <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                        style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0914/20220914193035967_160881.jpg/wadiz/resizecrop/372x208/format/jpg/quality/85/&quot;);">
-                                    </div>
-                                </div>
-                                <div class="CardType_cardContent__3UMOr">
-                                    <div>
-                                        <p class="CardType_type__El7XP">펀딩</p>
-                                        <div class="commons_content__2K1SH CardType_content__1Pavj">
-                                            <h1 class="commons_title__1yGWm">[9만원대 갓성비] 3초 세팅 끝! 5kg 초경량 원목 폴딩
-                                                테이블&amp;체어</h1>
-                                            <p class="commons_summary__2Ynez"><span
-                                                    class="commons_achievementRate__2J-KL">2198%</span>홈·리빙</p>
-                                        </div>
-                                    </div>
-                                    <div class="CardType_linkBtn__1QHvM">지금 참여하기<i class="wz icon chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -857,6 +689,7 @@ function startClock() {
 // 유기동물 api로 불러오기
 function lostfoundanimals() {
 	
+	
 /* 	let  overlaparray = [];
 	
 	function overlapOne () {   
@@ -1021,6 +854,7 @@ function lostfoundanimals() {
 navershop()
 //네이버 쇼핑 api 불러 오기!
 function navershop() {
+
 	
 var keyword = "아르르사료";
    var sort ="sim";
@@ -1061,7 +895,7 @@ var keyword = "아르르사료";
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_cardListGroup__1nRxw">`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/161047?_refer_section_st=PersonalCurator_0">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -1075,7 +909,7 @@ var keyword = "아르르사료";
             		text += `</a></div>`
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/159185?_refer_section_st=PersonalCurator_1">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -1089,7 +923,7 @@ var keyword = "아르르사료";
             		text += `</a></div>`
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/158251?_refer_section_st=PersonalCurator_2">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");;">`
@@ -1103,7 +937,7 @@ var keyword = "아르르사료";
             		text += `</a></div>`
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/156028?_refer_section_st=PersonalCurator_3">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -1123,7 +957,7 @@ var keyword = "아르르사료";
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_plannedCard__2e9vM">`
             		text += `<div class="CardType_projectCard__3xhjb CardType_plannedCard__Yyg0B RecommendFundingWrap_collectionCard__QQv01">`
-            		text += `<a href="/web/wreward/comingsoon/collection/hotcomingsoon">`
+            		text += `<a href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -1154,8 +988,71 @@ var keyword = "아르르사료";
          }
          });
 }
-
+var Outputindex=5;
+var Increment=0;
     
+    
+    // 커뮤니티 
+    
+    //이미지 경로??
+    //"background-image:  url("../../upload/`+file.postFileOriginName+`") #202020 no-repeat;background-size: cover;max-height: 100%; max-width: 100%;"
+    showDefault()
+    function showDefault(){
+    	console.log(Outputindex);
+    	console.log(Increment);
+	let text="";
+	$.ajax({
+		url:"${pageContext.request.contextPath}/meommi/mainpost.ma",
+		type:"get",
+		contentType:"text/html; charset=utf-8",
+		data:{Outputindex:Outputindex+Increment},
+		dataType:"json",
+		success:function(resultpost){
+					$.ajax({
+						url:"${pageContext.request.contextPath}/meommi/mainpostfile.ma",
+						type:"post",
+						contentType:"text/html; charset=utf-8",
+						data:{Outputindex:Outputindex+Increment},
+						dataType:"json",
+						success:function(resultfile){
+							//텍스트 태그 합치는 코드 작성
+																text += `<h3 class="RecommendationFeed_title__laFXx">커뮤니티</h3>`
+									text += `<h4 class="RecommendationFeed_subTitle__3VgCT">최근 반려동물 소개하기!👀</h4>`
+									text += `<div class="CardTable_container__35uFd RecommendationFeed_cardList__1pFdE" style="width: calc(100% - 0px);">`
+							resultpost.forEach(post=>{
+
+										
+
+									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-left: 0px; margin-right: 0px; margin-bottom: 16px;">`
+									text += `<a class="RecommendationFeedCard_container__34sfZ" href="${pageContext.request.contextPath}/app/community/community.jsp" data-ec-list="피드" data-ec-id="147782" data-ec-name="[기능8개,소재4개]순식간에 내신발을 편하게 해주는 발침대깔창,미끄럼NO" data-ec-category="패션·잡화" data-ec-brand="편한발 이지풋" data-ec-usertype="MAKER" data-ec-feedtype="MAKER_RECOMMEND_TODAY" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472854" data-gtm-vis-recent-on-screen-11319722_2073="7703291" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-has-fired-11319722_2073="1">`
+									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(${pageContext.request.contextPath}/images/dogonon.jpg);">`
+									text += `</div>`
+									text += `</div>`
+									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
+									text += `<div class="RecommendationFeedCard_header__30rGt"><span class="RecommendationFeedCard_badge__8enw6 RecommendationFeedCard_badgeMaker__3Uw2O">아이디</span><span class="RecommendationFeedCard_writerName__39Hub RecommendationFeedCard_writerNameMaker__3sCxH">`+post.userId+`</span>`
+									text += `</div>`
+									text += `<div>`
+									text += `<div class="RecommendationFeedCard_projectName__Fk9ZT RecommendationFeedCard_projectNameMaker__3JdNd">`+post.postContent+`</div>`
+									text += `</div>`
+									text += `</div>`
+									text += `</a>`
+									text += `</div>`
+						
+									
+									
+				
+							 });
+							text += `<div class="RecommendationFeed_footer__15DI0"><button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_lg__3yP9R RecommendationFeed_viewMoreButton__3J1D5" type="button"><span><span class="Button_children__10ESl">커뮤니티 더보기</span></span></button></div>`
+					
+					$(".RecommendationFeed_container__MtOmG").html(text);
+						}//ajax(success:file)
+					});//ajax(file)
+				}//ajax(success:comment)
+			
+		})//ajax(success:post)
+	
+}
     
     
     
@@ -1163,3 +1060,5 @@ var keyword = "아르르사료";
 </script>
 
 </html>
+
+                                        

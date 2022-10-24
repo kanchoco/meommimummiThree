@@ -23,12 +23,13 @@ public class MyPlaceLookupOkController implements Execute {
 		resp.setContentType("text/html;charset=UTF-8");
 		//로그인이랑 합쳤을때, 세션에 들어간 유저 넘버로 바꿀것
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
-		int userNumber = 1;
+		int userNumber = Integer.valueOf(String.valueOf(req.getSession().getAttribute("userNumber")));
 		UserDAO userDAO = new UserDAO();
 		JSONArray places = new JSONArray();
 		PrintWriter out = resp.getWriter();
 		String temp = req.getParameter("page"); 
 		JSONObject pages = new JSONObject();
+		System.out.println(userNumber);
 		
 		int page = temp == null ? 1 : Integer.parseInt(temp);
 		int total = userDAO.countMyPlace(userNumber);
@@ -50,7 +51,11 @@ public class MyPlaceLookupOkController implements Execute {
 		pageMap.put("startRow", startRow);
 		pageMap.put("rowCount", rowCount);
 		pageMap.put("userNumber", userNumber);
-		userDAO.selectMyPlace(pageMap).forEach(v -> {JSONObject place = new JSONObject(v); places.put(place);});
+		System.out.println(pageMap);
+		
+		System.out.println(userDAO.selectMyPlace(pageMap));
+		
+		userDAO.selectMyPlace(pageMap).forEach(v -> {System.out.println(v); JSONObject place = new JSONObject(v); places.put(place);});
 		places.put(pages);
 		out.print(places.toString());
 		out.close();

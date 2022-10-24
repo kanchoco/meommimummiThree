@@ -44,7 +44,7 @@ public class LoginOkController implements Execute {
 			System.out.println(session.getAttribute("userId"));
 			
 			result.setRedirect(true);
-			result.setPath(req.getContextPath() + "/index.jsp"); //아직 메인 컨트롤러 안만들어서 임시로 여기로 보냄
+			result.setPath(req.getContextPath() + "/app/main/mainpage.jsp"); //아직 메인 컨트롤러 안만들어서 임시로 여기로 보냄
 			
 			} catch (Exception e) {
 			//로그인 실패 시

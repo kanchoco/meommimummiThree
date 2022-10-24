@@ -68,17 +68,17 @@
 	
 	<!-- 내 리뷰 목록 -->
 	<select id="selectMyReview" parameterType="map" resultType="placeReviewDTO">
-		select place_review_number, place_review_contents, place_review_rating, place_review_datetime, r.user_number, place_id, place_review_helful, favorite_place_name
-		from tbl_place_review r, tbl_favorite_place p
-		where r.user_number = #{userNumber} and r.place_id = p.favorite_place_place_id
-		order by r.place_review_number desc limit #{startRow}, #{rowCount};
+		SELECT place_review_number, place_review_contents, place_review_rating, place_review_datetime, user_number, place_id, place_name, place_address, user_name, place_review_helful
+		FROM meommi.tbl_place_review
+		where user_number = #{userNumber}
+		order by place_review_number desc limit #{startRow}, #{rowCount};
 	</select>
 	
 	<!-- 내 리뷰 사진  -->
 	<select id="selectReviewFile" parameterType="_int" resultType="string">
-		select f.review_file_system_name
-		from tbl_place_review r, tbl_review_file f
-		where r.place_review_number = #{placeReviewNumber} and r.place_review_number = f.place_review_number 
+		SELECT r.place_review_number, place_review_contents, place_review_rating, place_review_datetime, user_number, place_id, place_name, place_address, user_name, f.review_file_system_name 
+		FROM tbl_place_review r , tbl_review_file f 
+		where r.place_review_number = f.place_review_number and user_number = #{userNumber}
 		order by r.place_review_number desc limit 0, 1
 	</select>
 	
@@ -90,17 +90,17 @@
 	</select>
 	
 	<!-- 내 장소 목록 -->
-	<select id="selectMyPlace" parameterType="map" resultType="favoritePlaceVO">
-		select favorite_place_place_id, favorite_place_adr_address, favorite_place_business_status, favorite_place_geometry, favorite_place_name, favorite_place_photos, favorite_place_opening_hours, user_number
-		from tbl_favorite_place
+	<select id="selectMyPlace" parameterType="map" resultType="placeReviewDTO">
+		SELECT place_review_number, place_review_contents, place_review_rating, place_review_datetime, user_number, place_id, place_name, place_address, user_name, place_review_helful
+		FROM tbl_place_review
 		where user_number = #{userNumber}
-		order by favorite_place_place_id desc limit #{startRow}, #{rowCount}
+		order by place_review_number desc limit #{startRow}, #{rowCount};
 	</select>
 	
 	<!-- 내 장소 수 -->
 	<select id="countMyPlace" parameterType="_int" resultType="_int">
-		select count(favorite_place_place_id)
-		from tbl_favorite_place
+		select count(place_review_number) 
+		from tbl_helful 
 		where user_number = #{userNumber}
 	</select>
 	

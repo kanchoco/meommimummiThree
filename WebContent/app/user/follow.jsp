@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>멈미뭄미</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/follow.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/follow.css">
 </head>
 <body>
-<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
+<jsp:include page="${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp"></jsp:include>
     <div id="my-follow-web" min-height:100vh>
         <div class="MyFollowWebContainer_container">
             <div class="MyFollowWebContainer_contents">
@@ -23,7 +24,7 @@
                                     <span>
                                         <p>
                                             팔로잉
-                                            <sup>1</sup>
+                                            <sup><c:out value="${followingCount}"></c:out></sup>
                                         </p>
                                     </span>
                                 </button>
@@ -33,31 +34,11 @@
                                     <span>
                                         <p>
                                             팔로워
-                                            <sup></sup>
+                                            <sup><c:out value="${followerCount}"></c:out></sup>
                                         </p>
                                     </span>
                                 </button>   
                             </li>
-                            <!--  <li data-index="2">
-                                <button class="Tab_tab" type="button" role="tab" data-value="2">
-                                    <span>
-                                        <p>
-                                            팔로워
-                                            <sup></sup>
-                                        </p>
-                                    </span>
-                                </button>
-                            </li>
-                            <li data-index="3">
-                                <button class="Tab_tab" type="button" role="tab" data-value="3">
-                                    <span>
-                                        <p>
-                                            차단유저
-                                            <sup></sup>
-                                        </p>
-                                    </span>
-                                </button>
-                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -73,6 +54,9 @@
     </div>
     <jsp:include page="${pageContext.request.contextPath}/app/fix/footer.jsp"></jsp:include>
 </body>
+<script>
+	let $context = "${pageContext.request.contextPath}";
+</script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/follow.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/follow.js?ver=4"></script>
 </html>

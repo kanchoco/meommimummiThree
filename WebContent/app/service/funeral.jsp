@@ -37,7 +37,7 @@
 					</a></li>
 					<li class="RewardMainTab_onlyLarge__1q7_V"><a
 						class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir"
-						href="${pageContext.request.contextPath}/app/service/funeral.jsp"
+						href="${pageContext.request.contextPath}funeral.fu"
 						aria-current="page"> <span>장례업체</span>
 					</a></li>
 				</ul>
@@ -177,7 +177,7 @@
 										<c:otherwise>
 											<tr>
 												<td colspan="5" align="center">등록된 게시물이 없습니다.</td>
-												<td colspan="5" align="center"><c:out value="${funerals}"/></td>
+												
 											</tr>
 										</c:otherwise>
 									</c:choose>
@@ -197,6 +197,7 @@
 														<c:choose>
 															<c:when test="${not (i eq page)}">
 																<a href="${pageContext.request.contextPath}/funeral.fu?page=${i}">
+																
 																	<c:out value="${i}"/>&nbsp;&nbsp;
 																</a>
 															</c:when>

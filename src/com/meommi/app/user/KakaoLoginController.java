@@ -48,7 +48,7 @@ public class KakaoLoginController implements Execute {
 			session.setAttribute("userNumber", userNumber);
 			
 			result.setRedirect(true);
-			result.setPath(req.getContextPath()+ "/app/main/mainpage.jsp");
+			result.setPath(req.getContextPath() + "/index.jsp");
 		} catch (Exception e) {
 			result.setRedirect(true);
 			result.setPath("/user/login.us?login=false");

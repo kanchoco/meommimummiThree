@@ -37,18 +37,18 @@
 		select count(following_number) from tbl_follow f, tbl_user u
 		where follower_number = #{userNumber} and f.following_number = u.user_number and following_number = #{followUser};
 	</select>
-	
+
 	<!-- 언팔로우 -->
 	<delete id="deleteFollower" parameterType="map">
 		delete from tbl_follow
-		where follower_number= #{userNumber} AND following_number= #{followNumber};
+		where follower_number= #{userNumber} AND following_number= #{followNumber}
 	</delete>
 	
 	<!-- 팔로잉  -->
 	<insert id="following" parameterType="map">
 		insert into tbl_follow
 		(follower_number, following_number)
-		values(#{userNumber} , #{followNumber});
+		values(#{userNumber} , #{followNumber})
 	</insert>
 
 	<select id="selectFollower" parameterType="_int" resultType="FollowVO">

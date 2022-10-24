@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/app/service/funeral.jsp">
+                        <a class="RewardMainTab_link___1r2a" href="${pageContext.request.contextPath}/funeral.fu">
                             <span>장례업체</span>
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                                <br>
                                <br>
                                <button class="buttonpageSeach kindbuttonpage" onclick="Inquire()">조회</button>
-                               <button class="buttonpageSeach kindbuttonpage" onclick="Inquire()">처음</button>
+                               <button class="buttonpageSeach kindbuttonpage" onclick="city()">처음</button>
                                 
                               
                               
@@ -170,215 +170,6 @@ let busan = document.querySelector('.citybuttonpagebusan');
 // 종류 전체 버튼!
 function savecitycode(number){
  	citycodenumber = number;
- 	switch (citycodenumber) {
- 	//서울
- 	  case 6110000:
-	 		// 만약 다른 버튼을 눌렀다면 밑의 조건문 시작
-	 		if(citycheck == 0 || citycodepreviousmemory != 6110000){
-	 			// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 			console.log("비활성화");
-	 			$('.citybuttonpage').css("background-color", "#ff914d");
-	 			citycodepreviousmemory = 0
-	 		}else if(citycheck == 0){
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpageseoul').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 	 		citycheck = 1;
-	 		return;
-	 		}else if(citycodepreviousmemory == 6110000){
-	 		// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 		$('.citybuttonpage').css("background-color", "#ff914d");
-			console.log("비활성화");
-	 		citycheck = 1;
-	 		}
-	 		console.log(citycheck);
-
-	 		// 만약 버튼을 두번 클릭했다면 (활성 하고 비활성화 하면!) 조건문 시작
-	 		if(citycheck == 1 && citycodepreviousmemory == 6110000){
-			// 클릭한 버튼만 비활성화 코드!
-			$('.citybuttonpageseoul').css("background-color", "#ff914d");
-			console.log("비활성화");
-			citycheck = 0;
-			citycodepreviousmemory = 0;
-			return;
-	 	}
-	 		
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpageseoul').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 		citycheck = 1;
-	    alert( '서울' );
-	   citycodepreviousmemory = 6110000;
- 	    break;
- 	    //부산
- 	  case 6260000:
-	 		// 만약 다른 버튼을 눌렀다면 밑의 조건문 시작
-	 		if(citycheck == 0 || citycodepreviousmemory != 6260000){
-	 			// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 			console.log("비활성화");
-	 			$('.citybuttonpage').css("background-color", "#ff914d");
-	 			citycodepreviousmemory = 0
-	 		}else if(citycheck == 0){
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpagebusan').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 	 		citycheck = 1;
-	 		return;
-	 		}else if(citycodepreviousmemory == 6260000){
-	 		// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 		$('.citybuttonpage').css("background-color", "#ff914d");
-			console.log("비활성화");
-	 		citycheck = 1;
-	 		}
-	 		console.log(citycheck);
-
-	 		// 만약 버튼을 두번 클릭했다면 (활성 하고 비활성화 하면!) 조건문 시작
-	 		if(citycheck == 1 && citycodepreviousmemory == 6260000){
-			// 클릭한 버튼만 비활성화 코드!
-			$('.citybuttonpagebusan').css("background-color", "#ff914d");
-			console.log("비활성화");
-			citycheck = 0;
-			citycodepreviousmemory = 0;
-			return;
-	 	}
-	 		
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpagebusan').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 		citycheck = 1;
-	    alert( '부산' );
-	   citycodepreviousmemory = 6260000;
- 	    break;
- 	    //대구
- 	  case 6270000:
-	 		// 만약 다른 버튼을 눌렀다면 밑의 조건문 시작
-	 		if(citycheck == 0 || citycodepreviousmemory != 6270000){
-	 			// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 			console.log("비활성화");
-	 			$('.citybuttonpage').css("background-color", "#ff914d");
-	 			citycodepreviousmemory = 0
-	 		}else if(citycheck == 0){
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpagedaegu').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 	 		citycheck = 1;
-	 		return;
-	 		}else if(citycodepreviousmemory == 6270000){
-	 		// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 		$('.citybuttonpage').css("background-color", "#ff914d");
-			console.log("비활성화");
-	 		citycheck = 1;
-	 		}
-	 		console.log(citycheck);
-
-	 		// 만약 버튼을 두번 클릭했다면 (활성 하고 비활성화 하면!) 조건문 시작
-	 		if(citycheck == 1 && citycodepreviousmemory == 6270000){
-			// 클릭한 버튼만 비활성화 코드!
-			$('.citybuttonpagedaegu').css("background-color", "#ff914d");
-			console.log("비활성화");
-			citycheck = 0;
-			citycodepreviousmemory = 0;
-			return;
-	 	}
-	 		
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpagedaegu').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 		citycheck = 1;
-	    alert( '대구' );
-	   citycodepreviousmemory = 6270000;
- 	 	    break;
- 	 	    //인천
- 	  case 6280000:
-	 		// 만약 다른 버튼을 눌렀다면 밑의 조건문 시작
-	 		if(citycheck == 0 || citycodepreviousmemory != 6280000){
-	 			// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 			console.log("비활성화");
-	 			$('.citybuttonpage').css("background-color", "#ff914d");
-	 			citycodepreviousmemory = 0
-	 		}else if(citycheck == 0){
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpageincheon').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 	 		citycheck = 1;
-	 		return;
-	 		}else if(citycodepreviousmemory == 6280000){
-	 		// 클릭한 버튼 제외한 나머지 버튼 비활성화 코드
-	 		$('.citybuttonpage').css("background-color", "#ff914d");
-			console.log("비활성화");
-	 		citycheck = 1;
-	 		}
-	 		console.log(citycheck);
-
-	 		// 만약 버튼을 두번 클릭했다면 (활성 하고 비활성화 하면!) 조건문 시작
-	 		if(citycheck == 1 && citycodepreviousmemory == 6280000){
-			// 클릭한 버튼만 비활성화 코드!
-			$('.citybuttonpageincheon').css("background-color", "#ff914d");
-			console.log("비활성화");
-			citycheck = 0;
-			citycodepreviousmemory = 0;
-			return;
-	 	}
-	 		
-	 		// 클릭한 버튼 활성화 코드
-	 		$('.citybuttonpageincheon').css("background-color", "#d55506");
-	 		console.log("활성화");
-	 		citycheck = 1;
-	    alert( '인천' );
-	   citycodepreviousmemory = 6280000;
- 	 	    break;
- 	 	    //광주
- 	  case 6290000:
- 		 cityonclick = 1;
- 	 	    alert( '광주' );
- 	 	    break;
- 	  case 6300000:
- 		 cityonclick = 1;
- 	 	    alert( '대전' );
- 	 	    break;
- 	  case 6310000:
- 		 cityonclick = 1;
- 	 	    alert( '울산' );
- 	 	    break;
- 	  case 6410000:
- 		 cityonclick = 1;
- 	 	    alert( '경기' );
- 	 	    break;
- 	  case 6420000:
- 		 cityonclick = 1;
- 	 	    alert( '강원' );
- 	 	    break;
- 	  case 6430000:
- 		 cityonclick = 1;
- 	 	    alert( '충북' );
- 	 	    break;
- 	  case 6440000:
- 		 cityonclick = 1;
-	 	    alert( '충남' );
-	 	    break;
- 	  case 6450000:
- 		 cityonclick = 1;
-	 	    alert( '전북' );
-	 	    break;
- 	  case 6460000:
- 		 cityonclick = 1;
-	 	    alert( '전남' );
-	 	    break;
- 	  case 6470000:
- 		 cityonclick = 1;
-	 	    alert( '경북' );
-	 	    break;
- 	  case 6480000:
- 		 cityonclick = 1;
-	 	    alert( '경남' );
-	 	    break;
- 	 case 6500000:
- 		cityonclick = 1;
-	 	    alert( '제주' );
-	 	    break;
- 	  default:
- 	    alert( "어떤 값인지 파악이 되지 않습니다." );
- 	}
  	
  	
 }  
@@ -793,10 +584,10 @@ function Inquire(){
 
 
 		// 처음 페이지 접속시 사용하는 함수들
-		function ajaxcurrentPage(number) {
+		function ajaxcurrentPage() {
 			let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
 			let apikey='DyktvVTGg0%2FIg1NivqmJPVBJRCfkCZRqGYjQoqII%2FlfiBAddeYghCugXGwLCzD4BZuP6%2FdNlVEeHoaRn7MW7Lw%3D%3D';
-			let pageNo=1 * number;
+			let pageNo=1;
 			let numOfRows=6;
 			$.ajax({ // ajax로 데이터 가져오기
 				   //totalData 구하기
@@ -1537,10 +1328,10 @@ function city(param) {
 
 
 // 처음 페이지 접속시 사용하는 함수들
-function ajaxcurrentPage(number) {
+function ajaxcurrentPage() {
 	let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
 	let apikey='DyktvVTGg0%2FIg1NivqmJPVBJRCfkCZRqGYjQoqII%2FlfiBAddeYghCugXGwLCzD4BZuP6%2FdNlVEeHoaRn7MW7Lw%3D%3D';
-	let pageNo=1 * number;
+	let pageNo=1 ;
 	let numOfRows=6;
 	$.ajax({ // ajax로 데이터 가져오기
 		   //totalData 구하기

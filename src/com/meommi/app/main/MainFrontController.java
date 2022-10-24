@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.meommi.app.Result;
 import com.meommi.app.funeral.FuneralListController;
+import com.meommi.app.post.PostListOkController;
+import com.meommi.app.postFile.PostFileOkController;
 
 public class MainFrontController extends HttpServlet {
 
@@ -28,17 +30,22 @@ public class MainFrontController extends HttpServlet {
 		String request = requestURI.substring(contextPath.length());
 		Result result = null;
 
-		if (request.equals("/meommi/main.ma")) {
+		if (request.equals("/main.ma")) {
+			System.out.println("프론트컨트롤러");
 			result = new MainServiceListcontroller().execute(req, resp);
-		}else if(request.equals("/meommi/mainfeedsearch.ma")) {
-			new MainFeedSearchController().execute(req,resp);
-		}else if(request.equals("/meommi/mainpost.ma")) {
-			new MainFeedSearchController().execute(req,resp);
-		}else if(request.equals("/meommi/mainpostfile.ma")) {
-			new MainFeedSearchController().execute(req,resp);
-	
-		
-	
+			result = new MainPlaceReviewOkController().execute(req, resp);
+		}  else if (request.equals("/meommi/mainfeedsearch.ma")) {
+			new MainFeedSearchController().execute(req, resp);
+		} else if (request.equals("/meommi/mainpost.ma")) {
+			new MainPostListOkController().execute(req, resp);
+		} else if (request.equals("/meommi/mainpostfile.ma")) {
+			new MainPostFileOkController().execute(req, resp);
+			/*
+			 * }else if(request.equals("/meommi/mainplacereview.ma")) { result = new
+			 * MainPlaceReviewOkController().execute(req,resp);
+			 */
+
+		}
 		if (result != null) {
 			if (result.isRedirect()) {
 				resp.sendRedirect(result.getPath());
@@ -48,7 +55,5 @@ public class MainFrontController extends HttpServlet {
 			}
 		}
 	}
-		
-	}
-}
 
+}

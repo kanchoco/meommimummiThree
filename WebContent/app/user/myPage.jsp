@@ -12,13 +12,13 @@
     <title>멈미뭄미 - 마이페이지</title>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp"></jsp:include>
     <div id="page-container">
         <form id="forwardForm" method="get">
             <input type="hidden" id="returnURL" name="returnURL">
         </form>
         <input type="hidden" id="sessionLoginCheck" value="true">
-        <input type="hidden" id="userNumber" value="<c:out value="${loginUser.getUserNumber}"/>">
+        <input type="hidden" id="userNumber" value="<c:out value="${loginUser.getUserNumber()}"/>">
         <main>
             <div id="my-mumm-web">
                 <div class="MyMummPage_mymummPage">
@@ -50,7 +50,7 @@
                                         <p class="MymummLoginMode_loginMode">
                             
                                         </p>
-                                        <a href="/main" class="Button_button Button_md Button_circular Button_block">
+                                        <a href="#" onclick="meommiLogout(this)" class="Button_button Button_md Button_circular Button_block">
                                             <span>
                                                 <span class="Button_children">
                                                     로그아웃
@@ -70,7 +70,7 @@
                                                         <a>
                                                             <span>
                                                                 <b>
-                                                                    <c:out value="${empty myPost? 0 : myPost}"></c:out>
+                                                                    <c:out value="${0 eq myPost ? 0 : myPost}"></c:out>
                                                                     <i></i>
                                                                 </b>
                                                                 작성 게시글
@@ -82,7 +82,7 @@
                                                             <span>
                                                                 <!-- before -->
                                                                 <b>
-                                                                    <c:out value="${empty myComment? 0 : myComment}"></c:out>
+                                                                    <c:out value="${0 eq myComment ? 0 : myComment}"></c:out>
                                                                     <i></i>
                                                                 </b>
                                                                 작성댓글
@@ -94,7 +94,7 @@
                                                             <span>
                                                                 <!-- before -->
                                                                 <b>
-                                                                    <c:out value="${empty myReview? 0 : myReview}"></c:out>
+                                                                    <c:out value="${0 eq myReview? 0 : myReview}"></c:out>
                                                                     <i></i>
                                                                 </b>
                                                                 작성 리뷰
@@ -106,7 +106,7 @@
                                                             <span>
                                                                 <!-- before -->
                                                                 <b>
-                                                                    <c:out value="${empty myPlace? 0 : myPlace}"></c:out>
+                                                                    <c:out value="${0 eq myPlace ? 0 : myPlace}"></c:out>
                                                                     <i></i>
                                                                 </b>
                                                                 내 장소
@@ -124,7 +124,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="follow.html" style="cursor: pointer;">
+                                                        <a onclick="location.href = '${pageContext.request.contextPath}/meommi/Follow.fo'" style="cursor: pointer;">
                                                             <span>
                                                                 <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon__1w" aria-hidden="true"><path fill="none" d="M0 0h40v40H0z"></path><path d="M28.13 9.39a5.26 5.26 0 0 1 0 10.52 8.93 8.93 0 0 1-1.71 1.87 7.07 7.07 0 0 0 1.73.22 7.35 7.35 0 1 0 0-14.7 7.07 7.07 0 0 0-1.73.22 8.93 8.93 0 0 1 1.71 1.87zM29.82 24a8.41 8.41 0 0 1 2.63 2.38c3.71.69 5.3 2.51 5.3 5.8h2.09c0-6.58-5.31-7.97-10.02-8.18zM11.3 20.79v-1.04H6.69v-4.61H4.61v4.61H0v2.08h4.61v4.61h2.08v-4.61h4.61v-1.04z"></path><path d="M27.85 14.65A7.35 7.35 0 1 0 20.5 22a7.36 7.36 0 0 0 7.35-7.35zm-12.62 0a5.27 5.27 0 1 1 5.27 5.26 5.27 5.27 0 0 1-5.27-5.26zM20.5 24c-5 0-11.69.85-11.69 8.22h2.08c0-4.36 2.79-6.14 9.61-6.14s9.6 1.78 9.6 6.14h2.08c0-7.42-6.67-8.22-11.68-8.22z"></path></svg>
                                                                 <span>팔로잉</span>
@@ -145,7 +145,7 @@
                                     </div>
                                     <div class="profileSetting" style="display: none;">
                                     	<form method="post" name="setProfileForm" action="${pageContext.request.contextPath}/user/setOk.us" enctype="multipart/form-data">
-	                                                <input type="hidden" name="userId" value="<c:out value = "${loginUser.getUserId()}"/>">
+	                                        <input type="hidden" name="userId" value="<c:out value = "${loginUser.getUserId()}"/>">
 	                                        <h3>개인정보 설정</h3>
 	                                        <div id="tabContent1" class="tab-content">
 	                                            <h5>프로필 사진</h5>
@@ -163,12 +163,12 @@
 	                                            </div>
 	                                            <h5>이름 변경</h5>
 	                                            <div class="changeNick">
-	                                                <input type="text" class="input-text" maxlength="50" name ="nickname" id="nickName" placeholder="<c:out value="${loginUser.getUserName()}" />" autocomplete="false">
+	                                                <input type="text" class="input-text" maxlength="50" name ="nickname" id="nickName" value="<c:out value="${loginUser.getUserName()}" />" autocomplete="off">
 	                                            </div>
 	                                            <h5>비밀번호 변경</h5>
 	                                            <p class="sub-text">이전 비밀 번호를 입력해주세요</p>
 	                                            <div class="changePw">
-	                                                <input type="password" class="input-text" maxlength="50" id="exPassword" autocomplete="false">
+	                                                <input type="password" class="input-text" maxlength="50" id="exPassword" autocomplete="off">
 	                                                <span>
 	                                                    <button type="button" class="duplicate_check" onclick="checkPw()">비밀번호 확인</button>
 	                                                </span>
@@ -218,6 +218,8 @@
 	let loginMethod = "${loginUser.getUserLoginMethod()}"
 	let userPw = "${loginUser.getUserPassword()}";
 </script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
+<script src = "https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js?ver=3"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js?ver=6"></script>
 </html>
