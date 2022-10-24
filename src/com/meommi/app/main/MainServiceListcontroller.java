@@ -19,7 +19,7 @@ public class MainServiceListcontroller implements Execute {
 		HashMap<String, Integer> pageMap = new HashMap<String, Integer>();
 		Result result = new Result();
 		FuneralDAO funeralDAO = new FuneralDAO();
-		System.out.println("들어옴!");
+		System.out.println("컨트롤러");
 		req.setAttribute("funerals", funeralDAO.selectAlltwo());
 		System.out.println(funeralDAO.selectAlltwo());
 		

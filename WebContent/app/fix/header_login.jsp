@@ -32,9 +32,9 @@
                                 <img alt="" src="${pageContext.request.contextPath}/images/logo.png" width="95" height="30">
                             </a></h1>
                         <ul class="gnb-large" style=" position: relative; display: inline; float: right; right: 0;">
-                            <li class="login"><a href="/web/waccount/wAccountLogin" class="item"><span>로그인</span></a>
+                            <li class="login"><a href="${pageContext.request.contextPath}/user/login.us" class="item"><span>로그인</span></a>
                             </li>
-                            <li class="signup"><a href="/web/waccount/wAccountRegistIntro"
+                            <li class="signup"><a href="${pageContext.request.contextPath}/user/join.us"
                                     class="item"><span>회원가입</span></a></li>
                         </ul>
                     </div>

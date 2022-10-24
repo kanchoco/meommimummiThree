@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import com.meommi.app.Execute;
 import com.meommi.app.Result;
 import com.meommi.app.main.dao.MainDAO;
+import com.meommi.app.main.vo.MainDTO;
 
 public class MainPlaceReviewOkController implements Execute {
 

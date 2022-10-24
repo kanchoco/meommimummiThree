@@ -119,12 +119,12 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/001.png" alt=""></div>
-        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/002.png" alt=""></div>
-        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/003.png" alt=""></div>
-        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/004.png" alt=""></div>
-        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/005.png" alt=""></div>
-        <div class="swiper-slide"><img src="${pageContext.request.contextPath}/images/006.png" alt=""></div>
+        <div class="swiper-slide"><a href="${pageContext.request.contextPath}/app/community/community.jsp"><img src="${pageContext.request.contextPath}/images/001.png" alt=""></div>
+        <div class="swiper-slide"><a href="${pageContext.request.contextPath}/map/mapOriginal.pl"><img src="${pageContext.request.contextPath}/images/002.png" alt=""></div>
+        <div class="swiper-slide"><a href="${pageContext.request.contextPath}/app/service/animalfeed.jsp"><img src="${pageContext.request.contextPath}/images/003.png" alt=""></div>
+        <div class="swiper-slide"><a href="${pageContext.request.contextPath}/app/service/lostfoundanimal.jsp"><img src="${pageContext.request.contextPath}/images/004.png" alt=""></div>
+        <div class="swiper-slide"><a href="${pageContext.request.contextPath}/funeral.fu"><img src="${pageContext.request.contextPath}/images/005.png" alt=""></div>
+        <div class="swiper-slide"><a href="${pageContext.request.contextPath}/main.ma"><img src="${pageContext.request.contextPath}/images/006.png" alt=""></div>
       </div>
       <div class="swiper-button-wrapper-prev swiper-button-wrapper" style="background-color: #00000066;">
         <div class="swiper-button-next swiper-button"></div>
