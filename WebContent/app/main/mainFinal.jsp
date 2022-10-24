@@ -215,8 +215,8 @@
                                                     class="commons_achievementRate__2J-KL">${review.getUserName()}</span>${review.getPlaceReviewDatetime()}</p>
                                         </div>
                                         <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
-                                            <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style=`"background-image: url(`review.reviewFileSystemName == null? ${pageContext.request.contextPath} + `/images/logo.png` : ${pageContext.request.contextPath}+ `/upload/user/`+ review.reviewFileSystemName`);`">
+                                                                                        <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
+                                                style="background-image: url(' <c:choose><c:when test="${empty  review.getReviewFileSystemName()}"><c:out value="${pageContext.request.contextPath}/images/logo.png"/></c:when><c:otherwise><c:out value="${pageContext.request.contextPath}/upload/review/${review.getReviewFileSystemName()}"/></c:otherwise></c:choose> ');">
                                             </div>
                                         </div>
                                     </article>
