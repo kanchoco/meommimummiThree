@@ -18,12 +18,12 @@ public class CommentRegistrationController implements Execute {
 		CommentsDAO commentsDAO=new CommentsDAO();
 		CommentsDTO commentsDTO=new CommentsDTO();
 		String content=req.getParameter("content");
-//		int memberNumber=Integer.valueOf((String) req.getSession().getAttribute("memberNumber"));
+		int memberNumber=(int) req.getSession().getAttribute("userNumber");
 		System.out.println(req.getParameter("postNumber"));
 		int postNumber= Integer.valueOf(req.getParameter("postNumber"));
 		commentsDTO.setCommentsContent(content);
 		commentsDTO.setPostNumber(postNumber);
-//		commentsDTO.setUserNumber(memberNumber);
+		commentsDTO.setUserNumber(memberNumber);
 		commentsDAO.insertComment(commentsDTO);
 		return null;
 	}

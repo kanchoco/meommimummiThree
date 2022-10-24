@@ -3,8 +3,8 @@
 <mapper namespace="UserFile">
 	<insert id="uploadFile" parameterType="userFileVO">
 		insert into tbl_user_file
-		(user_file_system_name, user_file_origin_name, user_file_path, user_number)
-		values(#{userFileSystemName}, #{userFileOriginName}, #{userFilePath}, #{userNumber});
+		(user_file_system_name, user_file_origin_name, user_number)
+		values(#{userFileSystemName}, #{userFileOriginName}, #{userNumber});
 	</insert>
 	
 	<delete id="deleteFile" parameterType="_int">

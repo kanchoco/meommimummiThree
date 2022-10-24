@@ -35,8 +35,8 @@ public class PrivacySetOkController implements Execute {
 		String fileSystemName = null;
 		
 //		req.getSession().getServletContext().getRealPath("/") + "/uploaed/user/"
-//		String uploadPath = req.getSession().getServletContext().getRealPath("/") + "/uploaed/user/";
-		String uploadPath = "D:\\JSP_Project\\personal_workspace\\gangsan\\WebContent\\upload\\user\\";
+		String uploadPath = req.getSession().getServletContext().getRealPath("/") + "upload\\user\\";
+//		String uploadPath = "D:\\JSP_Project\\personal_workspace\\gangsan\\WebContent\\upload\\user\\";
 		int fileSize = 1024 * 1024 * 5; //5M 
 		
 //		request 객체, 업로드 할 경로, 파일의 크키, 인코딩 방식, 이름변경정책
