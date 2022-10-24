@@ -85,7 +85,6 @@ function filterLoad(filter, type){
                      var averageReviewRating=0;
                      var fiveStar=0, fourStar=0, threeStar=0, twoStar=0, oneStar = 0;                     
                      result.forEach(place => {
-						console.log(place.placeReviewHelful);
                         totalReviewRating += place.placeReviewRating;
                         text +=`<article class="reviewItem" style="border-top: solid 1px #ededed;"><div class="reviewWriter" style="margin-top: 10px;"><a href="">`;
 						text +=`<img src="`+ (place.userFileSystemName == null? context + `/images/logo.png` : context + `/upload/user/`+ place.userFileSystemName) + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
@@ -358,6 +357,8 @@ function placesSearchCB(data, status, pagination) {
 
 /*전역변수로 선언*/
 var placeId="";
+var placeAddress = "";
+var placeName = "";
 var dataNumber ="";
 var place="";
 var placeReviewNumber="";
@@ -430,8 +431,8 @@ function displayPlaces(places) {
 				/*DB에 저장할 장소 ID값*/
 				placeId = place.id;
 				placeReviewNumber = place.placeReviewNumber;
-				var placeAddress = place.address_name;
-				var placeName = place.place_name;
+				placeAddress = place.address_name;
+				placeName = place.place_name;
 		
 				
 				/*여기서 aJax로 게시글 정보 부르고, 게시글 작성하기*/
@@ -503,7 +504,6 @@ function displayPlaces(places) {
 								} else if(place.placeReviewRating ==1){
 									oneStar++;
 								} 
-								
 							});
 							
 							/*리뷰 항목들 리스트 출력*/
@@ -961,6 +961,7 @@ $foodFilter.click(function(){
 
 /* 도움이 돼요 클릭 */
 $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
+
 	var thisNumber =  $(this).data("number");
 	var click = $(this).next();
 	if(!userNumber){
@@ -983,13 +984,15 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
 			placeId : placeId
 			},
         success: function (result) {
+
 			console.log(click.text());
 			click.text(result + '명에게 도움이 되는 댓글입니다.');
  			//console.log($('.helpful')[thisNumber-1].innerHTML);
 			//console.log(result);
 			//$('.helpful')[thisNumber-1].innerHTML = result + "명에게 도움이 되는 댓글입니다.";
+
         },
-		error: function(){
+		error: function(e){
 		}
 	});
     } else {
@@ -1005,6 +1008,7 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
 				userNumber : userNumber,
 				placeId : placeId
 			},   
+
 	         success: function (result) {
 	 			console.log(click.text());
 				click.text(result + '명에게 도움이 되는 댓글입니다.');
@@ -1217,7 +1221,13 @@ function resist(){
 	formData.append("placeReviewFile", $('.cameraImgWrap')[0].files[0])
 	
 	/*placeId*/
-	formData.append("placeId", placeId)
+	formData.append("placeId", placeId);
+	
+	/*placeName*/
+	formData.append("placeName", placeName);
+	
+	/*placeAddress*/
+	formData.append("placeAddress", placeAddress);
 	
 	/*점수*/
 	formData.append("reviewRating", $(".rating-input__star.suggested").length)
@@ -1243,6 +1253,9 @@ function resist(){
 */        },          
         error: function (e) {  
            console.log("ERROR : ", e);     
+				console.log(placeName);
+				console.log(placeId);
+				console.log(placeAddress);
 /*            $("#contentResistButton").prop("disabled", false);    
 */            alert("글 등록을 실패하였습니다. 다시 시도해주세요.");      
 	         }     

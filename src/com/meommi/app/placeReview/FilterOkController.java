@@ -26,11 +26,10 @@ public class FilterOkController implements Execute {
 	  int photo = Integer.valueOf(req.getParameter("photo"));
       String order = req.getParameter("order");
       String placeId = req.getParameter("placeId");
-      System.out.println(placeId);
+	  String userNumber = String.valueOf(req.getSession().getAttribute("userNumber") == null? 0 : req.getSession().getAttribute("userNumber"));
       Criteria photoCreteria = new Criteria(star, order, photo, placeId);
       Criteria creteria = new Criteria(star, order, placeId);
       PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
-	  String userNumber = String.valueOf(req.getSession().getAttribute("userNumber") == null? 0 : req.getSession().getAttribute("userNumber"));
       JSONArray reviews = new JSONArray();
       
       HashMap<String, Integer> helpMap = new HashMap<>();
@@ -39,9 +38,9 @@ public class FilterOkController implements Execute {
       if (photo == 0) {
           System.out.println("사진 없음");
           placeReviewDAO.noPhotoFilter(creteria).forEach(v -> {
+             v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
         	  helpMap.put("placeReviewNumber", v.getPlaceReviewNumber());
         	  v.setHelp(placeReviewDAO.isHelp(helpMap));
-        	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
               JSONObject review = new JSONObject(v);
               System.out.println(review);
@@ -50,16 +49,15 @@ public class FilterOkController implements Execute {
       } else {
           System.out.println("사진 있음");
           placeReviewDAO.photoFilter(photoCreteria).forEach(v -> {
+             v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
         	  helpMap.put("placeReviewNumber", v.getPlaceReviewNumber());
         	  v.setHelp(placeReviewDAO.isHelp(helpMap));
-        	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
               JSONObject review = new JSONObject(v);
               System.out.println(review);
               reviews.put(review);
           });
       }
-
       
 
 

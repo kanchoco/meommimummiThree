@@ -82,7 +82,7 @@ public class UserDAO {
 	   }
 	   
 //	   내 장소 불러오기
-	   public List<FavoritePlaceVO> selectMyPlace(Map<String, Integer> pageMap){
+	   public List<PlaceReviewDTO> selectMyPlace(Map<String, Integer> pageMap){
 		   return sqlSession.selectList("User.selectMyPlace", pageMap);
 	   }
 	   

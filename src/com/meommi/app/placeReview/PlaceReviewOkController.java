@@ -29,7 +29,7 @@ public class PlaceReviewOkController implements Execute {
       PlaceReviewDAO placeReviewDAO = new PlaceReviewDAO();
       PlaceReviewFileDAO placeReviewFileDAO = new PlaceReviewFileDAO();
       PlaceReviewFileVO placeReviewFileVO = new PlaceReviewFileVO();
-      String uploadPath = req.getSession().getServletContext().getRealPath("/") + "upload/";
+      String uploadPath = req.getSession().getServletContext().getRealPath("/") + "upload/review/";
       System.out.println(uploadPath);
       int fileSize = 1024 * 1024 * 5; //5M 
       MultipartRequest multipartRequest = new MultipartRequest(req, uploadPath, fileSize, "UTF-8", new DefaultFileRenamePolicy());
@@ -38,23 +38,37 @@ public class PlaceReviewOkController implements Execute {
       int reviewRating = Integer.valueOf(multipartRequest.getParameter("reviewRating"));
       req.setCharacterEncoding("UTF-8");
 
-//         request 객체, 업로드 할 경로, 파일의 크키, 인코딩 방식, 이름변경정책
+//      request 객체, 업로드 할 경로, 파일의 크키, 인코딩 방식, 이름변경정책
          Enumeration<String> fileNames = multipartRequest.getFileNames();
-         
-         String placeId = multipartRequest.getParameter("placeId"); 
-
          
          HttpSession session = req.getSession();
          UserDAO userDAO = new UserDAO();
+
+//       지역 관련 정보
+         String placeId = multipartRequest.getParameter("placeId"); 
+         String placeName = multipartRequest.getParameter("placeName"); 
+         String placeAddress = multipartRequest.getParameter("placeAddress"); 
+
+         System.out.println(placeId);
+         System.out.println(placeName);
+         System.out.println(placeAddress);
+//		 유저 관련 정보         
          int userNumber = (Integer)(session.getAttribute("userNumber"));
          String userId = (String)session.getAttribute("userId");
          String userName = userDAO.loginUser(userId).getUserName();
          
+         
          placeReviewDTO.setPlaceReviewRating(reviewRating);
          placeReviewDTO.setPlaceReviewContents(placeReviewContents);
+         placeReviewDTO.setPlaceId(placeId);
+         placeReviewDTO.setPlaceName(placeName);
+         placeReviewDTO.setPlaceAddress(placeAddress);
+
          placeReviewDTO.setUserNumber(userNumber);
          placeReviewDTO.setUserName(userName);
-         placeReviewDTO.setPlaceId(placeId);
+         
+         System.out.println(placeReviewDTO);
+         
          placeReviewDAO.insert(placeReviewDTO);
 
 
