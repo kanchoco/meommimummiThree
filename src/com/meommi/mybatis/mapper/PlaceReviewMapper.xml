@@ -3,9 +3,10 @@
 <mapper namespace="PlaceReview">
 	<!-- 게시글 클릭 시 모든 후기 나오게 하기 -->
 	<select id="selectAll" parameterType="string" resultType="placeReviewDTO">
-		select place_review_number, place_review_contents, place_review_rating, place_review_dateTime, user_number, user_name, place_review_helful
-		from tbl_place_review
-		where place_id = #{placeId}
+		select place_review_number, place_review_contents, place_review_rating, place_review_dateTime, t.user_number, u.user_name, place_review_helful
+		from tbl_place_review t inner join tbl_user u 
+		on t.user_number = u.user_number
+		where place_id = #{placeId} order by place_review_helful desc;
 	</select>
 	
 	<select id="selectFile" parameterType="_int" resultType="string">
@@ -52,44 +53,84 @@
 		where place_id=#{placeId}
 	</select>
 	
-	<select id="filterSelect" parameterType="criteria" resultType="placeReviewDTO">
-      select r.place_review_number, place_review_helful, place_review_contents, place_review_rating, place_review_dateTime, user_number, user_name
-           <if test="star == 'none'.toString() and photo == 'none' and order == 'n'.toString()">
-            from tbl_place_review as r
-            order by place_review_dateTime desc
-           </if>
-           <if test="star == 'none'.toString() and photo == 'none' and order == 'b'.toString()">
-            from tbl_place_review as r
-            order by place_review_dateTime desc
-           </if>
-           <if test = "star != 'none'.toString() and photo != 'none'.toString() and order == 'b'.toString()">
-            from tbl_place_review r, tbl_review_file f
-            where r.place_review_number = f.place_review_number 
-            <where>
-                and place_review_rating = #{star} and place_id = #{placeId}
-            </where>
-            <trim prefix="ORDER BY">
-               <if test="order == 'b'.toString()">place_review_helful desc</if>
-               <if test="order == 'n'.toString()">place_review_datetime desc</if>
-            </trim>
-           </if>
-         <if test="photo != 'none'.toString()">
-            from tbl_place_review r , tbl_review_file f
-            <where>
-               r.place_review_number = f.place_review_number and place_id = #{placeId}
-            </where>
-               <if test="order == 'b'.toString()">order by place_review_helful desc</if>
-               <if test="order == 'n'.toString()">order by place_review_datetime desc</if>
-         </if>
-         <if test="star != 'none'.toString()">
-            from tbl_place_review r
-            <where>
-               place_review_rating = #{star} and place_id = #{placeId}
-               <if test="order == 'n'.toString()">order by place_review_datetime desc</if>
-               <if test="order == 'b'.toString()">order by place_review_helful desc</if>
-            </where>
-         </if>
-   </select>
+	<!-- 도움이 돼요 버튼 클릭 시 해당 게시글 좋아요 누른 것 저장 -->
+	<insert id="addHelp" parameterType="map">
+		insert into tbl_helful
+		(user_number, place_review_number) 
+		values(#{userNumber}, #{placeReviewNumber})
+	</insert>
 	
+	<!-- 다시 누르면 삭제 -->
+	<delete id="deleteHelp" parameterType="map">
+		delete from tbl_helful
+		where user_number=#{userNumber} and place_review_number=#{placeReviewNumber}
+	</delete>
+	
+	<!-- 좋아요 개수 세기 -->
+	<select id="helpCount" parameterType="_int" resultType="_int">
+		select count(user_number) from tbl_helful where place_review_number = #{placeReviewNumber}
+	</select>
+	
+	<!-- 각 게시글마다 도움이 돼요 눌렀는지 확인 -->
+	<select id="isHelp" parameterType="map" resultType="_int">
+		select count(user_number)
+		from tbl_helful
+		where user_number=#{userNumber} and place_review_number = #{placeReviewNumber}
+	</select>
+	
+			
+    <select id="noPhotoFilter" parameterType="criteria" resultType="placeReviewDTO">
+      select r.place_review_number, place_review_helful, place_review_contents, place_review_rating, place_review_dateTime, r.user_number, u.user_name
+      from tbl_place_review r, tbl_user u
+      <where>
+          r.user_number = u.user_number
+      <trim prefix="AND">
+              r.user_number = u.user_number
+          <if test="star != 'none'.toString()">
+               and place_review_rating = #{star}
+          </if>
+          <if test="placeId != 'none'.toString()">
+              and place_id = #{placeId}
+          </if>
+      </trim>
+      </where>
+      <if test="order != 'none'.toString()">
+              <choose>
+                <when test="order == 'n'.toString()">
+                     order by place_review_helful desc
+                </when>
+                <when test="order == 'b'.toString()">
+                    order by place_review_datetime desc
+                </when>
+            </choose>
+      </if>
+    </select>
+    
+    
+    <select id="photoFilter" parameterType="criteria" resultType="placeReviewDTO">
+      select r.place_review_number, place_review_helful, place_review_contents, place_review_rating, place_review_dateTime, r.user_number, u.user_name
+      from tbl_review_file f, tbl_place_review r, tbl_user u
+      <where>
+          f.place_review_number = r.place_review_number
+        <trim prefix="AND">
+              r.user_number = u.user_number
+            and place_id = #{placeId}
+          <if test="star != 'none'.toString()">
+               and place_review_rating = #{star}
+          </if>
+          </trim>
+      </where>
+          <if test="order != 'none'.toString()">
+              <choose>
+                <when test="order == 'n'.toString()">
+                     order by place_review_helful desc
+                </when>
+                <when test="order == 'b'.toString()">
+                    order by place_review_datetime desc
+                </when>
+            </choose>
+          </if>   
+      </select>
+   
 </mapper>
 	

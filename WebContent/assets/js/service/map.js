@@ -36,19 +36,22 @@ let filterCheck = true;
 
 /* 리뷰 페이징 처리 */
 
-
+/* 댓글 작성 유효성 검사 */
+$(".userCommentWritingSector").click(function(){
+	console.log(userNumber);
+	if(!userNumber){
+		alert("비회원은 댓글을 남길 수 없습니다.");
+		$(this).blur();
+	}
+})
 
 
 var filterCountStar = 0;
 
-console.log(filterCountStar);
-
-
-
 function filterLoad(filter, type){
       let star = (filterCountStar == 0) ? 'none': filterCountStar;
       let order= $(".timeReview.filterActive").val();
-      let photo= (!$(".filterPhoto.filterActive").val()) ? 'none': $(".filterPhoto.filterActive").val();
+      let photo= (!$(".filterPhoto.filterActive").val()) ? 0 : $(".filterPhoto.filterActive").val();
       
       switch(type){
          case 'order':
@@ -84,7 +87,7 @@ function filterLoad(filter, type){
                      result.forEach(place => {
                         totalReviewRating += place.placeReviewRating;
                         text +=`<article class="reviewItem" style="border-top: solid 1px #ededed;"><div class="reviewWriter" style="margin-top: 10px;"><a href="">`;
-                        text +=`<img src="`+ place.reviewFileOriginName + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
+						text +=`<img src="`+ (place.userFileSystemName == null? context + `/images/logo.png` : context + `/upload/user/`+ place.userFileSystemName) + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
                         for(var i = 0; i < place.placeReviewRating; i++){
                            text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;                           
                         }
@@ -94,50 +97,29 @@ function filterLoad(filter, type){
                               text +=`<svg fill="#dadce0" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;                        
                            }                           
                         }
-                        text +=`</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
-                        text += `<span class="modifyDeleteLine" style="position: relative;right: -464px;"><span style="margin-right:5px;"><button>수정</button></span><span><button>삭제</button></span></span>`;
-                        text +=`</div></div></div><button type="button" class="reviewItemImage">`;
-                        if(place.reviewFileSystemName){
-                           text +=`<img src="`+ contextPath + "/images/" + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;                           
-                        }
-                        text += `</button><p class="reviewComment">`;
-                        text += place.placeReviewContents + `</p><div class="reviewCommentGood" style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn"><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
-                        text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful  +`명에게 도움이 되는 댓글입니다.</span></div></article>`;   
-                        
-                                             /* 점수 막대 필터 구하기*/
-                     var scoreBar = "";
+ 						text += `</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
+						text += `<span class="modifyDeleteLine" style="position: relative;right: -455px;font-size:13px;">`;
+						if(place.userNumber==userNumber){
+							text += `<span class="modify" style="margin-right:5px;" data-number=`+ place.placeReviewNumber +`><button>수정</button></span>`;
+							text += `<span class="modifyClicked" style="margin-right:5px;display:none;" data-number=`+ place.placeReviewNumber +`><button>취소</button></span>`;
+							text += `<span class="delete" data-number =`+ place.placeReviewNumber +`><button>삭제</button></span>`;
+							text += `<span class="deleteClicked" style="display:none;" data-number =`+ place.placeReviewNumber +`><button>확인</button></span></span></span>`;									
+						}
+							text += `</div></div></div><button type="button" class="reviewItemImage">`;
+						if(place.reviewFileSystemName){
+							text +=`<img src= "/upload/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
+						}
+						text += `</button><p class="reviewComment">`;
+						text += place.placeReviewContents + `</p><div class="reviewCommentGood"  style="margin-bottom:15px;">`;
 
-                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 5점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
-                     scoreBar += (fiveStar / result.length)*100;
-                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
-                     scoreBar += fiveStar;
-                     scoreBar += `</div></div>`
-
-                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 4점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
-                     scoreBar += (fourStar / result.length)*100;
-                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
-                     scoreBar += fourStar;
-                     scoreBar += `</div></div>`
-
-                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 3점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
-                     scoreBar += (threeStar / result.length)*100;
-                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
-                     scoreBar += threeStar;
-                     scoreBar += `</div></div>`
-
-                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 2점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
-                     scoreBar += (twoStar / result.length)*100;
-                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
-                     scoreBar += twoStar;
-                     scoreBar += `</div></div>`
-
-                     scoreBar += `<div class="production-review-feed__header-v2__stars__avg__container"><div class="production-review-feed__header-v2__stars__avg__label label_selected"> 1점 </div><div class="production-review-feed__header-v2__stars__avg__bar"><div class="production-review-feed__header-v2__stars__avg__bar__bg"></div><div class="production-review-feed__header-v2__stars__avg__bar__color" style="width: `;
-                     scoreBar += (oneStar / result.length)*100;
-                     scoreBar += `%;"></div></div><div class="production-review-feed__header-v2__stars__avg__number label_selected">`;
-                     scoreBar += oneStar;
-                     scoreBar += `</div></div>`
-                     
-                     $(".rightReviewScore").html(scoreBar);
+						
+						if(!place.help){
+							text +=`<button type="button" class="reviewCommentGoodBtn" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;									
+						} else{
+							text +=`<button type="button" class="reviewCommentGoodBtn clicked" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움 됨</div>`;
+						}
+						text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelfull +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
+						
                      });
                      
                      /*리뷰 항목들 리스트 출력*/
@@ -377,6 +359,8 @@ function placesSearchCB(data, status, pagination) {
 var placeId="";
 var dataNumber ="";
 var place="";
+var placeReviewNumber="";
+var helpCheck=false;
 $(".reviewItemContainer").hide();
 $(".reviewWritingSection").hide();
 // 검색 결과 목록과 마커를 표출하는 함수입니다
@@ -444,9 +428,10 @@ function displayPlaces(places) {
 								
 				/*DB에 저장할 장소 ID값*/
 				placeId = place.id;
+				placeReviewNumber = place.placeReviewNumber;
 				var placeAddress = place.address_name;
 				var placeName = place.place_name;
-
+		
 				
 				/*여기서 aJax로 게시글 정보 부르고, 게시글 작성하기*/
 			
@@ -472,7 +457,7 @@ function displayPlaces(places) {
 							result.forEach(place => {
 								totalReviewRating += place.placeReviewRating;
 								text +=`<article class="reviewItem" style="border-top: solid 1px #ededed;"><div class="reviewWriter" style="margin-top: 10px;"><a href="">`;
-								text +=`<img src="`+ place.reviewFileOriginName + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
+								text +=`<img src="`+ (place.userFileSystemName == null? context + `/images/logo.png` : context + `/upload/user/`+ place.userFileSystemName) + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
 								for(var i = 0; i < place.placeReviewRating; i++){
 									text +=`<svg fill="#FF914D" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><defs><path id="star-path-140" d="M11.9996 19.7201L6.32294 22.1251C5.5626 22.4472 5.005 22.0311 5.0755 21.2188L5.60855 15.0767L1.5671 10.421C1.02579 9.79745 1.24924 9.13855 2.04358 8.95458L8.04973 7.56354L11.2287 2.28121C11.6545 1.57369 12.3502 1.5826 12.7706 2.28121L15.9496 7.56354L21.9557 8.95458C22.7602 9.1409 22.9667 9.8053 22.4322 10.421L18.3907 15.0767L18.9238 21.2188C18.9952 22.0414 18.4271 22.4432 17.6764 22.1251L11.9996 19.7201Z"></path><clipPath id="star-clip-140"><rect x="0" y="0" width="24" height="24"></rect></clipPath></defs><use xlink:href="#star-path-140" fill="#DBDBDB"></use><use clip-path="url(#star-clip-140)" xlink:href="#star-path-140"></use></svg>`;									
 								}
@@ -483,7 +468,7 @@ function displayPlaces(places) {
 									}									
 								}
 								text += `</span></div><span class="reviewWriterInfoDate">` + place.placeReviewDateTime + `</span>`
-								text += `<span class="modifyDeleteLine" style="position: relative;right: -464px;font-size:13px;">`;
+								text += `<span class="modifyDeleteLine" style="position: relative;right: -455px;font-size:13px;">`;
 								if(place.userNumber==userNumber){
 									text += `<span class="modify" style="margin-right:5px;" data-number=`+ place.placeReviewNumber +`><button>수정</button></span>`;
 									text += `<span class="modifyClicked" style="margin-right:5px;display:none;" data-number=`+ place.placeReviewNumber +`><button>취소</button></span>`;
@@ -495,9 +480,15 @@ function displayPlaces(places) {
 									text +=`<img src= "/upload/` + place.reviewFileSystemName + `" class="reviewItemImageBtn">`;									
 								}
 								text += `</button><p class="reviewComment">`;
-								text += place.placeReviewContents + `</p><div class="reviewCommentGood"  style="margin-bottom:15px;"><button type="button" class="reviewCommentGoodBtn" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;
-								text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
+								text += place.placeReviewContents + `</p><div class="reviewCommentGood"  style="margin-bottom:15px;">`;
+
 								
+								if(!place.help){
+									text +=`<button type="button" class="reviewCommentGoodBtn" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움이 돼요</div>`;									
+								} else{
+									text +=`<button type="button" class="reviewCommentGoodBtn clicked" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움 됨</div>`;
+								}
+								text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
 								
 								/* 막대 필터에 필요한 정보 추가 */
 								if(place.placeReviewRating == 5){
@@ -818,7 +809,6 @@ $starCountWrap.click(function(){
     var star="";
 
 	/*몇 점짜리인지 알아보기 위해 숫자 저장*/
-	var filterCountStar=0;
 	filterCountStar = $(this).nextAll().length+1
 	
     
@@ -868,6 +858,7 @@ $starCountWrap.click(function(){
 
 /* 별 누르면 삭제 */
 $(document).on("click", ".hoverStar", function(){
+	filterCountStar = 0;
     for(var i=0; i<$('.starPic').length;i++){
         $('.starPic')[i].className="starPic";
     }
@@ -969,6 +960,11 @@ $foodFilter.click(function(){
 
 /* 도움이 돼요 클릭 */
 $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
+	if(!userNumber){
+		alert("비회원은 도움 버튼을 클릭하실 수 없습니다.");
+		return;
+	}
+
 	if ($(this).attr('class') == "reviewCommentGoodBtn") {
         $(this).attr("class", "reviewCommentGoodBtn clicked");
         $(this).children('div').text("도움됨");
@@ -978,8 +974,12 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
         url: context + "/map/mapHelpfulUp.pl",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        data : {placeReviewNumber : $(this).data("number")},
-        success: function () {       
+        data : {
+			placeReviewNumber : $(this).data("number"),
+			userNumber : userNumber,
+			placeId : placeId
+			},
+        success: function () {
  			$(".item")[dataNumber].click();
         },
 		error: function(e){
@@ -994,7 +994,11 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
 	        url: context + "/map/mapHelpfulDown.pl",
 	        contentType: "application/json; charset=utf-8",        
 	        dataType: "json",
-	        data : {placeReviewNumber : $(this).data("number")},      
+        	data : {
+				placeReviewNumber : $(this).data("number"),
+				userNumber : userNumber,
+				placeId : placeId
+			},   
 	        success: function () { 
 	 			$(".item")[dataNumber].click();
 	    }, error: function(){

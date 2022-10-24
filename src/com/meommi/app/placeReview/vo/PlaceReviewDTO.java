@@ -14,6 +14,8 @@ public class PlaceReviewDTO {
 	private int reviewFileNumber;
 	private String reviewFileSystemName;
 	private String reviewFileOriginName;
+	private String userFileSystemName;
+	private boolean isHelp;
 	
 	public PlaceReviewDTO() {;}
 
@@ -120,6 +122,22 @@ public class PlaceReviewDTO {
 	public void setReviewFilePath(String reviewFilePath) {
 		this.reviewFilePath = reviewFilePath;
 	}
+	
+	public String getUserFileSystemName() {
+		return userFileSystemName;
+	}
+
+	public void setUserFileSystemName(String userFileSystemName) {
+		this.userFileSystemName = userFileSystemName;
+	}
+
+	public boolean isHelp() {
+		return isHelp;
+	}
+
+	public void setHelp(boolean isHelp) {
+		this.isHelp = isHelp;
+	}
 
 	@Override
 	public String toString() {
@@ -128,6 +146,8 @@ public class PlaceReviewDTO {
 				+ ", userNumber=" + userNumber + ", userName=" + userName + ", placeId=" + placeId + ", reviewFilePath="
 				+ reviewFilePath + ", favoritePlaceName=" + favoritePlaceName + ", placeReviewHelful="
 				+ placeReviewHelful + ", reviewFileNumber=" + reviewFileNumber + ", reviewFileSystemName="
-				+ reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName + "]";
+				+ reviewFileSystemName + ", reviewFileOriginName=" + reviewFileOriginName + ", userFileSystemName="
+				+ userFileSystemName + ", isHelp=" + isHelp + "]";
 	}
+
 }

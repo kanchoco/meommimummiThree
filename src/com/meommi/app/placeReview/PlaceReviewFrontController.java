@@ -55,7 +55,9 @@ public class PlaceReviewFrontController extends HttpServlet {
                 result = new MapPageController().execute(req,resp);
             } else if(request.equals("/map/filterOk.pl")) {/*리뷰 필터 컨트롤러*/
             	new FilterOkController().execute(req,resp);
-            }
+            }else if(request.equals("/map/helpCheck.pl")) {/*도움이 돼요 클릭 여부*/
+			   new HelpCheckOkController().execute(req,resp);
+		   }
 		   
 	      if(result != null) {
 	         if(result.isRedirect()) {
