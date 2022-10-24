@@ -1043,7 +1043,7 @@ var Increment=0;
 									
 				
 							 });
-							text += `<div class="RecommendationFeed_footer__15DI0"><button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_lg__3yP9R RecommendationFeed_viewMoreButton__3J1D5" type="button"><span><span class="Button_children__10ESl">커뮤니티 더보기</span></span></button></div>`
+							text += `<div class="RecommendationFeed_footer__15DI0"><button class="Button_button__341ce Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_lg__3yP9R RecommendationFeed_viewMoreButton__3J1D5" type="button" onclick = "location.href = '${pageContext.request.contextPath}app/community/community.jsp' "><span><span class="Button_children__10ESl">커뮤니티 더보기</span></span></button></div>`
 					
 					$(".RecommendationFeed_container__MtOmG").html(text);
 						}//ajax(success:file)
