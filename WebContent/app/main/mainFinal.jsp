@@ -202,7 +202,7 @@
                  
                     <div class="TabContainer_tabList__2IbMs">
                         <div class="TabContainer_listItem__2nO5j"><a
-                                href="/web/campaign/detail/160326?_refer_section_st=ranking_0" data-ec-id="160326"
+                                href="${pageContext.request.contextPath}/map/mapOriginal.pl" data-ec-id="160326"
                                 data-ec-name="마스카라 아니에요. 속눈썹 영양제에요. 영양공급과 메이크업 효과까지!" data-ec-list="ranking"
                                 data-ec-position="0">
                                 <div class="CardType_projectCard__3xhjb CardType_projectCardA__33rbP" index="0">
@@ -216,7 +216,7 @@
                                         </div>
                                         <div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">
                                             <div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ"
-                                                style="background-image: url(review.reviewFileSystemName == null? ${pageContext.request.contextPath} + `/images/logo.png` : ${pageContext.request.contextPath}+ `/upload/user/`+ review.reviewFileSystemName);">
+                                                style=`"background-image: url(`review.reviewFileSystemName == null? ${pageContext.request.contextPath} + `/images/logo.png` : ${pageContext.request.contextPath}+ `/upload/user/`+ review.reviewFileSystemName`);`">
                                             </div>
                                         </div>
                                     </article>
@@ -895,7 +895,7 @@ var keyword = "아르르사료";
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_cardListGroup__1nRxw">`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/161047?_refer_section_st=PersonalCurator_0">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -909,7 +909,7 @@ var keyword = "아르르사료";
             		text += `</a></div>`
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/159185?_refer_section_st=PersonalCurator_1">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -923,7 +923,7 @@ var keyword = "아르르사료";
             		text += `</a></div>`
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/158251?_refer_section_st=PersonalCurator_2">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");;">`
@@ -937,7 +937,7 @@ var keyword = "아르르사료";
             		text += `</a></div>`
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_card___LnVO">`
-            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="/web/campaign/detail/156028?_refer_section_st=PersonalCurator_3">`
+            		text += `<div><a class="CardType_projectCard__3xhjb CardType_projectCardB__3N8ks" href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -957,7 +957,7 @@ var keyword = "아르르사료";
             		text += `</div>`
             		text += `<div class="RecommendFundingWrap_plannedCard__2e9vM">`
             		text += `<div class="CardType_projectCard__3xhjb CardType_plannedCard__Yyg0B RecommendFundingWrap_collectionCard__QQv01">`
-            		text += `<a href="/web/wreward/comingsoon/collection/hotcomingsoon">`
+            		text += `<a href="${pageContext.request.contextPath}/app/service/animalfeed.jsp">`
             		text += `<article>`
             		text += `<div class="commons_thumbnail__3wYGv CardType_thumbnail__2dtTe">`
             		text += `<div class="commons_img__2UTCA commons_visible__1xTJh CardThumbnail_thumbnail__3bDBJ naverapimage" style="background-image: url("`+items.image+`");">`
@@ -1026,7 +1026,7 @@ var Increment=0;
 									text += `<div aria-hidden="true" class="CardTable_itemContainer__rldOs" style="width: calc((33.3333% - 32px + 10.6667px) - 0.01px); margin-left: 0px; margin-right: 0px; margin-bottom: 16px;">`
 									text += `<a class="RecommendationFeedCard_container__34sfZ" href="${pageContext.request.contextPath}/app/community/community.jsp" data-ec-list="피드" data-ec-id="147782" data-ec-name="[기능8개,소재4개]순식간에 내신발을 편하게 해주는 발침대깔창,미끄럼NO" data-ec-category="패션·잡화" data-ec-brand="편한발 이지풋" data-ec-usertype="MAKER" data-ec-feedtype="MAKER_RECOMMEND_TODAY" data-ec-contenttype="rwd" data-gtm-vis-first-on-screen-11319722_2073="1472854" data-gtm-vis-recent-on-screen-11319722_2073="7703291" data-gtm-vis-total-visible-time-11319722_2073="2000" data-gtm-vis-has-fired-11319722_2073="1">`
 									text += `<div class="RecommendationFeedCard_thumbnailContainer__2o4ld">`
-									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(&quot;https://cdn.wadiz.kr/wwwwadiz/green001/2022/0929/20220929142936550_160639.jpg/wadiz/resizecrop/160x160/format/jpg/quality/85/&quot;);">`
+									text += `<div class="RecommendationFeedCard_thumbnail__iwlVR CardThumbnail_thumbnail__3bDBJ" style="background-image: url(${pageContext.request.contextPath}/images/dogonon.jpg);">`
 									text += `</div>`
 									text += `</div>`
 									text += `<div class="RecommendationFeedCard_contentContainer__3R8aA">`
@@ -1060,3 +1060,5 @@ var Increment=0;
 </script>
 
 </html>
+
+                                        

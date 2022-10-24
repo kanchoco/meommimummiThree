@@ -37,7 +37,7 @@
 					</a></li>
 					<li class="RewardMainTab_onlyLarge__1q7_V"><a
 						class="RewardMainTab_link___1r2a RewardMainTab_active__1zRir"
-						href="${pageContext.request.contextPath}/app/service/funeral.jsp"
+						href="${pageContext.request.contextPath}funeral.fu"
 						aria-current="page"> <span>장례업체</span>
 					</a></li>
 				</ul>
