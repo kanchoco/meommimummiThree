@@ -68,10 +68,10 @@
                         <div>
                         <ul>
                             <li class="item">이메일 상담
-                                <a href="h.hyeon@gmail.com">h.hyeon@gmail.com</a>
+                               pmk3211111@naver.com
                             </li>
                             <li class="item item1">유선 상담
-                                <a href="tel:010-6545-3831">010-6545-3831</a>
+                                010-1234-1234
                             </li>
                         </ul>
                         <address>© meommi Co., Ltd.</address>
