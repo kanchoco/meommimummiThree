@@ -91,16 +91,16 @@
 	
 	<!-- 내 장소 목록 -->
 	<select id="selectMyPlace" parameterType="map" resultType="favoritePlaceVO">
-		select favorite_place_place_id, favorite_place_adr_address, favorite_place_business_status, favorite_place_geometry, favorite_place_name, favorite_place_photos, favorite_place_opening_hours, user_number
-		from tbl_favorite_place
-		where user_number = #{userNumber}
-		order by favorite_place_place_id desc limit #{startRow}, #{rowCount}
+		select h.place_review_number, r.place_id,  p.favorite_place_address , p.favorite_place_name 
+		from tbl_helful h , tbl_place_review r, tbl_favorite_place p  
+		where h.user_number = #{userNumber} and h.place_review_number = r.place_review_number and r.place_id = p.favorite_place_place_id 
+		order by place_review_number desc limit #{startRow}, #{rowCount};
 	</select>
 	
 	<!-- 내 장소 수 -->
 	<select id="countMyPlace" parameterType="_int" resultType="_int">
-		select count(favorite_place_place_id)
-		from tbl_favorite_place
+		select count(place_review_number) 
+		from tbl_helful 
 		where user_number = #{userNumber}
 	</select>
 	
