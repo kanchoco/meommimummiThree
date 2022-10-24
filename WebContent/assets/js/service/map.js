@@ -85,6 +85,7 @@ function filterLoad(filter, type){
                      var averageReviewRating=0;
                      var fiveStar=0, fourStar=0, threeStar=0, twoStar=0, oneStar = 0;                     
                      result.forEach(place => {
+						console.log(place.placeReviewHelful);
                         totalReviewRating += place.placeReviewRating;
                         text +=`<article class="reviewItem" style="border-top: solid 1px #ededed;"><div class="reviewWriter" style="margin-top: 10px;"><a href="">`;
 						text +=`<img src="`+ (place.userFileSystemName == null? context + `/images/logo.png` : context + `/upload/user/`+ place.userFileSystemName) + `" class="writerImage"></a><div class="reviewWriterInfo"><p class="writerInfoId">`+place.userName +`</p><div class="reviewWriterInfoBottomWrap"><div class="reviewWriterInfoStarWrap" type="button"><span class="reviewWriterInfoTotalStar">`;
@@ -118,7 +119,7 @@ function filterLoad(filter, type){
 						} else{
 							text +=`<button type="button" class="reviewCommentGoodBtn clicked" data-number =`+ place.placeReviewNumber +`><div class="reviewCommentGoodBtnTxt">도움 됨</div>`;
 						}
-						text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelfull +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
+						text += `</button><span class="helpful" style="line-height:30px; font-size:12px">`+ place.placeReviewHelful +`명에게 도움이 되는 댓글입니다.</span></div></article>`;	
 						
                      });
                      
@@ -960,6 +961,7 @@ $foodFilter.click(function(){
 
 /* 도움이 돼요 클릭 */
 $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
+	var thisNumber =  $(this).data("number");
 	if(!userNumber){
 		alert("비회원은 도움 버튼을 클릭하실 수 없습니다.");
 		return;
@@ -975,15 +977,16 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data : {
-			placeReviewNumber : $(this).data("number"),
+			placeReviewNumber : thisNumber,
 			userNumber : userNumber,
 			placeId : placeId
 			},
-        success: function () {
- 			$(".item")[dataNumber].click();
+        success: function (result) {
+ 			console.log($('.helpful')[thisNumber-1].innerHTML);
+			console.log(result);
+			$('.helpful')[thisNumber-1].innerHTML = result + "명에게 도움이 되는 댓글입니다.";
         },
-		error: function(e){
-			$(".item")[dataNumber].click();
+		error: function(){
 		}
 	});
     } else {
@@ -999,10 +1002,11 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
 				userNumber : userNumber,
 				placeId : placeId
 			},   
-	        success: function () { 
-	 			$(".item")[dataNumber].click();
-	    }, error: function(){
-				$(".item")[dataNumber].click();
+	         success: function (result) {
+ 			console.log($('.helpful')[thisNumber-1].innerHTML);
+			console.log(result);
+			$('.helpful')[thisNumber-1].innerHTML = result + "명에게 도움이 되는 댓글입니다.";
+        }, error: function(){
 			}
 	});
     }
