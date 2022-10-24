@@ -784,12 +784,12 @@ ul {
 	}
 	.ProjectCardList_container__3Y14k .ProjectCardList_list__1YBa2 {
 		display: grid;
-		grid-template-columns: repeat(3,calc(33.33333% - 30px));
-		grid-row-gap: 40px;
-		grid-column-gap: 30px;
-		justify-content:space-between;
-		margin-top:24px;
-		transition:opacity .25s;
+	    grid-template-columns: repeat(3,calc(37.33333% - 30px));
+	    grid-row-gap: 37px;
+	    grid-column-gap: 10px;
+	    justify-content: space-between;
+	    margin-top: 24px;
+	    transition: opacity .25s;
 	}
 	.ProjectCardList_container__3Y14k .ProjectCardList_item__1owJa {
 		margin: 0;
@@ -797,9 +797,17 @@ ul {
 		clear:both;
 	}
 	.CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn {
-		padding-bottom: 18px;
 		min-height: auto;
 	}
+	
+	.regionSectionFirst, .regionSectionSecond{
+		text-align:left;
+	}
+	
+	.buttonpageSeach{
+		margin-top: 10px;
+	}
+	
 	.CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn .CommonCard_image__vaqkf, .CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn .CommonCard_image__vaqkf .CommonCard_background__3toTR, .CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn .CommonCard_image__vaqkf .CommonCard_rect__2wpm4, .CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn .CommonCard_image__vaqkf .CommonCard_rect__2wpm4::after {
 		border-radius: 3px;
 	}
@@ -813,8 +821,10 @@ ul {
 	}
 	.CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn .CommonCard_image__vaqkf .CommonCard_rect__2wpm4 {
 		position: absolute;
-		top: 0;
-		left: 0;
+	    top: 0;
+	    left: 0;
+	    width: 70%;
+	    border-radius: 30px;
 	}
 	.CommonCard_container__e_ebQ.CommonCard_squareSmall__1Cdkn .CommonCard_info__1f4kq {
 		margin-right: 0;
@@ -882,7 +892,7 @@ ul {
 		padding-right: 0;
 		padding-bottom: 8px;
 		padding-left: 0;
-		width: 100%;
+		width: 98%;
 		text-align: right;
 	}
 	.ProjectListHead_container__rpQ37 .ProjectListHead_search__HN3am {
@@ -1018,11 +1028,11 @@ ul {
 }
 
 .buttonpageSeach {
-    border: none;
+	border: none;
     color: #fff;
     font: inherit;
     margin-left: 8px;
-    min-width: 93px;
+    min-width: 50px;
     height: 48px;
     padding: 9px 16px;
     line-height: 1.45;
@@ -1040,6 +1050,29 @@ ul {
     font-weight: 400;
     border-radius: 13px 13px 13px 13px;
     cursor: pointer;
+}
+	
+	.catDog{
+		text-align: left;
+	}
+	
+	button:hover{
+		opacity: 100%;
+	}
+	
+	.RewardProjectCard_category__2muXk{
+		width:230px; 
+		white-space:nowrap; 
+		overflow:hidden; 
+		text-overflow:ellipsis;
+	}
+	
+	.kindbuttonpage{
+		background: #df6b6b;
+	}
+	
+	.searchSector{
+		width: 132px;
 	}
 	
 	.buttonpageSeachimpack {

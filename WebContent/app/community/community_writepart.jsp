@@ -51,7 +51,7 @@
                                                         </path>
                                                     </svg>
                                        <span class="uploadPhotoCount">
-                                                        <div class="uploadBeforeText">0/3</div>
+                                                        <div class="uploadBeforeText">0/1</div>
                                                     </span> 
                                                     <input type="file" class="realUpload" id = "realUpload"  accept="image/*"  required multiple style="display: none;" multiple>
                                        <div
