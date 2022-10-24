@@ -582,6 +582,30 @@ function closeSection(){
     $('.MymummProjectInfo_projectLink').css('display', ''); 
 }
 
+/*카카오 로그아웃*/
+/*계정 로그아웃이 아니라 카카오 토큰만 만료시키는 것이기 때문에 로그아웃 컨트롤러를 사용해야함*/
+function kakaoLogout(){
+	if(!Kakao.Auth.getAccessToken()){
+		alert("로그인 정보가 없습니다.");
+		return;
+	}
+	
+	Kakao.Auth.logout(function(){
+		alert("로그아웃 되었습니다. ");
+	})
+}
+
+function meommiLogout(tag){
+	switch(loginMethod){
+		case  1:
+			kakaoLogout();
+		break;
+		default :
+			$(tag).attr('href', $context + '/user/logout.us');
+		break;
+	}
+}
+
 
 
 //정보설정 안에 프로필이미지에서 사용하는 함수
@@ -623,5 +647,4 @@ $('#editProfileImg').on('change', function(){
         <li><button type="button" class="mm button primary btn-mint" onclick="modify()">확인</button></li>
     </ul>
 </div>`);
-
 });
