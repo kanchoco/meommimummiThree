@@ -34,17 +34,19 @@ public class FilterOkController implements Execute {
       if (photo == 0) {
           System.out.println("사진 없음");
           placeReviewDAO.noPhotoFilter(creteria).forEach(v -> {
+        	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
-              System.out.println(v);
               JSONObject review = new JSONObject(v);
+              System.out.println(review);
               reviews.put(review);
           });
       } else {
           System.out.println("사진 있음");
           placeReviewDAO.photoFilter(photoCreteria).forEach(v -> {
+        	  v.setPlaceReviewHelful(placeReviewDAO.helpCount(v.getPlaceReviewNumber()));
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
-              System.out.println(v);
               JSONObject review = new JSONObject(v);
+              System.out.println(review);
               reviews.put(review);
           });
       }

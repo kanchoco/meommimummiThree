@@ -34,7 +34,7 @@ public class mapReviewController implements Execute {
 		String placeId =  req.getParameter("placeId");
 		String placeAddress = req.getParameter("placeAddress");
 		String placeName = req.getParameter("placeName");
-		String userNumber = String.valueOf(req.getSession().getAttribute("userNumber"));
+		String userNumber = String.valueOf(req.getSession().getAttribute("userNumber") == null? 0 : req.getSession().getAttribute("userNumber"));
 		Boolean helpCheck = false;
 		
 		HashMap<String, Integer> helpMap = new HashMap<>();
@@ -44,8 +44,8 @@ public class mapReviewController implements Execute {
 		placeReviewDAO.selectAll(placeId).forEach(
 				placeReviewDTO -> {
 					helpMap.put("placeReviewNumber", placeReviewDTO.getPlaceReviewNumber());
-					placeReviewDTO.setHelp(placeReviewDAO.isHelp(helpMap));
-					placeReviewDTO.setPlaceReviewHelful(placeReviewDAO.helpCount(Integer.valueOf(userNumber)));
+					placeReviewDTO.setHelp(placeReviewDAO.isHelp(helpMap)); 
+					placeReviewDTO.setPlaceReviewHelful(placeReviewDAO.helpCount(Integer.valueOf(placeReviewDTO.getPlaceReviewNumber())));
 					placeReviewDTO.setUserFileSystemName(userFileDAO.selectFile(Integer.valueOf(userNumber)));
 					placeReviewDTO.setReviewFileSystemName(placeReviewDAO.selectFile(placeReviewDTO.getPlaceReviewNumber()));
 
