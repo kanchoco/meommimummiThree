@@ -76,7 +76,7 @@
                                <br>
                                <br>
                                <button class="buttonpageSeach kindbuttonpage" onclick="Inquire()">조회</button>
-                               <button class="buttonpageSeach kindbuttonpage" onclick="city()">처음</button>
+                               <button class="buttonpageSeach kindbuttonpage" onclick="cityaddkindone()">처음</button>
                                 
                               
                               
@@ -2059,6 +2059,204 @@ $("#dataPerPage").change(function () {
 }
 
 
+ function cityaddkindone() {
+		console.log(citycodenumber);
+		console.log(kindcodenumber);
+		citycodenumber = citycodenumber;
+		kindcodenumber = kindcodenumber;
+			let apiurl='http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic';
+			let apikey='DyktvVTGg0%2FIg1NivqmJPVBJRCfkCZRqGYjQoqII%2FlfiBAddeYghCugXGwLCzD4BZuP6%2FdNlVEeHoaRn7MW7Lw%3D%3D';
+			let pageNo=1;
+			let numOfRows=6;
 
+		 $.ajax({ // ajax로 데이터 가져오기
+			   //totalData 구하기
+				type:"GET",
+				url:apiurl+"?pageNo="+pageNo+"&numOfRows="+numOfRows+"&serviceKey="+apikey,
+				data:{},
+				async: false,
+				success:function(response){
+					console.log("들어옴2");
+					$(".ProjectCardList_list__1YBa2").empty();
+					/* 길이들 전역변수에 저장 */
+					$items=$(response).find("item");
+					$length=$($items).children().length;
+					$numOfRows=$(response).find("numOfRows").text();
+					
+					/* 항목들 전역변수에 저장*/
+					$desertionno=$(response).find("desertionNo");
+					$happenDt=$(response).find("happenDt");
+					$happenPlace=$(response).find("happenPlace");
+					$kindCd=$(response).find("kindCd");
+					$colorCd=$(response).find("colorCd");
+					$age=$(response).find("age");
+					$weight=$(response).find("weight");
+					$noticeNo=$(response).find("noticeNo");
+					$noticeSdt=$(response).find("noticeSdt");
+					$noticeEdt=$(response).find("noticeEdt");
+					$popfile=$(response).find("popfile");
+					$processState=$(response).find("processState");
+					$sexCd=$(response).find("sexCd");
+					$neuterYn=$(response).find("neuterYn");
+					$specialMark=$(response).find("specialMark");
+					$careNm=$(response).find("careNm");
+				    $careTel=$(response).find("careTel");
+					$careAddr=$(response).find("careAddr");
+					$orgNm=$(response).find("orgNm");
+					$chargeNm=$(response).find("chargeNm");
+					$officetel=$(response).find("officetel");
+		}
+		 });
+		 
+		 //글 목록 표시 호출 (테이블 생성)
+		 displayData(1, dataPerPage);
+		 
+		 //페이징 표시 호출
+		 paging(totalData, dataPerPage, pageCount, 1);
+		}
+
+
+
+		// 페이징 표시 함수 
+
+		function paging(totalData, dataPerPage, pageCount, currentPage) {
+		  console.log("currentPage : " + currentPage);
+
+		  totalPage = Math.ceil(totalData / dataPerPage); //총 페이지 수
+		  
+		  if(totalPage<pageCount){
+		    pageCount=totalPage;
+		  }
+		  
+		  let pageGroup = Math.ceil(currentPage / pageCount); // 페이지 그룹
+		  let last = pageGroup * pageCount; //화면에 보여질 마지막 페이지 번호
+		  
+		  if (last > totalPage) {
+		    last = totalPage;
+		  }
+
+		  let first = last - (pageCount - 1); //화면에 보여질 첫번째 페이지 번호
+		  let next = last + 1;
+		  let prev = first - 1;
+
+		  let pageHtml = "";
+
+		  if (prev > 0) {
+		    pageHtml += "<li><a href='javascript:city()' id='prev'> 이전 </a></li>";
+		  }
+
+		 //페이징 번호 표시 
+		  for (var i = first; i <= last; i++) {
+		    if (currentPage == i) {
+		      pageHtml +=
+		        "<li class='on'><a href='javascript:city("+ i +")' id='" + i + "'>" + i + "</a></li>";
+		    } else {
+		      pageHtml += "<li><a href='javascript:city("+ i +");'" + i + "'>" + i + "</a></li>";
+		    }
+		  }
+
+		  if (last < totalPage) {
+		    pageHtml += "<li><a href='javascript:city("+ (10 + i) +");' id='next'> 다음 </a></li>";
+		  }
+
+		  $("#pagingul").html(pageHtml);
+		  let displayCount = "";
+		  displayCount = "현재 1 - " + totalPage + " 페이지 / " + totalData + "건";
+		  $("#displayCount").text(displayCount);
+
+
+		  //페이징 번호 클릭 이벤트 
+		  $("#pagingul li a").click(function () {
+		    let $id = $(this).attr("id");
+		    selectedPage = $(this).text();
+
+		    if ($id == "next") selectedPage = next;
+		    if ($id == "prev") selectedPage = prev;
+		    
+		    //전역변수에 선택한 페이지 번호를 담는다...
+		    globalCurrentPage = selectedPage;
+		    //페이징 표시 재호출
+		    paging(totalData, dataPerPage, pageCount, selectedPage);
+		    //글 목록 표시 재호출
+		    displayData(selectedPage, dataPerPage);
+		  });
+		}
+
+
+		//현재 페이지(currentPage)와 페이지당 글 개수(dataPerPage) 반영
+		function displayData(currentPage, dataPerPage) {
+		  let text = "";
+
+		//Number로 변환하지 않으면 아래에서 +를 할 경우 스트링 결합이 되어버림.. 
+		  currentPage = Number(currentPage);
+		  dataPerPage = Number(dataPerPage);
+		  console.log(currentPage);
+		  console.log(dataPerPage);
+		  for (
+		    var i = (currentPage - 1) * dataPerPage;
+		    i < (currentPage - 1) * dataPerPage + dataPerPage;
+		    i++
+		  ) {
+			  let $imgs = $($($items[i]).children()[1]).text();
+							text += `<div class="ProjectCardList_item__1owJa">`
+		                    text += `<div>`
+		                    text += `<div class="CommonCard_container__e_ebQ CommonCard_squareSmall__1Cdkn">`
+		                    text += `<a class="CardLink_link__1k83H CommonCard_image__vaqkf" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0" aria-hidden="true" tabindex="-1">`
+		                    text += `<div class="CommonCard_rect__2wpm4">`
+		                    text += `<img class ="CommonCard_background__3toTR CommonCard_visible__ABkYx" src=`+ $imgs + `>`
+		                    text += `</div>`
+		                    text += `</a>`
+		                    text += `<div class="CommonCard_info__1f4kq">`
+		                    text += `<div class="RewardProjectCard_info__3JFub">`
+		                    text += `<div class="RewardProjectCard_infoTop__3QR5w">`
+		                    text += `<a class="CardLink_link__1k83H" href="/web/campaign/detail/54516?_refer_section_st=REWARD_0">`
+		                    text += `<p class="CommonCard_title__1oKJY RewardProjectCard_title__iUtvs">`
+		                    text += `<strong>유기동물 품종ㅣ `+ $($($items[i]).children()[4]).text() +`</strong>`
+		                    text += `</p>`
+		                    text += `</a>`
+		                    text += `<div>`
+		                    text += `<span class="RewardProjectCard_category__2muXk">공고번호ㅣ` + $($($items[i]).children()[8]).text()  + `</span>`
+			   			 text += `</div>`
+		                    text += `<div>`
+		                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 발견장소ㅣ` + $($($items[i]).children()[3]).text()  + `</span>`
+		                    text += `</div>`
+		                    text += `<div>`
+		                    text += `<span class="RewardProjectCard_category__2muXk">보호기관이름ㅣ` + $($($items[i]).children()[16]).text() + `</span>`
+		                    text += `</div>`
+		                    text += `<div>`
+		                    text += `<span class="RewardProjectCard_category__2muXk">보호기관전화번호ㅣ` + $($($items[i]).children()[17]).text() + `</span>`
+		                    text += `</div>`
+		                    text += `<div>`
+		                    text += `<span class="RewardProjectCard_category__2muXk">보호기관주소ㅣ` + $($($items[i]).children()[18]).text()  + `</span>`
+		                    text += `</div>`
+		                    text += `<div>`
+		                    text += `<span class="RewardProjectCard_category__2muXk">유기동물 특징 ㅣ` + $($($items[i]).children()[15]).text() + `</span>`
+		                    text += `</div>`
+		                    text += `</div>`
+		                    text += `</div>`
+		                    text += `</div>`
+		                    text += `</div>`
+		                    text += `</div>`
+		                    text += `</div>`
+		  } //dataList는 임의의 데이터임.. 각 소스에 맞게 변수를 넣어주면 됨...
+		  $(".ProjectCardList_list__1YBa2").html(text);
+
+		$("#dataPerPage").change(function () {
+		    dataPerPage = $("#dataPerPage").val();
+		    //전역 변수에 담긴 globalCurrent 값을 이용하여 페이지 이동없이 글 표시개수 변경 
+		    paging(totalData, dataPerPage, pageCount, globalCurrentPage);
+		    displayData(globalCurrentPage, dataPerPage);
+		 });
+	}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
 </script>
 </html>
