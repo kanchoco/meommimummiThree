@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user/follow.css">
 </head>
 <body>
-<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
+<jsp:include page="${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp"></jsp:include>
     <div id="my-follow-web" min-height:100vh>
         <div class="MyFollowWebContainer_container">
             <div class="MyFollowWebContainer_contents">

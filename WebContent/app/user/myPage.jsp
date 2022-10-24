@@ -12,7 +12,7 @@
     <title>멈미뭄미 - 마이페이지</title>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath}/app/fix/header.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/app/fix/header_MainLogin.jsp"></jsp:include>
     <div id="page-container">
         <form id="forwardForm" method="get">
             <input type="hidden" id="returnURL" name="returnURL">
