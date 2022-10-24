@@ -25,6 +25,7 @@ public class FilterOkController implements Execute {
 	  int photo = Integer.valueOf(req.getParameter("photo"));
       String order = req.getParameter("order");
       String placeId = req.getParameter("placeId");
+	  String userNumber = String.valueOf(req.getSession().getAttribute("userNumber") == null? 0 : req.getSession().getAttribute("userNumber"));
       System.out.println(placeId);
       Criteria photoCreteria = new Criteria(star, order, photo, placeId);
       Criteria creteria = new Criteria(star, order, placeId);
@@ -35,6 +36,7 @@ public class FilterOkController implements Execute {
           System.out.println("사진 없음");
           placeReviewDAO.noPhotoFilter(creteria).forEach(v -> {
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
+              v.setPlaceReviewHelful(placeReviewDAO.helpCount(Integer.valueOf(v.getPlaceReviewNumber())));
               System.out.println(v);
               JSONObject review = new JSONObject(v);
               reviews.put(review);
@@ -43,6 +45,7 @@ public class FilterOkController implements Execute {
           System.out.println("사진 있음");
           placeReviewDAO.photoFilter(photoCreteria).forEach(v -> {
               v.setReviewFileSystemName(placeReviewDAO.selectFile(v.getPlaceReviewNumber()));
+              v.setPlaceReviewHelful(placeReviewDAO.helpCount(Integer.valueOf(v.getPlaceReviewNumber())));
               System.out.println(v);
               JSONObject review = new JSONObject(v);
               reviews.put(review);

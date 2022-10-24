@@ -502,7 +502,6 @@ function displayPlaces(places) {
 								} else if(place.placeReviewRating ==1){
 									oneStar++;
 								} 
-								
 							});
 							
 							/*리뷰 항목들 리스트 출력*/
@@ -960,6 +959,7 @@ $foodFilter.click(function(){
 
 /* 도움이 돼요 클릭 */
 $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
+	var thisNumber = $(this).data("number");
 	if(!userNumber){
 		alert("비회원은 도움 버튼을 클릭하실 수 없습니다.");
 		return;
@@ -975,15 +975,18 @@ $(".column-module").on("click", ".reviewCommentGoodBtn", function(){
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data : {
-			placeReviewNumber : $(this).data("number"),
+			placeReviewNumber : thisNumber,
 			userNumber : userNumber,
 			placeId : placeId
 			},
-        success: function () {
- 			$(".item")[dataNumber].click();
+        success: function (result) {
+			console.log(result.helpCount);
+			console.log($(".helpful")[thisNumber].innerText);
+			$(".helpful")[thisNumber].innerText = result.helpCount+'명에게 도움이 되는 댓글입니다.';
+			$(".item")[dataNumber].click();
+ 			
         },
 		error: function(e){
-			$(".item")[dataNumber].click();
 		}
 	});
     } else {
