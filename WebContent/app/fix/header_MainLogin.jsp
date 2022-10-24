@@ -36,7 +36,7 @@
                                 href="${pageContext.request.contextPath}/app/community/community.jsp"><span>커뮤니티</span></a></li>
                         <li class="GNBDesktop_item__H8bay"><a class="GNBDesktop_link__1AP6q"
                                 href="${pageContext.request.contextPath}/map/mapOriginal.pl"><span>지도</span></a></li>
-                        <li class="GNBDesktop_item__H8bay"><a href="${pageContext.request.contextPath}/meommi/FeedSearch.fe" class="GNBDesktop_link__1AP6q">
+                        <li class="GNBDesktop_item__H8bay"><a href="${pageContext.request.contextPath}/app/service/animalfeed.jsp" class="GNBDesktop_link__1AP6q">
                                 <div class="GNBDesktop_mainGnbTooltip__2KXTZ GNBDesktop_hidden__3_7Ca">
                                     <p class="GNBDesktop_tooltipContents__DgWRu"><span>팬들이 인정한 성공펀딩 집합샵</span></p>
                                 </div>
@@ -133,8 +133,9 @@
  -->
                         
                         <div class="HeaderDesktop_user__3zGmM">
-                            <div class="User_container__bqVd2"><a href="${pageContext.request.contextPath}/user/myPage.us"></a><button type="button" class="User_btnAvatar__2Mui-"
-                                    aria-label="마이 와디즈">
+                            <div class="User_container__bqVd2"><button type="button" class="User_btnAvatar__2Mui-"
+                                    aria-label="마이 와디즈" onclick="location.href='${pageContext.request.contextPath}/user/myPage.us';">
+                                    
                                     <div><span class="Avatar_wrap__2thmY" style="width: 32px; height: 32px;"><span
                                                 class="Avatar_picture__16i7U"></span></span></div>
                                 </button></div>

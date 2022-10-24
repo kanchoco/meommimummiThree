@@ -16,7 +16,7 @@
 	
 	<!-- usernumber는 getsession으로 받아와서 추가해야된다. -->
 	<insert id="insertComment" parameterType="CommentsDTO">
-		insert into tbl_comments (comments_content,user_number,post_number) values (#{commentsContent},4,#{postNumber})
+		insert into tbl_comments (comments_content,user_number,post_number) values (#{commentsContent},#{userNumber},#{postNumber})
 	</insert>
 	
 	<!-- usernumber는 getsession으로 받아와서 추가해야된다. -->
