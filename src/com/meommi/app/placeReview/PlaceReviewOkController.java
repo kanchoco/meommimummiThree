@@ -38,23 +38,35 @@ public class PlaceReviewOkController implements Execute {
       int reviewRating = Integer.valueOf(multipartRequest.getParameter("reviewRating"));
       req.setCharacterEncoding("UTF-8");
 
-//         request 객체, 업로드 할 경로, 파일의 크키, 인코딩 방식, 이름변경정책
+//      request 객체, 업로드 할 경로, 파일의 크키, 인코딩 방식, 이름변경정책
          Enumeration<String> fileNames = multipartRequest.getFileNames();
-         
-         String placeId = multipartRequest.getParameter("placeId"); 
-
          
          HttpSession session = req.getSession();
          UserDAO userDAO = new UserDAO();
+
+//       지역 관련 정보
+         String placeId = multipartRequest.getParameter("placeId"); 
+         String placeName = multipartRequest.getParameter("placeName"); 
+         String placeAddress = multipartRequest.getParameter("placeAddress"); 
+
+         System.out.println(placeId);
+         System.out.println(placeName);
+         System.out.println(placeAddress);
+//		 유저 관련 정보         
          int userNumber = (Integer)(session.getAttribute("userNumber"));
          String userId = (String)session.getAttribute("userId");
          String userName = userDAO.loginUser(userId).getUserName();
          
+         
          placeReviewDTO.setPlaceReviewRating(reviewRating);
          placeReviewDTO.setPlaceReviewContents(placeReviewContents);
+         placeReviewDTO.setPlaceId(placeId);
+         placeReviewDTO.setPlaceName(placeName);
+         placeReviewDTO.setPlaceAddress(placeAddress);
+
          placeReviewDTO.setUserNumber(userNumber);
          placeReviewDTO.setUserName(userName);
-         placeReviewDTO.setPlaceId(placeId);
+         
          placeReviewDAO.insert(placeReviewDTO);
 
 
