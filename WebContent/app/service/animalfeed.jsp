@@ -126,7 +126,7 @@
                                 <!-- sim:유사순, date, asc, dsc -->
                                 <div class="RightButton FilterTab_container__2Zmmg" role="group" aria-label="피드 카테고리" style="justify-content: end;">
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " aria-current="page" id="sim" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " aria-current="page" id="sim" type="button" onclick="feedSearch(this)" style="padding: 4px 12px;line-height: 1.5;font-size: 12px;">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     유사도순
@@ -135,7 +135,7 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " aria-current="page" id="date" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX " aria-current="page" id="date" type="button" onclick="feedSearch(this)" style="padding: 4px 12px;line-height: 1.5;font-size: 12px;">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     날짜순
@@ -144,7 +144,7 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" id="dsc" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" id="dsc" type="button" onclick="feedSearch(this)" style="padding: 4px 12px;line-height: 1.5;font-size: 12px;">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     가격높은순
@@ -153,7 +153,7 @@
                                         </button>
                                     </div>
                                     <div class="FilterTabButton_container__1eoXX">
-                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" id="asc" type="button" onclick="feedSearch(this)">
+                                        <button class="SearchFilter_0601 Button_tertiaryGrey__2nEnb Button_contained__1azJ6 Button_xs__2WEyK FilterTabButton_button__2YDMX" aria-current="page" id="asc" type="button" onclick="feedSearch(this)" style="padding: 4px 12px;line-height: 1.5;font-size: 12px;">
                                             <span>
                                                 <span class="Button_children__10ESl">
                                                     가격낮은순
