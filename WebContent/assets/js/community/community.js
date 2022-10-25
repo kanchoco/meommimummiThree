@@ -135,7 +135,7 @@ function getImageFiles(e) {
     const imagePreview = document.querySelector('.image-preview');
     const docFrag = new DocumentFragment();
     const pictureCount = $('li img').length;
-    if (pictureCount >= 3) {
+    if (pictureCount >= 1) {
       alert('이미지는 최대 3개 까지 업로드가 가능합니다.');
       return;
     }
@@ -168,6 +168,9 @@ function getImageFiles(e) {
     $('.uploadPhotoCount').text(getText);
 
     });
+
+	$(".image-preview").removeChild('li');
+
   }
 
 function createElement(e, file) {

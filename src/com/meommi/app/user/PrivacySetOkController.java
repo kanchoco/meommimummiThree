@@ -95,7 +95,7 @@ public class PrivacySetOkController implements Execute {
 		}
 		userDAO.updateMyProfile(userVO);
 		
-		result.setPath(req.getContextPath() + "/app/main/mainpage.jsp");
+		result.setPath(req.getContextPath() + "/index.jsp");
 		return result;
 	}
 

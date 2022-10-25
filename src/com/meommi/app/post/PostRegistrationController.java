@@ -38,12 +38,12 @@ public class PostRegistrationController implements Execute {
       
       String postContent = multipartRequest.getParameter("postContent");
             
-      int userNumber = 1;
+      String userNumber = String.valueOf(req.getSession().getAttribute("userNumber"));
       /* int userNumber = Integer.valueOf(req.getParameter("userNumber")); */
       
       
       postVO.setPostContent(postContent);
-      postVO.setUserNumber(userNumber);
+      postVO.setUserNumber(Integer.valueOf(userNumber));
       
       
       
@@ -68,7 +68,7 @@ public class PostRegistrationController implements Execute {
          
          
          postFileVO.setPostNumber(currentSequence);
-         postFileVO.setUserNumber(userNumber);
+         postFileVO.setUserNumber(Integer.valueOf(userNumber));
          postFileDAO.insert(postFileVO);
       }
       

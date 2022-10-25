@@ -652,7 +652,7 @@ $('#uploadProfileImg').on('change', function(){
 $('#editProfileImg').on('change', function(){
 	$('.editCheck').val('true');
     changeAvatar(this);
-    $('.MyMummProfile_profileUser').append(`<div class="btn-bottom">
+    $('.MyMummProfile_profileUser').html(`<div class="btn-bottom">
     <ul class="btn-div2 editProfile">
         <li><button type="button" class="mm button gray btn-darkgray" onclick="cancelModify()">취소</button></li>
         <li><button type="button" class="mm button primary btn-mint" onclick="modify()">확인</button></li>

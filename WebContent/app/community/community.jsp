@@ -71,9 +71,9 @@
 														<dd class="RecommendationSupporterCard_nickName__DpPaW">허강산</dd>
 													</div>
 													<div>
-														<dt>펀딩 · 구매</dt>
+														<dt></dt>
 														<dd>
-															<b>0</b>
+															<b></b>
 														</dd>
 													</div>
 													<div>
@@ -121,9 +121,9 @@
 														<dd class="RecommendationSupporterCard_nickName__DpPaW">양미경</dd>
 													</div>
 													<div>
-														<dt>펀딩 · 구매</dt>
+														<dt></dt>
 														<dd>
-															<b>18</b>
+															<b></b>
 														</dd>
 													</div>
 													<div>
@@ -167,9 +167,9 @@
 														<dd class="RecommendationSupporterCard_nickName__DpPaW">권설민</dd>
 													</div>
 													<div>
-														<dt>펀딩 · 구매</dt>
+														<dt></dt>
 														<dd>
-															<b>0</b>
+															<b></b>
 														</dd>
 													</div>
 													<div>
