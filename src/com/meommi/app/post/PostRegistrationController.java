@@ -68,7 +68,7 @@ public class PostRegistrationController implements Execute {
          
          
          postFileVO.setPostNumber(currentSequence);
-         postFileVO.setUserNumber(userNumber);
+         postFileVO.setUserNumber(Integer.valueOf(userNumber));
          postFileDAO.insert(postFileVO);
       }
       

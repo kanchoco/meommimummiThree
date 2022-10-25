@@ -49,7 +49,7 @@ public class mapReviewController implements Execute {
 					placeReviewDTO.setHelp(placeReviewDAO.isHelp(helpMap));
 					placeReviewDTO.setPlaceReviewHelful(placeReviewDAO.helpCount(placeReviewDTO.getPlaceReviewNumber()));
 
-					placeReviewDTO.setUserFileSystemName(userFileDAO.selectFile(Integer.valueOf(placeReviewDTO.getPlaceReviewNumber())));
+					placeReviewDTO.setUserFileSystemName(userFileDAO.selectFile(placeReviewDTO.getUserNumber()));
 					placeReviewDTO.setReviewFileSystemName(placeReviewDAO.selectFile(placeReviewDTO.getPlaceReviewNumber()));
 
 					JSONObject review = new JSONObject(placeReviewDTO);

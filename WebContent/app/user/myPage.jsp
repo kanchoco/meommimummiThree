@@ -33,7 +33,6 @@
                                 <div class="MyMummProfile_profileContainer">
                                     <div class="MyMummProfile_profileImage">
                                         <button class="MymummProfile_detailProfile avatar" style="background-image: url('<c:choose><c:when test="${empty profileImg}"><c:out value="${pageContext.request.contextPath}/images/logo.png"/></c:when><c:otherwise><c:out value="${pageContext.request.contextPath}/upload/user/${profileImg}"/></c:otherwise></c:choose>');"></button>
-										<input type="hidden" class="editCheck" name="editChange" value="false">
                                         <button class="MymummProfile_editProfile" onclick="$('#editProfileImg').click();">
                                             <svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon__1w-D1" aria-hidden="true"><path d="M24 1.6L1.6 24v6.4H8L30.4 8zM7.36 28.8H3.2v-4.16L19.76 8.08l4.16 4.16zm17.68-17.68l-4.16-4.16L24 3.84 28.16 8z"></path></svg>
                                         </button>
@@ -151,6 +150,7 @@
 	                                            <h5>프로필 사진</h5>
 	                                            <div class="profileimg-wrap">
 	                                                 <input type="hidden" class="uploadCheck" name="uploadChange" value="false">
+	                                                 <input type="hidden" class="editCheck" name="editChange" value="false">
 	                                                <button type="button" id="resultProfileImg" class="profileimg" onclick="$('#uploadProfileImg').click();">
 	                                                    <em style="background-image: url('<c:choose><c:when test="${empty profileImg}"><c:out value="${pageContext.request.contextPath}/images/logo.png"/></c:when><c:otherwise><c:out value="${pageContext.request.contextPath}/upload/user/${profileImg}"/></c:otherwise></c:choose>');"></em>
 	                                                	<c:if test=""></c:if>
@@ -221,5 +221,5 @@
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 <script src = "https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/user/myPage.js?ver=1"></script>
 </html>
