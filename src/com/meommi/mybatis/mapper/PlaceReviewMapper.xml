@@ -97,10 +97,10 @@
       <if test="order != 'none'.toString()">
               <choose>
                 <when test="order == 'n'.toString()">
-                     order by place_review_helful desc
+                    order by place_review_datetime desc
                 </when>
                 <when test="order == 'b'.toString()">
-                    order by place_review_datetime desc
+                     order by place_review_helful desc
                 </when>
             </choose>
       </if>
@@ -123,10 +123,10 @@
           <if test="order != 'none'.toString()">
               <choose>
                 <when test="order == 'n'.toString()">
-                     order by place_review_helful desc
+                    order by place_review_datetime desc
                 </when>
                 <when test="order == 'b'.toString()">
-                    order by place_review_datetime desc
+                     order by place_review_helful desc
                 </when>
             </choose>
           </if>   
