@@ -455,6 +455,7 @@ if(checkRignt=="sim"){
             items.forEach((j,v,item)=>{
                images.eq(v).css("background-image",`url("`+j.image+`")`)
             /*   images.eq(i).css("background-image",`url("`+items[i].image+`")`)*/
+			images.eq(v).parent().parent().parent().attr("onclick",`location.href="`+j.link+`"`)
             })
          }
          });

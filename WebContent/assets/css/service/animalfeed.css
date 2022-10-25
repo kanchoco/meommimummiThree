@@ -1037,9 +1037,11 @@ body, button, input, select, textarea {
 
 
 
-
-
-
+.SearchFilter_0601_click{
+	border-color: #FFCEAF !important;
+    background-color: #FFCEAF  !important;
+    color: #FF914D  !important;
+}
 
 
 
@@ -1492,6 +1494,8 @@ body, button, input, select, textarea {
 		color: #fff;
 		pointer-events: all;
 	}
+	
+
 	/* main > div > ul 스타일 추가 끝 */
 
 	/* 검색,드롭다운리스트 추가 */
